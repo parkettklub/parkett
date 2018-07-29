@@ -12,91 +12,61 @@ class EventList extends React.Component {
             search: "",
             events: [{
                 title: "Kizomba workshop 01",
-                poster: {
-                    src: {Plakat01},
-                    portrait: true
-                },
+                poster: Plakat01,
                 date: new Date("2019-06-12"),
                 formlink: "https://goo.gl/forms/EMAqXVoJDJQGNkeq1",
                 facebook: "https://www.facebook.com/events/1598719006921910/"
             },
             {
                 title: "Élőzenés Rock N Roll Party 02",
-                poster: {
-                    src: {Plakat02},
-                    portrait: false
-                },
+                poster: Plakat01,
                 date: new Date("2018-12-12"),
                 music: "Cuba Ritmo Trió és DJ Eddy",
                 facebook: "https://www.facebook.com/events/1598719006921910/"
             },
             {
                 title: "Gólyakörte 03",
-                poster: {
-                    src: {Plakat01},
-                    portrait: true
-                },
+                poster: Plakat02,
                 date: new Date("2018-10-12"),
             },
             {
                 title: "Élőzenés Magyar Táncház 04",
-                poster: {
-                    src: {Plakat02},
-                    portrait: false
-                },
+                poster: Plakat01,
                 date: new Date("2018-06-12"),
                 music: "Cuba Ritmo Trió és DJ Eddy",
                 facebook: "https://www.facebook.com/events/1598719006921910/"
             },
             {
                 title: "Élőzenés Magyar Táncház 05",
-                poster: {
-                    src: {Plakat02},
-                    portrait: false
-                },
+                poster: Plakat01,
                 date: new Date("2016-06-12"),
                 music: "Cuba Ritmo Trió és DJ Eddy",
                 facebook: "https://www.facebook.com/events/1598719006921910/"
             },
             {
                 title: "Élőzenés Magyar Táncház 06",
-                poster: {
-                    src: {Plakat01},
-                    portrait: true
-                },
+                poster: Plakat01,
                 date: new Date("2015-06-12"),
                 music: "Cuba Ritmo Trió és DJ Eddy"
             },
             {
                 title: "Élőzenés Magyar Táncház 07",
-                poster: {
-                    src: {Plakat02},
-                    portrait: false
-                },
+                poster: Plakat01,
                 date: new Date("2014-06-12")
             },
             {
                 title: "Élőzenés Magyar Táncház 08",
-                poster: {
-                    src: {Plakat02},
-                    portrait: false
-                },
+                poster: Plakat01,
                 date: new Date("2014-05-12")
             },
             {
                 title: "Élőzenés Magyar Táncház 09",
-                poster: {
-                    src: {Plakat02},
-                    portrait: false
-                },
+                poster: Plakat01,
                 date: new Date("2014-04-12")
             },
             {
                 title: "Élőzenés Magyar Táncház 10",
-                poster: {
-                    src: {Plakat02},
-                    portrait: false
-                },
+                poster: Plakat01,
                 date: new Date("2014-03-12")
             }]
         };

@@ -35,16 +35,20 @@ function Event(props) {
 
 function Poster(props) {
     if (props.poster) {
-        if (props.poster.portrait) {
+        let img = new Image();
+        img.src = props.poster;
+        var width = img.width;
+        var height = img.height;
+        if (width < height) {
             return (
                 <div className="eventList-poster-cropper">
-                    <img className="portrait" src={props.poster.src} alt="" />
+                    <img className="portrait" src={img.src} alt="" />
                 </div>
             )
         } else {
             return (
                 <div className="eventList-poster-cropper">
-                    <img src={props.poster.src} alt="" />
+                    <img src={img.src} alt="" />
                 </div>
             )
         }
