@@ -1,6 +1,11 @@
 import React from 'react';
 import '../Card.css';
 import './EventDetail.css';
+import Salsa from '../dancing-figures/Salsa.svg';
+import Folk from '../dancing-figures/FolkDance.svg';
+import Kizomba from '../dancing-figures/Kizomba.svg';
+import Swing from '../dancing-figures/Swing.svg';
+import FacebookLogo from '../facebook-app-logo.svg';
 
 
 function EventDetails(props) {
@@ -22,25 +27,25 @@ function Dance(props) {
     if (props.type==="salsa"){
         return (
             <div className="eventdetail-dance-figure">
-                <img src="dancing-figures/Salsa.svg" alt=""/>
+                <img src={Salsa} alt=""/>
             </div>
         )
     } else if (props.type==="folk"){
         return (
             <div className="eventdetail-dance-figure">
-                <img src="dancing-figures/FolkDance.svg" alt=""/>
+                <img src={Folk} alt=""/>
             </div>
         )
     } else if (props.type==="swing"){
         return (
             <div className="eventdetail-dance-figure">
-                <img src="dancing-figures/Swing.svg" alt=""/>
+                <img src={Swing} alt=""/>
             </div>
         )
     } else if (props.type==="kizomba"){
         return (
             <div className="eventdetail-dance-figure">
-                <img src="dancing-figures/Kizomba.svg" alt=""/>
+                <img src={Kizomba} alt=""/>
             </div>
         )
     } else {
@@ -56,7 +61,8 @@ function Facebook(props) {
     if (props.link) {
         return (
             <a className="eventdetail-facebook-link" href={props.link}>
-                <img className="eventdetail-facebook-logo" src="facebook-app-logo.svg" alt=""/>
+                <img className="eventdetail-facebook-logo" 
+                src={FacebookLogo} alt=""/>
             </a>
         )
     } else {

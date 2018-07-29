@@ -1,6 +1,8 @@
 import React from 'react';
 import Event from './Event';
 import ReactCssTrabsitionGroup from 'react-addons-css-transition-group';
+import Plakat01 from '../Plakat.png';
+import Plakat02 from '../Plakat_vegleges.jpg';
 
 class EventList extends React.Component {
 
@@ -11,7 +13,7 @@ class EventList extends React.Component {
             events: [{
                 title: "Kizomba workshop 01",
                 poster: {
-                    src: "Plakat.png",
+                    src: {Plakat01},
                     portrait: true
                 },
                 date: new Date("2019-06-12"),
@@ -21,7 +23,7 @@ class EventList extends React.Component {
             {
                 title: "Élőzenés Rock N Roll Party 02",
                 poster: {
-                    src: "Plakat_vegleges.jpg",
+                    src: {Plakat02},
                     portrait: false
                 },
                 date: new Date("2018-12-12"),
@@ -31,7 +33,7 @@ class EventList extends React.Component {
             {
                 title: "Gólyakörte 03",
                 poster: {
-                    src: "Plakat.png",
+                    src: {Plakat01},
                     portrait: true
                 },
                 date: new Date("2018-10-12"),
@@ -39,7 +41,7 @@ class EventList extends React.Component {
             {
                 title: "Élőzenés Magyar Táncház 04",
                 poster: {
-                    src: "Plakat_vegleges.jpg",
+                    src: {Plakat02},
                     portrait: false
                 },
                 date: new Date("2018-06-12"),
@@ -49,7 +51,7 @@ class EventList extends React.Component {
             {
                 title: "Élőzenés Magyar Táncház 05",
                 poster: {
-                    src: "Plakat_vegleges.jpg",
+                    src: {Plakat02},
                     portrait: false
                 },
                 date: new Date("2016-06-12"),
@@ -59,7 +61,7 @@ class EventList extends React.Component {
             {
                 title: "Élőzenés Magyar Táncház 06",
                 poster: {
-                    src: "Plakat.png",
+                    src: {Plakat01},
                     portrait: true
                 },
                 date: new Date("2015-06-12"),
@@ -68,7 +70,7 @@ class EventList extends React.Component {
             {
                 title: "Élőzenés Magyar Táncház 07",
                 poster: {
-                    src: "Plakat_vegleges.jpg",
+                    src: {Plakat02},
                     portrait: false
                 },
                 date: new Date("2014-06-12")
@@ -76,7 +78,7 @@ class EventList extends React.Component {
             {
                 title: "Élőzenés Magyar Táncház 08",
                 poster: {
-                    src: "Plakat_vegleges.jpg",
+                    src: {Plakat02},
                     portrait: false
                 },
                 date: new Date("2014-05-12")
@@ -84,7 +86,7 @@ class EventList extends React.Component {
             {
                 title: "Élőzenés Magyar Táncház 09",
                 poster: {
-                    src: "Plakat_vegleges.jpg",
+                    src: {Plakat02},
                     portrait: false
                 },
                 date: new Date("2014-04-12")
@@ -92,7 +94,7 @@ class EventList extends React.Component {
             {
                 title: "Élőzenés Magyar Táncház 10",
                 poster: {
-                    src: "Plakat_vegleges.jpg",
+                    src: {Plakat02},
                     portrait: false
                 },
                 date: new Date("2014-03-12")
@@ -163,7 +165,7 @@ class EventList extends React.Component {
 
         return (
             <div>
-                <form autocomplete="off" className="eventList-card-form" >
+                <form autoComplete="off" className="eventList-card-form" >
                     <div>
                         <input type="text" name="search"
                             value={this.state.search} onChange={this.handleChange} />

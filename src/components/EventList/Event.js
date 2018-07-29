@@ -1,6 +1,7 @@
 import React from 'react';
 import '../Card.css';
 import './EventList.css';
+import FacebookLogo from '../facebook-app-logo.svg';
 
 function Event(props) {
 
@@ -60,7 +61,7 @@ function Facebook(props) {
         return (
             <div className="eventList-facebook-link">
                 <a href={props.link}>
-                    <img src="facebook-app-logo.svg" alt="" />
+                    <img src={FacebookLogo} alt="" />
                 </a>
             </div>
         )
