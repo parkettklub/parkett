@@ -1,3 +1,7 @@
+img {
+    margin-bottom: 0;
+}
+
 .eventdetail-wrapper {
     display: grid;
     grid-template-columns: auto 1fr;
@@ -59,6 +63,7 @@
 }
 .eventdetail-dance-figure img{
     width: 60px;
+    margin-bottom: inherit;
 }
 .eventdetail-facebook-link {
     text-align: right;
