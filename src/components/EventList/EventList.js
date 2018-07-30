@@ -3,7 +3,16 @@ import Event from './Event';
 import ReactCssTrabsitionGroup from 'react-addons-css-transition-group';
 import Plakat01 from '../Plakat.png';
 import Plakat02 from '../Plakat_vegleges.jpg';
-import Link from 'gatsby-link';
+
+
+
+function onClickParty(){
+    window.location="/eventparty/";
+}
+
+function onClickWorkshop(){
+    window.location="/eventworkshop/";
+}
 
 class EventList extends React.Component {
 
@@ -16,14 +25,16 @@ class EventList extends React.Component {
                 poster: Plakat01,
                 date: new Date("2019-06-12"),
                 formlink: "https://goo.gl/forms/EMAqXVoJDJQGNkeq1",
-                facebook: "https://www.facebook.com/events/1598719006921910/"
+                facebook: "https://www.facebook.com/events/1598719006921910/",
+                onClick: onClickWorkshop
             },
             {
                 title: "Élőzenés Rock N Roll Party 02",
                 poster: Plakat01,
                 date: new Date("2018-12-12"),
                 music: "Cuba Ritmo Trió és DJ Eddy",
-                facebook: "https://www.facebook.com/events/1598719006921910/"
+                facebook: "https://www.facebook.com/events/1598719006921910/",
+                onClick: onClickParty
             },
             {
                 title: "Gólyakörte 03",
@@ -136,7 +147,6 @@ class EventList extends React.Component {
 
         return (
             <div className="eventList-main">
-                <Link to="/event/">Go to event</Link>
                 <form autoComplete="off" className="eventList-card-form">
                     <div>
                         <input type="text" name="search"

@@ -17,9 +17,9 @@ function EventWorkshop(props) {
         program: "19:30 kapunyitás\n20:00 - 21:00 kezdő rocky tánctanítás\n21:00 - 23:00 élőben zenél a Pedrofon zenekar\n23:00 - 02:00 DJ-s buli Kenyeres Tamással",
         content: "Még érezni az előző est hangulatát és máris itt a következő, egyben a félévi utolsó bulink. Várunk titeket egy fergeteges Rock ‘N’ Roll Partyra április 17-én.",
         dance: {
-            id: 1,
-            name: "salsa",
-            content: "Salsa is a dance",
+            id: 2,
+            name: "kizomba",
+            content: "Kizomba is a dance",
         },
         teacher: {
             id: 1,

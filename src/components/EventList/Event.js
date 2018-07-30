@@ -19,7 +19,7 @@ function Event(props) {
         + "." + date.getDate();
 
     return (
-        <div className={"card" + (props.old ? " eventList-old" : "")} onClick={onClick}>
+        <div className={"card" + (props.old ? " eventList-old" : "")} onClick={props.details.onClick ? props.details.onClick : ""}>
             <div className="eventList-wrapper">
                 <Poster poster={props.details.poster} />
                 <div className="eventList-details">
@@ -33,17 +33,11 @@ function Event(props) {
     )
 }
 
-function onClick(){
-    console.log("Click");
-}
-
 function Poster(props) {
     if (props.poster) {
         let img = new Image();
         img.src = props.poster;
-        var width = img.width;
-        var height = img.height;
-        if (width < height) {
+        if (img.width < img.height) {
             return (
                 <div className="eventList-poster-cropper">
                     <img className="portrait" src={img.src} alt="" />

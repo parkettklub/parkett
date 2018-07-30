@@ -69,7 +69,7 @@ export default ({ children }) =>
     </main>
     <footer style={{
       height: `7rem`,
-      backgroundColor: `rgba(100, 10, 10, .9)`,
+      backgroundColor: `rgba(10, 10, 10, .2)`,
       width: `100%`,
       bottom: 0
     }}>
