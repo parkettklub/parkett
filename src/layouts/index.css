@@ -5,6 +5,8 @@ html {
 }
 body {
   margin: 0;
+  background-color: darkred;
+  background-image: radial-gradient(red, darkred);
 }
 article,
 aside,

@@ -11,41 +11,43 @@ import FacebookLogo from '../facebook-app-logo.svg';
 function EventDetails(props) {
     return (
         <div className="card withpadding eventdetail-wrapper">
-            <div className="eventdetail-title-secondery">Program</div>
-            <Dance dance={props.details.dance}/>
-            <div className="eventdetail-program">{props.details.program}</div>
-            <Facebook link={props.details.facebook}/>
+            <div className="eventdetail-title-and-program">
+                <div className="eventdetail-title-secondery">Program</div>
+                <div className="eventdetail-program">{props.details.program}</div>
+            </div>
+            <Dance dance={props.details.dance} />
             <div className="eventdetail-dj-and-band">
                 <Band band={props.details.band} />
                 <DJ dj={props.details.dj} />
             </div>
+            <Facebook link={props.details.facebook} />
         </div>
     );
 }
 
 function Dance(props) {
-    if (props.dance.name==="salsa"){
+    if (props.dance.name === "salsa") {
         return (
             <div className="eventdetail-dance-figure">
-                <img src={Salsa} alt=""/>
+                <img src={Salsa} alt="" />
             </div>
         )
-    } else if (props.dance.name==="folk"){
+    } else if (props.dance.name === "folk") {
         return (
             <div className="eventdetail-dance-figure">
-                <img src={Folk} alt=""/>
+                <img src={Folk} alt="" />
             </div>
         )
-    } else if (props.dance.name==="swing"){
+    } else if (props.dance.name === "swing") {
         return (
             <div className="eventdetail-dance-figure">
-                <img src={Swing} alt=""/>
+                <img src={Swing} alt="" />
             </div>
         )
-    } else if (props.dance.name==="kizomba"){
+    } else if (props.dance.name === "kizomba") {
         return (
             <div className="eventdetail-dance-figure">
-                <img src={Kizomba} alt=""/>
+                <img src={Kizomba} alt="" />
             </div>
         )
     } else {
@@ -54,15 +56,15 @@ function Dance(props) {
             </div>
         )
     }
-    
+
 }
 
 function Facebook(props) {
     if (props.link) {
         return (
             <a className="eventdetail-facebook-link" href={props.link}>
-                <img className="eventdetail-facebook-logo" 
-                src={FacebookLogo} alt=""/>
+                <img className="eventdetail-facebook-logo"
+                    src={FacebookLogo} alt="" />
             </a>
         )
     } else {

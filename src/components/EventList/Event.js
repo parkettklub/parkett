@@ -19,11 +19,11 @@ function Event(props) {
         + "." + date.getDate();
 
     return (
-        <div className={"card" + (props.old ? " eventList-old" : "")}>
+        <div className={"card" + (props.old ? " eventList-old" : "")} onClick={onClick}>
             <div className="eventList-wrapper">
                 <Poster poster={props.details.poster} />
-                <div className="eventList-title">{props.details.title}</div>
                 <div className="eventList-details">
+                    <div className="eventList-title">{props.details.title}</div>
                     <div>{dateString}</div>
                     {details}
                 </div>
@@ -31,6 +31,10 @@ function Event(props) {
             </div>
         </div>
     )
+}
+
+function onClick(){
+    console.log("Click");
 }
 
 function Poster(props) {

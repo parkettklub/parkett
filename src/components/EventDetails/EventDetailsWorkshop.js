@@ -11,11 +11,15 @@ import FacebookLogo from '../facebook-app-logo.svg';
 function EventDetailsWorkshop(props) {
     return (
         <div className="card withpadding eventdetail-wrapper">
-            <div className="eventdetail-title-secondery">Program</div>
+            <div className="eventdetail-title-and-program">
+                <div className="eventdetail-title-secondery">Program</div>
+                <div className="eventdetail-program">{props.details.program}</div>
+            </div>
             <Dance dance={props.details.dance} />
-            <div className="eventdetail-program">{props.details.program}</div>
-            <Facebook link={props.details.facebook} />
+            <div className="eventdetail-dj-and-band">
             <Theme details={props.details.theme} />
+            </div>
+            <Facebook link={props.details.facebook} />
         </div>
     );
 }

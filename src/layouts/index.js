@@ -46,7 +46,7 @@ export default ({ children }) =>
     <header style={
       { marginBottom: `1.5rem`,
         padding: `1rem`,
-        backgroundColor: `darkred`,
+        backgroundColor: `rgba(10, 10, 10, .2)`,
         color: `white`,
         position: `fixed`,
         top: 0,
@@ -64,13 +64,12 @@ export default ({ children }) =>
       </ul>
       </nav>
     </header>
-    <main style={{ margin: `0 auto` }}>
+    <main style={{ margin: `0 auto`}}>
     {children()}
     </main>
     <footer style={{
       height: `7rem`,
-      backgroundColor: `darkred`,
-      position: `fixed`,
+      backgroundColor: `rgba(100, 10, 10, .9)`,
       width: `100%`,
       bottom: 0
     }}>

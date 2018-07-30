@@ -17,8 +17,8 @@ function EventWithPoster(props) {
             <div className="eventdetail-title">
                 {props.details.title}
                 <div className="eventdetail-date">{props.details.date}</div>
+                <div className="eventdetail-description">{props.details.description}</div>
             </div>
-            <div className={"eventdetail-description" + verticalClass}>{props.details.description}</div>
         </div>
     );
 }

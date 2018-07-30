@@ -3,6 +3,7 @@ import Event from './Event';
 import ReactCssTrabsitionGroup from 'react-addons-css-transition-group';
 import Plakat01 from '../Plakat.png';
 import Plakat02 from '../Plakat_vegleges.jpg';
+import Link from 'gatsby-link';
 
 class EventList extends React.Component {
 
@@ -127,15 +128,16 @@ class EventList extends React.Component {
         if (rows.length <= 1) {
             rows = []
             rows.push(
-                <div className="old-events">
+                <div className="eventList-old-events">
                     Nincs ilyen esemény
                 </div>
             )
         }
 
         return (
-            <div>
-                <form autoComplete="off" className="eventList-card-form" >
+            <div className="eventList-main">
+                <Link to="/event/">Go to event</Link>
+                <form autoComplete="off" className="eventList-card-form">
                     <div>
                         <input type="text" name="search"
                             value={this.state.search} onChange={this.handleChange} />
