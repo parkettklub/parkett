@@ -8,7 +8,7 @@ body {
   background-color: darkred;
   background-image: url('boritokep.jpg');
   background-position: center;
-  background-size: 100% 100%;
+  background-size: auto 100%;
   background-attachment: fixed;
 }
 article,
@@ -626,4 +626,37 @@ pre tt:after {
   html {
     font-size: 100%;
   }
+}
+
+.main-footer {
+  display: block;
+  height: 5rem;
+  background-color: rgba(10, 10, 10, .2);
+  background-image: url('boritokep.jpg');
+  background-position: bottom;
+  background-size: auto 100vh;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  text-align: center;
+  opacity: 0.9;
+  color: white;
+}
+
+.main-footer div {
+  filter: none;
+}
+.main-header {
+  z-index: 2;
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background-color: rgba(10, 10, 10, .2);
+  background-image: url('boritokep.jpg');
+  background-position: top;
+  background-size: auto 100vh;
+  color: white;
+  position: fixed;
+  opacity: 0.9;
+  top: 0;
+  width: 100%;
 }

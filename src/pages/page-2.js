@@ -3,7 +3,6 @@ import Link from 'gatsby-link'
 
 const SecondPage = () => (
   <div style={{
-    backgroundColor: `darkred`,
     textAlign: 'center',
   }}>
     <h1 style={{ marginTop: `3.5rem` }} >Hi from the second page</h1>

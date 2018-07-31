@@ -43,15 +43,7 @@ Layout.propTypes = {
 
 export default ({ children }) =>
   <div style={{position: `relative`, height: `100%`}}>
-    <header style={
-      { marginBottom: `1.5rem`,
-        padding: `1rem`,
-        backgroundColor: `rgba(10, 10, 10, .2)`,
-        color: `white`,
-        position: `fixed`,
-        top: 0,
-        width: `100%`
-       }}>
+    <header className="main-header">
       <Link to="/" style={{ textShadow: `none`, backgroundImage: `none` }}>
         <h3 style={{ display: `inline` }}>Parkett Klub</h3>
       </Link>
@@ -64,15 +56,16 @@ export default ({ children }) =>
       </ul>
       </nav>
     </header>
-    <main style={{ margin: `0 auto`}}>
+    <main style={{ margin: `0 auto`, marginBottom: '5rem'}}>
     {children()}
     </main>
-    <footer style={{
-      height: `7rem`,
-      backgroundColor: `rgba(10, 10, 10, .2)`,
-      width: `100%`,
-      bottom: 0
-    }}>
+    <footer className='main-footer'>
+      <div style={{
+        margin: '1rem',
+        color: '#ffffff'
+      }}>
+        Footer
+      </div>
     </footer>
   </div>
 
