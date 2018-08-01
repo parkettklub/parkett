@@ -1,0 +1,33 @@
+.main-footer-content {
+    font-family: 'Roboto', sans-serif;
+    padding: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 10px;
+    align-content: center;
+    align-items: center;
+    text-align: left;
+    font-size: 14px;
+}
+
+.footer-left {
+    text-align: left;
+
+}
+
+.footer-center {
+    text-align: center;
+
+}
+
+.footer-right {
+    text-align: right;
+
+}
+
+.footer-image {
+    height: 25px;
+    margin: 10px;
+    color: #ffffff;
+}
+

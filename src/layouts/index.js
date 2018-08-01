@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import Link from "gatsby-link";
-
+import Footer from '../components/Footer'
 import Header from '../components/header'
 import './index.css'
 import 'normalize.css'
@@ -56,16 +56,11 @@ export default ({ children }) =>
       </ul>
       </nav>
     </header>
-    <main style={{ margin: `0 auto`, marginBottom: '5rem'}}>
+    <main style={{ margin: `0 auto`, marginBottom: '6rem'}}>
     {children()}
     </main>
     <footer className='main-footer'>
-      <div style={{
-        margin: '1rem',
-        color: '#ffffff'
-      }}>
-        Footer
-      </div>
+      <Footer/>
     </footer>
   </div>
 

@@ -37,13 +37,6 @@ img {
     font-weight: normal;
 }
 
-.eventdetail-description.vertical {
-    
-}
-
-.eventdetail-poster.vertical {
-}
-
 .eventdetail-title-secondery {
     font-weight: bold;
     font-size: 20px;
@@ -52,10 +45,6 @@ img {
 .eventdetail-program {
     padding: 0px;
     padding-left: 25px;
-}
-
-.eventdetail-title-and-program {
-
 }
 
 .eventdetail-paragraph {
@@ -72,12 +61,6 @@ img {
 .eventdetail-facebook-link {
     text-align: right;
 }
-.eventdetail-dj-and-band {
-}
-
-.eventdetail-theme {
-}
-
 .eventdetail-facebook-logo {
     width: 30px;
 }
