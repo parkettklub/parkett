@@ -16,15 +16,12 @@
 }
 
 .eventList-poster-cropper img {
+    width: 100px;
     height: 100px;
-    width: auto;
+    object-fit: cover;
     max-width: initial;
     margin-bottom: inherit;
-}
-
-.eventList-poster-cropper img.portrait {
-    width: 100px;
-    height: auto;
+    object-position: top;
 }
 
 .eventList-eventList-details {

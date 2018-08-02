@@ -3,7 +3,7 @@ import React from 'react';
 import EventWithPoster from './EventWithPoster';
 import EventDetailsWorkshop from "./EventDetailsWorkshop";
 import EventWorkshopForm from './EventWorkshopForm';
-import Plakat02 from '../Plakat_vegleges.jpg';
+import Plakat02 from './Plakat_vegleges.jpg';
 
 
 function EventWorkshop(props) {

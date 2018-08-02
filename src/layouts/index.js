@@ -1,18 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
-import Link from "gatsby-link";
-import Footer from '../components/Footer'
-import Header from '../components/header'
+import Footer from '../components/Footer.jsx'
+import Header from '../components/Header.jsx'
 import './index.css'
 import 'normalize.css'
 
-const ListLink = props =>
-  <li style={{ display: `inline-block`, marginRight: `1rem` }}>
-    <Link to={props.to}>
-      {props.children}
-    </Link>
-  </li>
 
 const Layout = ({ children, data }) => (
   <div>
@@ -42,26 +35,12 @@ Layout.propTypes = {
 }
 
 export default ({ children }) =>
-  <div style={{position: `relative`, height: `100%`}}>
-    <header className="main-header">
-      <Link to="/" style={{ textShadow: `none`, backgroundImage: `none` }}>
-        <h3 style={{ display: `inline` }}>Parkett Klub</h3>
-      </Link>
-      <nav style={{ position: `absolute`, bottom: 0, right: 0 }}> 
-      <ul style={{ listStyle: `none`, margin: 0, display: `flex`, justifyContent: `flex-end` }}>
-        <ListLink to="/events">Események</ListLink>
-        <ListLink to="/community/">Közösség</ListLink>
-        <ListLink to="/media/">Média</ListLink>
-        <ListLink to="/knowledge-base/">Tudásbázis</ListLink>
-      </ul>
-      </nav>
-    </header>
-    <main style={{ margin: `0 auto`, marginBottom: '6rem'}}>
-    {children()}
+  <div style={{ position: `relative`, height: `100%` }}>
+    <Header />
+    <main style={{ margin: `0 auto`, marginBottom: '6rem' }}>
+      {children()}
     </main>
-    <footer className='main-footer'>
-      <Footer/>
-    </footer>
+    <Footer />
   </div>
 
 export const query = graphql`

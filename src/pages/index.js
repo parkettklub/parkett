@@ -1,6 +1,5 @@
 import React from 'react'
 import Link from 'gatsby-link'
-import EventList from '../components/EventList/EventList';
 
 const IndexPage = () => (
   <div style={{

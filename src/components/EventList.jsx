@@ -1,8 +1,8 @@
 import React from 'react';
-import Event from './Event';
+import EventSummary from './Event';
 import ReactCssTrabsitionGroup from 'react-addons-css-transition-group';
-import Plakat01 from '../Plakat.png';
-import Plakat02 from '../Plakat_vegleges.jpg';
+import Plakat01 from './Plakat.png';
+import Plakat02 from './Plakat_vegleges.jpg';
 
 
 
@@ -116,7 +116,7 @@ class EventList extends React.Component {
         this.state.events.forEach((event) => {
             if (this.filterEvent(this.state.search, event)) {
                 if (event.date.valueOf() - today.valueOf() >= 0) {
-                    rows.push(<Event details={event} />);
+                    rows.push(<EventSummary details={event} />);
                 }
             }
         });
@@ -131,7 +131,7 @@ class EventList extends React.Component {
         this.state.events.forEach((event) => {
             if (this.filterEvent(this.state.search, event)) {
                 if (event.date.valueOf() - today.valueOf() < 0) {
-                    rows.push(<Event old details={event} />);
+                    rows.push(<EventSummary old details={event} />);
                 }
             }
         });

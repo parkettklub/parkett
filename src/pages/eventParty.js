@@ -1,6 +1,5 @@
 import React from 'react'
-import EventParty from '../components/EventDetails/EventParty';
-import EventWorkshop from '../components/EventDetails/EventWorkshop';
+import EventParty from '../components/EventParty';
 
 const EventPartyPage = () => (
   <div className="eventdetails-main">

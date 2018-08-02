@@ -1,11 +1,11 @@
 import React from 'react';
-import '../Card.css';
+import './Card.css';
 import './EventDetail.css';
-import Salsa from '../dancing-figures/Salsa.svg';
-import Folk from '../dancing-figures/FolkDance.svg';
-import Kizomba from '../dancing-figures/Kizomba.svg';
-import Swing from '../dancing-figures/Swing.svg';
-import FacebookLogo from '../facebook-app-logo.svg';
+import Salsa from './dancing-figures/Salsa.svg';
+import Folk from './dancing-figures/FolkDance.svg';
+import Kizomba from './dancing-figures/Kizomba.svg';
+import Swing from './dancing-figures/Swing.svg';
+import FacebookLogo from './facebook-app-logo.svg';
 
 
 function EventDetailsWorkshop(props) {

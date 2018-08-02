@@ -3,7 +3,7 @@ import React from 'react';
 import EventWithPoster from './EventWithPoster';
 import EventDetails from "./EventDetails";
 import EventMedia from "./EventMedia";
-import Plakat01 from '../Plakat.png';
+import Plakat01 from './Plakat.png';
 
 
 function EventParty(props) {

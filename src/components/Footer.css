@@ -31,3 +31,23 @@
     color: #ffffff;
 }
 
+
+.main-footer {
+  display: block;
+  height: 6rem;
+  background-color: rgba(10, 10, 10, .2);
+  background-image: url('boritokep.jpg');
+  background-position: bottom;
+  background-size: auto 100vh;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  text-align: center;
+  opacity: 0.9;
+  color: white;
+}
+
+.main-footer div {
+  filter: none;
+}
+

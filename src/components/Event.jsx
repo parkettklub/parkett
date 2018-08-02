@@ -1,9 +1,9 @@
 import React from 'react';
-import '../Card.css';
+import './Card.css';
 import './EventList.css';
-import FacebookLogo from '../facebook-app-logo.svg';
+import FacebookLogo from './facebook-app-logo.svg';
 
-function Event(props) {
+function EventSummary(props) {
 
     const details = [];
     if (props.details.formlink) {
@@ -35,22 +35,11 @@ function Event(props) {
 
 function Poster(props) {
     if (props.poster) {
-        let img = new Image();
-        img.src = props.poster;
-        if (img.width < img.height) {
-            return (
-                <div className="eventList-poster-cropper">
-                    <img className="portrait" src={img.src} alt="" />
-                </div>
-            )
-        } else {
-            return (
-                <div className="eventList-poster-cropper">
-                    <img src={img.src} alt="" />
-                </div>
-            )
-        }
-
+        return (
+            <div className="eventList-poster-cropper">
+                <img className="portrait" src={props.poster} alt="" />
+            </div>
+        )
     } else {
         return (
             <div></div>
@@ -74,4 +63,4 @@ function Facebook(props) {
     }
 }
 
-export default Event;
+export default EventSummary;
