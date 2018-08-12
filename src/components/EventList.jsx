@@ -164,7 +164,6 @@ class EventList extends React.Component {
                     transitionLeaveTimeout={300}>
                     {rows}
                 </ReactCssTrabsitionGroup>
-
             </div>
         )
     }

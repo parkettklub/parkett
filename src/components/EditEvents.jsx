@@ -33,6 +33,148 @@ class EditEvents extends React.Component {
                     title: "Kizomba Party",
                     start_date: "2018.01.02. 18:30"
                 },
+                {
+                    id: 1,
+                    title: "Kizomba Party",
+                    start_date: "2018.01.02. 18:30"
+                },
+                {
+                    id: 1,
+                    title: "Kizomba Party",
+                    start_date: "2018.01.02. 18:30"
+                },
+                {
+                    id: 1,
+                    title: "Élőzenés Rock N Roll Party",
+                    start_date: "2018.01.02. 18:30",
+                    media: true,
+                    poster: true,
+                    details: true,
+                },
+                {
+                    id: 1,
+                    title: "Élőzenés Rock N Roll Party",
+                    start_date: "2018.01.02. 18:30",
+                    media: true,
+                    poster: true,
+                    details: true,
+                },
+                {
+                    id: 1,
+                    title: "Kizomba Party",
+                    start_date: "2018.01.02. 18:30"
+                },
+                {
+                    id: 1,
+                    title: "Kizomba Party",
+                    start_date: "2018.01.02. 18:30"
+                },
+                {
+                    id: 1,
+                    title: "Élőzenés Rock N Roll Party",
+                    start_date: "2018.01.02. 18:30",
+                    media: true,
+                    poster: true,
+                    details: true,
+                },
+                {
+                    id: 1,
+                    title: "Kizomba Party",
+                    start_date: "2018.01.02. 18:30"
+                },
+                {
+                    id: 1,
+                    title: "Kizomba Party",
+                    start_date: "2018.01.02. 18:30"
+                },
+                {
+                    id: 1,
+                    title: "Élőzenés Rock N Roll Party",
+                    start_date: "2018.01.02. 18:30",
+                    media: true,
+                    poster: true,
+                    details: true,
+                },
+                {
+                    id: 1,
+                    title: "Élőzenés Rock N Roll Party",
+                    start_date: "2018.01.02. 18:30",
+                    media: true,
+                    poster: true,
+                    details: true,
+                },
+                {
+                    id: 1,
+                    title: "Élőzenés Rock N Roll Party",
+                    start_date: "2018.01.02. 18:30",
+                    media: true,
+                    poster: true,
+                    details: true,
+                },
+                {
+                    id: 1,
+                    title: "Élőzenés Rock N Roll Party",
+                    start_date: "2018.01.02. 18:30",
+                    media: true,
+                    poster: true,
+                    details: true,
+                },
+                {
+                    id: 1,
+                    title: "Élőzenés Rock N Roll Party",
+                    start_date: "2018.01.02. 18:30",
+                    media: true,
+                    poster: true,
+                    details: true,
+                },
+                {
+                    id: 1,
+                    title: "Élőzenés Rock N Roll Party",
+                    start_date: "2018.01.02. 18:30",
+                    media: true,
+                    poster: true,
+                    details: true,
+                },
+                {
+                    id: 1,
+                    title: "Élőzenés Rock N Roll Party",
+                    start_date: "2018.01.02. 18:30",
+                    media: true,
+                    poster: true,
+                    details: true,
+                },
+                {
+                    id: 1,
+                    title: "Élőzenés Rock N Roll Party",
+                    start_date: "2018.01.02. 18:30",
+                    media: true,
+                    poster: true,
+                    details: true,
+                },
+                {
+                    id: 1,
+                    title: "Élőzenés Rock N Roll Party",
+                    start_date: "2018.01.02. 18:30",
+                    media: true,
+                    poster: true,
+                    details: true,
+                },
+                {
+                    id: 1,
+                    title: "Élőzenés Rock N Roll Party",
+                    start_date: "2018.01.02. 18:30",
+                    media: true,
+                    poster: true,
+                    details: true,
+                },
+                {
+                    id: 1,
+                    title: "Élőzenés Rock N Roll Party",
+                    start_date: "2018.01.02. 18:30",
+                    media: true,
+                    poster: true,
+                    details: true,
+                },
             ],
             selectParty: false,
         };
@@ -118,7 +260,7 @@ class EditEvents extends React.Component {
 
         return (
             <div className="EditEventsMain">
-                <div className="EditTitle" onClick={this.back}>
+                <div className="editTitle" onClick={this.back}>
                     <b>Események és Hírek szerkesztése</b>
                 </div>
                 {selected}
