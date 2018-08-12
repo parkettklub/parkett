@@ -19,10 +19,11 @@ function Header(props) {
       </Link>
       <nav style={{ position: `absolute`, bottom: 0, right: 0 }}>
         <ul style={{ listStyle: `none`, margin: 0, display: `flex`, justifyContent: `flex-end` }}>
-          <ListLink to="/events" >Események</ListLink>
-          <ListLink to="/community/" hidden={true}>Közösség</ListLink>
-          <ListLink to="/media/" hidden={true}>Média</ListLink>
-          <ListLink to="/knowledge-base/" hidden={true}>Tudásbázis</ListLink>
+          <ListLink to="/events/" >Események</ListLink>
+          <ListLink to="/editevents/">Események szerkesztése</ListLink>
+          <ListLink to="/community/">Közösség</ListLink>
+          <ListLink to="/media/">Média</ListLink>
+          <ListLink to="/knowledge-base/">Tudásbázis</ListLink>
         </ul>
       </nav>
     </header>

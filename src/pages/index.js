@@ -1,12 +1,10 @@
-import React from 'react'
-import Link from 'gatsby-link'
+import React from 'react';
+import '../components/Card.css';
 
 const IndexPage = () => (
-  <div style={{
-    textAlign: 'center',
-  }}>
+  <div className="pagecenter">
     <h1 style={{ marginTop: `6rem` }} ></h1>
-    <Link to="/page-2">Go to page 2</Link>
+    <b>Kezdőlap</b>
   </div>
 )
 

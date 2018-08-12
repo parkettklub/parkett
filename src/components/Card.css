@@ -23,3 +23,9 @@
         max-width: 900px;
     }
 }
+
+.pagecenter {
+    text-align: center;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+}
