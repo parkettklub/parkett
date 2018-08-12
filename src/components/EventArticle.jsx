@@ -1,5 +1,6 @@
 import React from 'react';
 import EventWithPoster from './EventWithPoster';
+import Plakat01 from './Plakat.png';
 
 function EventParty(props) {
 

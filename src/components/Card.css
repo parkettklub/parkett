@@ -29,3 +29,12 @@
     color: white;
     font-family: 'Roboto', sans-serif;
 }
+
+.pagecenter > div {
+    margin: 0 auto;
+}
+
+
+.indexpage > .pagecenter > div {
+    max-width: 700px;
+}
