@@ -1,10 +1,15 @@
 import React from 'react';
 import '../components/Card.css';
+import HeaderMax from '../components/HeaderMax.jsx';
 
 const IndexPage = () => (
-  <div className="pagecenter">
-    <h1 style={{ marginTop: `6rem` }} ></h1>
-    <b>Kezdőlap</b>
+
+  <div>
+    <HeaderMax />
+    <div className="pagecenter">
+      <h1 style={{ marginTop: `14rem` }} ></h1>
+      <b>Kezdőlap</b>
+    </div>
   </div>
 )
 

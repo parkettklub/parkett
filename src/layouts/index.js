@@ -2,7 +2,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import Footer from '../components/Footer.jsx'
-import Header from '../components/Header.jsx'
 import './index.css'
 import 'normalize.css'
 
@@ -36,8 +35,7 @@ Layout.propTypes = {
 
 export default ({ children }) =>
   <div style={{ position: `relative`, height: `100%` }}>
-    <Header />
-    <main style={{ margin: `0 auto`, marginBottom: '6rem' }}>
+    <main style={{ margin: `0 auto`, marginBottom: '1rem' }}>
       {children()}
     </main>
     <Footer />

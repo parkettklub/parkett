@@ -1,10 +1,15 @@
 import React from 'react'
 import EventList from '../components/EventList';
+import Header from '../components/Header.jsx';
 
 const EventsPage = () => (
+
   <div>
-    <h1 style={{ marginTop: `6rem` }} ></h1>
-    <EventList />
+    <Header />
+    <div>
+      <h1 style={{ marginTop: `6rem` }} ></h1>
+      <EventList />
+    </div>
   </div>
 )
 
