@@ -1,27 +1,28 @@
 import React from 'react'
 import Link from 'gatsby-link'
 import './Header.css';
+import ParkettLogo from '../components/ParkettLogoWhite02.svg';
 
 
 const ListLink = props =>
-  <li style={{ display: `inline-block`, marginRight: `1rem` }}>
+  <li className={props.hidden ? "hide" : ""}>
     <Link to={props.to}>
-      {props.children}
+      <b className="link">{props.children}</b>
     </Link>
   </li>
 
-function Header() {
+function Header(props) {
   return (
     <header className="main-header">
       <Link to="/" style={{ textShadow: `none`, backgroundImage: `none` }}>
-        <h3 style={{ display: `inline` }}>Parkett Klub</h3>
+        <img className="mainLogo" src={ParkettLogo} />
       </Link>
       <nav style={{ position: `absolute`, bottom: 0, right: 0 }}>
         <ul style={{ listStyle: `none`, margin: 0, display: `flex`, justifyContent: `flex-end` }}>
-          <ListLink to="/events">Események</ListLink>
-          <ListLink to="/community/">Közösség</ListLink>
-          <ListLink to="/media/">Média</ListLink>
-          <ListLink to="/knowledge-base/">Tudásbázis</ListLink>
+          <ListLink to="/events" >Események</ListLink>
+          <ListLink to="/community/" hidden={true}>Közösség</ListLink>
+          <ListLink to="/media/" hidden={true}>Média</ListLink>
+          <ListLink to="/knowledge-base/" hidden={true}>Tudásbázis</ListLink>
         </ul>
       </nav>
     </header>

@@ -4,7 +4,7 @@
   margin-bottom: 1.5rem;
   padding: 1rem;
   background-color: rgba(10, 10, 10, .2);
-  background-image: url('boritokep.jpg');
+  background-image: url('boritokep2.png');
   background-position: top;
   background-size: auto 100vh;
   color: white;
@@ -12,4 +12,22 @@
   opacity: 0.9;
   top: 0;
   width: 100%;
+}
+
+.main-header .link {
+  color: white;
+  font-family: 'Roboto', sans-serif
+}
+
+.mainLogo {
+  height: 4rem;
+}
+
+.main-header li {
+  display: inline-block;
+  margin-right: 1rem ;
+}
+
+.main-header li.hide {
+  display: none;
 }

@@ -6,12 +6,12 @@ import Plakat02 from './Plakat_vegleges.jpg';
 
 
 
-function onClickParty(){
-    window.location="/eventparty/";
+function onClickParty() {
+    window.location = "/eventparty/";
 }
 
-function onClickWorkshop(){
-    window.location="/eventworkshop/";
+function onClickWorkshop() {
+    window.location = "/eventworkshop/";
 }
 
 class EventList extends React.Component {
@@ -151,8 +151,9 @@ class EventList extends React.Component {
                     <div>
                         <input type="text" name="search"
                             value={this.state.search} onChange={this.handleChange} />
-                        <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17"><path d="M7 2.01c-2.761 0-5 2.24-5 5.003a5.002 5.002 0 0 0 5 5.002A5.002 5.002 0 1 0 7 2.01m8.708 13.705a.996.996 0 0 1-1.412 0l-3.095-3.11A6.961 6.961 0 0 1 7 14.017c-3.866 0-7-3.135-7-7.003A7.002 7.002 0 0 1 7 .009c3.866 0 7 3.135 7 7.004 0 1.565-.52 3.007-1.388 4.173l3.096 3.112a1.003 1.003 0 0 1 0 1.417"></path></svg>
-
+                        <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17">
+                            <path d="M7 2.01c-2.761 0-5 2.24-5 5.003a5.002 5.002 0 0 0 5 5.002A5.002 5.002 0 1 0 7 2.01m8.708 13.705a.996.996 0 0 1-1.412 0l-3.095-3.11A6.961 6.961 0 0 1 7 14.017c-3.866 0-7-3.135-7-7.003A7.002 7.002 0 0 1 7 .009c3.866 0 7 3.135 7 7.004 0 1.565-.52 3.007-1.388 4.173l3.096 3.112a1.003 1.003 0 0 1 0 1.417"></path>
+                        </svg>
                     </div>
                 </form>
                 <ReactCssTrabsitionGroup
