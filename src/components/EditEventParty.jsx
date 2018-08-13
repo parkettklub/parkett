@@ -97,13 +97,26 @@ class EditEventParty extends React.Component {
             name: "Cuba Ritmo Trio",
             url: "google.com"
         }];
+        const teachings = [{
+            id: 1,
+            teacher: "Me and Me",
+            dance: "salsa"
+        }, {
+            id: 2,
+            teacher: "They and They",
+            dance: "kizomba"
+        },];
         const djOptions = [];
         djs.forEach((dj) => {
             djOptions.push(<option value={dj.id}>{dj.id} - {dj.name}</option>)
         })
         const bandOptions = [];
         bands.forEach((band) => {
-            bandOptions.push(<option value={band.id}>{band.id} - {band.name}</option>)
+            bandOptions.push(<option value={band.id}><div>{band.id} - {band.name}</div></option>)
+        })
+        const teachOptions = []
+        teachings.forEach((teaching) => {
+            teachOptions.push(<option value={teaching.id}><div>{teaching.id} - {teaching.teacher} {teaching.dance}</div></option>)
         })
         return (
             <div className="card multistep-editor grid" key="EditEventparty">
@@ -185,9 +198,10 @@ class EditEventParty extends React.Component {
                         </div>
                         <div className="formGroup" hidden={this.state.selectedForm != "music"}>
                             <label htmlFor="teachingid"><b>teachingid</b></label>
-                            <input id="teachingid" name="teachingid" type="text" className="inputField"
-                                value={this.state.teachingid} onChange={this.handleChange} />
-                            <div className="helper">1</div>
+                            <select id="teachingid" name="teachingid" value={this.state.teachingid} onChange={this.handleChange}
+                                className="inputField" >
+                                {teachOptions}
+                            </select>
                         </div>
                         <div className="formGroup" hidden={this.state.selectedForm != "music"}>
                             <label htmlFor="bandids"><b>bandids</b></label>
@@ -195,7 +209,6 @@ class EditEventParty extends React.Component {
                                 className="inputField" >
                                 {bandOptions}
                             </select>
-                            <div className="helper">1</div>
                         </div>
                         <div className="formGroup" hidden={this.state.selectedForm != "music"}>
                             <label htmlFor="djids"><b>djids</b></label>
@@ -203,7 +216,6 @@ class EditEventParty extends React.Component {
                                 className="inputField">
                                 {djOptions}
                             </select>
-                            <div className="helper">1</div>
                         </div>
                         <div className="formGroup" hidden={this.state.selectedForm != "poster"}>
                             <label htmlFor="photo"><b>Poster</b></label>

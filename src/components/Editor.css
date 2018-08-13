@@ -46,6 +46,18 @@
 
 .inputField option:checked {
     color: #FFFFFF;
+    background: #901C1D;
+}
+
+select[multiple] option:checked {
+    background: #901C1D;
+    background-color: red;
+    font-size: 20px;
+}
+
+.inputField option:hover {
+    color: #FFFFFF;
+    background: #901C1D;
 }
 
 .form textarea {
