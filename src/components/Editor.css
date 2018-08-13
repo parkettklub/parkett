@@ -44,6 +44,10 @@
     width: 100%;
 }
 
+.inputField option:checked {
+    color: #FFFFFF;
+}
+
 .form textarea {
     min-height: 8em;
     resize: none;

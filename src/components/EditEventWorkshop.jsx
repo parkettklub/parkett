@@ -3,7 +3,7 @@ import Plakat01 from './Plakat.png';
 import './Editor.css';
 import './Card.css';
 
-class EditEventParty extends React.Component {
+class EditEventWorkshop extends React.Component {
     constructor() {
         super();
         this.state = {
@@ -16,17 +16,6 @@ class EditEventParty extends React.Component {
             content: "Még érezni az előző est hangulatát és máris itt a következő, egyben a félévi utolsó bulink. Várunk titeket egy fergeteges Rock ‘N’ Roll Partyra április 17-én.",
             danceid: 1,
             facebook_event: "https://www.facebook.com/events/1598719006921910/",
-            spot: "https://www.facebook.com/events/1598719006921910/",
-            bss: "https://www.facebook.com/events/1598719006921910/",
-            teachingid: 1,
-            bandids: [
-                1,
-                2
-            ],
-            djids: [
-                1,
-                3
-            ],
             selectedForm: "title",
         };
 
@@ -124,14 +113,6 @@ class EditEventParty extends React.Component {
                         onClick={() => this.ChangeTab("details")}>
                         Details
                     </div>
-                    <div className={this.state.selectedForm == "media" ? "selectedStage" : "stage"}
-                        onClick={() => this.ChangeTab("media")}>
-                        Media
-                    </div>
-                    <div className={this.state.selectedForm == "music" ? "selectedStage" : "stage"}
-                        onClick={() => this.ChangeTab("music")}>
-                        Music and Teaching
-                    </div>
                 </div>
                 <div className="form">
                     <form onSubmit={this.handleSubmit} >
@@ -171,40 +152,6 @@ class EditEventParty extends React.Component {
                                 value={this.state.facebook_event} onChange={this.handleChange} />
                             <div className="helper">https://www.facebook.com/events/1598719006921910/a</div>
                         </div>
-                        <div className="formGroup" hidden={this.state.selectedForm != "media"}>
-                            <label htmlFor="spot"><b>spot</b></label>
-                            <input id="spot" name="spot" type="text" className="inputField"
-                                value={this.state.spot} onChange={this.handleChange} />
-                            <div className="helper">https://www.facebook.com/events/1598719006921910/</div>
-                        </div>
-                        <div className="formGroup" hidden={this.state.selectedForm != "media"}>
-                            <label htmlFor="bss"><b>bss</b></label>
-                            <input id="bss" name="bss" type="text" className="inputField"
-                                value={this.state.bss} onChange={this.handleChange} />
-                            <div className="helper">https://www.facebook.com/events/1598719006921910/</div>
-                        </div>
-                        <div className="formGroup" hidden={this.state.selectedForm != "music"}>
-                            <label htmlFor="teachingid"><b>teachingid</b></label>
-                            <input id="teachingid" name="teachingid" type="text" className="inputField"
-                                value={this.state.teachingid} onChange={this.handleChange} />
-                            <div className="helper">1</div>
-                        </div>
-                        <div className="formGroup" hidden={this.state.selectedForm != "music"}>
-                            <label htmlFor="bandids"><b>bandids</b></label>
-                            <select multiple id="bandids" name="bandids" value={this.state.bandids} onChange={this.handleMultiple}
-                                className="inputField" >
-                                {bandOptions}
-                            </select>
-                            <div className="helper">1</div>
-                        </div>
-                        <div className="formGroup" hidden={this.state.selectedForm != "music"}>
-                            <label htmlFor="djids"><b>djids</b></label>
-                            <select multiple id="djids" name="djids" value={this.state.djids} onChange={this.handleMultiple}
-                                className="inputField">
-                                {djOptions}
-                            </select>
-                            <div className="helper">1</div>
-                        </div>
                         <div className="formGroup" hidden={this.state.selectedForm != "poster"}>
                             <label htmlFor="photo"><b>Poster</b></label>
                             <input id="photo" name="photo" type="picture" className="inputField"
@@ -221,4 +168,4 @@ class EditEventParty extends React.Component {
     }
 }
 
-export default EditEventParty;
+export default EditEventWorkshop;
