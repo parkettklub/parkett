@@ -6,7 +6,7 @@ const EventsPage = () => (
 
   <div>
     <Header />
-    <div>
+    <div className="pagecenter">
       <h1 style={{ marginTop: `6rem` }} ></h1>
       <EventList />
     </div>

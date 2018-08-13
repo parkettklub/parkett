@@ -13,7 +13,7 @@ class EditEvents extends React.Component {
         this.state = {
             events: [
                 {
-                    id: 1,
+                    id: "P_1",
                     title: "Élőzenés Salsa Party",
                     start_date: "2018.01.02. 18:30",
                     poster: true,
@@ -21,7 +21,7 @@ class EditEvents extends React.Component {
 
                 },
                 {
-                    id: 1,
+                    id: "P_2",
                     title: "Élőzenés Rock N Roll Party",
                     start_date: "2018.01.02. 18:30",
                     media: true,
@@ -29,151 +29,9 @@ class EditEvents extends React.Component {
                     details: true,
                 },
                 {
-                    id: 1,
-                    title: "Kizomba Party",
+                    id: "W_1",
+                    title: "Kizomba Workshop",
                     start_date: "2018.01.02. 18:30"
-                },
-                {
-                    id: 1,
-                    title: "Kizomba Party",
-                    start_date: "2018.01.02. 18:30"
-                },
-                {
-                    id: 1,
-                    title: "Kizomba Party",
-                    start_date: "2018.01.02. 18:30"
-                },
-                {
-                    id: 1,
-                    title: "Élőzenés Rock N Roll Party",
-                    start_date: "2018.01.02. 18:30",
-                    media: true,
-                    poster: true,
-                    details: true,
-                },
-                {
-                    id: 1,
-                    title: "Élőzenés Rock N Roll Party",
-                    start_date: "2018.01.02. 18:30",
-                    media: true,
-                    poster: true,
-                    details: true,
-                },
-                {
-                    id: 1,
-                    title: "Kizomba Party",
-                    start_date: "2018.01.02. 18:30"
-                },
-                {
-                    id: 1,
-                    title: "Kizomba Party",
-                    start_date: "2018.01.02. 18:30"
-                },
-                {
-                    id: 1,
-                    title: "Élőzenés Rock N Roll Party",
-                    start_date: "2018.01.02. 18:30",
-                    media: true,
-                    poster: true,
-                    details: true,
-                },
-                {
-                    id: 1,
-                    title: "Kizomba Party",
-                    start_date: "2018.01.02. 18:30"
-                },
-                {
-                    id: 1,
-                    title: "Kizomba Party",
-                    start_date: "2018.01.02. 18:30"
-                },
-                {
-                    id: 1,
-                    title: "Élőzenés Rock N Roll Party",
-                    start_date: "2018.01.02. 18:30",
-                    media: true,
-                    poster: true,
-                    details: true,
-                },
-                {
-                    id: 1,
-                    title: "Élőzenés Rock N Roll Party",
-                    start_date: "2018.01.02. 18:30",
-                    media: true,
-                    poster: true,
-                    details: true,
-                },
-                {
-                    id: 1,
-                    title: "Élőzenés Rock N Roll Party",
-                    start_date: "2018.01.02. 18:30",
-                    media: true,
-                    poster: true,
-                    details: true,
-                },
-                {
-                    id: 1,
-                    title: "Élőzenés Rock N Roll Party",
-                    start_date: "2018.01.02. 18:30",
-                    media: true,
-                    poster: true,
-                    details: true,
-                },
-                {
-                    id: 1,
-                    title: "Élőzenés Rock N Roll Party",
-                    start_date: "2018.01.02. 18:30",
-                    media: true,
-                    poster: true,
-                    details: true,
-                },
-                {
-                    id: 1,
-                    title: "Élőzenés Rock N Roll Party",
-                    start_date: "2018.01.02. 18:30",
-                    media: true,
-                    poster: true,
-                    details: true,
-                },
-                {
-                    id: 1,
-                    title: "Élőzenés Rock N Roll Party",
-                    start_date: "2018.01.02. 18:30",
-                    media: true,
-                    poster: true,
-                    details: true,
-                },
-                {
-                    id: 1,
-                    title: "Élőzenés Rock N Roll Party",
-                    start_date: "2018.01.02. 18:30",
-                    media: true,
-                    poster: true,
-                    details: true,
-                },
-                {
-                    id: 1,
-                    title: "Élőzenés Rock N Roll Party",
-                    start_date: "2018.01.02. 18:30",
-                    media: true,
-                    poster: true,
-                    details: true,
-                },
-                {
-                    id: 1,
-                    title: "Élőzenés Rock N Roll Party",
-                    start_date: "2018.01.02. 18:30",
-                    media: true,
-                    poster: true,
-                    details: true,
-                },
-                {
-                    id: 1,
-                    title: "Élőzenés Rock N Roll Party",
-                    start_date: "2018.01.02. 18:30",
-                    media: true,
-                    poster: true,
-                    details: true,
                 },
             ],
             selectParty: false,
@@ -206,7 +64,7 @@ class EditEvents extends React.Component {
         let rows = [];
         this.state.events.forEach(element => {
             rows.push(
-                <div className="event">
+                <div className="editable-event withpadding grid" key={element.id}>
                     <div>
                         {element.start_date} <b>{element.title}</b>
                     </div>
@@ -225,7 +83,7 @@ class EditEvents extends React.Component {
             selected.push(<EditEventParty />);
         } else {
             selected.push(
-                <div className="card">
+                <div className="card" key="addNewEvents">
                     <form autoComplete="off" className="eventList-card-form"
                         onSubmit={this.handleSubmit}>
                         <input type="text" name="search"
@@ -233,13 +91,12 @@ class EditEvents extends React.Component {
                         <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17">
                             <path d="M7 2.01c-2.761 0-5 2.24-5 5.003a5.002 5.002 0 0 0 5 5.002A5.002 5.002 0 1 0 7 2.01m8.708 13.705a.996.996 0 0 1-1.412 0l-3.095-3.11A6.961 6.961 0 0 1 7 14.017c-3.866 0-7-3.135-7-7.003A7.002 7.002 0 0 1 7 .009c3.866 0 7 3.135 7 7.004 0 1.565-.52 3.007-1.388 4.173l3.096 3.112a1.003 1.003 0 0 1 0 1.417"></path>
                         </svg>
-
                     </form>
                 </div>
             );
             selected.push(
-                <div className="card">
-                    <div className="addEvent">
+                <div className="card withpadding" key="editEventList">
+                    <div className="addEvent grid">
                         <div onClick={this.selectParty}>
                             <img src={PlusEvent} className="logo" />
                             <b>Új Esemény</b>
@@ -259,10 +116,7 @@ class EditEvents extends React.Component {
         }
 
         return (
-            <div className="EditEventsMain">
-                <div className="editTitle" onClick={this.back}>
-                    <b>Események és Hírek szerkesztése</b>
-                </div>
+            <div>
                 {selected}
             </div>
         )

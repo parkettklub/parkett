@@ -14,7 +14,7 @@
     border-radius: 4px;
 }
 
-.card.withpadding {
+.withpadding {
     padding: 10px;
 }
 
@@ -28,14 +28,24 @@
     text-align: center;
     color: white;
     font-family: 'Roboto', sans-serif;
-}
-
-.pagecenter > div {
-    margin: 0 auto;
     margin-bottom: 6rem;
 }
 
+.pagecenter .card {
+    margin: 0 auto;
+    margin-bottom: 20px;
+}
 
-.indexpage > .pagecenter > div {
+
+.indexpage > .pagecenter .card {
     max-width: 700px;
+}
+
+.grid {
+    display: grid;
+    grid-gap: 0;
+}
+
+.grid.withgap {
+    grid-gap: 10px;
 }

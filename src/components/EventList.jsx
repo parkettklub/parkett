@@ -4,8 +4,6 @@ import ReactCssTrabsitionGroup from 'react-addons-css-transition-group';
 import Plakat01 from './Plakat.png';
 import Plakat02 from './Plakat_vegleges.jpg';
 
-
-
 function onClickParty() {
     window.location = "/eventparty/";
 }
@@ -21,65 +19,73 @@ class EventList extends React.Component {
         this.state = {
             search: "",
             events: [{
+                id: 1,
                 title: "Kizomba workshop 01",
                 poster: Plakat01,
-                date: new Date("2019-06-12"),
+                start_date: "2018-12-12T18:00",
                 formlink: "https://goo.gl/forms/EMAqXVoJDJQGNkeq1",
                 facebook: "https://www.facebook.com/events/1598719006921910/",
                 onClick: onClickWorkshop
             },
             {
+                id: 2,
                 title: "Élőzenés Rock N Roll Party 02",
-                poster: Plakat01,
-                date: new Date("2018-12-12"),
+                poster: null,
+                start_date: "2018-11-12T18:00",
                 music: "Cuba Ritmo Trió és DJ Eddy",
                 facebook: "https://www.facebook.com/events/1598719006921910/",
                 onClick: onClickParty
             },
             {
+                id: 3,
                 title: "Gólyakörte 03",
                 poster: Plakat02,
-                date: new Date("2018-10-12"),
+                start_date: "2018-06-12T18:00",
             },
             {
+                id: 4,
                 title: "Élőzenés Magyar Táncház 04",
                 poster: Plakat01,
-                date: new Date("2018-06-12"),
+                start_date: "2018-07-12T18:00",
                 music: "Cuba Ritmo Trió és DJ Eddy",
-                facebook: "https://www.facebook.com/events/1598719006921910/"
             },
             {
+                id: 5,
                 title: "Élőzenés Magyar Táncház 05",
-                poster: Plakat01,
-                date: new Date("2016-06-12"),
+                start_date: "2018-08-12T18:00",
                 music: "Cuba Ritmo Trió és DJ Eddy",
                 facebook: "https://www.facebook.com/events/1598719006921910/"
             },
             {
+                id: 6,
                 title: "Élőzenés Magyar Táncház 06",
                 poster: Plakat01,
-                date: new Date("2015-06-12"),
+                start_date: "2018-09-12T18:00",
                 music: "Cuba Ritmo Trió és DJ Eddy"
             },
             {
+                id: 7,
                 title: "Élőzenés Magyar Táncház 07",
                 poster: Plakat01,
-                date: new Date("2014-06-12")
+                start_date: "2017-01-12T18:00",
             },
             {
+                id: 8,
                 title: "Élőzenés Magyar Táncház 08",
                 poster: Plakat01,
-                date: new Date("2014-05-12")
+                start_date: "2016-01-12T18:00",
             },
             {
+                id: 9,
                 title: "Élőzenés Magyar Táncház 09",
                 poster: Plakat01,
-                date: new Date("2014-04-12")
+                start_date: "2015-01-12T18:00",
             },
             {
+                id: 10,
                 title: "Élőzenés Magyar Táncház 10",
                 poster: Plakat01,
-                date: new Date("2014-03-12")
+                start_date: "2014-01-12T18:00",
             }]
         };
         this.handleChange = this.handleChange.bind(this);
@@ -99,9 +105,8 @@ class EventList extends React.Component {
 
     filterEvent(search, event) {
 
-        const date = event.date;
-        const dateString = date.getFullYear() + "." + date.getMonth()
-            + "." + date.getDate();
+        const date = event.start_date;
+        const dateString = date.split('T')[0] + " " + date.split('T')[0];
         return (event.title.toUpperCase().indexOf(search.toUpperCase()) !== -1)
             || (dateString.indexOf(search.toUpperCase()) !== -1)
             || (event.music && (event.music.toUpperCase().indexOf(search.toUpperCase()) !== -1));
@@ -109,36 +114,39 @@ class EventList extends React.Component {
 
     render() {
         let today = new Date();
-        let rows = [];
+        let newEvents = [];
         this.state.events.sort((a, b) => {
-            return a.date.valueOf() - b.date.valueOf();
+            return new Date(a.start_date).valueOf() - new Date(b.start_date).valueOf();
         });
         this.state.events.forEach((event) => {
             if (this.filterEvent(this.state.search, event)) {
-                if (event.date.valueOf() - today.valueOf() >= 0) {
-                    rows.push(<EventSummary details={event} />);
+                if (new Date(event.start_date).valueOf() - today.valueOf() >= 0) {
+                    newEvents.push(<EventSummary details={event} />);
                 }
             }
         });
-        rows.push(
+        let middleMan = [];
+        middleMan.push(
             <div className="eventList-old-events">
                 Régebbi Események
             </div>
         );
+
+        let oldEvents = [];
         this.state.events.sort((a, b) => {
-            return b.date.valueOf() - a.date.valueOf();
+            return new Date(b.start_date).valueOf() - new Date(a.start_date).valueOf();
         });
         this.state.events.forEach((event) => {
             if (this.filterEvent(this.state.search, event)) {
-                if (event.date.valueOf() - today.valueOf() < 0) {
-                    rows.push(<EventSummary old details={event} />);
+                if (new Date(event.start_date).valueOf() - today.valueOf() < 0) {
+                    oldEvents.push(<EventSummary old details={event} />);
                 }
             }
         });
 
-        if (rows.length <= 1) {
-            rows = []
-            rows.push(
+        if (oldEvents.length < 1) {
+            middleMan = []
+            middleMan.push(
                 <div className="eventList-old-events">
                     Nincs ilyen esemény
                 </div>
@@ -146,8 +154,8 @@ class EventList extends React.Component {
         }
 
         return (
-            <div className="eventList-main">
-                <form autoComplete="off" className="eventList-card-form">
+            <div>
+                <form autoComplete="off" className="card eventList-card-form">
                     <div>
                         <input type="text" name="search"
                             value={this.state.search} onChange={this.handleChange} />
@@ -162,7 +170,7 @@ class EventList extends React.Component {
                     transitionEnterTimeout={300}
                     transitionAppear={true}
                     transitionLeaveTimeout={300}>
-                    {rows}
+                    {newEvents}{middleMan}{oldEvents}
                 </ReactCssTrabsitionGroup>
             </div>
         )

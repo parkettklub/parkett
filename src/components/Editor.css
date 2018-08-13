@@ -1,37 +1,39 @@
-.editEventMain {
-    margin: 10px;
-    display: grid;
-    grid-gap: 0;
+.multistep-editor {
     grid-template-columns: max-content auto;
-    margin-bottom: 6rem;
+    height: 35rem;
 }
 
-.editStages {
+
+.edit-steps {
     background: #3A2929;
     height: 100%;
     color: #ffffff;
 }
 
-.editStages div {
+.edit-steps > div {
     padding: 20px;
 }
 
-.editStages .stage:hover {
+.edit-steps > .stage:hover {
     background: #A02C2D;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-.editStages .selectedStage {
+.edit-steps > .selectedStage {
     background: #901C1D;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .form {
     padding: 10px;
+    background: #E7E7E7;
 }
 
-.form input {
-    display: block;
+.formGroup {
+    padding: 10px;
+}
+
+.form .inputField {
     padding: 10px;
     color: #AA5050;
     background: #FFFFFF;
@@ -43,23 +45,12 @@
 }
 
 .form textarea {
-    margin: 10px;
-    padding: 10px;
     min-height: 8em;
-    width: 100%;
-    color: #AA5050;
-    background: #FFFFFF;
-    box-shadow: inset 0px 0px 3px rgba(0, 0, 0, 0.25);
-    border-radius: 2px;
-    border: 0px;
-    font-size: 15px;
-    width: 100%;
+    resize: none;
 }
 
 .form label {
-    margin: 10px;
-    min-height: 5em;
-    width: 100%;
+    margin-left: 10px;
 }
 
 .form .helper {
@@ -69,62 +60,37 @@
     color: #757575;
 }
 
-.formGroup {
-    padding: 10px;
-}
-
 .form .mySubmit {
     background: #2F7F3C;
+    color: #FFFFFF;
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+    border: 0px;
     border-radius: 2px;
     font-weight: bold;
-    color: #FFFFFF;
-    border: 0px;
-    align-content: center;
     margin: 0 auto;
+    padding: 10px;
     width: 50%;
+    display: block;
 }
 
-.event {
+.editable-event {
     padding: 10px;
     display: grid;
     grid-gap: 0;
     grid-template-columns: auto max-content;
 }
 
-.logo {
-    width: 20px;
-    margin-left: 10px;
-    margin-right: 10px;
-}
-
-.EditTitle {
-    color: #FFFFFF;
-    font-family: 'Roboro', sans-serif;
-}
-
-.mainEditor {
-    height: 100%;
-    margin-top: 7rem;
-}
-
-.EditEventsMain > div {
-    margin: 0 auto;
-    margin-top: 20px;
-}
-
 .addEvent {
-    padding: 10px;
-    display: grid;
-    grid-gap: 10px;
     grid-template-columns: 1fr 1fr 1fr;
 }
 
-.addEvent div{
+.addEvent > div{
     margin: 0 auto;
     color: black;
 }
 
-.addEvent a img{
-    float: right;
+.logo {
+    width: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
 }

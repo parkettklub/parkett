@@ -6,7 +6,7 @@ const EventPartyPage = () => (
 
   <div>
     <Header />
-    <div className="eventdetails-main">
+    <div className="pagecenter eventdetails-main">
       <h1 style={{ marginTop: `5rem` }} ></h1>
       <EventParty />
     </div>

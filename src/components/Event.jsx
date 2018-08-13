@@ -2,65 +2,50 @@ import React from 'react';
 import './Card.css';
 import './EventList.css';
 import FacebookLogo from './facebook-app-logo.svg';
+import Boritokep from './boritokep2.png';
 
 function EventSummary(props) {
 
-    const details = [];
+    const detailsrows = [];
     if (props.details.formlink) {
-        details.push(<div><a href={props.details.formlink}>Link a formhoz</a></div>)
+        detailsrows.push(<div><a href={props.details.formlink}>Link a formhoz</a></div>)
     }
 
     if (props.details.music) {
-        details.push(<div><b>{props.details.music}</b></div>)
+        detailsrows.push(<div><b>{props.details.music}</b></div>)
     }
 
-    const date = props.details.date;
-    const dateString = date.getFullYear() + "." + date.getMonth()
-        + "." + date.getDate();
+    const date = props.details.start_date;
+    const dateString = date.split('T')[0] + date.split('T')[1];
+
+    const facebookLink = []
+    if (props.details.facebook) {
+        facebookLink.push(
+            <a href={props.details.facebook} key="FacebookLink">
+                <img src={FacebookLogo} alt="" />
+            </a>
+        )
+    }
 
     return (
-        <div className={"card" + (props.old ? " eventList-old" : "")} onClick={props.details.onClick ? props.details.onClick : ""}>
-            <div className="eventList-wrapper">
-                <Poster poster={props.details.poster} />
-                <div className="eventList-details">
-                    <div className="eventList-title">{props.details.title}</div>
-                    <div>{dateString}</div>
-                    {details}
+        <div className={"card" + (props.old ? " eventList-old" : "")} key={props.details.id}
+            onClick={props.details.onClick ? props.details.onClick : ""}>
+            <div className="eventSummary">
+                <div className="poster-cropper">
+                    <img alt=""
+                        src={props.details.poster ? props.details.poster : Boritokep} />
                 </div>
-                <Facebook link={props.details.facebook} />
+                <div className="eventSummary-details">
+                    <div className="eventSummary-title">{props.details.title}</div>
+                    <div>{dateString}</div>
+                    {detailsrows}
+                </div>
+                <div className="eventSummary-facebook-link">
+                    {facebookLink}
+                </div>
             </div>
         </div>
     )
-}
-
-function Poster(props) {
-    if (props.poster) {
-        return (
-            <div className="eventList-poster-cropper">
-                <img className="portrait" src={props.poster} alt="" />
-            </div>
-        )
-    } else {
-        return (
-            <div></div>
-        )
-    }
-}
-
-function Facebook(props) {
-    if (props.link) {
-        return (
-            <div className="eventList-facebook-link">
-                <a href={props.link}>
-                    <img src={FacebookLogo} alt="" />
-                </a>
-            </div>
-        )
-    } else {
-        return (
-            <div className="eventList-facebook-link"></div>
-        )
-    }
 }
 
 export default EventSummary;

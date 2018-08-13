@@ -1,6 +1,7 @@
 import React from 'react';
 import Plakat01 from './Plakat.png';
 import './Editor.css';
+import './Card.css';
 
 class EditEventParty extends React.Component {
     constructor() {
@@ -25,11 +26,7 @@ class EditEventParty extends React.Component {
 
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
-        this.TitleAndDate = this.TitleAndDate.bind(this);
-        this.Details = this.Details.bind(this);
-        this.Media = this.Media.bind(this);
-        this.Poster = this.Poster.bind(this);
-        this.Music = this.Music.bind(this);
+        this.ChangeTab = this.ChangeTab.bind(this);
     }
 
     handleChange(event) {
@@ -45,132 +42,112 @@ class EditEventParty extends React.Component {
         event.preventDefault();
     }
 
-    TitleAndDate() {
+    ChangeTab(tabName) {
         this.setState({
-            selectedForm: "title"
-        })
-
-    }
-
-    Details() {
-        this.setState({
-            selectedForm: "details"
-        })
-    }
-
-    Music() {
-        this.setState({
-            selectedForm: "music"
-        })
-    }
-
-    Media() {
-        this.setState({
-            selectedForm: "media"
-        })
-    }
-
-    Poster() {
-        this.setState({
-            selectedForm: "poster"
+            selectedForm: tabName
         })
     }
 
     render() {
         return (
-            <div className="card editEventMain">
-                <div className="editStages">
+            <div className="card multistep-editor grid" key="EditEventparty">
+                <div className="edit-steps">
                     <div>
                         Új esemény hozzáadása <br />
                         Régi esemény frissítése
                     </div>
-                    <div className={this.state.selectedForm == "title" ? "selectedStage" : "stage"} onClick={this.TitleAndDate}>
+                    <div className={this.state.selectedForm == "title" ? "selectedStage" : "stage"}
+                        onClick={() => this.ChangeTab("title")}>
                         Title and date
                     </div>
-                    <div className={this.state.selectedForm == "poster" ? "selectedStage" : "stage"} onClick={this.Poster}>
+                    <div className={this.state.selectedForm == "poster" ? "selectedStage" : "stage"}
+                        onClick={() => this.ChangeTab("poster")}>
                         Poster
                     </div>
-                    <div className={this.state.selectedForm == "details" ? "selectedStage" : "stage"} onClick={this.Details}>
+                    <div className={this.state.selectedForm == "details" ? "selectedStage" : "stage"}
+                        onClick={() => this.ChangeTab("details")}>
                         Details
                     </div>
-                    <div className={this.state.selectedForm == "media" ? "selectedStage" : "stage"} onClick={this.Media}>
+                    <div className={this.state.selectedForm == "media" ? "selectedStage" : "stage"}
+                        onClick={() => this.ChangeTab("media")}>
                         Media
                     </div>
-                    <div className={this.state.selectedForm == "music" ? "selectedStage" : "stage"} onClick={this.Music}>
+                    <div className={this.state.selectedForm == "music" ? "selectedStage" : "stage"}
+                        onClick={() => this.ChangeTab("music")}>
                         Music and Teaching
                     </div>
                 </div>
                 <div className="form">
                     <form onSubmit={this.handleSubmit} >
                         <div className="formGroup" hidden={this.state.selectedForm != "title"}>
-                            <label for="title"><b>Title</b></label>
-                            <input id="title" name="title" type="text"
+                            <label htmlFor="title"><b>Title</b></label>
+                            <input id="title" name="title" type="text" className="inputField"
                                 value={this.state.title} onChange={this.handleChange} />
                             <div className="helper">Élőzenés Salsa Party: Cuba</div>
                         </div>
                         <div className="formGroup" hidden={this.state.selectedForm != "title"}>
-                            <label for="start_date"><b>Start date</b></label>
-                            <input id="start_date" name="start_date" type="datetime-local"
+                            <label htmlFor="start_date"><b>Start date</b></label>
+                            <input id="start_date" name="start_date" type="datetime-local" className="inputField"
                                 value={this.state.start_date} onChange={this.handleChange} />
                             <div className="helper">2018-01-12 18:00</div>
                         </div>
                         <div className="formGroup" hidden={this.state.selectedForm != "title"}>
-                            <label for="end_date"><b>End date</b></label>
-                            <input id="end_date" name="end_date" type="datetime-local"
+                            <label htmlFor="end_date"><b>End date</b></label>
+                            <input id="end_date" name="end_date" type="datetime-local" className="inputField"
                                 value={this.state.end_date} onChange={this.handleChange} />
                             <div className="helper">2018-01-13 01:00</div>
                         </div>
                         <div className="formGroup" hidden={this.state.selectedForm != "details"}>
-                            <label for="content"><b>Leírás:</b></label>
-                            <textarea id="content" name="content" type="text"
+                            <label htmlFor="content"><b>Leírás:</b></label>
+                            <textarea id="content" name="content" type="text" className="inputField"
                                 value={this.state.content} onChange={this.handleChange} />
                             <div className="helper">Még érezni az előző est hangulatát ...</div>
                         </div>
                         <div className="formGroup" hidden={this.state.selectedForm != "details"}>
-                            <label for="program"><b>Program</b></label>
-                            <textarea id="program" name="program" type="text"
+                            <label htmlFor="program"><b>Program</b></label>
+                            <textarea id="program" name="program" type="text" className="inputField"
                                 value={this.state.program} onChange={this.handleChange} />
                             <div className="helper">19:30 kapunyitás ...</div>
                         </div>
                         <div className="formGroup" hidden={this.state.selectedForm != "details"}>
-                            <label for="facebook_event"><b>Facebook event:</b></label>
-                            <input id="facebook_event" name="facebook_event" type="text"
+                            <label htmlFor="facebook_event"><b>Facebook event:</b></label>
+                            <input id="facebook_event" name="facebook_event" type="text" className="inputField"
                                 value={this.state.facebook_event} onChange={this.handleChange} />
                             <div className="helper">https://www.facebook.com/events/1598719006921910/a</div>
                         </div>
                         <div className="formGroup" hidden={this.state.selectedForm != "media"}>
-                            <label for="spot"><b>spot</b></label>
-                            <input id="spot" name="spot" type="text"
+                            <label htmlFor="spot"><b>spot</b></label>
+                            <input id="spot" name="spot" type="text" className="inputField"
                                 value={this.state.spot} onChange={this.handleChange} />
                             <div className="helper">https://www.facebook.com/events/1598719006921910/</div>
                         </div>
                         <div className="formGroup" hidden={this.state.selectedForm != "media"}>
-                            <label for="bss"><b>bss</b></label>
-                            <input id="bss" name="bss" type="text"
+                            <label htmlFor="bss"><b>bss</b></label>
+                            <input id="bss" name="bss" type="text" className="inputField"
                                 value={this.state.bss} onChange={this.handleChange} />
                             <div className="helper">https://www.facebook.com/events/1598719006921910/</div>
                         </div>
                         <div className="formGroup" hidden={this.state.selectedForm != "music"}>
-                            <label for="teachingid"><b>teachingid</b></label>
-                            <input id="teachingid" name="teachingid" type="text"
+                            <label htmlFor="teachingid"><b>teachingid</b></label>
+                            <input id="teachingid" name="teachingid" type="text" className="inputField"
                                 value={this.state.teachingid} onChange={this.handleChange} />
                             <div className="helper">1</div>
                         </div>
                         <div className="formGroup" hidden={this.state.selectedForm != "music"}>
-                            <label for="bandid"><b>bandid</b></label>
-                            <input id="bandid" name="bandid" type="text"
+                            <label htmlFor="bandid"><b>bandid</b></label>
+                            <input id="bandid" name="bandid" type="text" className="inputField"
                                 value={this.state.bandid} onChange={this.handleChange} />
                             <div className="helper">1</div>
                         </div>
                         <div className="formGroup" hidden={this.state.selectedForm != "music"}>
-                            <label for="djid"><b>djid</b></label>
-                            <input id="djid" name="djid" type="text"
+                            <label htmlFor="djid"><b>djid</b></label>
+                            <input id="djid" name="djid" type="text" className="inputField"
                                 value={this.state.djid} onChange={this.handleChange} />
                             <div className="helper">1</div>
                         </div>
                         <div className="formGroup" hidden={this.state.selectedForm != "poster"}>
-                            <label for="photo"><b>Poster</b></label>
-                            <input id="photo" name="photo" type="file"
+                            <label htmlFor="photo"><b>Poster</b></label>
+                            <input id="photo" name="photo" type="picture" className="inputField"
                                 value={this.state.photo} onChange={this.handleChange} />
                             <img src="https://media.gettyimages.com/photos/theres-always-something-new-to-learn-picture-id1008383410?b=1&k=6&m=1008383410&s=170x170&h=jdv-af6Q0-NNPAX62uhnpM4dGA1tSakzkNTh-aOqXO0=" />
                         </div>
