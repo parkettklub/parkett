@@ -29,10 +29,11 @@ function HeaderMa(props) {
             </div>
             <div>
                 <ListLink to="/events/" >Események</ListLink>
-                <ListLink to="/editevents/">Események szerkesztése</ListLink>
+                <ListLink to="/edit-events/">Események szerkesztése</ListLink>
                 <ListLink to="/community/">Közösség</ListLink>
                 <ListLink to="/media/">Média</ListLink>
                 <ListLink to="/knowledge-base/">Tudásbázis</ListLink>
+                <ListLink to="/edit-knowledge-base/">Tudásbázis szerkesztése</ListLink>
             </div>
         </header >
     )

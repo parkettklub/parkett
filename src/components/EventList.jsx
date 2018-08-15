@@ -5,11 +5,11 @@ import Plakat01 from './Plakat.png';
 import Plakat02 from './Plakat_vegleges.jpg';
 
 function onClickParty() {
-    window.location = "/eventparty/";
+    window.location = "/event-party/";
 }
 
 function onClickWorkshop() {
-    window.location = "/eventworkshop/";
+    window.location = "/event-workshop/";
 }
 
 class EventList extends React.Component {

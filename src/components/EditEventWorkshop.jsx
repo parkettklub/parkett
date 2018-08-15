@@ -15,7 +15,10 @@ class EditEventWorkshop extends React.Component {
             program: "19:30 kapunyitás\n20:00 - 21:00 kezdő rocky tánctanítás\n21:00 - 23:00 élőben zenél a Pedrofon zenekar\n23:00 - 02:00 DJ-s buli Kenyeres Tamással",
             content: "Még érezni az előző est hangulatát és máris itt a következő, egyben a félévi utolsó bulink. Várunk titeket egy fergeteges Rock ‘N’ Roll Partyra április 17-én.",
             danceid: 1,
+            teacherid: 1,
+            theme: "Teljesen kezdő gyorstalpaló kizomba tánctanítás, amely egy hónapnyi tánctudást biztosít és lehetővé teszi a már elindult tánctanfolyamokba való bekapcsolódást.",
             facebook_event: "https://www.facebook.com/events/1598719006921910/",
+            application_form: "https://goo.gl/forms/EMAqXVoJDJQGNkeq1",
             selectedForm: "title",
         };
 
@@ -56,50 +59,35 @@ class EditEventWorkshop extends React.Component {
     }
 
     render() {
-        const djs = [{
+        const teachers = [{
             id: 1,
-            name: "DJ Nobody",
-            url: "google.com"
+            name: "Me and You"
         }, {
             id: 2,
-            name: "DJ Nobody",
-            url: "google.com"
-        }, {
-            id: 3,
-            name: "DJ Nobody",
-            url: "google.com"
-        }, {
-            id: 4,
-            name: "DJ Nobody",
-            url: "google.com"
-        }, {
-            id: 5,
-            name: "DJ Nobody",
-            url: "google.com"
-        }];
-        const bands = [{
+            name: "You and Me"
+        },];
+        const teacherOptions = []
+        teachers.forEach((teacher) => {
+            teacherOptions.push(<option value={teacher.id}>{teacher.id} - {teacher.name}</option>)
+        });
+
+        const dances = [{
             id: 1,
-            name: "Pedrofon",
-            url: "google.com"
+            name: "kizomba"
         }, {
             id: 2,
-            name: "Cuba Ritmo Trio",
-            url: "google.com"
-        }];
-        const djOptions = [];
-        djs.forEach((dj) => {
-            djOptions.push(<option value={dj.id}>{dj.id} - {dj.name}</option>)
-        })
-        const bandOptions = [];
-        bands.forEach((band) => {
-            bandOptions.push(<option value={band.id}>{band.id} - {band.name}</option>)
-        })
+            name: "salsa"
+        },];
+        const danceOptions = []
+        dances.forEach((dance) => {
+            danceOptions.push(<option value={dance.id}>{dance.id} - {dance.name}</option>)
+        });
         return (
             <div className="card multistep-editor grid" key="EditEventparty">
                 <div className="edit-steps">
-                    <div>
-                        Új esemény hozzáadása <br />
-                        Régi esemény frissítése
+                    <div onClick={this.props.onClick}>
+                        Új workshop hozzáadása <br />
+                        Régi workshop frissítése
                     </div>
                     <div className={this.state.selectedForm == "title" ? "selectedStage" : "stage"}
                         onClick={() => this.ChangeTab("title")}>
@@ -112,6 +100,10 @@ class EditEventWorkshop extends React.Component {
                     <div className={this.state.selectedForm == "details" ? "selectedStage" : "stage"}
                         onClick={() => this.ChangeTab("details")}>
                         Details
+                    </div>
+                    <div className={this.state.selectedForm == "dance" ? "selectedStage" : "stage"}
+                        onClick={() => this.ChangeTab("dance")}>
+                        Dance
                     </div>
                 </div>
                 <div className="form">
@@ -157,6 +149,26 @@ class EditEventWorkshop extends React.Component {
                             <input id="photo" name="photo" type="picture" className="inputField"
                                 value={this.state.photo} onChange={this.handleChange} />
                             <img src="https://media.gettyimages.com/photos/theres-always-something-new-to-learn-picture-id1008383410?b=1&k=6&m=1008383410&s=170x170&h=jdv-af6Q0-NNPAX62uhnpM4dGA1tSakzkNTh-aOqXO0=" />
+                        </div>
+                        <div className="formGroup" hidden={this.state.selectedForm != "dance"}>
+                            <label htmlFor="danceid"><b>danceid</b></label>
+                            <select id="danceid" name="danceid" value={this.state.danceid} onChange={this.handleChange}
+                                className="inputField" >
+                                {danceOptions}
+                            </select>
+                        </div>
+                        <div className="formGroup" hidden={this.state.selectedForm != "dance"}>
+                            <label htmlFor="teacherid"><b>teacherid</b></label>
+                            <select id="teacherid" name="teacherid" value={this.state.teacherid} onChange={this.handleChange}
+                                className="inputField" >
+                                {teacherOptions}
+                            </select>
+                        </div>
+                        <div className="formGroup" hidden={this.state.selectedForm != "dance"}>
+                            <label htmlFor="application_form"><b>application_form:</b></label>
+                            <input id="application_form" name="application_form" type="text" className="inputField"
+                                value={this.state.application_form} onChange={this.handleChange} />
+                            <div className="helper">https://goo.gl/forms/EMAqXVoJDJQGNkeq1</div>
                         </div>
                         <div className="formGroup mySubmitgroup">
                             <input type="submit" value="Submit" className="mySubmit" />

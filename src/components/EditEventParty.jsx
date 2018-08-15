@@ -69,11 +69,11 @@ class EditEventParty extends React.Component {
     render() {
         const djs = [{
             id: 1,
-            name: "DJ Nobody",
+            name: "DJ Eddy",
             url: "google.com"
         }, {
             id: 2,
-            name: "DJ Nobody",
+            name: "DJ Zoli",
             url: "google.com"
         }, {
             id: 3,
@@ -81,11 +81,11 @@ class EditEventParty extends React.Component {
             url: "google.com"
         }, {
             id: 4,
-            name: "DJ Nobody",
+            name: "DJ Music",
             url: "google.com"
         }, {
             id: 5,
-            name: "DJ Nobody",
+            name: "DJ Somebody",
             url: "google.com"
         }];
         const bands = [{
@@ -121,7 +121,7 @@ class EditEventParty extends React.Component {
         return (
             <div className="card multistep-editor grid" key="EditEventparty">
                 <div className="edit-steps">
-                    <div>
+                    <div onClick={this.props.onClick}>
                         Új esemény hozzáadása <br />
                         Régi esemény frissítése
                     </div>

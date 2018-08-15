@@ -6,6 +6,8 @@ import EditMedia from './film.svg';
 import EditDetails from './list.svg';
 import EditPoster from './poster.svg';
 import EditEventParty from './EditEventParty';
+import EditEventWorkshop from './EditEventWorkshop';
+import EditEventArticle from './EditEventArticle';
 
 class EditEvents extends React.Component {
     constructor() {
@@ -34,11 +36,15 @@ class EditEvents extends React.Component {
                     start_date: "2018.01.02. 18:30"
                 },
             ],
-            selectParty: false,
+            selectPartyid: null,
+            selectWorkshopid: null,
+            selectArticleid: null
         };
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.selectParty = this.selectParty.bind(this);
+        this.selectWorkshop = this.selectWorkshop.bind(this);
+        this.selectArticle = this.selectArticle.bind(this);
         this.back = this.back.bind(this);
     }
 
@@ -53,11 +59,31 @@ class EditEvents extends React.Component {
     }
 
     selectParty() {
-        this.setState({ selectParty: true });
+        this.setState({ selectPartyid: 1 });
+        this.setState({ selectWorkshopid: null });
+        this.setState({ selectArticleid: null });
+    }
+
+
+
+    selectWorkshop() {
+        this.setState({ selectPartyid: null });
+        this.setState({ selectWorkshopid: 1 });
+        this.setState({ selectArticleid: null });
+    }
+
+
+
+    selectArticle() {
+        this.setState({ selectPartyid: null });
+        this.setState({ selectWorkshopid: null });
+        this.setState({ selectArticleid: 1 });
     }
 
     back() {
-        this.setState({ selectParty: false });
+        this.setState({ selectPartyid: null });
+        this.setState({ selectWorkshopid: null });
+        this.setState({ selectArticleid: null });
     }
 
     render() {
@@ -79,8 +105,12 @@ class EditEvents extends React.Component {
         });
         let selected = [];
 
-        if (this.state.selectParty) {
-            selected.push(<EditEventParty />);
+        if (this.state.selectPartyid) {
+            selected.push(<EditEventParty onClick={this.back} />);
+        } else if (this.state.selectWorkshopid) {
+            selected.push(<EditEventWorkshop onClick={this.back} />);
+        } else if (this.state.selectArticleid) {
+            selected.push(<EditEventArticle onClick={this.back} />);
         } else {
             selected.push(
                 <div className="card" key="addNewEvents">
@@ -101,11 +131,11 @@ class EditEvents extends React.Component {
                             <img src={PlusEvent} className="logo" />
                             <b>Új Esemény</b>
                         </div>
-                        <div>
+                        <div onClick={this.selectWorkshop}>
                             <img src={PlusEvent} className="logo" />
                             <b>Új Workshop</b>
                         </div>
-                        <div>
+                        <div onClick={this.selectArticle}>
                             <img src={PlusEvent} className="logo" />
                             <b>Új Hír</b>
                         </div>

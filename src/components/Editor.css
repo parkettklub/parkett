@@ -1,6 +1,6 @@
 .multistep-editor {
     grid-template-columns: max-content auto;
-    height: 35rem;
+    min-height: 35rem;
 }
 
 
@@ -42,17 +42,6 @@
     border: 0px;
     font-size: 15px;
     width: 100%;
-}
-
-.inputField option:checked {
-    color: #FFFFFF;
-    background: #901C1D;
-}
-
-select[multiple] option:checked {
-    background: #901C1D;
-    background-color: red;
-    font-size: 20px;
 }
 
 .inputField option:hover {
@@ -109,4 +98,14 @@ select[multiple] option:checked {
     width: 20px;
     margin-left: 10px;
     margin-right: 10px;
+}
+
+.list-of-items > .id {
+    text-align: right;
+}
+
+.list-of-items {
+    padding: 20px;
+    grid-template-columns: max-content auto;
+    grid-gap: 10px;
 }
