@@ -109,3 +109,7 @@
     grid-template-columns: max-content auto;
     grid-gap: 10px;
 }
+
+.hidden {
+    display: none;
+}
