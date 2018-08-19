@@ -6,20 +6,28 @@ import LocationAccess from '../components/LocationAccess.jsx';
 import Attention from '../components/Attention.jsx';
 import Services from '../components/Services.jsx';
 import Dances from '../components/Dances.jsx';
+import ReactCssTransitionGroup from 'react-addons-css-transition-group';
 
 
 const KnowledgeBase = () => (
 
     <div>
         <Header knowledgebase />
-        <div className="pagecenter">
-            <h1 style={{ marginTop: `6rem` }} ></h1>
-            <Dances />
-            <LocationAccess />
-            <Attention />
-            <Services />
-            <TipsAndTricks />
-        </div>
+        <ReactCssTransitionGroup
+            transitionName="fade"
+            transitionAppearTimeout={1000}
+            transitionEnterTimeout={300}
+            transitionAppear={true}
+            transitionLeaveTimeout={300}>
+            <div className="pagecenter">
+                <h1 style={{ marginTop: `6rem` }} ></h1>
+                <Dances />
+                <LocationAccess />
+                <Attention />
+                <Services />
+                <TipsAndTricks />
+            </div>
+        </ReactCssTransitionGroup>
     </div>
 )
 

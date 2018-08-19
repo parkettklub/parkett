@@ -4,6 +4,7 @@ import HeaderMax from '../components/HeaderMax.jsx';
 import EventWithPoster from '../components/EventWithPoster';
 import Plakat01 from '../components/Plakat_vegleges.jpg';
 import Plakat02 from '../components/Plakat.png';
+import ReactCssTransitionGroup from 'react-addons-css-transition-group';
 
 class IndexPage extends React.Component {
   constructor() {
@@ -34,10 +35,18 @@ class IndexPage extends React.Component {
     return (
       <div className="indexpage">
         <HeaderMax />
-        <div className="pagecenter">
-          <h1 style={{ marginTop: `14rem` }} ></h1>
-          <EventWithPoster details={main} />
-        </div>
+
+        <ReactCssTransitionGroup
+          transitionName="fade"
+          transitionAppearTimeout={1000}
+          transitionEnterTimeout={300}
+          transitionAppear={true}
+          transitionLeaveTimeout={300}>
+          <div className="pagecenter">
+            <h1 style={{ marginTop: `14rem` }} ></h1>
+            <EventWithPoster details={main} />
+          </div>
+        </ReactCssTransitionGroup>
       </div>
     )
   }
