@@ -48,6 +48,7 @@ class EditKnowledgeMain extends React.Component {
             danceid: 1,
             level: "kezdő",
             length: "45 perces",
+            nextId: 3,
         };
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -61,7 +62,7 @@ class EditKnowledgeMain extends React.Component {
         console.log(this.state.bands);
         if (this.state.selectedForm == "band") {
             this.state.bands.push({
-                id: 3,
+                id: this.state.nextId++,
                 name: this.state.name,
                 url: this.state.url
             });
@@ -69,7 +70,7 @@ class EditKnowledgeMain extends React.Component {
         }
         if (this.state.selectedForm == "dj") {
             this.state.djs.push({
-                id: 3,
+                id: this.state.nextId++,
                 name: this.state.name,
                 url: this.state.url
             });
@@ -77,7 +78,7 @@ class EditKnowledgeMain extends React.Component {
         }
         if (this.state.selectedForm == "danceteacher") {
             this.state.danceteachers.push({
-                id: 3,
+                id: this.state.nextId++,
                 name: this.state.name,
                 url: this.state.url
             });
@@ -85,7 +86,7 @@ class EditKnowledgeMain extends React.Component {
         }
         if (this.state.selectedForm == "dance") {
             this.state.dances.push({
-                id: 3,
+                id: this.state.nextId++,
                 name: this.state.name,
                 content: this.state.content
             });
@@ -93,7 +94,7 @@ class EditKnowledgeMain extends React.Component {
         }
         if (this.state.selectedForm == "partyteacher") {
             this.state.partyteachers.push({
-                id: 3,
+                id: this.state.nextId++,
                 teacherid: this.state.teacherid,
                 danceid: this.state.danceid,
                 level: this.state.level,
