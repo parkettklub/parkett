@@ -5,7 +5,7 @@ import Header from '../components/Header.jsx';
 const EventWorkshopPage = () => (
 
   <div>
-    <Header />
+    <Header events />
     <div className="pagecenter eventdetails-main">
       <h1 style={{ marginTop: `5rem` }} ></h1>
       <EventWorkshop />

@@ -19,7 +19,7 @@ function Footer(props) {
                     <div><b>Helyszín</b></div>
                     <div>Schönherz Zoltán Kollégium,</div>
                     <div>1117 Budapest, Irinyi József utca 42. </div>
-                    <div><b>Designed by:</b> Schönherz Design Studio</div>
+                    <div><b>Designed by:</b> Schönherz Design Stúdió</div>
                     <div><b>Backend by:</b> Kir-Dev</div>
                 </div>
                 <div className="footer-right">

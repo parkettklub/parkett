@@ -49,9 +49,28 @@
   display: flex;
 }
 
+.main-header li a {
+  text-decoration: none;
+}
+
 .main-header li {
   display: inline-block;
   margin-right: 1rem ;
+  margin-left: 1rem ;
+  margin-bottom: 20px;
+}
+
+.main-header li:hover {
+  border-bottom: 2px solid #ffffff;
+  padding-bottom: 5px;
+  margin-bottom: 13px;
+}
+
+.main-header li.active {
+
+  border-bottom: 2px solid #ffffff;
+  padding-bottom: 5px;
+  margin-bottom: 13px;
 }
 
 .main-header li.hide {

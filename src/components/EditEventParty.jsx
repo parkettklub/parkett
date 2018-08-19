@@ -108,15 +108,15 @@ class EditEventParty extends React.Component {
         },];
         const djOptions = [];
         djs.forEach((dj) => {
-            djOptions.push(<option value={dj.id}>{dj.id} - {dj.name}</option>)
+            djOptions.push(<option value={dj.id} key={dj.id}>{dj.id} - {dj.name}</option>)
         })
         const bandOptions = [];
         bands.forEach((band) => {
-            bandOptions.push(<option value={band.id}><div>{band.id} - {band.name}</div></option>)
+            bandOptions.push(<option value={band.id} key={band.id}>{band.id} - {band.name}</option>)
         })
         const teachOptions = []
         teachings.forEach((teaching) => {
-            teachOptions.push(<option value={teaching.id}><div>{teaching.id} - {teaching.teacher} {teaching.dance}</div></option>)
+            teachOptions.push(<option value={teaching.id} key={teaching.id}>{teaching.id} - {teaching.teacher} {teaching.dance}</option>)
         })
         return (
             <div className="card multistep-editor grid" key="EditEventparty">

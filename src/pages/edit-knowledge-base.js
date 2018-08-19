@@ -5,7 +5,7 @@ import EditKnowledgeMain from '../components/EditKnowledgeMain.jsx';
 const EventKnowledgeBase = () => (
 
     <div>
-        <Header />
+        <Header editknowledgebase />
         <div className="pagecenter">
             <h1 style={{ marginTop: `5rem` }} ></h1>
             <EditKnowledgeMain />

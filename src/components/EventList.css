@@ -1,22 +1,27 @@
 .eventSummary {
     display: grid;
     grid-gap: 10px;
-    grid-template-columns: 100px auto 50px;
+    grid-template-columns: 150px auto 50px;
     padding: 0;
     margin: 0;
     align-items: center;
+    cursor: pointer;
+}
+
+.eventSummary:hover {
+    background: #cecece;
 }
 
 .poster-cropper {
     position: relative;
-    width: 100px;
-    height: 100px;
+    width: 150px;
+    height: 150px;
     overflow: hidden;
 }
 
 .poster-cropper img {
-    width: 100px;
-    height: 100px;
+    width: 150px;
+    height: 150px;
     object-fit: cover;
     max-width: initial;
     margin-bottom: inherit;
@@ -35,6 +40,10 @@
 
 .eventSummary-facebook-link img{
     width: 30px;
+}
+
+.eventSummary-details > div {
+    padding: 0.5em;
 }
 
 .eventList-card-form {

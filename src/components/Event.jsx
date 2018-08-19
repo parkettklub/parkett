@@ -8,15 +8,15 @@ function EventSummary(props) {
 
     const detailsrows = [];
     if (props.details.formlink) {
-        detailsrows.push(<div><a href={props.details.formlink}>Link a formhoz</a></div>)
+        detailsrows.push(<div key="form"><a href={props.details.formlink}>Link a formhoz</a></div>)
     }
 
     if (props.details.music) {
-        detailsrows.push(<div><b>{props.details.music}</b></div>)
+        detailsrows.push(<div key="music"><b>{props.details.music}</b></div>)
     }
 
     const date = props.details.start_date;
-    const dateString = date.split('T')[0] + date.split('T')[1];
+    const dateString = date.split('T')[0] + ' ' + date.split('T')[1];
 
     const facebookLink = []
     if (props.details.facebook) {

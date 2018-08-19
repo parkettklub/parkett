@@ -68,7 +68,7 @@ class EditEventWorkshop extends React.Component {
         },];
         const teacherOptions = []
         teachers.forEach((teacher) => {
-            teacherOptions.push(<option value={teacher.id}>{teacher.id} - {teacher.name}</option>)
+            teacherOptions.push(<option value={teacher.id} key={teacher.id}>{teacher.id} - {teacher.name}</option>)
         });
 
         const dances = [{
@@ -80,7 +80,7 @@ class EditEventWorkshop extends React.Component {
         },];
         const danceOptions = []
         dances.forEach((dance) => {
-            danceOptions.push(<option value={dance.id}>{dance.id} - {dance.name}</option>)
+            danceOptions.push(<option value={dance.id} key={dance.id}>{dance.id} - {dance.name}</option>)
         });
         return (
             <div className="card multistep-editor grid" key="EditEventparty">

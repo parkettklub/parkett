@@ -1,6 +1,6 @@
 import React from 'react';
 import EventSummary from './Event';
-import ReactCssTrabsitionGroup from 'react-addons-css-transition-group';
+import ReactCssTransitionGroup from 'react-addons-css-transition-group';
 import Plakat01 from './Plakat.png';
 import Plakat02 from './Plakat_vegleges.jpg';
 
@@ -121,13 +121,13 @@ class EventList extends React.Component {
         this.state.events.forEach((event) => {
             if (this.filterEvent(this.state.search, event)) {
                 if (new Date(event.start_date).valueOf() - today.valueOf() >= 0) {
-                    newEvents.push(<EventSummary details={event} />);
+                    newEvents.push(<EventSummary details={event} key={event.id} />);
                 }
             }
         });
         let middleMan = [];
         middleMan.push(
-            <div className="eventList-old-events">
+            <div className="eventList-old-events" key="oldevents" >
                 Régebbi Események
             </div>
         );
@@ -139,7 +139,7 @@ class EventList extends React.Component {
         this.state.events.forEach((event) => {
             if (this.filterEvent(this.state.search, event)) {
                 if (new Date(event.start_date).valueOf() - today.valueOf() < 0) {
-                    oldEvents.push(<EventSummary old details={event} />);
+                    oldEvents.push(<EventSummary old details={event} key={event.id} />);
                 }
             }
         });
@@ -164,14 +164,14 @@ class EventList extends React.Component {
                         </svg>
                     </div>
                 </form>
-                <ReactCssTrabsitionGroup
+                <ReactCssTransitionGroup
                     transitionName="fade"
                     transitionAppearTimeout={1000}
                     transitionEnterTimeout={300}
                     transitionAppear={true}
                     transitionLeaveTimeout={300}>
                     {newEvents}{middleMan}{oldEvents}
-                </ReactCssTrabsitionGroup>
+                </ReactCssTransitionGroup>
             </div>
         )
     }

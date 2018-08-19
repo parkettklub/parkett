@@ -5,7 +5,7 @@ import ParkettLogo from '../components/ParkettLogoWhite02.svg';
 
 
 const ListLink = props =>
-  <li className={props.hidden ? "hide" : ""}>
+  <li className={props.hidden ? "hide" : props.active ? "active" : ""}>
     <Link to={props.to}>
       <b className="link">{props.children}</b>
     </Link>
@@ -17,14 +17,14 @@ function Header(props) {
       <Link to="/" style={{ textShadow: `none`, backgroundImage: `none` }}>
         <img className="mainLogo" src={ParkettLogo} />
       </Link>
-      <nav style={{ position: `absolute`, bottom: 0, right: 0 }}>
+      <nav style={{ position: `absolute`, bottom: '1em', right: 0 }}>
         <ul style={{ listStyle: `none`, margin: 0, display: `flex`, justifyContent: `flex-end` }}>
-          <ListLink to="/events/" >Események</ListLink>
-          <ListLink to="/edit-events/">Események szerkesztése</ListLink>
-          <ListLink to="/community/">Közösség</ListLink>
-          <ListLink to="/media/">Média</ListLink>
-          <ListLink to="/knowledge-base/">Tudásbázis</ListLink>
-          <ListLink to="/edit-knowledge-base/">Tudásbázis szerkesztése</ListLink>
+          <ListLink to="/events/" active={props.events}>Események</ListLink>
+          <ListLink to="/edit-events/" active={props.editevents}>Események szerkesztése</ListLink>
+          <ListLink to="/community/" active={props.community}>Közösség</ListLink>
+          <ListLink to="/media/" active={props.media}>Média</ListLink>
+          <ListLink to="/knowledge-base/" active={props.knowledgebase}>Tudásbázis</ListLink>
+          <ListLink to="/edit-knowledge-base/" active={props.editknowledgebase}>Tudásbázis szerkesztése</ListLink>
         </ul>
       </nav>
     </header>

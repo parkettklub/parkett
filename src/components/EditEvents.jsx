@@ -106,11 +106,11 @@ class EditEvents extends React.Component {
         let selected = [];
 
         if (this.state.selectPartyid) {
-            selected.push(<EditEventParty onClick={this.back} />);
+            selected.push(<EditEventParty onClick={this.back} key="party" />);
         } else if (this.state.selectWorkshopid) {
-            selected.push(<EditEventWorkshop onClick={this.back} />);
+            selected.push(<EditEventWorkshop onClick={this.back} key="workshop" />);
         } else if (this.state.selectArticleid) {
-            selected.push(<EditEventArticle onClick={this.back} />);
+            selected.push(<EditEventArticle onClick={this.back} key="article" />);
         } else {
             selected.push(
                 <div className="card" key="addNewEvents">

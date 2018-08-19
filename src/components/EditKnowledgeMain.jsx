@@ -126,47 +126,47 @@ class EditKnowledgeMain extends React.Component {
     }
     render() {
         let bands = [];
-        bands.push(<div className="id"><b>ID</b></div>);
-        bands.push(<div><b>NAME</b></div>);
+        bands.push(<div className="id" key="bandid-title"><b>ID</b></div>);
+        bands.push(<div key="bandname"><b>NAME</b></div>);
         this.state.bands.forEach(element => {
-            bands.push(<div className="id"> {element.id}</div>);
-            bands.push(<div>{element.name} {element.url}</div>);
+            bands.push(<div className="id" key={element.id}> {element.id}</div>);
+            bands.push(<div key={element.id + "_desc"}>{element.name} {element.url}</div>);
         });
         let djs = [];
-        djs.push(<div className="id"><b>ID</b></div>);
-        djs.push(<div><b>NAME</b></div>);
+        djs.push(<div className="id" key="djid"><b>ID</b></div>);
+        djs.push(<div key="djdesc"><b>NAME</b></div>);
         this.state.djs.forEach(element => {
-            djs.push(<div className="id"> {element.id}</div>);
-            djs.push(<div>{element.name} {element.url}</div>);
+            djs.push(<div className="id" key={element.id}> {element.id}</div>);
+            djs.push(<div key={element.id + "_desc"}>{element.name} {element.url}</div>);
         });
         let dances = [];
-        dances.push(<div className="id"><b>ID</b></div>);
-        dances.push(<div><b>NAME</b></div>);
+        dances.push(<div className="id" key="danceid"><b>ID</b></div>);
+        dances.push(<div key="dancedesc"><b>NAME</b></div>);
         this.state.dances.forEach(element => {
-            dances.push(<div className="id"> {element.id}</div>);
-            dances.push(<div>{element.name}</div>);
+            dances.push(<div className="id" key={element.id}> {element.id}</div>);
+            dances.push(<div key={element.id + "_desc"}>{element.name}</div>);
         });
         let danceteachers = [];
-        danceteachers.push(<div className="id"><b>ID</b></div>);
-        danceteachers.push(<div><b>NAME</b></div>);
+        danceteachers.push(<div className="id" key="dteacherid"><b>ID</b></div>);
+        danceteachers.push(<div key="dteacherdesc"><b>NAME</b></div>);
         this.state.danceteachers.forEach(element => {
-            danceteachers.push(<div className="id"> {element.id}</div>);
-            danceteachers.push(<div>{element.name} {element.url}</div>);
+            danceteachers.push(<div className="id" key={element.id}> {element.id}</div>);
+            danceteachers.push(<div key={element.id + "_desc"}>{element.name} {element.url}</div>);
         });
         let partyteachers = [];
-        partyteachers.push(<div className="id"><b>ID</b></div>);
-        partyteachers.push(<div><b>Teacher and dance</b></div>);
+        partyteachers.push(<div className="id" key="pteacherid"><b>ID</b></div>);
+        partyteachers.push(<div key="pteacherdesc"><b>Teacher and dance</b></div>);
         this.state.partyteachers.forEach(element => {
-            partyteachers.push(<div className="id"> {element.id}</div>);
-            partyteachers.push(<div>{this.getDanceTeacher(element.teacherid).name} {this.getDance(element.danceid).name} {element.level} {element.length}</div>);
+            partyteachers.push(<div className="id" key={element.id}> {element.id}</div>);
+            partyteachers.push(<div key={element.id + "_desc"}>{this.getDanceTeacher(element.teacherid).name} {this.getDance(element.danceid).name} {element.level} {element.length}</div>);
         });
         const danceOptions = [];
         this.state.dances.forEach((dance) => {
-            danceOptions.push(<option value={dance.id}>{dance.id} - {dance.name}</option>)
+            danceOptions.push(<option value={dance.id} key={dance.id}>{dance.id} - {dance.name}</option>)
         });
         const teacherOptions = [];
         this.state.danceteachers.forEach((teacher) => {
-            teacherOptions.push(<option value={teacher.id}>{teacher.id} - {teacher.name}</option>)
+            teacherOptions.push(<option value={teacher.id} key={teacher.id}>{teacher.id} - {teacher.name}</option>)
         });
         return (
             <div className="multistep-editor card grid">

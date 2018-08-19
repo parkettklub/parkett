@@ -5,7 +5,7 @@ import Header from '../components/Header.jsx';
 const Media = () => (
 
     <div>
-        <Header />
+        <Header media />
         <div className="pagecenter">
             <h1 style={{ marginTop: `6rem` }} ></h1>
             Média
