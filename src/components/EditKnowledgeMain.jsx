@@ -1,7 +1,6 @@
 import React from 'react';
 import './Editor.css';
 import './Card.css';
-import Plusicon from './document.svg';
 import Editicon from './pencil.svg';
 
 class EditKnowledgeMain extends React.Component {
@@ -40,68 +39,131 @@ class EditKnowledgeMain extends React.Component {
                 level: "kezdő",
                 length: "45 perces"
             }],
-            name: "Template",
-            content: "Template COntent",
+            name: "",
+            selectedId: 3,
+            content: "",
             selectedForm: "dance",
-            url: "www.google.com",
+            url: "",
             teacherid: 1,
             danceid: 1,
-            level: "kezdő",
-            length: "45 perces",
+            level: "",
+            length: "",
             nextId: 3,
+            new: true,
         };
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.ChangeTab = this.ChangeTab.bind(this);
         this.getDanceTeacher = this.getDanceTeacher.bind(this);
         this.getDance = this.getDance.bind(this);
+        this.EditElement = this.EditElement.bind(this);
     }
 
 
     handleSubmit(event) {
         console.log(this.state.bands);
         if (this.state.selectedForm == "band") {
-            this.state.bands.push({
-                id: this.state.nextId++,
-                name: this.state.name,
-                url: this.state.url
-            });
+            if (this.state.new) {
+                this.state.bands.push({
+                    id: this.state.selectedId,
+                    name: this.state.name,
+                    url: this.state.url
+                });
+            } else {
+                let index = this.state.bands.findIndex((element) => element.id == this.state.selectedId);
+                this.state.bands[index] = {
+                    id: this.state.selectedId,
+                    name: this.state.name,
+                    url: this.state.url
+                }
+            }
             this.setState({ selectedForm: "band" });
         }
         if (this.state.selectedForm == "dj") {
-            this.state.djs.push({
-                id: this.state.nextId++,
-                name: this.state.name,
-                url: this.state.url
-            });
+            if (this.state.new) {
+                this.state.djs.push({
+                    id: this.state.selectedId,
+                    name: this.state.name,
+                    url: this.state.url
+                });
+            } else {
+                let index = this.state.djs.findIndex((element) => element.id == this.state.selectedId);
+                this.state.djs[index] = {
+                    id: this.state.selectedId,
+                    name: this.state.name,
+                    url: this.state.url
+                };
+            }
             this.setState({ selectedForm: "dj" });
         }
         if (this.state.selectedForm == "danceteacher") {
-            this.state.danceteachers.push({
-                id: this.state.nextId++,
-                name: this.state.name,
-                url: this.state.url
-            });
+            if (this.state.new) {
+                this.state.danceteachers.push({
+                    id: this.state.selectedId,
+                    name: this.state.name,
+                    url: this.state.url
+                });
+            } else {
+                let index = this.state.danceteachers.findIndex((element) => element.id == this.state.selectedId);
+                this.state.danceteachers[index] = {
+                    id: this.state.selectedId,
+                    name: this.state.name,
+                    url: this.state.url
+                };
+            }
             this.setState({ selectedForm: "danceteacher" });
         }
         if (this.state.selectedForm == "dance") {
-            this.state.dances.push({
-                id: this.state.nextId++,
-                name: this.state.name,
-                content: this.state.content
-            });
+            if (this.state.new) {
+                this.state.dances.push({
+                    id: this.state.selectedId,
+                    name: this.state.name,
+                    content: this.state.content
+                });
+            } else {
+                let index = this.state.dances.findIndex((element) => element.id == this.state.selectedId);
+                this.state.dances[index] = {
+                    id: this.state.selectedId,
+                    name: this.state.name,
+                    content: this.state.content
+                };
+            }
             this.setState({ selectedForm: "dance" });
         }
         if (this.state.selectedForm == "partyteacher") {
-            this.state.partyteachers.push({
-                id: this.state.nextId++,
-                teacherid: this.state.teacherid,
-                danceid: this.state.danceid,
-                level: this.state.level,
-                length: this.state.length,
+            if (this.state.new) {
+                this.state.partyteachers.push({
+                    id: this.state.selectedId,
+                    teacherid: this.state.teacherid,
+                    danceid: this.state.danceid,
+                    level: this.state.level,
+                    length: this.state.length,
+                });
+            } else {
+                let index = this.state.partyteachers.findIndex((element) => element.id == this.state.selectedId);
+                this.state.partyteachers[index] = {
+                    id: this.state.selectedId,
+                    teacherid: this.state.teacherid,
+                    danceid: this.state.danceid,
+                    level: this.state.level,
+                    length: this.state.length,
+                };
+            }
+            this.setState({
+                selectedForm: "partyteacher",
             });
-            this.setState({ selectedForm: "partyteacher" });
         }
+        this.setState({
+            selectedId: this.state.nextId++,
+            new: true,
+            name: "",
+            content: "",
+            url: "",
+            teacherid: 1,
+            danceid: 1,
+            level: "",
+            length: "",
+        });
         event.preventDefault();
     }
 
@@ -114,52 +176,123 @@ class EditKnowledgeMain extends React.Component {
         return this.state.danceteachers.find((teacher) => teacher.id == id);
     }
 
-
     getDance(id) {
         return this.state.dances.find((dance) => dance.id == id);
     }
 
-
     ChangeTab(tabName) {
         this.setState({
-            selectedForm: tabName
+            selectedForm: tabName,
+            new: true,
+            name: "",
+            content: "",
+            url: "",
+            teacherid: 1,
+            danceid: 1,
+            level: "",
+            length: "",
         })
     }
+
+    EditElement(element, type) {
+        if (type == "dance") {
+            this.setState({
+                selectedId: element.id,
+                name: element.name,
+                content: element.content,
+                new: false,
+            });
+        }
+
+        if (type == "band") {
+            this.setState({
+                selectedId: element.id,
+                name: element.name,
+                url: element.url,
+                new: false,
+            });
+        }
+        if (type == "dj") {
+            this.setState({
+                selectedId: element.id,
+                name: element.name,
+                url: element.url,
+                new: false,
+            });
+        }
+        if (type == "danceteacher") {
+            this.setState({
+                selectedId: element.id,
+                name: element.name,
+                url: element.url,
+                new: false,
+            });
+        }
+        if (type == "partyteacher") {
+            this.setState({
+                teacherid: element.teacherid,
+                danceid: element.danceid,
+                level: element.level,
+                length: element.length,
+                selectedId: element.id,
+                new: false,
+            });
+        }
+    }
+
     render() {
         let bands = [];
-        bands.push(<div className="id" key="bandid-title"><b>ID</b></div>);
+        bands.push(<div className="id" key="bandid-title"><b>EDIT</b></div>);
         bands.push(<div key="bandname"><b>NAME</b></div>);
         this.state.bands.forEach(element => {
-            bands.push(<div className="id" key={element.id}> {element.id}</div>);
+            bands.push(
+                <div className="id" key={element.id} onClick={() => this.EditElement(element, "band")}>
+                    <img src={Editicon} />
+                </div>);
             bands.push(<div key={element.id + "_desc"}>{element.name} {element.url}</div>);
         });
         let djs = [];
-        djs.push(<div className="id" key="djid"><b>ID</b></div>);
+        djs.push(<div className="id" key="djid"><b>EDIT</b></div>);
         djs.push(<div key="djdesc"><b>NAME</b></div>);
         this.state.djs.forEach(element => {
-            djs.push(<div className="id" key={element.id}> {element.id}</div>);
+            djs.push(
+                <div className="id" key={element.id} onClick={() => this.EditElement(element, "dj")}>
+                    <img src={Editicon} />
+                </div>);
             djs.push(<div key={element.id + "_desc"}>{element.name} {element.url}</div>);
         });
         let dances = [];
-        dances.push(<div className="id" key="danceid"><b>ID</b></div>);
+        dances.push(<div className="id" key="danceid"><b>EDIT</b></div>);
         dances.push(<div key="dancedesc"><b>NAME</b></div>);
         this.state.dances.forEach(element => {
-            dances.push(<div className="id" key={element.id}> {element.id}</div>);
+            dances.push(
+                <div className="id" key={element.id} onClick={() => this.EditElement(element, "dance")}>
+                    <img src={Editicon} />
+                </div>);
             dances.push(<div key={element.id + "_desc"}>{element.name}</div>);
         });
         let danceteachers = [];
-        danceteachers.push(<div className="id" key="dteacherid"><b>ID</b></div>);
+        danceteachers.push(<div className="id" key="dteacherid"><b>EDIT</b></div>);
         danceteachers.push(<div key="dteacherdesc"><b>NAME</b></div>);
         this.state.danceteachers.forEach(element => {
-            danceteachers.push(<div className="id" key={element.id}> {element.id}</div>);
+            danceteachers.push(
+                <div className="id" key={element.id} onClick={() => this.EditElement(element, "danceteacher")}>
+                    <img src={Editicon} />
+                </div>);
             danceteachers.push(<div key={element.id + "_desc"}>{element.name} {element.url}</div>);
         });
         let partyteachers = [];
-        partyteachers.push(<div className="id" key="pteacherid"><b>ID</b></div>);
+        partyteachers.push(<div className="id" key="pteacherid"><b>EDIT</b></div>);
         partyteachers.push(<div key="pteacherdesc"><b>Teacher and dance</b></div>);
         this.state.partyteachers.forEach(element => {
-            partyteachers.push(<div className="id" key={element.id}> {element.id}</div>);
-            partyteachers.push(<div key={element.id + "_desc"}>{this.getDanceTeacher(element.teacherid).name} {this.getDance(element.danceid).name} {element.level} {element.length}</div>);
+            partyteachers.push(
+                <div className="id" key={element.id} onClick={() => this.EditElement(element, "partyteacher")}>
+                    <img src={Editicon} />
+                </div>);
+            partyteachers.push(
+                <div key={element.id + "_desc"}>
+                    {this.getDanceTeacher(element.teacherid).name} {this.getDance(element.danceid).name} {element.level} {element.length}
+                </div>);
         });
         const danceOptions = [];
         this.state.dances.forEach((dance) => {
@@ -246,7 +379,7 @@ class EditKnowledgeMain extends React.Component {
                                 <div className="helper">rövid</div>
                             </div>
                             <div className="formGroup mySubmitgroup">
-                                <input type="submit" value="Add" className="mySubmit" />
+                                <input type="submit" value={this.state.new ? "Add" : "Modify"} className="mySubmit" />
                             </div>
                         </form>
                     </div>

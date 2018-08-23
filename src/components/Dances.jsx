@@ -34,7 +34,7 @@ class Dances extends React.Component {
                 name: "kizomba",
                 content: "Dél-Afrikából, az egykori portugál gyarmat Angolából indult hódító útjára a kizomba, melyet sokan - tévesen - egyfajta afrikai tangóként határoznak meg. Tény, hogy a táncban tetten érhetők a tangó alaplépései, de a tangó színpadiasságától, jellegzetes romantikus drámájától igencsak messze áll a laza, dögös, bulis kizomba. A kizomba szó egyébként nem is jelent mást, mint ünnepet, kikapcsolódást, szórakozást. A szamba elődjének számító, hagyományos angolai szemba, a francia Antillákról származó zouk zene, valamint az argentin tangó lépései álltak össze a kizombában egzotikus eleggyé."
             }],
-            selectedid: 1,
+            selectedid: null,
         }
         this.select = this.select.bind(this);
     }

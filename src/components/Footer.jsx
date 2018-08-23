@@ -26,8 +26,12 @@ function Footer(props) {
                     <div><b>Emailcím:</b></div>
                     <div>parkettklub@sch.bme.hu</div>
                     <div>
-                        <img className="footer-image" src={Instagram} />
-                        <img className="footer-image" src={Facebook} />
+                        <a href="https://www.instagram.com/parkettklub/" target="_blank">
+                            <img className="footer-image" src={Instagram} />
+                        </a>
+                        <a href="https://www.facebook.com/ParkettKlub/" target="_blank">
+                            <img className="footer-image" src={Facebook} />
+                        </a>
                     </div>
                 </div>
             </div>

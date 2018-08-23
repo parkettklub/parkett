@@ -1,19 +1,16 @@
 .tipsAndTricks div{
     padding: 0;
     padding-top: 1em;
-    font-size: 21px;
 }
 
 .tipsAndTricks .contnet {
     padding: 0;
     padding-top: 0;
     text-align: justify;
-    font-size: 17px;
 }
 
 .tipsAndTricks li {
     text-align: justify;
-    font-size: 17px;
 }
 
 .card h3 {
@@ -27,7 +24,6 @@
     width: 100%;
     text-align: center;
     align-items: center;
-    font-size: 40px;
     color: #ffffff;
     max-height: 4em;
 }

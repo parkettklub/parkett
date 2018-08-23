@@ -1,9 +1,8 @@
 .eventSummary {
     display: grid;
     grid-gap: 10px;
-    grid-template-columns: 150px auto 50px;
+    grid-template-columns: 150px auto 100px;
     padding: 0;
-    margin: 0;
     align-items: center;
     cursor: pointer;
 }
@@ -30,7 +29,6 @@
 
 .eventSummary-title {
     font-weight: bold;
-    font-size: 20px;
 }
 
 .eventSummary-facebook-link {
@@ -39,11 +37,11 @@
 }
 
 .eventSummary-facebook-link img{
-    width: 30px;
+    width: 50px;
 }
 
 .eventSummary-details > div {
-    padding: 0.5em;
+    padding: 10px
 }
 
 .eventList-card-form {
@@ -120,8 +118,23 @@
     transition: opacity 1000ms ease-out;
 }
 
-@media only screen and (min-width: 700px)  {
-    .eventList-title {
-        font-size: 30px;
+@media only screen and (max-width: 900px)  {
+    .eventSummary {
+        grid-gap: 5px;
+        grid-template-columns: 120px auto 0px;
     }
+
+    .poster-cropper {
+        width: 120px;
+        height: 120px;
+    }
+
+    .poster-cropper img {
+        width: 120px;
+        height: 120px;
+    }
+
+    .eventSummary-details > div {
+    padding: 2px
+}
 }

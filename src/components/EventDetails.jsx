@@ -23,7 +23,7 @@ function EventDetails(props) {
     let links = [];
     if (props.details.facebook) {
         links.push(
-            <a className="eventdetail-facebook-link" href={props.details.facebook}>
+            <a className="eventdetail-facebook-link" href={props.details.facebook} target="_blank">
                 <img className="eventdetail-facebook-logo"
                     src={FacebookLogo} alt="" />
             </a>)
@@ -31,7 +31,7 @@ function EventDetails(props) {
     return (
         <div className="card withpadding eventdetail-wrapper">
             <div className="eventdetail-title-and-program">
-                <div className="eventdetail-title-secondery">Program</div>
+                <div className="eventdetail-title-secondery title">Program</div>
                 <div className="eventdetail-program">{props.details.program}</div>
             </div>
             <DanceFigure dance={props.details.dance} />

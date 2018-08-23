@@ -4,7 +4,7 @@ import './Knowledge-Base.css';
 function TipsAndTricks(props) {
     return (
         <div className="card withpadding tipsAndTricks">
-            <h3>Álltalános buli leírás</h3>
+            <div className="title">Álltalános buli leírás</div>
             <div className="contnet">Összegyűjtöttünk pár jótanácsot, melyeknek hasznát veheted, ha táncórára vagy táncos buliba készülsz. Többek között leírtunk olyan tippeket, melyekkel elkerülheted, hogy cikis helyzetbe kerülj, vagy hogy kényelmetlenül érezd magad és tönkremenjen az estéd egy táncos eseményen.</div>
             <div><b>Mit vegyek fel?</b></div>
             <li>Olyan ruhát válassz, amiben teljesen jól érzed magad! Ha nem tudod előre, akkor tégy el egy bevált másikat B tervnek.</li>

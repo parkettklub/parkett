@@ -1,5 +1,6 @@
 import React from 'react';
 import EventSummary from './Event';
+import EditEventsHeader from './EditEventsHeader';
 import ReactCssTransitionGroup from 'react-addons-css-transition-group';
 import Plakat01 from './Plakat.png';
 import Plakat02 from './Plakat_vegleges.jpg';
@@ -104,7 +105,6 @@ class EventList extends React.Component {
     }
 
     filterEvent(search, event) {
-
         const date = event.start_date;
         const dateString = date.split('T')[0] + " " + date.split('T')[0];
         return (event.title.toUpperCase().indexOf(search.toUpperCase()) !== -1)
@@ -144,10 +144,10 @@ class EventList extends React.Component {
             }
         });
 
-        if (oldEvents.length < 1) {
+        if (oldEvents.length < 1 && newEvents.length < 1) {
             middleMan = []
             middleMan.push(
-                <div className="eventList-old-events">
+                <div className="eventList-old-events" key="oldevents" >
                     Nincs ilyen esemény
                 </div>
             )

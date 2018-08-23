@@ -3,7 +3,6 @@
     min-height: 35rem;
 }
 
-
 .edit-steps {
     background: #3A2929;
     height: 100%;
@@ -12,6 +11,11 @@
 
 .edit-steps > div {
     padding: 20px;
+}
+
+.edit-steps > div:hover {
+    padding: 20px;
+    cursor: pointer;
 }
 
 .edit-steps > .stage:hover {
@@ -40,7 +44,6 @@
     box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 0.4);
     border-radius: 2px;
     border: 0px;
-    font-size: 15px;
     width: 100%;
 }
 
@@ -60,7 +63,6 @@
 
 .form .helper {
     margin: 10px;
-    font-size: 13px;
     font-style: italic;
     color: #757575;
 }
@@ -85,6 +87,11 @@
     grid-template-columns: auto max-content;
 }
 
+.editable-event .edit:hover {
+    filter: opacity(0.5);
+    cursor: pointer;
+}
+
 .addEvent {
     grid-template-columns: 1fr 1fr 1fr;
 }
@@ -92,6 +99,11 @@
 .addEvent > div{
     margin: 0 auto;
     color: black;
+}
+
+.addEvent > div:hover{
+    cursor: pointer;
+    opacity: 0.5;
 }
 
 .logo {
@@ -112,4 +124,8 @@
 
 .hidden {
     display: none;
+}
+
+.id img {
+    height: 1em;
 }

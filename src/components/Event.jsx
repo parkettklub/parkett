@@ -21,7 +21,7 @@ function EventSummary(props) {
     const facebookLink = []
     if (props.details.facebook) {
         facebookLink.push(
-            <a href={props.details.facebook} key="FacebookLink">
+            <a href={props.details.facebook} target="_blank" key="FacebookLink" onClick={(event) => event.stopPropagation()}>
                 <img src={FacebookLogo} alt="" />
             </a>
         )
@@ -36,7 +36,7 @@ function EventSummary(props) {
                         src={props.details.poster ? props.details.poster : Boritokep} />
                 </div>
                 <div className="eventSummary-details">
-                    <div className="eventSummary-title">{props.details.title}</div>
+                    <div className="title">{props.details.title}</div>
                     <div>{dateString}</div>
                     {detailsrows}
                 </div>

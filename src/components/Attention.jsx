@@ -3,7 +3,7 @@ import './Knowledge-Base.css';
 
 const Attention = props =>
     <div className="card withpadding">
-        <h3>Figyelem!</h3>
+        <div className="title">Figyelem!</div>
         <div>A Parkett Klub rendezvényeire a beléptetés jogát fenntartjuk. A kedvezmények igénybevétele az azt igazoló kártyával lehetséges. A belépéssel hozzájárulsz, hogy videófelvétel és fényképek készüljenek Rólad, és azok megjelenjenek a Schönherz Zoltán Kolllégiummal, a SPOT fotókörrel, a Budavári Schönherz Stúdióval, illetve a Parkett Klubbal kapcsolatos felületeken. Utólagos kérésre a Rólad készült fényképeket eltávolítjuk.</div>
     </div>
 

@@ -7,7 +7,7 @@ function EventWithPoster(props) {
         <div className="card withpadding eventdetail-wrapper">
             <img className={"eventdetail-poster"} src={props.details.poster} alt="" />
             <div className="eventdetail-title">
-                {props.details.title}
+                <div className="title">{props.details.title}</div>
                 <div className="eventdetail-date">{props.details.date}</div>
                 <div className="eventdetail-description">{props.details.description}</div>
             </div>

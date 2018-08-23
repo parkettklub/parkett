@@ -3,7 +3,7 @@ import './Knowledge-Base.css';
 
 const Services = props =>
     <div className="card withpadding">
-        <h3>Bulin lévő szolgáltatások</h3>
+        <div className="title">Bulin lévő szolgáltatások</div>
         <li><b>Ingyenes ruhatár</b></li>
         <li><b>Italpult kedvezményes árakkal</b></li>
     </div>
