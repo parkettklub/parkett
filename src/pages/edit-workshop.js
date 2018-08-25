@@ -15,7 +15,6 @@ const EditWorkshop = () => (
             transitionAppear={true}
             transitionLeaveTimeout={300}>
             <div className="pagecenter">
-                <h1 style={{ marginTop: `6rem` }} ></h1>
                 <EditEventWorkshop />
             </div>
         </ReactCssTransitionGroup>

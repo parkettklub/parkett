@@ -11,7 +11,6 @@
 
 .footer-left {
     text-align: left;
-
 }
 
 .footer-center {
@@ -33,7 +32,7 @@
 
 .main-footer {
   display: block;
-  height: 6rem;
+  height: 7rem;
   background-color: rgba(10, 10, 10, .2);
   background-image: url('boritokep2.png');
   background-position: bottom;
@@ -44,6 +43,7 @@
   text-align: center;
   opacity: 0.9;
   color: white;
+  font-size: 17px;
 }
 
 .main-footer div {

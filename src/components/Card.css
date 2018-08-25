@@ -48,6 +48,8 @@
     color: white;
     font-family: 'Roboto', sans-serif;
     margin-bottom: 6rem;
+    margin-top: 5rem;
+    padding: 1rem;
 }
 
 .pagecenter .card {
@@ -87,6 +89,24 @@
     height: 40px;
 }
 
+.mainAttraction {
+    margin: 0 auto;
+}
+
+@keyframes myTransform {
+    0% {
+        opacity: 0;
+    }
+
+    25% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
 @media only screen and (min-width: 900px)  {
     .card-grid {
         max-width: 900px;
@@ -99,11 +119,13 @@
     .editButton {
         max-width: 900px;
     }
+
 }
 
 @media only screen and (max-width: 900px)  {
     .card .title {
         font-size: 20px;
+        margin-bottom: 0.2em;
     }       
 
     .card {

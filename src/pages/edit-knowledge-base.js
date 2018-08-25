@@ -14,7 +14,6 @@ const EventKnowledgeBase = () => (
             transitionAppear={true}
             transitionLeaveTimeout={300}>
             <div className="pagecenter">
-                <h1 style={{ marginTop: `5rem` }} ></h1>
                 <EditKnowledgeMain />
             </div>
         </ReactCssTransitionGroup>

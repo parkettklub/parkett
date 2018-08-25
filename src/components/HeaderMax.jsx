@@ -9,16 +9,16 @@ import Swing from '../components/dancing-figures/Swing.svg';
 
 
 const ListLink = props =>
-    <li className={props.hidden ? "hide" : ""}>
+    <div className={props.hidden ? "hide" : ""}>
         <Link to={props.to}>
             <b className="link">{props.children}</b>
         </Link>
-    </li>
+    </div>
 
 function HeaderMa(props) {
     return (
         <header className="main-header max">
-            <div>
+            <div className="logo-div">
                 <Link to="/">
                     <img className="mainLogo" src={ParkettLogo} />
                     <img className="sideLogo" src={Kizomba} />
@@ -27,12 +27,11 @@ function HeaderMa(props) {
                     <img className="sideLogo2" src={Salsa} />
                 </Link>
             </div>
-            <div>
+            <div className="links">
                 <ListLink to="/events/" >Események</ListLink>
                 <ListLink to="/community/">Közösség</ListLink>
                 <ListLink to="/media/">Média</ListLink>
                 <ListLink to="/knowledge-base/">Tudásbázis</ListLink>
-                <ListLink to="/edit-knowledge-base/">Tudásbázis szerkesztése</ListLink>
             </div>
         </header >
     )

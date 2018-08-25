@@ -15,7 +15,6 @@ const EventArticlePage = () => (
             transitionAppear={true}
             transitionLeaveTimeout={300}>
             <div className="eventdetails-main">
-                <h1 style={{ marginTop: `5rem` }} ></h1>
                 <EventArticle />
             </div>
         </ReactCssTransitionGroup>

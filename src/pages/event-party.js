@@ -15,7 +15,6 @@ const EventPartyPage = () => (
       transitionAppear={true}
       transitionLeaveTimeout={300}>
       <div className="pagecenter eventdetails-main">
-        <h1 style={{ marginTop: `5rem` }} ></h1>
         <EventParty />
       </div>
     </ReactCssTransitionGroup>
