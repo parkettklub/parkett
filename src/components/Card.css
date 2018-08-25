@@ -8,6 +8,11 @@
     display: block;
     max-width: 700px;
     margin: 0 auto;
+    margin-bottom: 20px;
+}
+
+.pagecenter .card-grid .card {
+    margin-bottom: 0;
 }
 
 .card {
@@ -31,30 +36,11 @@
 .card .title {
     font-size: 30px;
     font-weight: bold;
+    margin-bottom: 0.8em;
 }
 
 .withpadding {
     padding: 10px;
-}
-
-@media only screen and (min-width: 900px)  {
-    .card-grid {
-        max-width: 900px;
-    }
-
-    .card {
-        max-width: 900px;
-    }
-}
-
-@media only screen and (max-width: 900px)  {
-    .card .title {
-        font-size: 20px;
-    }       
-
-    .card {
-         font-size: 15px;
-    }
 }
 
 .pagecenter {
@@ -81,4 +67,46 @@
 
 .grid.withgap {
     grid-gap: 10px;
+}
+
+.editButton {
+    text-align: right;
+    max-width: 700px;
+}
+
+.editButton img:hover  {
+    opacity: 0.5;
+}
+
+.pagecenter .editButton {
+    margin: 0 auto;
+    margin-bottom: 20px;
+}
+
+.pagecenter .editButton img{
+    height: 40px;
+}
+
+@media only screen and (min-width: 900px)  {
+    .card-grid {
+        max-width: 900px;
+    }
+
+    .card {
+        max-width: 900px;
+    }
+
+    .editButton {
+        max-width: 900px;
+    }
+}
+
+@media only screen and (max-width: 900px)  {
+    .card .title {
+        font-size: 20px;
+    }       
+
+    .card {
+         font-size: 15px;
+    }
 }

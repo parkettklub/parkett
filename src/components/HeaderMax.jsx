@@ -29,7 +29,6 @@ function HeaderMa(props) {
             </div>
             <div>
                 <ListLink to="/events/" >Események</ListLink>
-                <ListLink to="/edit-events/">Események szerkesztése</ListLink>
                 <ListLink to="/community/">Közösség</ListLink>
                 <ListLink to="/media/">Média</ListLink>
                 <ListLink to="/knowledge-base/">Tudásbázis</ListLink>

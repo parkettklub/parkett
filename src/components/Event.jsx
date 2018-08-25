@@ -8,7 +8,7 @@ function EventSummary(props) {
 
     const detailsrows = [];
     if (props.details.formlink) {
-        detailsrows.push(<div key="form"><a href={props.details.formlink}>Link a formhoz</a></div>)
+        detailsrows.push(<div key="form"><a href={props.details.formlink} target="_blank" key="FormLink" onClick={(event) => event.stopPropagation()}>Link a formhoz</a></div>)
     }
 
     if (props.details.music) {

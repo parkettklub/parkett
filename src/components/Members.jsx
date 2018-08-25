@@ -108,8 +108,11 @@ class Members extends React.Component {
 
         return (
             <div className="memberMain">
-                <div>
+                <div className="simple">
                     {memberRows}
+                </div>
+                <div className="olderMembers">
+                    Régebbi tagok
                 </div>
                 <div className="more">
                     {oldMemberRows}

@@ -1,6 +1,6 @@
 import React from 'react';
 import EventSummary from './Event';
-import EditEventsHeader from './EditEventsHeader';
+import Edit from './pencil_white.svg';
 import ReactCssTransitionGroup from 'react-addons-css-transition-group';
 import Plakat01 from './Plakat.png';
 import Plakat02 from './Plakat_vegleges.jpg';
@@ -11,6 +11,11 @@ function onClickParty() {
 
 function onClickWorkshop() {
     window.location = "/event-workshop/";
+}
+
+
+function editEventsPage() {
+    window.location = "/edit-events/";
 }
 
 class EventList extends React.Component {
@@ -155,6 +160,9 @@ class EventList extends React.Component {
 
         return (
             <div>
+                <div className="editButton" >
+                    <img src={Edit} onClick={editEventsPage} />
+                </div>
                 <form autoComplete="off" className="card eventList-card-form">
                     <div>
                         <input type="text" name="search"
@@ -172,7 +180,7 @@ class EventList extends React.Component {
                     transitionLeaveTimeout={300}>
                     {newEvents}{middleMan}{oldEvents}
                 </ReactCssTransitionGroup>
-            </div>
+            </div >
         )
     }
 }

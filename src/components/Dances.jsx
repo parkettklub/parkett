@@ -88,10 +88,12 @@ function Dance(props) {
             </div>
         )
     } else {
+        let name = props.dance.name;
+        name = name.charAt(0).toUpperCase() + name.slice(1);
         description.push(
             <div className={"card withpadding dance " + color} onClick={() => props.click(props.dance.id)} style={{ ...styles }} key="card">
                 <div><img src={icon} /></div>
-                <div><b>{props.dance.name}</b></div>
+                <div><b>{name}</b></div>
             </div>
         );
     }
