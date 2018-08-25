@@ -6,7 +6,7 @@
   background-color: rgba(10, 10, 10, .2);
   background-image: url('boritokep2.png');
   background-position: top;
-  background-size: cover;
+  background-size: auto 100vh;
   color: white;
   position: fixed;
   opacity: 0.9;
