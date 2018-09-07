@@ -28,6 +28,13 @@
     max-height: 4em;
 }
 
+@media only screen and (max-width: 400px)  {
+    .dance-grid {
+        grid-column-start: 1;
+        grid-column-end: 3;
+    }
+}
+
 .dance img {
     height: 3em;
 }

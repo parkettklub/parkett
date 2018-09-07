@@ -78,7 +78,7 @@ function Dance(props) {
     }
 
     let description = [];
-    let selectedClass = "";
+    let selectedClass = "dance-grid";
     if (props.selected) {
         selectedClass += " selected";
         description.push(
@@ -99,7 +99,6 @@ function Dance(props) {
     }
 
     return (
-
         <div className={selectedClass}>
             {description}
         </div>
