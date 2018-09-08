@@ -27,6 +27,8 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
+    "eslint": "^5.5.0",
+    "instafeed.js": "^1.4.1",
     "prettier": "^1.13.7"
   },
   "repository": {

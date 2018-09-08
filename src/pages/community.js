@@ -3,6 +3,7 @@ import '../components/Card.css';
 import Header from '../components/Header.jsx';
 import ReactCssTransitionGroup from 'react-addons-css-transition-group';
 import Members from '../components/Members.jsx';
+import SocialFeed from '../components/SocialFeed';
 
 const Community = () => (
     <div>
@@ -15,6 +16,7 @@ const Community = () => (
             transitionAppear={true}
             transitionLeaveTimeout={300}>
             <div className="pagecenter">
+                <SocialFeed />
                 <Members />
             </div>
         </ReactCssTransitionGroup>

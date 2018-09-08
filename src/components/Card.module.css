@@ -1,0 +1,17 @@
+.card {
+    font-size: 18px;
+    background-color: white;
+    padding: 1.9em;
+    border-radius: 4px;
+    margin-bottom: 1.5625rem;
+}
+
+.body {
+}
+
+.header {
+    font-size: 2.7em;
+    text-align: left;
+    color: black;
+    padding: 0 0 0.52em;
+}
