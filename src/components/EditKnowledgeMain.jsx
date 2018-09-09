@@ -61,7 +61,6 @@ class EditKnowledgeMain extends React.Component {
 
 
     handleSubmit(event) {
-        console.log(this.state.bands);
         if (this.state.selectedForm == "band") {
             if (this.state.new) {
                 this.state.bands.push({

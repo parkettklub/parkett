@@ -4,9 +4,8 @@ import Kizomba from './dancing-figures/Kizomba.svg';
 import Salsa from './dancing-figures/Salsa.svg';
 import Swing from './dancing-figures/Swing.svg';
 
-
-const styles = {
-    transition: 'max-height 1s ease-out'
+const animationStyle = {
+    transition: 'all 1s ease-out'
 };
 
 class Dances extends React.Component {
@@ -67,40 +66,25 @@ class Dances extends React.Component {
 }
 
 function Dance(props) {
-    let color = "red";
-    let icon = Folk;
+    let color;
+    let icon;
     switch (props.dance.type) {
         case 0: color = "red"; icon = Salsa; break;
         case 1: color = "green"; icon = Folk; break;
         case 2: color = "yellow"; icon = Swing; break;
         case 3: color = "purple"; icon = Kizomba; break;
-        default: color = "green"
+        default: color = "green"; icon = Folk;
     }
-
-    let description = [];
-    let selectedClass = "dance-grid";
-    if (props.selected) {
-        selectedClass += " selected";
-        description.push(
-            <div className={"card withpadding descritpion " + color} onClick={() => props.click(props.dance.id)} style={{ ...styles }} key="card">
-                <div></div>
-                <div><b>{props.dance.name}: </b>{props.dance.content}</div>
-            </div>
-        )
-    } else {
-        let name = props.dance.name;
-        name = name.charAt(0).toUpperCase() + name.slice(1);
-        description.push(
-            <div className={"card withpadding dance " + color} onClick={() => props.click(props.dance.id)} style={{ ...styles }} key="card">
+    let name = props.dance.name;
+    name = name.charAt(0).toUpperCase() + name.slice(1);
+    return (
+        <div className={"dance-grid" + (props.selected ? " selected" : "")}>
+            <div className={"card withpadding dance " + color + (props.selected ? " open" : "")}
+                onClick={() => props.click(props.dance.id)} style={animationStyle} key="card">
                 <div><img src={icon} /></div>
                 <div><b>{name}</b></div>
+                <div className="descritpion">{props.dance.content}</div>
             </div>
-        );
-    }
-
-    return (
-        <div className={selectedClass}>
-            {description}
         </div>
     )
 }

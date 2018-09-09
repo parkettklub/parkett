@@ -21,13 +21,11 @@ class EditEventArticle extends React.Component {
     }
 
     handleChange(event) {
-        console.log(event.target.value);
         const name = event.target.name;
         this.setState({ [name]: event.target.value });
     }
 
     handleSubmit(event) {
-        console.log(this.state);
         event.preventDefault();
     }
 
@@ -42,8 +40,7 @@ class EditEventArticle extends React.Component {
             <div className="card multistep-editor grid" key="EditEventparty">
                 <div className="edit-steps">
                     <div onClick={this.props.onClick}>
-                        Új hír hozzáadása <br />
-                        Régi hír frissítése
+                        Új hír hozzáadása
                     </div>
                     <div className={this.state.selectedForm == "title" ? "selectedStage" : "stage"}
                         onClick={() => this.ChangeTab("title")}>

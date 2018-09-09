@@ -1,6 +1,5 @@
 .tipsAndTricks div{
     padding: 0;
-    padding-top: 1em;
 }
 
 .tipsAndTricks .contnet {
@@ -13,19 +12,27 @@
     text-align: justify;
 }
 
-.card h3 {
-   padding-left: 2em; 
-}
-
 .dance {
     display: grid;
-    grid-template-columns: max-content auto;
+    grid-template-columns: 3em auto;
     grid-gap: 1em;
     width: 100%;
     text-align: center;
     align-items: center;
     color: #ffffff;
     max-height: 4em;
+    overflow:hidden;
+}
+
+.dance.open {
+    max-height: 30em;
+    color: #000000;
+}
+
+.dance  > .descritpion {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    text-align: justify;
 }
 
 @media only screen and (max-width: 400px)  {
@@ -55,10 +62,3 @@
 .dance.yellow {background: #AB902F}
 .descritpion.yellow {background: rgb(231, 215, 141);}
 .dance.yellow:hover {background: rgb(231, 215, 141);}
-
-.descritpion {
-    text-align: justify;
-    width: 100%;
-    max-height: 30em;
-    overflow:hidden;
-}

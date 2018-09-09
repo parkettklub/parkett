@@ -44,19 +44,16 @@ class EditEventParty extends React.Component {
                 value.push(parseInt(options[i].value));
             }
         }
-        console.log(value);
         const name = event.target.name;
         this.setState({ [name]: value });
     }
 
     handleChange(event) {
-        console.log(event.target.value);
         const name = event.target.name;
         this.setState({ [name]: event.target.value });
     }
 
     handleSubmit(event) {
-        console.log(this.state);
         event.preventDefault();
     }
 

@@ -4,7 +4,6 @@ import HeaderMax from '../components/HeaderMax.jsx';
 import EventWithPoster from '../components/EventWithPoster';
 import Plakat01 from '../components/Plakat_vegleges.jpg';
 import Plakat02 from '../components/Plakat.png';
-import ReactCssTransitionGroup from 'react-addons-css-transition-group';
 
 class IndexPage extends React.Component {
   constructor() {
@@ -59,7 +58,6 @@ class IndexPage extends React.Component {
       <div className="indexpage">
         <HeaderMax />
         <div className="pagecenter mainAttraction" style={{
-
           animationName: 'myTransform',
           animationIterationCount: 'infinite',
           animationDuration: 5 + 's'
