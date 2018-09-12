@@ -53,8 +53,8 @@ function EventWorkshop(props) {
     }
 
     let formdetails = {
-        link : workshopDetails.application_form,
-        teachers : workshopDetails.teacher
+        link: workshopDetails.application_form,
+        teachers: workshopDetails.teacher
     }
     return (
         <div>

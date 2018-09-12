@@ -3,7 +3,7 @@ import React from 'react';
 import EventWithPoster from './EventWithPoster';
 import EventDetails from "./EventDetails";
 import EventMedia from "./EventMedia";
-import Plakat01 from './Plakat.png';
+import Plakat01 from './Plakat.jpg';
 
 
 function EventParty(props) {
@@ -36,12 +36,12 @@ function EventParty(props) {
                 content: "Salsa is a dance",
             }
         },
-        band : {
+        band: {
             id: 1,
             name: "Pedrofon",
             url: "https://www.facebook.com/events/1598719006921910/"
         },
-        dj : {
+        dj: {
             id: 1,
             name: "DJ Eddy",
             url: ""

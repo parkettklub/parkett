@@ -14,7 +14,7 @@ function EventDetailsWorkshop(props) {
             </a>)
     }
     return (
-        <div className="card withpadding eventdetail-wrapper">
+        <div className="card withpadding eventdetail-wrapper right">
             <div className="eventdetail-title-and-program">
                 <div className="eventdetail-title-secondery title">Program</div>
                 <div className="eventdetail-program">{props.details.program}</div>
