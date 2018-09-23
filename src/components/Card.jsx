@@ -8,15 +8,13 @@ class Card extends React.Component {
       var header =
         <header className={styles.header}>
           {this.props.title}
-        </header>;
+        </header>
     }
 
     return (
       <article className={styles.card}>
         {header}
-        <section>
           {this.props.children}
-        </section>
       </article>
     );
   }
