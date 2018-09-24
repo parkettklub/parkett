@@ -25,7 +25,7 @@ class SocialFeed extends React.Component {
 
   photoElements(photos) {
     return photos.map((datum, i) => {
-      return <a key={this.state.resizeImages.toString() + i} href={datum.link}>
+      return <a key={this.state.resizeImages.toString() + datum.id} href={datum.link}>
         <SquareImage resize={this.state.resizeImages} location={datum.images.standard_resolution.url} />
       </a>
     })
