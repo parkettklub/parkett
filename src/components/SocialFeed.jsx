@@ -9,7 +9,7 @@ class SocialFeed extends React.Component {
   tag = "legjobbcsapat";
   state = {
     photos: null,
-    resizeImages : true
+    resizeImages: true
   };
   handleResize = this.handleResize.bind(this);
 
@@ -17,25 +17,27 @@ class SocialFeed extends React.Component {
 
     fetch(`https://api.instagram.com/v1/tags/${this.tag}/media/recent?access_token=${this.accessToken}`).then(response =>
       response.json()).then(data => {
-        this.setState({ photos : data.data.map((datum, i) => {
-
-          console.log(datum.link, datum.images.standard_resolution.url);
-          return <a key={i} href={datum.link}>
-            <SquareImage resize={this.state.resizeImages} location={datum.images.standard_resolution.url} />
-          </a>
-        })}
-        )
-
+        this.setState({ photos: data.data })
         console.log(this.state.photos);
-      });
+      }
+      )
+  };
+
+  photoElements(photos) {
+    return photos.map((datum, i) => {
+      return <a key={this.state.resizeImages.toString() + i} href={datum.link}>
+        <SquareImage resize={this.state.resizeImages} location={datum.images.standard_resolution.url} />
+      </a>
+    })
   }
+
 
   componentDidMount() {
     window.addEventListener("resize", this.handleResize);
   }
 
-  handleResize(){
-    this.setState({resizeImages: !this.state.resizeImages, photos: [...this.state.photos]});
+  handleResize() {
+    this.setState({ resizeImages: !this.state.resizeImages });
   }
 
   render() {
@@ -47,7 +49,7 @@ class SocialFeed extends React.Component {
     return (
       <Card title="@parkettklub">
         <div id="instafeed" className={styles.instafeed}>
-          {this.state.photos ? [...this.state.photos] : "Loading"}
+          {this.state.photos ? this.photoElements(this.state.photos) : "Loading"}
         </div>
       </Card>
     );
