@@ -1,10 +1,10 @@
 import React from 'react';
 import '../components/Card.css';
-import LoginComponent from '../components/LoginComponent';
+import Login from '../components/Login';
 
 const IndexPage = params =>
     <div className="pagecenter">
-        <LoginComponent />
+        <Login />
     </div>
 
 export default IndexPage

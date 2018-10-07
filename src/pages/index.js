@@ -52,10 +52,14 @@ class IndexPage extends React.Component {
 
   componentDidMount() {
     this.timer = setInterval(this.tick, 1000 * 5);
+    let token = localStorage.setItem('token', new URL(window.location.href).searchParams.get('token'));
+    if (token) localStorage.setItem('token', token);
   }
+
   componentWillUnmount() {
     clearInterval(this.timer);
   }
+
   tick() {
     if (this.state.i < this.state.events.length - 1)
       this.setState({ i: this.state.i + 1 });
