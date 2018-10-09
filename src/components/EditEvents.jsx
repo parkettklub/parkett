@@ -54,18 +54,6 @@ class EditEvents extends React.Component {
                 },
             ]
         };
-        this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
-    }
-
-
-    handleSubmit(event) {
-        event.preventDefault();
-    }
-
-
-    handleChange(event) {
-        console.log(event.target.value);
     }
 
     render() {
@@ -95,7 +83,6 @@ class EditEvents extends React.Component {
 
         return (
             <div>
-
                 <EditEventsHeader />
                 <div className="card withpadding" key="editEventList">
                     {rows}

@@ -2,31 +2,49 @@ import React from 'react';
 import '../components/Card.css';
 import HeaderMax from '../components/HeaderMax.jsx';
 import EventWithPoster from '../components/EventWithPoster';
-import Plakat01 from '../components/Plakat_vegleges.jpg';
-import Plakat02 from '../components/Plakat.png';
-import ReactCssTransitionGroup from 'react-addons-css-transition-group';
+import Actual from '../components/osszesitoActual.jpg';
 
 class IndexPage extends React.Component {
   constructor() {
     super();
     this.state = {
-      events: [{
-        id: 1,
-        title: "Élőzenés Salsa Party: Cuba",
-        photo: Plakat01,
-        start_date: new Date(2018, 1, 3, 18, 33, 30, 0),
-        end_date: new Date(2018, 1, 4, 2, 0, 0, 0),
-        content: "Még érezni az előző est hangulatát és máris itt a következő, egyben a félévi utolsó bulink. Várunk titeket egy fergeteges Rock ‘N’ Roll Partyra április 17-én.",
-        facebook_event: "https://www.facebook.com/events/1598719006921910/"
-      }, {
-        id: 2,
-        title: "Élőzenés Salsa Party: Cuba",
-        photo: Plakat02,
-        start_date: new Date(2018, 1, 3, 18, 33, 30, 0),
-        end_date: new Date(2018, 1, 4, 2, 0, 0, 0),
-        content: "Még érezni az előző est hangulatát és máris itt a következő, egyben a félévi utolsó bulink. Várunk titeket egy fergeteges Rock ‘N’ Roll Partyra április 17-én.",
-        facebook_event: "https://www.facebook.com/events/1598719006921910/"
-      }],
+      events: [
+        {
+          id: 11,
+          title: "Salsa Party",
+          poster: Actual,
+          start_date: "2018-10-02 18:00",
+        },
+        {
+          id: 12,
+          title: "Kizomba Party",
+          poster: Actual,
+          start_date: "2018-10-16 18:00",
+        },
+        {
+          id: 13,
+          title: "Élőzenés Magyar Táncház",
+          poster: Actual,
+          start_date: "2018-10-23 18:00",
+        },
+        {
+          id: 14,
+          title: "Bachata Workshop",
+          poster: Actual,
+          start_date: "2018-10-28 18:00",
+        },
+        {
+          id: 15,
+          title: "Salsa és Bachata Party",
+          poster: Actual,
+          start_date: "2018-11-06 18:00",
+        },
+        {
+          id: 16,
+          title: "Élőzenés Rock'n'Roll Party",
+          poster: Actual,
+          start_date: "2018-11-20 18:00",
+        }],
       i: 1
     };
     this.tick = this.tick.bind(this);
@@ -46,20 +64,16 @@ class IndexPage extends React.Component {
 
   render() {
     let i = this.state.i;
-    const date = this.state.events[i].start_date;
-    const dateString = date.getFullYear() + "." + date.getMonth() + "." + date.getDate();
     let main = {
       title: this.state.events[i].title,
-      date: dateString,
-      description: this.state.events[i].content,
-      poster: this.state.events[i].photo
+      date: this.state.events[i].start_date,
+      poster: this.state.events[i].poster
     }
 
     return (
       <div className="indexpage">
         <HeaderMax />
         <div className="pagecenter mainAttraction" style={{
-
           animationName: 'myTransform',
           animationIterationCount: 'infinite',
           animationDuration: 5 + 's'

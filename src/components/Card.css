@@ -1,18 +1,12 @@
-.card-grid > div {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 1em;
-}
-
-.card-grid {
-    display: block;
-    max-width: 700px;
-    margin: 0 auto;
-    margin-bottom: 20px;
-}
-
-.pagecenter .card-grid .card {
-    margin-bottom: 0;
+.pagecenter {
+    text-align: center;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    margin-bottom: 6rem;
+    margin-top: 5rem;
+    margin-left: 0;
+    margin-right: auto;
+    padding: 1rem;
 }
 
 .card {
@@ -22,7 +16,7 @@
     line-height: normal;
     text-align: left;
     color: #000000;
-    background-color: rgb(255, 255, 255);
+    background: #ffffff; /* Old browsers */
     box-shadow: 4px 4px 4px rgba(0, 0, 0, .3);
     margin: 10px;
     max-width: 700px;
@@ -33,14 +27,13 @@
     margin: 5px;
 }
 
-.card .title {
-    font-size: 30px;
-    font-weight: bold;
-    margin-bottom: 0.8em;
+.card.withpadding {
+    padding: 10px;
 }
 
-.withpadding {
-    padding: 10px;
+.pagecenter .card {
+    margin: 0 auto;
+    margin-bottom: 20px;
 }
 
 .pagecenter {
@@ -55,11 +48,37 @@
     padding: 1rem;
 }
 
-.pagecenter .card {
+.card-grid {
+    display: block;
+    max-width: 700px;
     margin: 0 auto;
     margin-bottom: 20px;
 }
 
+.card-grid > div {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1rem;
+}
+
+.pagecenter > .card-grid .card {
+    margin-bottom: 0;
+}
+
+.card .title {
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 0.8em;
+}
+
+.pagecenter .editButton {
+    margin: 0 auto;
+    margin-bottom: 20px;
+}
+
+.pagecenter .editButton img{
+    height: 40px;
+}
 
 .indexpage > .pagecenter .card {
     max-width: 700px;
@@ -81,15 +100,6 @@
 
 .editButton img:hover  {
     opacity: 0.5;
-}
-
-.pagecenter .editButton {
-    margin: 0 auto;
-    margin-bottom: 20px;
-}
-
-.pagecenter .editButton img{
-    height: 40px;
 }
 
 .mainAttraction {

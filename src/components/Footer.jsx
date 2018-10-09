@@ -7,6 +7,9 @@ function Footer(props) {
 
     return (
         <footer className='main-footer'>
+            <div className="dotDotDot">
+                <b>...</b>
+            </div>
             <div className="main-footer-content">
                 <div className="footer-left">
                     <div><b>Köszönet</b></div>

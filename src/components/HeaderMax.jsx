@@ -32,6 +32,7 @@ function HeaderMa(props) {
                 <ListLink to="/community/">Közösség</ListLink>
                 <ListLink to="/media/">Média</ListLink>
                 <ListLink to="/knowledge-base/">Tudásbázis</ListLink>
+                <ListLink to="/profile/">Profilom</ListLink>
             </div>
         </header >
     )

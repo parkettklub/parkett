@@ -6,7 +6,8 @@
     grid-gap: 10px;
     align-content: center;
     align-items: center;
-    text-align: left;
+    text-align: left;   
+    font-size: 14px;
 }
 
 .footer-left {
@@ -32,7 +33,7 @@
 
 .main-footer {
   display: block;
-  height: 7rem;
+  height: 2rem;
   background-color: rgba(10, 10, 10, .2);
   background-image: url('boritokep2.png');
   background-position: bottom;
@@ -43,10 +44,45 @@
   text-align: center;
   opacity: 0.9;
   color: white;
-  font-size: 17px;
 }
 
 .main-footer div {
   filter: none;
 }
 
+.dotDotDot {
+    text-align: center;
+    font-size: 20px;
+    padding: 0.2rem;
+}
+.main-footer:hover {
+    height: auto;
+}
+
+.main-footer:hover .dotDotDot {
+    font-size: 0;
+}
+
+@media only screen and (max-width: 820px)  {
+
+   .main-footer-content {
+       grid-template-columns: auto;
+   }
+
+   .main-footer:hover {
+       height: auto;
+   }
+
+   .footer-left {
+       text-align: center;
+   }
+
+   .footer-right {
+       text-align: center;
+   }
+
+   .footer-right a {
+       margin-right: 50px;
+       margin-left: 50px;
+   }
+}

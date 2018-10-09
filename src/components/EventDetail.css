@@ -12,13 +12,20 @@ img {
 
 .eventdetail-wrapper {
     display: grid;
-    grid-template-columns: auto auto;
+    grid-template-columns: max-content auto;
     grid-gap: 10px;
-    grid-template-rows: auto 1fr;
+    width: 100%;
+}
+.eventdetail-wrapper.right {
+    grid-template-columns: 1fr max-content;
 }
 
 .eventdetail-poster {
     width: 167px;
+}
+
+.eventdetail-poster.small {
+    width: 80px;
 }
 
 .eventdetail-title {
@@ -80,5 +87,8 @@ img {
 @media only screen and (min-width: 900px)  {
     .eventdetail-poster:not(.vertical) {
         width: 250px;
+    }
+    .eventdetail-poster.small:not(.vertical) {
+        width: 150px;
     }
 }

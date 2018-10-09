@@ -17,6 +17,31 @@
     grid-gap: 2em;
 }
 
+@media only screen and (max-width: 820px)  {
+    .memberMain {
+        max-width: 60em;
+    }
+    .memberMain > div.simple{
+        grid-template-columns: 1fr 1fr;
+    }
+    .memberMain > div.more{
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+
+@media only screen and (max-width: 400px)  {
+    .memberMain {
+        max-width: 60em;
+    }
+    .memberMain > div.simple{
+        grid-template-columns: 1fr;
+    }
+    .memberMain > div.more{
+        grid-template-columns: 1fr;
+    }
+}
+
 .memberMain > div > .card{
     width: 100%;
     margin-bottom: 0;
@@ -25,6 +50,12 @@
 .olderMembers {
     text-align: center;
     font-size: 30px;
+}
+
+@media only screen and (max-width: 820px)  {
+    .olderMembers {
+        font-size: 20px;
+    }
 }
 
 @media only screen and (min-width: 900px)  {
@@ -44,6 +75,12 @@
     font-size: 25px;
 }
 
+@media only screen and (max-width: 820px)  {
+    .profileName {
+        font-size: 20px;
+    }
+}
+
 .profileDesc {
     background: #000000B0;
     padding: 1em;
@@ -53,10 +90,6 @@
 
 .roundUp.small {
     height: 8em;
-}
-
-.roundUp:hover {
-   filter: saturate(1);
 }
 
 .roundUp .profileDesc {

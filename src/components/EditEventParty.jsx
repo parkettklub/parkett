@@ -44,19 +44,16 @@ class EditEventParty extends React.Component {
                 value.push(parseInt(options[i].value));
             }
         }
-        console.log(value);
         const name = event.target.name;
         this.setState({ [name]: value });
     }
 
     handleChange(event) {
-        console.log(event.target.value);
         const name = event.target.name;
         this.setState({ [name]: event.target.value });
     }
 
     handleSubmit(event) {
-        console.log(this.state);
         event.preventDefault();
     }
 
@@ -219,6 +216,7 @@ class EditEventParty extends React.Component {
                         </div>
                         <div className="formGroup" hidden={this.state.selectedForm != "poster"}>
                             <label htmlFor="photo"><b>Poster</b></label>
+                            Size must be around 350x400 px
                             <input id="photo" name="photo" type="picture" className="inputField"
                                 value={this.state.photo} onChange={this.handleChange} />
                             <img src="https://media.gettyimages.com/photos/theres-always-something-new-to-learn-picture-id1008383410?b=1&k=6&m=1008383410&s=170x170&h=jdv-af6Q0-NNPAX62uhnpM4dGA1tSakzkNTh-aOqXO0=" />

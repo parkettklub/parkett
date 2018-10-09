@@ -2,8 +2,12 @@ import React from 'react';
 import EventSummary from './Event';
 import Edit from './pencil_white.svg';
 import ReactCssTransitionGroup from 'react-addons-css-transition-group';
-import Plakat01 from './Plakat.png';
+import Plakat01 from './Plakat.jpg';
+import Plakat0101 from './Plakat01.jpg';
 import Plakat02 from './Plakat_vegleges.jpg';
+import Actual from './osszesitoActual.jpg';
+import RNR from './Alap.jpg';
+import Tanchaz from './PlakatTanchaz.jpg';
 
 function onClickParty() {
     window.location = "/event-party/";
@@ -24,75 +28,95 @@ class EventList extends React.Component {
         super();
         this.state = {
             search: "",
-            events: [{
-                id: 1,
-                title: "Kizomba workshop 01",
-                poster: Plakat01,
-                start_date: "2018-12-12T18:00",
-                formlink: "https://goo.gl/forms/EMAqXVoJDJQGNkeq1",
-                facebook: "https://www.facebook.com/events/1598719006921910/",
-                onClick: onClickWorkshop
-            },
-            {
-                id: 2,
-                title: "Élőzenés Rock N Roll Party 02",
-                poster: null,
-                start_date: "2018-11-12T18:00",
-                music: "Cuba Ritmo Trió és DJ Eddy",
-                facebook: "https://www.facebook.com/events/1598719006921910/",
-                onClick: onClickParty
-            },
-            {
-                id: 3,
-                title: "Gólyakörte 03",
-                poster: Plakat02,
-                start_date: "2018-06-12T18:00",
-            },
-            {
-                id: 4,
-                title: "Élőzenés Magyar Táncház 04",
-                poster: Plakat01,
-                start_date: "2018-07-12T18:00",
-                music: "Cuba Ritmo Trió és DJ Eddy",
-            },
-            {
-                id: 5,
-                title: "Élőzenés Magyar Táncház 05",
-                start_date: "2018-08-12T18:00",
-                music: "Cuba Ritmo Trió és DJ Eddy",
-                facebook: "https://www.facebook.com/events/1598719006921910/"
-            },
-            {
-                id: 6,
-                title: "Élőzenés Magyar Táncház 06",
-                poster: Plakat01,
-                start_date: "2018-09-12T18:00",
-                music: "Cuba Ritmo Trió és DJ Eddy"
-            },
-            {
-                id: 7,
-                title: "Élőzenés Magyar Táncház 07",
-                poster: Plakat01,
-                start_date: "2017-01-12T18:00",
-            },
-            {
-                id: 8,
-                title: "Élőzenés Magyar Táncház 08",
-                poster: Plakat01,
-                start_date: "2016-01-12T18:00",
-            },
-            {
-                id: 9,
-                title: "Élőzenés Magyar Táncház 09",
-                poster: Plakat01,
-                start_date: "2015-01-12T18:00",
-            },
-            {
-                id: 10,
-                title: "Élőzenés Magyar Táncház 10",
-                poster: Plakat01,
-                start_date: "2014-01-12T18:00",
-            }]
+            events: [
+                {
+                    id: 11,
+                    title: "Salsa Party",
+                    poster: Actual,
+                    start_date: "2018-10-02T18:00",
+                },
+                {
+                    id: 12,
+                    title: "Kizomba Party",
+                    poster: Actual,
+                    start_date: "2018-10-16T18:00",
+                },
+                {
+                    id: 13,
+                    title: "Élőzenés Magyar Táncház",
+                    poster: Actual,
+                    start_date: "2018-10-23T18:00",
+                },
+                {
+                    id: 14,
+                    title: "Bachata Workshop",
+                    poster: Actual,
+                    start_date: "2018-10-28T18:00",
+                },
+                {
+                    id: 15,
+                    title: "Salsa és Bachata Party",
+                    poster: Actual,
+                    start_date: "2018-11-06T18:00",
+                },
+                {
+                    id: 16,
+                    title: "Élőzenés Rock'n'Roll Party",
+                    poster: Actual,
+                    start_date: "2018-11-20T18:00",
+                },
+                {
+                    id: 3,
+                    title: "Élőzenés Rock N Roll Party",
+                    poster: RNR,
+                    start_date: "2018-04-17T18:00",
+                    music: "Pedrofon",
+                    facebook: "https://www.facebook.com/events/1598719006921910/",
+                },
+                {
+                    id: 4,
+                    title: "Kizomba Party",
+                    poster: Plakat01,
+                    start_date: "2018-03-06T18:00",
+                    music: "DJ Krizz Beats",
+                    facebook: "https://www.facebook.com/events/414391392325211/",
+                },
+                {
+                    id: 5,
+                    title: "Élőzenés Salsa Party",
+                    start_date: "2018-04-10T18:00",
+                    poster: Plakat02,
+                    music: "Cuba Ritmo Trió és DJ Csedi",
+                    facebook: "https://www.facebook.com/events/1391011174337498/",
+                },
+                {
+                    id: 6,
+                    title: "Élőzenés Magyar Táncház",
+                    poster: Tanchaz,
+                    start_date: "2018-03-20T18:00",
+                    music: "Török testvérek és Király Miklós és barátai",
+                    facebook: "https://www.facebook.com/events/1863513977012652/",
+                },
+                {
+                    id: 7,
+                    title: "Salsa és Bachata Party",
+                    poster: Plakat0101,
+                    start_date: "2017-02-13T18:00",
+                    facebook: "https://www.facebook.com/events/148138189226684/",
+                },
+                {
+                    id: 8,
+                    title: "Kizomba Workshop kezdőknek",
+                    start_date: "2017-02-25T18:00",
+                    facebook: "https://www.facebook.com/events/391804317951223/",
+                    formlink: "https://goo.gl/forms/EMAqXVoJDJQGNkeq1"
+                },
+                {
+                    id: 9,
+                    title: "Bevonó Est",
+                    start_date: "2017-02-20T18:00",
+                    facebook: "://www.facebook.com/events/527353247650799/"
+                }]
         };
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
