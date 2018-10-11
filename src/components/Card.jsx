@@ -2,10 +2,11 @@ import React from 'react'
 import styles from "./Card.module.css"
 
 const Card = (props) => {
+  const {title} = this.props;
   <article className={styles.card}>
-    {this.props.title &&
+    {title &&
       <header className={styles.header}>
-        {this.props.title}
+        {title}
       </header>}
     {this.props.children}
   </article>
