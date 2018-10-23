@@ -1,25 +1,4 @@
 
-.main-header {
-  z-index: 2;
-  margin-bottom: 1.5rem;
-  padding: 1rem;
-  background-color: rgba(10, 10, 10, .2);
-  background-image: url('boritokep2.png');
-  background-position: top;
-  background-size: auto 100vh;
-  color: white;
-  position: fixed;
-  opacity: 0.9;
-  top: 0;
-  width: 100%;
-  display: grid;
-  grid-template-columns: auto max-content;
-  grid-gap: 10px;
-  align-items: flex-end;
-  height: 5rem;
-  overflow: hidden;
-}
-
 .main-header.max { 
   height: 15rem;
   grid-template-columns: auto

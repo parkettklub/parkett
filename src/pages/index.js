@@ -3,6 +3,7 @@ import '../components/Card.css';
 import HeaderMax from '../components/HeaderMax.jsx';
 import EventWithPoster from '../components/EventWithPoster';
 import Actual from '../components/osszesitoActual.jpg';
+import * as Login from '../utils/Login';
 
 class IndexPage extends React.Component {
   constructor() {
@@ -52,8 +53,7 @@ class IndexPage extends React.Component {
 
   componentDidMount() {
     this.timer = setInterval(this.tick, 1000 * 5);
-    let token = localStorage.setItem('token', new URL(window.location.href).searchParams.get('token'));
-    if (token) localStorage.setItem('token', token);
+    Login.setToken();
   }
 
   componentWillUnmount() {
