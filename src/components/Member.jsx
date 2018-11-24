@@ -1,6 +1,7 @@
 import React from 'react'
 import './Members.css'
 import profDefault from './defaultProfile.jpg'
+import styles from './Community.module.css'
 
 class Member extends React.Component {
     constructor() {
@@ -11,7 +12,7 @@ class Member extends React.Component {
         let src = profDefault;
         if (this.props.details.src) src = this.props.details.src;
         return (
-            <div className="card roundUp" style={{
+            <div className={styles.element} style={{
                 backgroundImage: 'url("' + src + '")',
                 backgroundPosition: 'center',
                 backgroundSize: 'cover',

@@ -1,6 +1,5 @@
 import React from 'react'
-import Card from './Card';
-import styles from './SocialFeed.module.css'
+import styles from './Community.module.css'
 import SquareImage from './SquareImage';
 
 class SocialFeed extends React.Component {
@@ -26,9 +25,9 @@ class SocialFeed extends React.Component {
   photoElements(photos) {
     return photos.map((datum, i) => {
       return <a key={this.state.resizeImages.toString() + datum.id} href={datum.link}>
-        <div>
+        <div className={styles.element}>
           <SquareImage resize={this.state.resizeImages} location={datum.images.standard_resolution.url} />
-          <div>{photos[i].caption.text}</div>
+          <div className={styles.caption}>{photos[i].caption.text}</div>
         </div>
       </a>
     })
@@ -47,15 +46,12 @@ class SocialFeed extends React.Component {
 
     if (!this.state.photos) this.fetchInstaPhotos();
 
-    console.log("feed rendered")
-    console.log(this.state.photos);
+    console.log("feed rendered");
 
     return (
-      <Card>
-        <div id="instafeed" className={styles.instafeed}>
-          {this.state.photos ? this.photoElements(this.state.photos) : "Loading"}
-        </div>
-      </Card>
+      <div className={styles.instagram}>
+        {this.state.photos ? this.photoElements(this.state.photos) : "Loading"}
+      </div>
     );
   }
 }

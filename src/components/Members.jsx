@@ -4,7 +4,7 @@ import Member from './Member';
 import LittleMember from './LittleMember';
 import Emese from './Emese.jpg'
 import profDefault from './gergoProfile.jpg'
-import SocialFeed from './SocialFeed'
+import styles from './Community.module.css'
 
 class Members extends React.Component {
     constructor() {
@@ -57,21 +57,21 @@ class Members extends React.Component {
                 id: 6,
                 name: "Dorogi-Kovács Gábor",
                 email: "dorogix@gmail.com",
-                position: "öregtag",
+                position: "tag",
                 description: "Minden rendben van és a parkett klub is a legjobb",
 
             }, {
                 id: 7,
                 name: "Dorogi-Kovács Gábor",
                 email: "dorogix@gmail.com",
-                position: "öregtag",
+                position: "tag",
                 description: "Minden rendben van és a parkett klub is a legjobb",
 
             }, {
                 id: 8,
                 name: "Dorogi-Kovács Gábor",
                 email: "dorogix@gmail.com",
-                position: "öregtag",
+                position: "tag",
                 description: "Minden rendben van és a parkett klub is a legjobb",
 
             }, {
@@ -93,10 +93,15 @@ class Members extends React.Component {
     }
 
     render() {
-        let memberRows = [];
+        let memberRows6 = [];
+        let memberRowsOthers = [];
         this.state.members.forEach((member) => {
-            if (member.position != "öregtag")
-                memberRows.push(<Member details={member} key={member.id} />)
+            if (member.position != "öregtag") {
+                if (member.id < 6)
+                    memberRows6.push(<Member details={member} key={member.id} />)
+                else
+                    memberRowsOthers.push(<Member details={member} key={member.id} />)
+            }
         });
 
 
@@ -106,20 +111,18 @@ class Members extends React.Component {
                 oldMemberRows.push(<LittleMember details={member} key={member.id} />)
         })
 
-
-        return (
-            <div className="memberMain">
-                <div className="simple">
-                    {memberRows}
-                </div>
-                <div className="olderMembers">
-                    Régebbi tagok
-                </div>
-                <div className="more">
-                    {oldMemberRows}
-                </div>
+        let rows = [];
+        rows.push(
+            <div className={styles.people6}>
+                {memberRows6}
             </div>
         )
+        rows.push(
+            <div className={styles.peopleOthers}>
+                {memberRowsOthers}
+            </div>
+        )
+        return rows;
     }
 }
 
