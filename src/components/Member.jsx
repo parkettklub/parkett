@@ -12,16 +12,15 @@ class Member extends React.Component {
         let src = profDefault;
         if (this.props.details.src) src = this.props.details.src;
         return (
-            <div className={styles.element} style={{
-                backgroundImage: 'url("' + src + '")',
-                backgroundPosition: 'center',
-                backgroundSize: 'cover',
-            }}>
-                <div></div>
-                <div className="profileDesc">
-                    <div className="profileName"><b>{this.props.details.name}</b></div>
-                    <div className="desc">{this.props.details.position}</div>
-                    <div className="desc">{this.props.details.description}</div>
+            <div className={styles.element}>
+                <img src={src} />
+                <div className={styles.desc}>
+                    <div>{this.props.details.position}</div>
+                    <br />
+                    <div>{this.props.details.description}</div>
+                </div>
+                <div className={styles.title}>
+                    <b>{this.props.details.name}</b>
                 </div>
             </div>
         )

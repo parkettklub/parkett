@@ -4,7 +4,6 @@
     grid-gap: 10px;
     width: min-content;
 }
-
 .instagram {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -30,6 +29,22 @@
     background: black;
     overflow: hidden;
     border-radius: 4px;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, .3);
+}
+
+.element img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.element .title {
+    padding: 0.25em;
+    color: white;
+    position: relative;
+    bottom: 2em;
+    height: 2em;
+    background: black;
 }
 
 .element .caption {
@@ -37,12 +52,25 @@
     color: white;
     position: relative;
     font-size: 0;
+    bottom: 6em;
+    height: 6em;
+}
+
+.element .desc {
+    padding: 0.25em;
+    color: white;
+    position: relative;
+    font-size: 0;
+    bottom: 10em;
+    height: 10em;
 }
 
 .element:hover .caption {
     font-size: inherit;
-    bottom: 6em;
-    height: 6em;
+}
+
+.element:hover .desc {
+    font-size: inherit;
 }
 
 .element:hover img {
