@@ -4,6 +4,7 @@ import Member from './Member';
 import LittleMember from './LittleMember';
 import Emese from './Emese.jpg'
 import profDefault from './gergoProfile.jpg'
+import SocialFeed from './SocialFeed'
 
 class Members extends React.Component {
     constructor() {

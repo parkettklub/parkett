@@ -1,0 +1,39 @@
+.main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px;
+    width: min-content;
+}
+
+.instagram {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: inherit;
+}
+
+.people6 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: inherit;
+}
+
+.peopleOthers {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-column: 1/3;
+    grid-gap: inherit;
+}
+
+.element {
+    width: 250px;
+    height: 250px;
+    background: black;
+}
+
+.instagram > .element {
+    background: green;
+}
+
+.element.first {
+    grid-column: 1/3;
+}

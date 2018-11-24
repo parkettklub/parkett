@@ -183,7 +183,7 @@ class EventList extends React.Component {
         }
 
         return (
-            <div>
+            <div className="pagecenter">
                 <div className="editButton" >
                     <img src={Edit} onClick={editEventsPage} />
                 </div>
@@ -201,7 +201,8 @@ class EventList extends React.Component {
                     transitionAppearTimeout={1000}
                     transitionEnterTimeout={300}
                     transitionAppear={true}
-                    transitionLeaveTimeout={300}>
+                    transitionLeaveTimeout={300}
+                    style={{ width: "100%" }}>
                     {newEvents}{middleMan}{oldEvents}
                 </ReactCssTransitionGroup>
             </div >
