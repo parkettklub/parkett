@@ -13,9 +13,7 @@ const EventsPage = () => (
       transitionEnterTimeout={300}
       transitionAppear={true}
       transitionLeaveTimeout={300}>
-      <div className="pagecenter">
-        <EventList />
-      </div>
+      <EventList />
     </ReactCssTransitionGroup>
   </div>
 )

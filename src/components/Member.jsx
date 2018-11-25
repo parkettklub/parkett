@@ -1,30 +1,21 @@
 import React from 'react'
-import './Members.css'
 import profDefault from './defaultProfile.jpg'
+import styles from './Community.module.css'
 
-class Member extends React.Component {
-    constructor() {
-        super();
-    }
-
-    render() {
-        let src = profDefault;
-        if (this.props.details.src) src = this.props.details.src;
-        return (
-            <div className="card roundUp" style={{
-                backgroundImage: 'url("' + src + '")',
-                backgroundPosition: 'center',
-                backgroundSize: 'cover',
-            }}>
-                <div></div>
-                <div className="profileDesc">
-                    <div className="profileName"><b>{this.props.details.name}</b></div>
-                    <div className="desc">{this.props.details.position}</div>
-                    <div className="desc">{this.props.details.description}</div>
-                </div>
+function Member({src = profDefault, position, description, name}) {
+    return (
+        <div className={styles.element}>
+            <img src={src} />
+            <div className={styles.desc}>
+                <div>{position}</div>
+                <br />
+                <div>{description}</div>
             </div>
-        )
-    }
+            <div className={styles.title}>
+                <b>{name}</b>
+            </div>
+        </div>
+    )
 }
 
 export default Member
