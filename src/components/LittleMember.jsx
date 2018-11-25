@@ -1,28 +1,18 @@
 import React from 'react'
-import './Members.css'
 import profDefault from './defaultProfile.jpg'
+import styles from './Community.module.css'
 
-class LittleMember extends React.Component {
-    constructor() {
-        super();
-    }
-
-    render() {
-        let src = profDefault;
-        if (this.props.details.src) src = this.props.details.src;
-        return (
-            <div className="card roundUp small" style={{
-                backgroundImage: 'url("' + src + '")',
-                backgroundPosition: 'center',
-                backgroundSize: 'cover',
-            }}>
-                <div></div>
-                <div className="profileDesc small">
-                    <div className="profileName"><b>{this.props.details.name}</b></div>
-                </div>
+function LittleMember(props) {
+    let src = profDefault;
+    if (props.details.src) src = props.details.src;
+    return (
+         <div className={styles.element + " " + styles.small}>
+            <img src={src} />
+            <div className={styles.title}>
+                <b>{props.details.name}</b>
             </div>
+         </div>
         )
-    }
 }
 
 export default LittleMember

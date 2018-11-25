@@ -1,5 +1,4 @@
 import React from 'react'
-import './Members.css'
 import Member from './Member';
 import LittleMember from './LittleMember';
 import Emese from './Emese.jpg'
