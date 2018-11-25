@@ -5,6 +5,20 @@
     width: min-content;
 }
 
+.instagram {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: inherit;
+    width: min-content;
+}
+
+.people6 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: inherit;
+    width: min-content;
+}
+
 .peopleOthers {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
@@ -13,12 +27,6 @@
     width: min-content;
 }
 
-.instagram {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-gap: inherit;
-    width: min-content;
-}
 .element {
     width: 250px;
     height: 250px;
@@ -26,13 +34,6 @@
     overflow: hidden;
     border-radius: 4px;
     box-shadow: 4px 4px 4px rgba(0, 0, 0, .3);
-}
-
-.people6 {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: inherit;
-    width: min-content;
 }
 
 @media only screen and (max-width: 1300px)  {

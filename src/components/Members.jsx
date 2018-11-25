@@ -187,7 +187,6 @@ class Members extends React.Component {
             }
         });
 
-
         let oldMemberRows = [];
         this.state.members.forEach((member) => {
             if (member.position == "öregtag")
