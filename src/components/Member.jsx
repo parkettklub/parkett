@@ -2,19 +2,17 @@ import React from 'react'
 import profDefault from './defaultProfile.jpg'
 import styles from './Community.module.css'
 
-function Member(props) {
-    let src = profDefault;
-    if (props.details.src) src = props.details.src;
+function Member({src = profDefault, position, description, name}) {
     return (
         <div className={styles.element}>
             <img src={src} />
             <div className={styles.desc}>
-                <div>{props.details.position}</div>
+                <div>{position}</div>
                 <br />
-                <div>{props.details.description}</div>
+                <div>{description}</div>
             </div>
             <div className={styles.title}>
-                <b>{props.details.name}</b>
+                <b>{name}</b>
             </div>
         </div>
     )

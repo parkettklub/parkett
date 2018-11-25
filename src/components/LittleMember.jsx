@@ -2,14 +2,13 @@ import React from 'react'
 import profDefault from './defaultProfile.jpg'
 import styles from './Community.module.css'
 
-function LittleMember(props) {
-    let src = profDefault;
-    if (props.details.src) src = props.details.src;
+function LittleMember({src = profDefault, name}) {
+    let className = `${styles.element} ${styles.small}`;
     return (
-         <div className={styles.element + " " + styles.small}>
+         <div className={className}>
             <img src={src} />
             <div className={styles.title}>
-                <b>{props.details.name}</b>
+                <b>{name}</b>
             </div>
          </div>
         )

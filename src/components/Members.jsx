@@ -176,37 +176,34 @@ class Members extends React.Component {
     }
 
     render() {
-        let memberRows6 = [];
-        let memberRowsOthers = [];
-        this.state.members.forEach((member) => {
-            if (member.position != "öregtag") {
-                if (member.id < 6)
-                    memberRows6.push(<Member details={member} key={member.id} />)
-                else
-                    memberRowsOthers.push(<Member details={member} key={member.id} />)
-            }
-        });
-
-        let oldMemberRows = [];
-        this.state.members.forEach((member) => {
-            if (member.position == "öregtag")
-                oldMemberRows.push(<LittleMember details={member} key={member.id} />)
-        })
-
         let rows = [];
         rows.push(
             <div className={styles.people6}>
-                {memberRows6}
+                {this.state.members.map((member) => {
+                    if (member.position != "öregtag") {
+                        if (member.id < 6)
+                            return (<Member {...member} key={member.id} />)
+                    }
+                })}
             </div>
         )
         rows.push(
             <div className={styles.peopleOthers}>
-                {memberRowsOthers}
+                {this.state.members.map((member) => {
+                    if (member.position != "öregtag") {
+                        if (member.id > 5)
+                            return (<Member {...member} key={member.id} />)
+                    }
+                })}
             </div>
         )
         rows.push(
             <div className={styles.peopleOthers}>
-                {oldMemberRows}
+                {this.state.members.map((member) => {
+                    if (member.position == "öregtag") {
+                        return (<LittleMember {...member} key={member.id} />)
+                    }
+                })}
             </div>
         )
         return rows;
