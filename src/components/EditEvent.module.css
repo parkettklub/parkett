@@ -41,6 +41,7 @@
 .formgroup {
     padding: 1em;
     position: relative;
+    padding-left: 2em;
 }
 
 .formgroup > label {

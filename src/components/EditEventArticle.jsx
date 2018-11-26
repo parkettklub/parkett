@@ -5,7 +5,6 @@ import FormSelect from './FormSelect';
 import FormSimpleInput from './FormSimpleInput';
 import FormDateInput from './FormDateInput';
 import FormTextareaInput from './FormTextareaInput';
-import FormSelectInput from './FormSelectInput';
 
 class EditEventArticle extends React.Component {
     constructor() {

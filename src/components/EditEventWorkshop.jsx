@@ -6,6 +6,8 @@ import FormSimpleInput from './FormSimpleInput';
 import FormDateInput from './FormDateInput';
 import FormTextareaInput from './FormTextareaInput';
 import FormSelectInput from './FormSelectInput';
+import FormDance from './FormDance';
+import FormTeacher from './FormTeacher';
 
 class EditEventWorkshop extends React.Component {
     constructor() {
@@ -24,6 +26,7 @@ class EditEventWorkshop extends React.Component {
             facebook_event: "https://www.facebook.com/events/1598719006921910/",
             application_form: "https://goo.gl/forms/EMAqXVoJDJQGNkeq1",
             selectedForm: "title",
+            addSelected: null
         };
 
         this.handleChange = this.handleChange.bind(this);
@@ -57,6 +60,14 @@ class EditEventWorkshop extends React.Component {
         this.setState({
             selectedForm: tabName
         })
+    }
+
+    addNewElement(name) {
+        this.setState({ addSelected: name })
+    }
+
+    close() {
+        this.setState({ addSelected: null })
     }
 
     render() {
@@ -123,12 +134,14 @@ class EditEventWorkshop extends React.Component {
                             example="https://www.facebook.com/events/1598719006921910" label="Facebook event" />
                         <FormSelectInput selected={this.state.selectedForm} title="dance"
                             handleChange={this.handleChange} value={this.state.danceid}
-                            name="danceid"
-                            label="Dance" options={danceOptions} />
+                            name="danceid" label="Dance" options={danceOptions}
+                            addNew={() => this.addNewElement("dance")} close={() => this.close()} />
+                        <FormDance selected={this.state.addSelected} title="dance" />
                         <FormSelectInput selected={this.state.selectedForm} title="dance"
                             handleChange={this.handleChange} value={this.state.teacherid}
-                            name="teacherid"
-                            label="Teacher" options={teacherOptions} />
+                            name="teacherid" label="Teacher" options={teacherOptions}
+                            addNew={() => this.addNewElement("teacher")} close={() => this.close()} />
+                        <FormTeacher selected={this.state.addSelected} title="teacher" />
                         <FormSimpleInput selected={this.state.selectedForm} title="dance"
                             handleChange={this.handleChange} value={this.state.application_form}
                             name="application_form"

@@ -7,6 +7,9 @@ import FormDateInput from './FormDateInput';
 import FormTextareaInput from './FormTextareaInput';
 import FormSelectInput from './FormSelectInput';
 import FormMultipleSelectInput from './FormMultipleSelectInput';
+import FormDJ from './FormDJ';
+import FormBand from './FormBand';
+import FormTeaching from './FormTeaching';
 
 class EditEventParty extends React.Component {
     constructor() {
@@ -33,8 +36,48 @@ class EditEventParty extends React.Component {
                 3
             ],
             selectedForm: "title",
-        };
+            addSelected: null,
+            djs: [{
+                id: 1,
+                name: "DJ Eddy",
+                url: "google.com"
+            }, {
+                id: 2,
+                name: "DJ Zoli",
+                url: "google.com"
+            }, {
+                id: 3,
+                name: "DJ Nobody",
+                url: "google.com"
+            }, {
+                id: 4,
+                name: "DJ Music",
+                url: "google.com"
+            }, {
+                id: 5,
+                name: "DJ Somebody",
+                url: "google.com"
+            }],
+            bands: [{
+                id: 1,
+                name: "Pedrofon",
+                url: "google.com"
+            }, {
+                id: 2,
+                name: "Cuba Ritmo Trio",
+                url: "google.com"
+            }],
+            teachings: [{
+                id: 1,
+                teacher: "Me and Me",
+                dance: "salsa"
+            }, {
+                id: 2,
+                teacher: "They and They",
+                dance: "kizomba"
+            },]
 
+        };
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.ChangeTab = this.ChangeTab.bind(this);
@@ -68,56 +111,25 @@ class EditEventParty extends React.Component {
         })
     }
 
+    addNewElement(name) {
+        this.setState({ addSelected: name })
+    }
+
+    close() {
+        this.setState({ addSelected: null })
+    }
+
     render() {
-        const djs = [{
-            id: 1,
-            name: "DJ Eddy",
-            url: "google.com"
-        }, {
-            id: 2,
-            name: "DJ Zoli",
-            url: "google.com"
-        }, {
-            id: 3,
-            name: "DJ Nobody",
-            url: "google.com"
-        }, {
-            id: 4,
-            name: "DJ Music",
-            url: "google.com"
-        }, {
-            id: 5,
-            name: "DJ Somebody",
-            url: "google.com"
-        }];
-        const bands = [{
-            id: 1,
-            name: "Pedrofon",
-            url: "google.com"
-        }, {
-            id: 2,
-            name: "Cuba Ritmo Trio",
-            url: "google.com"
-        }];
-        const teachings = [{
-            id: 1,
-            teacher: "Me and Me",
-            dance: "salsa"
-        }, {
-            id: 2,
-            teacher: "They and They",
-            dance: "kizomba"
-        },];
         const djOptions = [];
-        djs.forEach((dj) => {
+        this.state.djs.forEach((dj) => {
             djOptions.push(<option value={dj.id} key={dj.id}>{dj.id} - {dj.name}</option>)
         })
         const bandOptions = [];
-        bands.forEach((band) => {
+        this.state.bands.forEach((band) => {
             bandOptions.push(<option value={band.id} key={band.id}>{band.id} - {band.name}</option>)
         })
         const teachOptions = []
-        teachings.forEach((teaching) => {
+        this.state.teachings.forEach((teaching) => {
             teachOptions.push(<option value={teaching.id} key={teaching.id}>{teaching.id} - {teaching.teacher} {teaching.dance}</option>)
         })
         return (
@@ -170,16 +182,21 @@ class EditEventParty extends React.Component {
                             example="www.bss.bme.hu" label="BSS" />
                         <FormSelectInput selected={this.state.selectedForm} title="music"
                             handleChange={this.handleChange} value={this.state.teachingid}
-                            name="teachingid"
-                            label="Teaching" options={teachOptions} />
+                            name="teachingid" label="Teaching"
+                            addNew={() => this.addNewElement("teaching")} close={() => this.close()}
+                            options={teachOptions} />
+                        <FormTeaching selected={this.state.addSelected} title="teaching" />
                         <FormMultipleSelectInput selected={this.state.selectedForm} title="music"
                             handleChange={this.handleMultiple} value={this.state.bandids}
-                            name="bandids"
-                            label="Band ids" options={bandOptions} />
+                            name="bandids" label="Band ids"
+                            addNew={() => this.addNewElement("band")} close={() => this.close()}
+                            options={bandOptions} />
+                        <FormBand selected={this.state.addSelected} title="band" />
                         <FormMultipleSelectInput selected={this.state.selectedForm} title="music"
                             handleChange={this.handleMultiple} value={this.state.djids}
-                            name="djids"
-                            label="DJs" options={djOptions} />
+                            name="djids" label="DJs" addNew={() => this.addNewElement("dj")} close={() => this.close()}
+                            options={djOptions} />
+                        <FormDJ selected={this.state.addSelected} title="dj" />
                         <div className={styles.formgroup} hidden={this.state.selectedForm != "poster"}>
                             <label htmlFor="photo"><b>Poster</b></label>
                             Size must be around 350x400 px
@@ -187,7 +204,7 @@ class EditEventParty extends React.Component {
                                 value={this.state.photo} onChange={this.handleChange} />
                             <img src="https://media.gettyimages.com/photos/theres-always-something-new-to-learn-picture-id1008383410?b=1&k=6&m=1008383410&s=170x170&h=jdv-af6Q0-NNPAX62uhnpM4dGA1tSakzkNTh-aOqXO0=" />
                         </div>
-                        <div className="formGroup mySubmitgroup">
+                        <div className={styles.formgroup}>
                             <input type="submit" value="Submit" className={styles.submit} />
                         </div>
                     </form>
