@@ -1,7 +1,6 @@
 import React from 'react';
 import Plakat01 from './Plakat.png';
-import './Editor.css';
-import './Card.css';
+import styles from './EditEvent.module.css';
 
 class EditEventParty extends React.Component {
     constructor() {
@@ -116,113 +115,109 @@ class EditEventParty extends React.Component {
             teachOptions.push(<option value={teaching.id} key={teaching.id}>{teaching.id} - {teaching.teacher} {teaching.dance}</option>)
         })
         return (
-            <div className="card multistep-editor grid" key="EditEventparty">
-                <div className="edit-steps">
-                    <div onClick={this.props.onClick}>
-                        Új esemény hozzáadása <br />
-                        Régi esemény frissítése
-                    </div>
-                    <div className={this.state.selectedForm == "title" ? "selectedStage" : "stage"}
+            <div className={styles.main} key="EditEventparty">
+                <div className={styles.steps}>
+                    <div className={this.state.selectedForm == "title" ? styles.selected : ""}
                         onClick={() => this.ChangeTab("title")}>
                         Title and date
                     </div>
-                    <div className={this.state.selectedForm == "poster" ? "selectedStage" : "stage"}
+                    <div className={this.state.selectedForm == "poster" ? styles.selected : ""}
                         onClick={() => this.ChangeTab("poster")}>
                         Poster
                     </div>
-                    <div className={this.state.selectedForm == "details" ? "selectedStage" : "stage"}
+                    <div className={this.state.selectedForm == "details" ? styles.selected : ""}
                         onClick={() => this.ChangeTab("details")}>
                         Details
                     </div>
-                    <div className={this.state.selectedForm == "media" ? "selectedStage" : "stage"}
+                    <div className={this.state.selectedForm == "media" ? styles.selected : ""}
                         onClick={() => this.ChangeTab("media")}>
                         Media
                     </div>
-                    <div className={this.state.selectedForm == "music" ? "selectedStage" : "stage"}
+                    <div className={this.state.selectedForm == "music" ? styles.selected : ""}
                         onClick={() => this.ChangeTab("music")}>
                         Music and Teaching
                     </div>
                 </div>
-                <div className="form">
+                <div className={styles.form}>
                     <form onSubmit={this.handleSubmit} >
-                        <div className="formGroup" hidden={this.state.selectedForm != "title"}>
+                        <div className={styles.formgroup} hidden={this.state.selectedForm != "title"}>
                             <label htmlFor="title"><b>Title</b></label>
-                            <input id="title" name="title" type="text" className="inputField"
+                            <input id="title" name="title" type="text" className={styles.input}
                                 value={this.state.title} onChange={this.handleChange} />
-                            <div className="helper">Élőzenés Salsa Party: Cuba</div>
+                            <div className={styles.helper} >Élőzenés Salsa Party: Cuba</div>
                         </div>
-                        <div className="formGroup" hidden={this.state.selectedForm != "title"}>
+                        <div className={styles.formgroup} hidden={this.state.selectedForm != "title"}>
                             <label htmlFor="start_date"><b>Start date</b></label>
-                            <input id="start_date" name="start_date" type="datetime-local" className="inputField"
+                            <input id="start_date" name="start_date" type="datetime-local" className={styles.input}
                                 value={this.state.start_date} onChange={this.handleChange} />
-                            <div className="helper">2018-01-12 18:00</div>
+                            <div className={styles.helper} >2018-01-12 18:00</div>
                         </div>
-                        <div className="formGroup" hidden={this.state.selectedForm != "title"}>
+                        <div className={styles.formgroup} hidden={this.state.selectedForm != "title"}>
                             <label htmlFor="end_date"><b>End date</b></label>
-                            <input id="end_date" name="end_date" type="datetime-local" className="inputField"
+                            <input id="end_date" name="end_date" type="datetime-local" className={styles.input}
                                 value={this.state.end_date} onChange={this.handleChange} />
-                            <div className="helper">2018-01-13 01:00</div>
+                            <div className={styles.helper} >2018-01-13 01:00</div>
                         </div>
-                        <div className="formGroup" hidden={this.state.selectedForm != "details"}>
+                        <div className={styles.formgroup} hidden={this.state.selectedForm != "details"}>
                             <label htmlFor="content"><b>Leírás:</b></label>
-                            <textarea id="content" name="content" type="text" className="inputField"
+                            <textarea id="content" name="content" type="text" className={styles.input}
                                 value={this.state.content} onChange={this.handleChange} />
-                            <div className="helper">Még érezni az előző est hangulatát ...</div>
+                            <div className={styles.helper} >Még érezni az előző est hangulatát ...</div>
                         </div>
-                        <div className="formGroup" hidden={this.state.selectedForm != "details"}>
+                        <div className={styles.formgroup} hidden={this.state.selectedForm != "details"}>
                             <label htmlFor="program"><b>Program</b></label>
-                            <textarea id="program" name="program" type="text" className="inputField"
+                            <textarea id="program" name="program" type="text" className={styles.input}
                                 value={this.state.program} onChange={this.handleChange} />
-                            <div className="helper">19:30 kapunyitás ...</div>
+                            <div className={styles.helper} >19:30 kapunyitás ...</div>
                         </div>
-                        <div className="formGroup" hidden={this.state.selectedForm != "details"}>
+                        <div className={styles.formgroup} hidden={this.state.selectedForm != "details"}>
                             <label htmlFor="facebook_event"><b>Facebook event:</b></label>
-                            <input id="facebook_event" name="facebook_event" type="text" className="inputField"
+                            <input id="facebook_event" name="facebook_event" type="text" className={styles.input}
                                 value={this.state.facebook_event} onChange={this.handleChange} />
-                            <div className="helper">https://www.facebook.com/events/1598719006921910/a</div>
+                            <div className={styles.helper} >https://www.facebook.com/events/1598719006921910/a</div>
                         </div>
-                        <div className="formGroup" hidden={this.state.selectedForm != "media"}>
+                        <div className={styles.formgroup} hidden={this.state.selectedForm != "media"}>
                             <label htmlFor="spot"><b>spot</b></label>
-                            <input id="spot" name="spot" type="text" className="inputField"
+                            <input id="spot" name="spot" type="text" className={styles.input}
                                 value={this.state.spot} onChange={this.handleChange} />
-                            <div className="helper">https://www.facebook.com/events/1598719006921910/</div>
+                            <div className={styles.helper} >https://www.facebook.com/events/1598719006921910/</div>
                         </div>
-                        <div className="formGroup" hidden={this.state.selectedForm != "media"}>
+                        <div className={styles.formgroup} hidden={this.state.selectedForm != "media"}>
                             <label htmlFor="bss"><b>bss</b></label>
-                            <input id="bss" name="bss" type="text" className="inputField"
+                            <input id="bss" name="bss" type="text" className={styles.input}
                                 value={this.state.bss} onChange={this.handleChange} />
-                            <div className="helper">https://www.facebook.com/events/1598719006921910/</div>
+                            <div className={styles.helper} >https://www.facebook.com/events/1598719006921910/</div>
                         </div>
-                        <div className="formGroup" hidden={this.state.selectedForm != "music"}>
+                        <div className={styles.formgroup} hidden={this.state.selectedForm != "music"}>
                             <label htmlFor="teachingid"><b>teachingid</b></label>
                             <select id="teachingid" name="teachingid" value={this.state.teachingid} onChange={this.handleChange}
-                                className="inputField" >
+                                className={styles.input}  >
                                 {teachOptions}
                             </select>
                         </div>
-                        <div className="formGroup" hidden={this.state.selectedForm != "music"}>
+                        <div className={styles.formgroup} hidden={this.state.selectedForm != "music"}>
                             <label htmlFor="bandids"><b>bandids</b></label>
                             <select multiple id="bandids" name="bandids" value={this.state.bandids} onChange={this.handleMultiple}
-                                className="inputField" >
+                                className={styles.input}  >
                                 {bandOptions}
                             </select>
                         </div>
-                        <div className="formGroup" hidden={this.state.selectedForm != "music"}>
+                        <div className={styles.formgroup} hidden={this.state.selectedForm != "music"}>
                             <label htmlFor="djids"><b>djids</b></label>
                             <select multiple id="djids" name="djids" value={this.state.djids} onChange={this.handleMultiple}
-                                className="inputField">
+                                className={styles.input} >
                                 {djOptions}
                             </select>
                         </div>
-                        <div className="formGroup" hidden={this.state.selectedForm != "poster"}>
+                        <div className={styles.formgroup} hidden={this.state.selectedForm != "poster"}>
                             <label htmlFor="photo"><b>Poster</b></label>
                             Size must be around 350x400 px
-                            <input id="photo" name="photo" type="picture" className="inputField"
+                            <input id="photo" name="photo" type="picture" className={styles.input}
                                 value={this.state.photo} onChange={this.handleChange} />
                             <img src="https://media.gettyimages.com/photos/theres-always-something-new-to-learn-picture-id1008383410?b=1&k=6&m=1008383410&s=170x170&h=jdv-af6Q0-NNPAX62uhnpM4dGA1tSakzkNTh-aOqXO0=" />
                         </div>
                         <div className="formGroup mySubmitgroup">
-                            <input type="submit" value="Submit" className="mySubmit" />
+                            <input type="submit" value="Submit" className={styles.submit} />
                         </div>
                     </form>
                 </div>

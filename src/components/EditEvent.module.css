@@ -1,0 +1,66 @@
+.main {
+    max-width: 1000px;;
+}
+
+.steps {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}
+
+.steps > div {
+    padding: 1em;
+    padding-left: 2em;
+    padding-right: 2em;
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.div {
+    height: 1em;
+}
+
+.steps > div:hover {
+    background: rgba(255, 0, 0, 0.4);
+}
+
+.steps > .selected {
+    background: rgba(0, 0, 0, 0.4);
+}
+
+.form {
+    width: 100%;
+    max-width: 40em;
+}
+
+.formgroup {
+    padding: 1em;
+}
+
+.formgroup > label {
+    padding: 0.5em;
+}
+
+.input {
+    width: 100%;
+    padding: 0.5em;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, .3);
+}
+
+textarea.input {
+    height: 9em;
+}
+
+.helper {
+    filter: opacity(0.5);
+    padding: 0.5em;
+}
+
+.submit {
+    padding: 0.5em;
+    padding-left: 1em;
+    padding-right: 1em;
+    background: green;
+    color: white;
+    border-width: 0px;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, .3);
+}
+

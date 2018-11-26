@@ -10,18 +10,6 @@ import EditEventArticle from './EditEventArticle';
 import EditEventParty from './EditEventParty';
 import EditEventWorkshop from './EditEventWorkshop';
 
-function selectParty(id) {
-    window.location = "/edit-party?id=" + id;
-}
-
-function selectWorkshop(id) {
-    window.location = "/edit-workshop?id=" + id;
-}
-
-function selectArticle(id) {
-    window.location = "/edit-article?id=" + id;
-}
-
 class EditEvents extends React.Component {
     constructor() {
         super();

@@ -1,7 +1,6 @@
 import React from 'react';
 import Plakat01 from './Plakat.png';
-import './Editor.css';
-import './Card.css';
+import styles from './EditEvent.module.css';
 
 class EditEventWorkshop extends React.Component {
     constructor() {
@@ -80,96 +79,92 @@ class EditEventWorkshop extends React.Component {
             danceOptions.push(<option value={dance.id} key={dance.id}>{dance.id} - {dance.name}</option>)
         });
         return (
-            <div className="card multistep-editor grid" key="EditEventparty">
-                <div className="edit-steps">
-                    <div onClick={this.props.onClick}>
-                        Új workshop hozzáadása <br />
-                        Régi workshop frissítése
-                    </div>
-                    <div className={this.state.selectedForm == "title" ? "selectedStage" : "stage"}
+            <div className={styles.main} key="EditEventparty">
+                <div className={styles.steps}>
+                    <div className={this.state.selectedForm == "title" ? styles.selected : ""}
                         onClick={() => this.ChangeTab("title")}>
-                        Title and date
+                        Alap adatok
                     </div>
-                    <div className={this.state.selectedForm == "poster" ? "selectedStage" : "stage"}
+                    <div className={this.state.selectedForm == "poster" ? styles.selected : ""}
                         onClick={() => this.ChangeTab("poster")}>
-                        Poster
+                        Plakát
                     </div>
-                    <div className={this.state.selectedForm == "details" ? "selectedStage" : "stage"}
+                    <div className={this.state.selectedForm == "details" ? styles.selected : ""}
                         onClick={() => this.ChangeTab("details")}>
-                        Details
+                        Részletek
                     </div>
-                    <div className={this.state.selectedForm == "dance" ? "selectedStage" : "stage"}
+                    <div className={this.state.selectedForm == "dance" ? styles.selected : ""}
                         onClick={() => this.ChangeTab("dance")}>
-                        Dance
+                        Tánc
                     </div>
                 </div>
-                <div className="form">
+                <div className={styles.form}>
                     <form onSubmit={this.handleSubmit} >
-                        <div className="formGroup" hidden={this.state.selectedForm != "title"}>
+                        <div className={styles.formgroup} hidden={this.state.selectedForm != "title"}>
                             <label htmlFor="title"><b>Title</b></label>
-                            <input id="title" name="title" type="text" className="inputField"
+                            <input id="title" name="title" type="text" className={styles.input}
                                 value={this.state.title} onChange={this.handleChange} />
-                            <div className="helper">Élőzenés Salsa Party: Cuba</div>
+                            <div className={styles.helper} >Élőzenés Salsa Party: Cuba</div>
                         </div>
-                        <div className="formGroup" hidden={this.state.selectedForm != "title"}>
+                        <div className={styles.formgroup} hidden={this.state.selectedForm != "title"}>
                             <label htmlFor="start_date"><b>Start date</b></label>
-                            <input id="start_date" name="start_date" type="datetime-local" className="inputField"
+                            <input id="start_date" name="start_date" type="datetime-local" className={styles.input}
                                 value={this.state.start_date} onChange={this.handleChange} />
-                            <div className="helper">2018-01-12 18:00</div>
+                            <div className={styles.helper} >2018-01-12 18:00</div>
                         </div>
-                        <div className="formGroup" hidden={this.state.selectedForm != "title"}>
+                        <div className={styles.formgroup} hidden={this.state.selectedForm != "title"}>
                             <label htmlFor="end_date"><b>End date</b></label>
-                            <input id="end_date" name="end_date" type="datetime-local" className="inputField"
+                            <input id="end_date" name="end_date" type="datetime-local" className={styles.input}
                                 value={this.state.end_date} onChange={this.handleChange} />
-                            <div className="helper">2018-01-13 01:00</div>
+                            <div className={styles.helper} >2018-01-13 01:00</div>
                         </div>
-                        <div className="formGroup" hidden={this.state.selectedForm != "details"}>
+                        <div className={styles.formgroup} hidden={this.state.selectedForm != "details"}>
                             <label htmlFor="content"><b>Leírás:</b></label>
-                            <textarea id="content" name="content" type="text" className="inputField"
+                            <textarea id="content" name="content" type="text" className={styles.input}
                                 value={this.state.content} onChange={this.handleChange} />
-                            <div className="helper">Még érezni az előző est hangulatát ...</div>
+                            <div className={styles.helper} >Még érezni az előző est hangulatát ...</div>
                         </div>
-                        <div className="formGroup" hidden={this.state.selectedForm != "details"}>
+                        <div className={styles.formgroup} hidden={this.state.selectedForm != "details"}>
                             <label htmlFor="program"><b>Program</b></label>
-                            <textarea id="program" name="program" type="text" className="inputField"
+                            <textarea id="program" name="program" type="text" className={styles.input}
                                 value={this.state.program} onChange={this.handleChange} />
-                            <div className="helper">19:30 kapunyitás ...</div>
+                            <div className={styles.helper} >19:30 kapunyitás ...</div>
                         </div>
-                        <div className="formGroup" hidden={this.state.selectedForm != "details"}>
+                        <div className={styles.formgroup} hidden={this.state.selectedForm != "details"}>
                             <label htmlFor="facebook_event"><b>Facebook event:</b></label>
-                            <input id="facebook_event" name="facebook_event" type="text" className="inputField"
+                            <input id="facebook_event" name="facebook_event" type="text" className={styles.input}
                                 value={this.state.facebook_event} onChange={this.handleChange} />
-                            <div className="helper">https://www.facebook.com/events/1598719006921910/a</div>
+                            <div className={styles.helper} >https://www.facebook.com/events/1598719006921910/a</div>
                         </div>
-                        <div className="formGroup" hidden={this.state.selectedForm != "poster"}>
+                        <div className={styles.formgroup} hidden={this.state.selectedForm != "poster"}>
                             <label htmlFor="photo"><b>Poster</b></label>
                             Size must be around 350x400 px
-                            <input id="photo" name="photo" type="picture" className="inputField"
+                            <input id="photo" name="photo" type="picture" className={styles.input}
                                 value={this.state.photo} onChange={this.handleChange} />
                             <img src="https://media.gettyimages.com/photos/theres-always-something-new-to-learn-picture-id1008383410?b=1&k=6&m=1008383410&s=170x170&h=jdv-af6Q0-NNPAX62uhnpM4dGA1tSakzkNTh-aOqXO0=" />
                         </div>
-                        <div className="formGroup" hidden={this.state.selectedForm != "dance"}>
+                        <div className={styles.formgroup} hidden={this.state.selectedForm != "dance"}>
                             <label htmlFor="danceid"><b>danceid</b></label>
                             <select id="danceid" name="danceid" value={this.state.danceid} onChange={this.handleChange}
-                                className="inputField" >
+                                className={styles.input}  >
                                 {danceOptions}
                             </select>
                         </div>
-                        <div className="formGroup" hidden={this.state.selectedForm != "dance"}>
+                        <div className={styles.formgroup} hidden={this.state.selectedForm != "dance"}>
                             <label htmlFor="teacherid"><b>teacherid</b></label>
                             <select id="teacherid" name="teacherid" value={this.state.teacherid} onChange={this.handleChange}
-                                className="inputField" >
+                                className={styles.input}  >
                                 {teacherOptions}
                             </select>
                         </div>
-                        <div className="formGroup" hidden={this.state.selectedForm != "dance"}>
+                        <div className={styles.formgroup} hidden={this.state.selectedForm != "dance"}>
                             <label htmlFor="application_form"><b>application_form:</b></label>
-                            <input id="application_form" name="application_form" type="text" className="inputField"
+                            <input id="application_form" name="application_form" type="text" className={styles.input}
                                 value={this.state.application_form} onChange={this.handleChange} />
-                            <div className="helper">https://goo.gl/forms/EMAqXVoJDJQGNkeq1</div>
+                            <div className={styles.helper} >https://goo.gl/forms/EMAqXVoJDJQGNkeq1</div>
                         </div>
                         <div className="formGroup mySubmitgroup">
-                            <input type="submit" value="Submit" className="mySubmit" />
+                            <input type="submit" value="Submit" className={styles.submit} />
                         </div>
                     </form>
                 </div>
