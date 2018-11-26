@@ -10,10 +10,10 @@
     color: white;
     font-family: 'Roboto', sans-serif;
     margin-bottom: 6rem;
-    margin-top: 5rem;
     margin-left: 0;
     margin-right: auto;
     padding: 1rem;
+    padding-top: 6rem;
 }
 
 .selectable {
@@ -21,9 +21,18 @@
 }
 
 .selectable:hover {
-    background: rgba(255, 0, 0, 0.2);
+    background: rgba(0, 0, 0, 0.5);
 }
 
 .selected {
     width: 100%;
+}
+
+.selectedline {
+    padding: 10px;
+    background: rgba(255, 200, 0, 0.5);
+}
+
+.selectedline:hover {
+    background: rgba(255, 200, 0, 0.5);
 }

@@ -1,5 +1,5 @@
 .main {
-    max-width: 1000px;;
+    max-width: 1000px;
 }
 
 .steps {
@@ -12,6 +12,9 @@
     padding-left: 2em;
     padding-right: 2em;
     background: rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 4px 0px rgba(0, 0, 0, .5);
+    text-align: center;
+    font-weight: bold;
 }
 
 .div {
@@ -19,11 +22,15 @@
 }
 
 .steps > div:hover {
-    background: rgba(255, 0, 0, 0.4);
+    background: rgba(0, 0, 0, 0.5);
 }
 
 .steps > .selected {
-    background: rgba(0, 0, 0, 0.4);
+    background: rgba(255, 200, 0, 0.5);
+}
+
+.steps > .selected:hover {
+    background: rgba(255, 200, 0, 0.5);
 }
 
 .form {
@@ -33,6 +40,7 @@
 
 .formgroup {
     padding: 1em;
+    position: relative;
 }
 
 .formgroup > label {
@@ -45,6 +53,11 @@
     box-shadow: 4px 4px 4px rgba(0, 0, 0, .3);
 }
 
+.input[type="datetime-local"] {
+    display: block;
+    width: max-content;
+}
+
 textarea.input {
     height: 9em;
 }
@@ -55,6 +68,8 @@ textarea.input {
 }
 
 .submit {
+    margin: 0.5em;
+    font-weight: bold;
     padding: 0.5em;
     padding-left: 1em;
     padding-right: 1em;
@@ -64,3 +79,13 @@ textarea.input {
     box-shadow: 4px 4px 4px rgba(0, 0, 0, .3);
 }
 
+.plus {
+    position: absolute;
+    top: 2em;
+    right: -2em;
+    height: 2em;
+}
+
+.plus:hover {
+    filter: opacity(0.5);
+}

@@ -1,10 +1,5 @@
 import React from 'react';
 import styles from './EditEventList.module.css';
-import EditEventLogo from './pencil.svg';
-import EditMedia from './film.svg';
-import EditDetails from './list.svg';
-import EditPoster from './poster.svg';
-import EditEventsHeader from './EditEventsHeader';
 import SelectableEvent from './SelectableEvent';
 import EditEventArticle from './EditEventArticle';
 import EditEventParty from './EditEventParty';
@@ -16,38 +11,38 @@ class EditEvents extends React.Component {
         this.state = {
             events: [
                 {
-                    id: "1",
+                    id: "P1",
                     title: "Élőzenés Salsa Party",
                     start_date: "2018.01.02. 18:30",
                     onClick: () => this.Party(1),
                 },
                 {
-                    id: "2",
+                    id: "P2",
                     title: "Élőzenés Rock N Roll Party",
                     start_date: "2018.01.02. 18:30",
                     onClick: () => this.Party(2),
                 },
                 {
-                    id: "1",
+                    id: "W1",
                     title: "Kizomba Workshop",
                     start_date: "2018.01.02. 18:30",
                     onClick: () => this.Workshop(1),
                 },
                 {
-                    id: "1",
+                    id: "A1",
                     title: "Gólyabál",
                     start_date: "2018.01.02. 18:30",
                     onClick: () => this.Article(1),
                 },
             ],
-            selectedId: 0,
+            selectedId: "0",
             selectedObject: null
         };
     }
 
     Party(id) {
         this.setState({
-            selectedId: id,
+            selectedId: "P" + id,
             selectedObject: (<EditEventParty />)
         })
 
@@ -55,14 +50,14 @@ class EditEvents extends React.Component {
 
     Article(id) {
         this.setState({
-            selectedId: id,
+            selectedId: "A" + id,
             selectedObject: (<EditEventArticle />)
         })
     }
 
     Workshop(id) {
         this.setState({
-            selectedId: id,
+            selectedId: "W" + id,
             selectedObject: (<EditEventWorkshop />)
         })
     }
@@ -71,7 +66,9 @@ class EditEvents extends React.Component {
         return (
             <div className={styles.main}>
                 <div className={styles.list}>
-                    {this.state.events.map((event) => <SelectableEvent {...event} />)}
+                    {this.state.events.map((event) =>
+                        <SelectableEvent {...event} selected={event.id == this.state.selectedId} />
+                    )}
                 </div>
                 <div className={styles.selected}>
                     {this.state.selectedObject}
