@@ -3,6 +3,7 @@ import styles from './EditEventList.module.css';
 import SelectableEvent from './SelectableEvent';
 import FormBand from './FormBand';
 import styles2 from './EditEvent.module.css';
+import Plus from './plus.svg';
 
 class EditBand extends React.Component {
     constructor() {
@@ -20,6 +21,7 @@ class EditBand extends React.Component {
             selectedId: 0,
             selectedObject: null
         };
+        this.New = this.New.bind(this);
     }
 
     Add(id) {
@@ -27,7 +29,13 @@ class EditBand extends React.Component {
             selectedId: id,
             selectedObject: (<FormBand />)
         })
+    }
 
+    New() {
+        this.setState({
+            selectedId: null,
+            selectedObject: (<FormBand />)
+        })
     }
 
     render() {
@@ -35,6 +43,11 @@ class EditBand extends React.Component {
             <div className={styles.center}>
                 <div className={styles.main}>
                     <div className={styles.list}>
+                        <div className={styles.selectable}
+                            onClick={this.New} >
+                            <img src={Plus} className={styles.addElement} />
+                            Új Zenekar
+                        </div>
                         {this.state.bands.map((band) =>
                             <SelectableEvent title={band.name} onClick={() => this.Add(band.id)}
                                 selected={band.id == this.state.selectedId} />

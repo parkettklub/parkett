@@ -4,6 +4,7 @@ import SelectableEvent from './SelectableEvent';
 import EditEventArticle from './EditEventArticle';
 import EditEventParty from './EditEventParty';
 import EditEventWorkshop from './EditEventWorkshop';
+import Plus from './plus.svg';
 
 class EditEvents extends React.Component {
     constructor() {
@@ -38,6 +39,9 @@ class EditEvents extends React.Component {
             selectedId: "0",
             selectedObject: null
         };
+        this.NewArticle = this.NewArticle.bind(this);
+        this.NewParty = this.NewParty.bind(this);
+        this.NewWorkshop = this.NewWorkshop.bind(this);
     }
 
     Party(id) {
@@ -62,11 +66,49 @@ class EditEvents extends React.Component {
         })
     }
 
+    NewParty() {
+        this.setState({
+            selectedId: "",
+            selectedObject: (<EditEventParty />)
+        })
+
+    }
+
+    NewArticle() {
+        this.setState({
+            selectedId: "",
+            selectedObject: (<EditEventArticle />)
+        })
+    }
+
+    NewWorkshop() {
+        this.setState({
+            selectedId: "",
+            selectedObject: (<EditEventWorkshop />)
+        })
+    }
+
     render() {
         return (
             <div className={styles.center}>
                 <div className={styles.main}>
                     <div className={styles.list}>
+                        <div className={styles.selectable}
+                            onClick={this.NewParty} >
+                            <img src={Plus} className={styles.addElement} />
+                            Új party
+                        </div>
+                        <div className={styles.selectable}
+                            onClick={this.NewWorkshop} >
+                            <img src={Plus} className={styles.addElement} />
+                            Új Workshop
+                        </div>
+                        <div className={styles.selectable}
+                            onClick={this.NewArticle} >
+                            <img src={Plus} className={styles.addElement} />
+                            Új Bejegyzés
+                        </div>
+
                         {this.state.events.map((event) =>
                             <SelectableEvent {...event} selected={event.id == this.state.selectedId} />
                         )}

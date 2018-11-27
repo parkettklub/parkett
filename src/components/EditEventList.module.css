@@ -39,3 +39,12 @@
 .selectedline:hover {
     background: rgba(255, 200, 0, 0.5);
 }
+
+.addElement {
+    height: 1em;
+    padding-right: 1em;
+}
+
+.addElement:hover {
+    filter: opacity(0.5);
+}

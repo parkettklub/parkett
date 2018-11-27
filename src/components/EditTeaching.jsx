@@ -3,6 +3,8 @@ import styles from './EditEventList.module.css';
 import SelectableEvent from './SelectableEvent';
 import FormTeaching from './FormTeaching';
 import styles2 from './EditEvent.module.css';
+import Plus from './plus.svg';
+
 
 class EditTeaching extends React.Component {
     constructor() {
@@ -33,6 +35,7 @@ class EditTeaching extends React.Component {
             selectedId: 0,
             selectedObject: null
         };
+        this.New = this.New.bind(this);
     }
 
     Add(id) {
@@ -43,11 +46,23 @@ class EditTeaching extends React.Component {
 
     }
 
+    New() {
+        this.setState({
+            selectedId: null,
+            selectedObject: (<FormTeaching />)
+        })
+    }
+
     render() {
         return (
             <div className={styles.center}>
                 <div className={styles.main}>
                     <div className={styles.list}>
+                        <div className={styles.selectable}
+                            onClick={this.New} >
+                            <img src={Plus} className={styles.addElement} />
+                            Új Tanítás
+                        </div>
                         {this.state.teachings.map((teaching) =>
                             <SelectableEvent title={this.state.teachers[teaching.teacherid].name}
                                 onClick={() => this.Add(teaching.id)}

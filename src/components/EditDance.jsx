@@ -3,6 +3,7 @@ import styles from './EditEventList.module.css';
 import SelectableEvent from './SelectableEvent';
 import FormDance from './FormDance';
 import styles2 from './EditEvent.module.css';
+import Plus from './plus.svg';
 
 class EditDance extends React.Component {
     constructor() {
@@ -20,6 +21,7 @@ class EditDance extends React.Component {
             selectedId: 0,
             selectedObject: null
         };
+        this.New = this.New.bind(this);
     }
 
     Add(id) {
@@ -30,11 +32,23 @@ class EditDance extends React.Component {
 
     }
 
+    New() {
+        this.setState({
+            selectedId: null,
+            selectedObject: (<FormDance />)
+        });
+    }
+
     render() {
         return (
             <div className={styles.center}>
                 <div className={styles.main}>
                     <div className={styles.list}>
+                        <div className={styles.selectable}
+                            onClick={this.New} >
+                            <img src={Plus} className={styles.addElement} />
+                            Új Tánc
+                        </div>
                         {this.state.dances.map((dance) =>
                             <SelectableEvent title={dance.name} onClick={() => this.Add(dance.id)}
                                 selected={dance.id == this.state.selectedId} />
