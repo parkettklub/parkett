@@ -43,9 +43,11 @@ class EditEventArticle extends React.Component {
             <div className={styles.main} key="EditEventparty">
                 <div className={styles.steps}>
                     <FormSelect title="title" selected={this.state.selectedForm}
-                        onClick={() => this.ChangeTab("title")} />
+                        onClick={() => this.ChangeTab("title")}
+                        label="Alap adatok" />
                     <FormSelect title="poster" selected={this.state.selectedForm}
-                        onClick={() => this.ChangeTab("poster")} />
+                        onClick={() => this.ChangeTab("poster")}
+                        label="Plakát" />
                 </div>
                 <div className={styles.form}>
                     <form onSubmit={this.handleSubmit} >
@@ -56,13 +58,13 @@ class EditEventArticle extends React.Component {
                         <FormDateInput selected={this.state.selectedForm} title="title"
                             handleChange={this.handleChange} value={this.state.published_at}
                             name="published_at"
-                            example="2018. 01. 12 18:00" label="published date" />
+                            example="2018. 01. 12 18:00" label="Időpont" />
                         <FormTextareaInput selected={this.state.selectedForm} title="title"
                             handleChange={this.handleChange} value={this.state.content}
                             name="content"
                             example="Még érezni az előző est hangulatát ..." label="Leírás:" />
                         <div className={styles.formgroup} hidden={this.state.selectedForm != "poster"}>
-                            <label htmlFor="photo"><b>Poster</b></label>
+                            <label htmlFor="photo"><b>Plakát</b></label>
                             Size must be around 350x400 px
                             <input id="photo" name="photo" type="picture" className={styles.input}
                                 value={this.state.photo} onChange={this.handleChange} />

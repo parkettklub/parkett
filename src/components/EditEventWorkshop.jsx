@@ -98,13 +98,17 @@ class EditEventWorkshop extends React.Component {
             <div className={styles.main} key="EditEventparty">
                 <div className={styles.steps}>
                     <FormSelect title="title" selected={this.state.selectedForm}
-                        onClick={() => this.ChangeTab("title")} />
+                        onClick={() => this.ChangeTab("title")}
+                        label="Alap adatok" />
                     <FormSelect title="poster" selected={this.state.selectedForm}
-                        onClick={() => this.ChangeTab("poster")} />
+                        onClick={() => this.ChangeTab("poster")}
+                        label="Plakát" />
                     <FormSelect title="details" selected={this.state.selectedForm}
-                        onClick={() => this.ChangeTab("details")} />
+                        onClick={() => this.ChangeTab("details")}
+                        label="Leírás és Facebook" />
                     <FormSelect title="dance" selected={this.state.selectedForm}
-                        onClick={() => this.ChangeTab("dance")} />
+                        onClick={() => this.ChangeTab("dance")}
+                        label="Tanítás és Form" />
                 </div>
                 <div className={styles.form}>
                     <form onSubmit={this.handleSubmit} >
@@ -115,11 +119,11 @@ class EditEventWorkshop extends React.Component {
                         <FormDateInput selected={this.state.selectedForm} title="title"
                             handleChange={this.handleChange} value={this.state.start_date}
                             name="start_date"
-                            example="2018. 01. 12 18:00" label="Start date" />
+                            example="2018. 01. 12 18:00" label="Kezdés" />
                         <FormDateInput selected={this.state.selectedForm} title="title"
                             handleChange={this.handleChange} value={this.state.end_date}
                             name="end_date"
-                            example="2018. 01. 13 01:00" label="End date" />
+                            example="2018. 01. 13 01:00" label="Vége" />
                         <FormTextareaInput selected={this.state.selectedForm} title="details"
                             handleChange={this.handleChange} value={this.state.content}
                             name="content"
@@ -131,10 +135,10 @@ class EditEventWorkshop extends React.Component {
                         <FormSimpleInput selected={this.state.selectedForm} title="details"
                             handleChange={this.handleChange} value={this.state.facebook_event}
                             name="facebook_event"
-                            example="https://www.facebook.com/events/1598719006921910" label="Facebook event" />
+                            example="https://www.facebook.com/events/1598719006921910" label="Facebook esemény" />
                         <FormSelectInput selected={this.state.selectedForm} title="dance"
                             handleChange={this.handleChange} value={this.state.danceid}
-                            name="danceid" label="Dance" options={danceOptions}
+                            name="danceid" label="Tánc" options={danceOptions}
                             addNew={() => this.addNewElement("dance")} close={() => this.close()} />
                         <FormDance selected={this.state.addSelected} title="dance"
                             selectedObject={{
@@ -142,7 +146,7 @@ class EditEventWorkshop extends React.Component {
                             }} />
                         <FormSelectInput selected={this.state.selectedForm} title="dance"
                             handleChange={this.handleChange} value={this.state.teacherid}
-                            name="teacherid" label="Teacher" options={teacherOptions}
+                            name="teacherid" label="Tanár" options={teacherOptions}
                             addNew={() => this.addNewElement("teacher")} close={() => this.close()} />
                         <FormTeacher selected={this.state.addSelected} title="teacher"
                             selectedObject={{
@@ -151,16 +155,16 @@ class EditEventWorkshop extends React.Component {
                         <FormSimpleInput selected={this.state.selectedForm} title="dance"
                             handleChange={this.handleChange} value={this.state.application_form}
                             name="application_form"
-                            example="https://goo.gl/forms/EMAqXVoJDJQGNkeq1" label="Application form" />
+                            example="https://goo.gl/forms/EMAqXVoJDJQGNkeq1" label="Jelentkező form" />
                         <div className={styles.formgroup} hidden={this.state.selectedForm != "poster"}>
-                            <label htmlFor="photo"><b>Poster</b></label>
+                            <label htmlFor="photo"><b>Plakát</b></label>
                             Size must be around 350x400 px
                             <input id="photo" name="photo" type="picture" className={styles.input}
                                 value={this.state.photo} onChange={this.handleChange} />
                             <img src="https://media.gettyimages.com/photos/theres-always-something-new-to-learn-picture-id1008383410?b=1&k=6&m=1008383410&s=170x170&h=jdv-af6Q0-NNPAX62uhnpM4dGA1tSakzkNTh-aOqXO0=" />
                         </div>
                         <div className="formGroup mySubmitgroup">
-                            <input type="submit" value="Submit" className={styles.submit} />
+                            <input type="submit" value="Mentés" className={styles.submit} />
                         </div>
                     </form>
                 </div>
