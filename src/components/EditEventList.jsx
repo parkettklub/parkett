@@ -1,6 +1,6 @@
 import React from 'react';
-import styles from './EditEventList.module.css';
-import SelectableEvent from './SelectableEvent';
+import styles from './Editor.module.css';
+import SelectableElement from './SelectableElement';
 import EditEventArticle from './EditEventArticle';
 import EditEventParty from './EditEventParty';
 import EditEventWorkshop from './EditEventWorkshop';
@@ -110,7 +110,7 @@ class EditEvents extends React.Component {
                         </div>
 
                         {this.state.events.map((event) =>
-                            <SelectableEvent {...event} selected={event.id == this.state.selectedId} />
+                            <SelectableElement {...event} selected={event.id == this.state.selectedId} />
                         )}
                     </div>
                     <div className={styles.selected}>

@@ -1,8 +1,8 @@
 import React from 'react';
-import styles from './EditEventList.module.css';
-import SelectableEvent from './SelectableEvent';
+import SelectableElement from './SelectableElement';
 import FormDance from './FormDance';
-import styles2 from './EditEvent.module.css';
+import styles from './Editor.module.css';
+import stylesForm from './Form.module.css';
 import Plus from './plus.svg';
 
 class EditDance extends React.Component {
@@ -24,18 +24,22 @@ class EditDance extends React.Component {
         this.New = this.New.bind(this);
     }
 
-    Add(id) {
+    Select(id) {
+        const selected = this.state.dances.find((dance) => {
+            return dance.id == id;
+        })
         this.setState({
             selectedId: id,
-            selectedObject: (<FormDance />)
+            selectedObject: (<FormDance selectedObject={selected} />)
         })
-
     }
 
     New() {
         this.setState({
             selectedId: null,
-            selectedObject: (<FormDance />)
+            selectedObject: (<FormDance selectedObject={{
+                id: -1
+            }} />)
         });
     }
 
@@ -50,12 +54,12 @@ class EditDance extends React.Component {
                             Új Tánc
                         </div>
                         {this.state.dances.map((dance) =>
-                            <SelectableEvent title={dance.name} onClick={() => this.Add(dance.id)}
+                            <SelectableElement title={dance.name} onClick={() => this.Select(dance.id)}
                                 selected={dance.id == this.state.selectedId} />
                         )}
                     </div>
                     <div className={styles.selected}>
-                        <div className={styles2.main}>
+                        <div className={stylesForm.main}>
                             {this.state.selectedObject}
                         </div>
                     </div>

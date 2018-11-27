@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from './EditEvent.module.css'
+import styles from './Form.module.css'
 
 function FormSimpleInput({ selected, title, label, name, handleChange, value, example }) {
     return (

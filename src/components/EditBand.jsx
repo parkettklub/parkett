@@ -1,8 +1,8 @@
 import React from 'react';
-import styles from './EditEventList.module.css';
-import SelectableEvent from './SelectableEvent';
+import SelectableElement from './SelectableElement';
 import FormBand from './FormBand';
-import styles2 from './EditEvent.module.css';
+import styleForm from './Form.module.css';
+import styles from './Editor.module.css';
 import Plus from './plus.svg';
 
 class EditBand extends React.Component {
@@ -16,7 +16,7 @@ class EditBand extends React.Component {
             }, {
                 id: 2,
                 name: "Török Testvérek",
-                url: "google.com"
+                url: "torok.testverek.hu"
             }],
             selectedId: 0,
             selectedObject: null
@@ -24,18 +24,24 @@ class EditBand extends React.Component {
         this.New = this.New.bind(this);
     }
 
-    Add(id) {
+    Select(id) {
+        let selected = this.state.bands.find((band) => {
+            return band.id == id;
+        })
         this.setState({
             selectedId: id,
-            selectedObject: (<FormBand />)
+            selectedObject: (<FormBand selectedObject={selected} />)
         })
     }
 
     New() {
         this.setState({
             selectedId: null,
-            selectedObject: (<FormBand />)
-        })
+            selectedObject: (
+                <FormBand selectedObject={{
+                    id: -1
+                }} />)
+        });
     }
 
     render() {
@@ -49,12 +55,12 @@ class EditBand extends React.Component {
                             Új Zenekar
                         </div>
                         {this.state.bands.map((band) =>
-                            <SelectableEvent title={band.name} onClick={() => this.Add(band.id)}
+                            <SelectableElement title={band.name} onClick={() => this.Select(band.id)}
                                 selected={band.id == this.state.selectedId} />
                         )}
                     </div>
                     <div className={styles.selected}>
-                        <div className={styles2.main}>
+                        <div className={styleForm.main}>
                             {this.state.selectedObject}
                         </div>
                     </div>

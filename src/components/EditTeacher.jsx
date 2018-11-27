@@ -1,10 +1,9 @@
 import React from 'react';
-import styles from './EditEventList.module.css';
-import SelectableEvent from './SelectableEvent';
+import SelectableElement from './SelectableElement';
 import FormTeacher from './FormTeacher';
-import styles2 from './EditEvent.module.css';
+import styles from './Editor.module.css';
+import styles2 from './Form.module.css';
 import Plus from './plus.svg';
-
 
 class EditTeacher extends React.Component {
     constructor() {
@@ -17,7 +16,7 @@ class EditTeacher extends React.Component {
             }, {
                 id: 2,
                 name: "Komjáti Ede és Padányi Emese",
-                url: "wwww.parkettklub.hu"
+                url: "wwww.komjati.emese.hu"
             }],
             selectedId: 0,
             selectedObject: null
@@ -25,18 +24,22 @@ class EditTeacher extends React.Component {
         this.New = this.New.bind(this);
     }
 
-    Add(id) {
+    Select(id) {
+        let selected = this.state.teachers.find((teacher) => {
+            return teacher.id == id;
+        })
         this.setState({
             selectedId: id,
-            selectedObject: (<FormTeacher />)
+            selectedObject: (<FormTeacher selectedObject={selected} />)
         })
-
     }
 
     New() {
         this.setState({
             selectedId: null,
-            selectedObject: (<FormTeacher />)
+            selectedObject: (<FormTeacher selectedObject={{
+                id: -1
+            }} />)
         })
     }
 
@@ -51,7 +54,7 @@ class EditTeacher extends React.Component {
                             Új Tanár
                         </div>
                         {this.state.teachers.map((teacher) =>
-                            <SelectableEvent title={teacher.name} onClick={() => this.Add(teacher.id)}
+                            <SelectableElement title={teacher.name} onClick={() => this.Select(teacher.id)}
                                 selected={teacher.id == this.state.selectedId} />
                         )}
                     </div>

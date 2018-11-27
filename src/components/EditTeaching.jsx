@@ -1,8 +1,8 @@
 import React from 'react';
-import styles from './EditEventList.module.css';
-import SelectableEvent from './SelectableEvent';
+import SelectableElement from './SelectableElement';
 import FormTeaching from './FormTeaching';
-import styles2 from './EditEvent.module.css';
+import styles from './Editor.module.css';
+import styles2 from './Form.module.css';
 import Plus from './plus.svg';
 
 
@@ -12,25 +12,23 @@ class EditTeaching extends React.Component {
         this.state = {
             teachings: [{
                 id: 1,
-                teacherid: 0,
+                teacherid: 1,
                 danceid: 1,
                 level: "kezdő",
                 length: "45 perces"
             }, {
                 id: 2,
-                teacherid: 1,
-                danceid: 1,
+                teacherid: 2,
+                danceid: 2,
                 level: "kezdő",
                 length: "45 perces"
             }],
             teachers: [{
                 id: 1,
-                name: "Kovács Béla és Heves Kornélia",
-                url: "wwww.parkettklub.hu"
+                name: "Martin és Gelda"
             }, {
                 id: 2,
-                name: "Komjáti Ede és Padányi Emese",
-                url: "wwww.parkettklub.hu"
+                name: "Ede és Emese és a törpe"
             }],
             selectedId: 0,
             selectedObject: null
@@ -38,19 +36,24 @@ class EditTeaching extends React.Component {
         this.New = this.New.bind(this);
     }
 
-    Add(id) {
+    Select(selected) {
         this.setState({
-            selectedId: id,
-            selectedObject: (<FormTeaching />)
+            selectedId: selected.id,
+            selectedObject: (<FormTeaching selectedObject={selected} />)
         })
-
     }
 
     New() {
         this.setState({
             selectedId: null,
-            selectedObject: (<FormTeaching />)
+            selectedObject: (<FormTeaching selectedObject={{
+                id: -1,
+            }} />)
         })
+    }
+
+    getTeacher(id) {
+        return this.state.teachers.find((teacher) => teacher.id == id);
     }
 
     render() {
@@ -64,8 +67,8 @@ class EditTeaching extends React.Component {
                             Új Tanítás
                         </div>
                         {this.state.teachings.map((teaching) =>
-                            <SelectableEvent title={this.state.teachers[teaching.teacherid].name}
-                                onClick={() => this.Add(teaching.id)}
+                            <SelectableElement title={this.getTeacher(teaching.teacherid).name}
+                                onClick={() => this.Select(teaching)}
                                 selected={teaching.id == this.state.selectedId} />
                         )}
                     </div>

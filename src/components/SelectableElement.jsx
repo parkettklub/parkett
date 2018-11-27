@@ -1,7 +1,7 @@
 import React from 'react'
-import styles from './EditEventList.module.css'
+import styles from './Editor.module.css'
 
-function SelectableEvent({ title, start_date, onClick, selected }) {
+function SelectableElement({ title, start_date, onClick, selected }) {
     return (
         <div className={selected ? styles.selectedline : styles.selectable} onClick={onClick}>
             {start_date} {title}
@@ -9,4 +9,4 @@ function SelectableEvent({ title, start_date, onClick, selected }) {
     )
 }
 
-export default SelectableEvent
+export default SelectableElement

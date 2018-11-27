@@ -1,31 +1,15 @@
 import React from 'react'
-import styles from './EditEvent.module.css'
+import styles from './Form.module.css'
 import FormSimpleInput from './FormSimpleInput'
+import FormBase from './FormBase';
 
-class FormTeacher extends React.Component {
-    constructor() {
-        super();
-        this.state = {
-            name: "Title",
-            url: "www.url.com"
-        }
-        this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
-    }
-
-    handleChange(event) {
-        const name = event.target.name;
-        this.setState({ [name]: event.target.value });
-    }
-
-    handleSubmit(event) {
-        event.preventDefault();
-    }
-
+class FormTeacher extends FormBase {
     render() {
+        this.LoadObject(this.props.selectedObject);
+        let isNew = this.state.id == -1;
         return (
             <div className={styles.formgroup} hidden={this.props.selected != this.props.title}>
-                <label>Új Tanár adatai:</label>
+                <label>{isNew ? "Új" : ""} Tanár adatai:</label>
                 <FormSimpleInput selected={this.props.selected} title={this.props.title}
                     handleChange={this.handleChange} value={this.state.name}
                     name="name"
@@ -33,9 +17,9 @@ class FormTeacher extends React.Component {
                 <FormSimpleInput selected={this.props.selected} title={this.props.title}
                     handleChange={this.handleChange} value={this.state.url}
                     name="url"
-                    example="www.example.com" label="Url" />
+                    example="www.example.com" label="Weboldal" />
                 <div className={styles.formgroup}>
-                    <input type="submit" value="Tanár hozzáadása" className={styles.submit} />
+                    <input type="submit" value={isNew ? "Tanár hozzáadása" : "Tanár módosítása"} className={styles.submit} />
                 </div>
             </div>
         )

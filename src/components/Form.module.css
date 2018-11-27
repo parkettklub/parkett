@@ -61,6 +61,7 @@
 
 textarea.input {
     height: 9em;
+    resize: none;
 }
 
 .helper {

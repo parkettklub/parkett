@@ -1,6 +1,6 @@
 import React from 'react';
 import Plakat01 from './Plakat.png';
-import styles from './EditEvent.module.css';
+import styles from './Form.module.css';
 import FormSelect from './FormSelect';
 import FormSimpleInput from './FormSimpleInput';
 import FormDateInput from './FormDateInput';
@@ -136,12 +136,18 @@ class EditEventWorkshop extends React.Component {
                             handleChange={this.handleChange} value={this.state.danceid}
                             name="danceid" label="Dance" options={danceOptions}
                             addNew={() => this.addNewElement("dance")} close={() => this.close()} />
-                        <FormDance selected={this.state.addSelected} title="dance" />
+                        <FormDance selected={this.state.addSelected} title="dance"
+                            selectedObject={{
+                                id: -1
+                            }} />
                         <FormSelectInput selected={this.state.selectedForm} title="dance"
                             handleChange={this.handleChange} value={this.state.teacherid}
                             name="teacherid" label="Teacher" options={teacherOptions}
                             addNew={() => this.addNewElement("teacher")} close={() => this.close()} />
-                        <FormTeacher selected={this.state.addSelected} title="teacher" />
+                        <FormTeacher selected={this.state.addSelected} title="teacher"
+                            selectedObject={{
+                                id: -1
+                            }} />
                         <FormSimpleInput selected={this.state.selectedForm} title="dance"
                             handleChange={this.handleChange} value={this.state.application_form}
                             name="application_form"

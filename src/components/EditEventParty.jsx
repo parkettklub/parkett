@@ -1,6 +1,6 @@
 import React from 'react';
 import Plakat01 from './Plakat.png';
-import styles from './EditEvent.module.css';
+import styles from './Form.module.css';
 import FormSelect from './FormSelect';
 import FormSimpleInput from './FormSimpleInput';
 import FormDateInput from './FormDateInput';
@@ -69,13 +69,17 @@ class EditEventParty extends React.Component {
             }],
             teachings: [{
                 id: 1,
-                teacher: "Me and Me",
-                dance: "salsa"
+                teacher: "Plakát János és Marok Béla",
+                danceid: "salsa",
+                level: "kezdő",
+                length: "45 perces"
             }, {
                 id: 2,
-                teacher: "They and They",
-                dance: "kizomba"
-            },]
+                teacher: "Helpless Jonas",
+                danceid: "rocky",
+                level: "kezdő",
+                length: "45 perces"
+            }]
 
         };
         this.handleChange = this.handleChange.bind(this);
@@ -130,7 +134,7 @@ class EditEventParty extends React.Component {
         })
         const teachOptions = []
         this.state.teachings.forEach((teaching) => {
-            teachOptions.push(<option value={teaching.id} key={teaching.id}>{teaching.id} - {teaching.teacher} {teaching.dance}</option>)
+            teachOptions.push(<option value={teaching.id} key={teaching.id}>{teaching.id} - {teaching.teacher} {teaching.dance} {teaching.level} {teaching.length}</option>)
         })
         return (
             <div className={styles.main} key="EditEventparty">
@@ -185,18 +189,27 @@ class EditEventParty extends React.Component {
                             name="teachingid" label="Teaching"
                             addNew={() => this.addNewElement("teaching")} close={() => this.close()}
                             options={teachOptions} />
-                        <FormTeaching selected={this.state.addSelected} title="teaching" />
+                        <FormTeaching selected={this.state.addSelected} title="teaching"
+                            selectedObject={{
+                                id: -1
+                            }} />
                         <FormMultipleSelectInput selected={this.state.selectedForm} title="music"
                             handleChange={this.handleMultiple} value={this.state.bandids}
                             name="bandids" label="Band ids"
                             addNew={() => this.addNewElement("band")} close={() => this.close()}
                             options={bandOptions} />
-                        <FormBand selected={this.state.addSelected} title="band" />
+                        <FormBand selected={this.state.addSelected} title="band"
+                            selectedObject={{
+                                id: -1
+                            }} />
                         <FormMultipleSelectInput selected={this.state.selectedForm} title="music"
                             handleChange={this.handleMultiple} value={this.state.djids}
                             name="djids" label="DJs" addNew={() => this.addNewElement("dj")} close={() => this.close()}
                             options={djOptions} />
-                        <FormDJ selected={this.state.addSelected} title="dj" />
+                        <FormDJ selected={this.state.addSelected} title="dj"
+                            selectedObject={{
+                                id: -1
+                            }} />
                         <div className={styles.formgroup} hidden={this.state.selectedForm != "poster"}>
                             <label htmlFor="photo"><b>Poster</b></label>
                             Size must be around 350x400 px

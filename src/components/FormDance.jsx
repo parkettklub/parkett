@@ -1,42 +1,27 @@
 import React from 'react'
-import styles from './EditEvent.module.css'
+import styles from './Form.module.css'
 import FormSimpleInput from './FormSimpleInput'
 import FormTextareaInput from './FormTextareaInput'
+import FormBase from './FormBase';
 
-class FormDance extends React.Component {
-    constructor() {
-        super();
-        this.state = {
-            name: "Title",
-            content: "long content"
-        }
-        this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
-    }
-
-    handleChange(event) {
-        const name = event.target.name;
-        this.setState({ [name]: event.target.value });
-    }
-
-    handleSubmit(event) {
-        event.preventDefault();
-    }
-
+class FormDance extends FormBase {
     render() {
+        this.LoadObject(this.props.selectedObject);
+        let isNew = this.state.id == -1;
         return (
             <div className={styles.formgroup} hidden={this.props.selected != this.props.title}>
-                <label>Új Tánc adatai:</label>
+                <label>{isNew ? "Új" : ""} Tánc adatai:</label>
                 <FormSimpleInput selected={this.props.selected} title={this.props.title}
                     handleChange={this.handleChange} value={this.state.name}
                     name="name"
-                    example="Pedrofon" label="Név" />
+                    example="salsa" label="Név" />
                 <FormTextareaInput selected={this.props.selected} title={this.props.title}
                     handleChange={this.handleChange} value={this.state.content}
                     name="content"
-                    example="Ez a tánc a legeslegjobb" label="Content" />
+                    example="Ez a tánc a legeslegjobb" label="Leírás" />
                 <div className={styles.formgroup}>
-                    <input type="submit" value="Tánc hozzáadása" className={styles.submit} />
+                    <input type="submit" className={styles.submit}
+                        value={isNew ? "Tánc hozzáadása" : "Tánc módosítása"} />
                 </div>
             </div>
         )

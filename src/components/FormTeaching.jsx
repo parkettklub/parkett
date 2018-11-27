@@ -1,32 +1,12 @@
 import React from 'react'
-import styles from './EditEvent.module.css'
+import styles from './Form.module.css'
 import FormSimpleInput from './FormSimpleInput'
 import FormSelectInput from './FormSelectInput';
 import FormDance from './FormDance';
 import FormTeacher from './FormTeacher';
+import FormBase from './FormBase';
 
-class FormTeaching extends React.Component {
-    constructor() {
-        super();
-        this.state = {
-            level: "kezdő",
-            length: "20hr",
-            teacherid: 1,
-            danceid: 1,
-            addSelected: null
-        }
-        this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
-    }
-
-    handleChange(event) {
-        const name = event.target.name;
-        this.setState({ [name]: event.target.value });
-    }
-
-    handleSubmit(event) {
-        event.preventDefault();
-    }
+class FormTeaching extends FormBase {
 
     addNewElement(name) {
         this.setState({ addSelected: name })
@@ -35,8 +15,9 @@ class FormTeaching extends React.Component {
     close() {
         this.setState({ addSelected: null })
     }
-
     render() {
+        this.LoadObject(this.props.selectedObject);
+        let isNew = this.state.id == -1;
         const dances = [{
             id: 1,
             name: "kizomba"
@@ -63,12 +44,15 @@ class FormTeaching extends React.Component {
         });
         return (
             <div className={styles.formgroup} hidden={this.props.selected != this.props.title}>
-                <label>Új Tanítás adatai:</label>
+                <label>{isNew ? "Új" : ""} Tanítás adatai:</label>
                 <FormSelectInput selected={this.props.selected} title={this.props.title}
                     handleChange={this.handleChange} value={this.state.danceid}
                     name="danceid"
                     label="Dance" options={danceOptions} addNew={() => this.addNewElement("dance")} close={() => this.close()} />
-                <FormDance selected={this.state.addSelected} title="dance" />
+                <FormDance selected={this.state.addSelected} title="dance"
+                    selectedObject={{
+                        id: -1
+                    }} />
                 <FormSimpleInput selected={this.props.selected} title={this.props.title}
                     handleChange={this.handleChange} value={this.state.level}
                     name="level"
@@ -81,9 +65,12 @@ class FormTeaching extends React.Component {
                     handleChange={this.handleChange} value={this.state.teacherid}
                     name="teacherid"
                     label="Teacher" options={teacherOptions} addNew={() => this.addNewElement("teacher")} close={() => this.close()} />
-                <FormTeacher selected={this.state.addSelected} title="teacher" />
+                <FormTeacher selected={this.state.addSelected} title="teacher"
+                    selectedObject={{
+                        id: -1
+                    }} />
                 <div className={styles.formgroup}>
-                    <input type="submit" value="Tanítás hozzáadása" className={styles.submit} />
+                    <input type="submit" value={isNew ? "Tanítás hozzáadása" : "Tanítás módosítása"} className={styles.submit} />
                 </div>
             </div>
         )

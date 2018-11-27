@@ -1,6 +1,6 @@
 import React from 'react';
 import Plakat01 from './Plakat.png';
-import styles from './EditEvent.module.css';
+import styles from './Form.module.css';
 import FormSelect from './FormSelect';
 import FormSimpleInput from './FormSimpleInput';
 import FormDateInput from './FormDateInput';

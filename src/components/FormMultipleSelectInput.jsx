@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from './EditEvent.module.css'
+import styles from './Form.module.css'
 import Plus from './plus.svg';
 import Minus from './minus.svg';
 

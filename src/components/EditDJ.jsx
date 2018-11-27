@@ -1,9 +1,9 @@
 import React from 'react';
-import styles from './EditEventList.module.css';
-import SelectableEvent from './SelectableEvent';
+import SelectableElement from './SelectableElement';
 import FormDJ from './FormDJ';
 import Plus from './plus.svg';
-import styles2 from './EditEvent.module.css';
+import styles from './Editor.module.css';
+import stylesForm from './Form.module.css';
 
 class EditDJ extends React.Component {
     constructor() {
@@ -16,7 +16,7 @@ class EditDJ extends React.Component {
             }, {
                 id: 2,
                 name: "DJ Béla",
-                url: "google.com"
+                url: "bela.dj.com"
             }],
             selectedId: 0,
             selectedObject: null
@@ -24,16 +24,21 @@ class EditDJ extends React.Component {
         this.New = this.New.bind(this);
     }
 
-    Add(id) {
+    Select(id) {
+        let selected = this.state.djs.find((dj) => {
+            return dj.id == id;
+        })
         this.setState({
             selectedId: id,
-            selectedObject: (<FormDJ />)
+            selectedObject: (<FormDJ selectedObject={selected} />)
         })
     }
     New() {
         this.setState({
             selectedId: null,
-            selectedObject: (<FormDJ />)
+            selectedObject: (<FormDJ selectedObject={{
+                id: -1
+            }} />)
         })
     }
 
@@ -49,12 +54,12 @@ class EditDJ extends React.Component {
                             Új DJ
                         </div>
                         {this.state.djs.map((dj) =>
-                            <SelectableEvent title={dj.name} onClick={() => this.Add(dj.id)}
+                            <SelectableElement title={dj.name} onClick={() => this.Select(dj.id)}
                                 selected={dj.id == this.state.selectedId} />
                         )}
                     </div>
                     <div className={styles.selected}>
-                        <div className={styles2.main}>
+                        <div className={stylesForm.main}>
                             {this.state.selectedObject}
                         </div>
                     </div>
