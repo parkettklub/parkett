@@ -64,14 +64,16 @@ class EditEvents extends React.Component {
 
     render() {
         return (
-            <div className={styles.main}>
-                <div className={styles.list}>
-                    {this.state.events.map((event) =>
-                        <SelectableEvent {...event} selected={event.id == this.state.selectedId} />
-                    )}
-                </div>
-                <div className={styles.selected}>
-                    {this.state.selectedObject}
+            <div className={styles.center}>
+                <div className={styles.main}>
+                    <div className={styles.list}>
+                        {this.state.events.map((event) =>
+                            <SelectableEvent {...event} selected={event.id == this.state.selectedId} />
+                        )}
+                    </div>
+                    <div className={styles.selected}>
+                        {this.state.selectedObject}
+                    </div>
                 </div>
             </div>
         )

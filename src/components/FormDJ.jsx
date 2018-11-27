@@ -25,7 +25,7 @@ class FormDJ extends React.Component {
     render() {
         return (
             <div className={styles.formgroup} hidden={this.props.selected != this.props.title}>
-                <label>Új DJ adatai:</label>
+                <label>DJ adatai:</label>
                 <FormSimpleInput selected={this.props.selected} title={this.props.title}
                     handleChange={this.handleChange} value={this.state.name}
                     name="name"
@@ -35,7 +35,7 @@ class FormDJ extends React.Component {
                     name="url"
                     example="www.example.com" label="Url" />
                 <div className={styles.formgroup}>
-                    <input type="submit" value="Url hozzáadása" className={styles.submit} />
+                    <input type="submit" value="DJ hozzáadása / módosítása" className={styles.submit} />
                 </div>
             </div>
         )

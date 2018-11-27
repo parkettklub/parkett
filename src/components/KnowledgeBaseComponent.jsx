@@ -8,7 +8,7 @@ import Services from '../components/Services.jsx';
 import Dances from '../components/Dances.jsx';
 
 function editEventsPage() {
-    window.location = "/edit-knowledge-base/";
+    window.location = "/edit-dance/";
 }
 
 const KnowledgeBaseComponent = props =>
