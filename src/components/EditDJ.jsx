@@ -11,61 +11,71 @@ class EditDJ extends React.Component {
         this.state = {
             djs: [{
                 id: 1,
-                name: "DJ Andrea",
-                url: "google.com"
+                name: 'DJ Andrea',
+                url: 'google.com',
             }, {
                 id: 2,
-                name: "DJ Béla",
-                url: "bela.dj.com"
+                name: 'DJ Béla',
+                url: 'bela.dj.com',
             }],
             selectedId: 0,
-            selectedObject: null
+            selectedObject: null,
         };
         this.New = this.New.bind(this);
     }
 
     Select(id) {
-        let selected = this.state.djs.find((dj) => {
-            return dj.id == id;
-        })
+        const { djs } = this.state;
+        const selected = djs.find(dj => dj.id === id);
         this.setState({
             selectedId: id,
-            selectedObject: (<FormDJ selectedObject={selected} />)
-        })
+            selectedObject: (<FormDJ selectedObject={selected} />),
+        });
     }
+
     New() {
         this.setState({
             selectedId: null,
             selectedObject: (<FormDJ selectedObject={{
-                id: -1
-            }} />)
-        })
+                id: -1,
+            }}
+            />),
+        });
     }
 
 
     render() {
+        const { djs, selectedId, selectedObject } = this.state;
         return (
             <div className={styles.center}>
                 <div className={styles.main}>
                     <div className={styles.list}>
-                        <div className={styles.selectable}
-                            onClick={this.New} >
-                            <img src={Plus} className={styles.addElement} />
-                            Új DJ
+                        <div
+                            className={styles.selectable}
+                            onClick={this.New}
+                            onKeyDown={() => { }}
+                            role="button"
+                            tabIndex={0}
+                        >
+                            <img src={Plus} className={styles.addElement} alt="" />
+                            {'Új DJ'}
                         </div>
-                        {this.state.djs.map((dj) =>
-                            <SelectableElement title={dj.name} onClick={() => this.Select(dj.id)}
-                                selected={dj.id == this.state.selectedId} />
-                        )}
+                        {djs.map(dj => (
+                            <SelectableElement
+                                title={dj.name}
+                                onClick={() => this.Select(dj.id)}
+                                selected={dj.id === selectedId}
+                            />
+                        ))}
                     </div>
                     <div className={styles.selected}>
                         <div className={stylesForm.main}>
-                            {this.state.selectedObject}
+                            {selectedObject}
                         </div>
                     </div>
                 </div>
             </div>
-        )
+        );
     }
 }
 

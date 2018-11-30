@@ -12,32 +12,32 @@ class EditEvents extends React.Component {
         this.state = {
             events: [
                 {
-                    id: "P1",
-                    title: "Élőzenés Salsa Party",
-                    start_date: "2018.01.02. 18:30",
+                    id: 'P1',
+                    title: 'Élőzenés Salsa Party',
+                    start_date: '2018.01.02. 18:30',
                     onClick: () => this.Party(1),
                 },
                 {
-                    id: "P2",
-                    title: "Élőzenés Rock N Roll Party",
-                    start_date: "2018.01.02. 18:30",
+                    id: 'P2',
+                    title: 'Élőzenés Rock N Roll Party',
+                    start_date: '2018.01.02. 18:30',
                     onClick: () => this.Party(2),
                 },
                 {
-                    id: "W1",
-                    title: "Kizomba Workshop",
-                    start_date: "2018.01.02. 18:30",
+                    id: 'W1',
+                    title: 'Kizomba Workshop',
+                    start_date: '2018.01.02. 18:30',
                     onClick: () => this.Workshop(1),
                 },
                 {
-                    id: "A1",
-                    title: "Gólyabál",
-                    start_date: "2018.01.02. 18:30",
+                    id: 'A1',
+                    title: 'Gólyabál',
+                    start_date: '2018.01.02. 18:30',
                     onClick: () => this.Article(1),
                 },
             ],
-            selectedId: "0",
-            selectedObject: null
+            selectedId: '0',
+            selectedObject: null,
         };
         this.NewArticle = this.NewArticle.bind(this);
         this.NewParty = this.NewParty.bind(this);
@@ -46,79 +46,94 @@ class EditEvents extends React.Component {
 
     Party(id) {
         this.setState({
-            selectedId: "P" + id,
-            selectedObject: (<EditEventParty />)
-        })
-
+            selectedId: `P${id}`,
+            selectedObject: (<EditEventParty />),
+        });
     }
 
     Article(id) {
         this.setState({
-            selectedId: "A" + id,
-            selectedObject: (<EditEventArticle />)
-        })
+            selectedId: `A${id}`,
+            selectedObject: (<EditEventArticle />),
+        });
     }
 
     Workshop(id) {
         this.setState({
-            selectedId: "W" + id,
-            selectedObject: (<EditEventWorkshop />)
-        })
+            selectedId: `W${id}`,
+            selectedObject: (<EditEventWorkshop />),
+        });
     }
 
     NewParty() {
         this.setState({
-            selectedId: "",
-            selectedObject: (<EditEventParty />)
-        })
-
+            selectedId: '',
+            selectedObject: (<EditEventParty />),
+        });
     }
 
     NewArticle() {
         this.setState({
-            selectedId: "",
-            selectedObject: (<EditEventArticle />)
-        })
+            selectedId: '',
+            selectedObject: (<EditEventArticle />),
+        });
     }
 
     NewWorkshop() {
         this.setState({
-            selectedId: "",
-            selectedObject: (<EditEventWorkshop />)
-        })
+            selectedId: '',
+            selectedObject: (<EditEventWorkshop />),
+        });
     }
 
     render() {
+        const { events, selectedObject, selectedId } = this.state;
         return (
             <div className={styles.center}>
                 <div className={styles.main}>
                     <div className={styles.list}>
-                        <div className={styles.selectable}
-                            onClick={this.NewParty} >
-                            <img src={Plus} className={styles.addElement} />
-                            Új party
+                        <div
+                            className={styles.selectable}
+                            onClick={this.NewParty}
+                            onKeyDown={() => { }}
+                            role="button"
+                            tabIndex={0}
+                        >
+                            <img alt="" src={Plus} className={styles.addElement} />
+                            {'Új party'}
                         </div>
-                        <div className={styles.selectable}
-                            onClick={this.NewWorkshop} >
-                            <img src={Plus} className={styles.addElement} />
-                            Új Workshop
+                        <div
+                            className={styles.selectable}
+                            onClick={this.NewWorkshop}
+                            onKeyDown={() => { }}
+                            role="button"
+                            tabIndex={0}
+                        >
+                            <img alt="" src={Plus} className={styles.addElement} />
+                            {'Új Workshop'}
                         </div>
-                        <div className={styles.selectable}
-                            onClick={this.NewArticle} >
-                            <img src={Plus} className={styles.addElement} />
-                            Új Bejegyzés
+                        <div
+                            className={styles.selectable}
+                            onClick={this.NewArticle}
+                            onKeyDown={() => { }}
+                            role="button"
+                            tabIndex={0}
+                        >
+                            <img alt="" src={Plus} className={styles.addElement} />
+                            {'Új Bejegyzés'}
                         </div>
-
-                        {this.state.events.map((event) =>
-                            <SelectableElement {...event} selected={event.id == this.state.selectedId} />
-                        )}
+                        {
+                            events.map(event => (
+                                <SelectableElement {...event} selected={event.id === selectedId} />
+                            ))
+                        }
                     </div>
                     <div className={styles.selected}>
-                        {this.state.selectedObject}
+                        {selectedObject}
                     </div>
                 </div>
             </div>
-        )
+        );
     }
 }
 

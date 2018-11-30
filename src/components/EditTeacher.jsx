@@ -11,61 +11,70 @@ class EditTeacher extends React.Component {
         this.state = {
             teachers: [{
                 id: 1,
-                name: "Kovács Béla és Heves Kornélia",
-                url: "wwww.parkettklub.hu"
+                name: 'Kovács Béla és Heves Kornélia',
+                url: 'wwww.parkettklub.hu',
             }, {
                 id: 2,
-                name: "Komjáti Ede és Padányi Emese",
-                url: "wwww.komjati.emese.hu"
+                name: 'Komjáti Ede és Padányi Emese',
+                url: 'wwww.komjati.emese.hu',
             }],
             selectedId: 0,
-            selectedObject: null
+            selectedObject: null,
         };
         this.New = this.New.bind(this);
     }
 
     Select(id) {
-        let selected = this.state.teachers.find((teacher) => {
-            return teacher.id == id;
-        })
+        const { teachers } = this.state;
+        const selected = teachers.find(teacher => teacher.id === id);
         this.setState({
             selectedId: id,
-            selectedObject: (<FormTeacher selectedObject={selected} />)
-        })
+            selectedObject: (<FormTeacher selectedObject={selected} />),
+        });
     }
 
     New() {
         this.setState({
             selectedId: null,
             selectedObject: (<FormTeacher selectedObject={{
-                id: -1
-            }} />)
-        })
+                id: -1,
+            }}
+            />),
+        });
     }
 
     render() {
+        const { teachers, selectedObject, selectedId } = this.state;
         return (
             <div className={styles.center}>
                 <div className={styles.main}>
                     <div className={styles.list}>
-                        <div className={styles.selectable}
-                            onClick={this.New} >
-                            <img src={Plus} className={styles.addElement} />
-                            Új Tanár
+                        <div
+                            className={styles.selectable}
+                            onClick={this.New}
+                            onKeyDown={() => { }}
+                            role="button"
+                            tabIndex={0}
+                        >
+                            <img alt="" src={Plus} className={styles.addElement} />
+                            {'Új Tanár'}
                         </div>
-                        {this.state.teachers.map((teacher) =>
-                            <SelectableElement title={teacher.name} onClick={() => this.Select(teacher.id)}
-                                selected={teacher.id == this.state.selectedId} />
-                        )}
+                        {teachers.map(teacher => (
+                            <SelectableElement
+                                title={teacher.name}
+                                onClick={() => this.Select(teacher.id)}
+                                selected={teacher.id === selectedId}
+                            />
+                        ))}
                     </div>
                     <div className={styles.selected}>
                         <div className={styles2.main}>
-                            {this.state.selectedObject}
+                            {selectedObject}
                         </div>
                     </div>
                 </div>
             </div>
-        )
+        );
     }
 }
 
