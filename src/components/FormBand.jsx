@@ -13,6 +13,12 @@ class FormBand extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
+    componentWillReceiveProps({ selectedObject }) {
+        this.setState({
+            ...selectedObject,
+        });
+    }
+
     handleChange(event) {
         const { name } = event.target.name;
         this.setState({ [name]: event.target.value });
@@ -23,49 +29,43 @@ class FormBand extends React.Component {
         this.setState({});
     }
 
-    LoadObject({ id, ...props }) {
-        if (id !== this.state.id) {
-            this.setState({
-                id,
-                ...props,
-            });
-        }
-    }
-
     render() {
-        const { selectedObject, selected, title } = this.props;
+        const { selected, title } = this.props;
         const { id, name, url } = this.state;
-        this.LoadObject(selectedObject);
         const isNew = id === -1;
         return (
-            <div className={styles.formgroup} hidden={selected !== title}>
-                {isNew ? 'Új Banda adatai:' : 'Banda adatai:'}
-                <FormSimpleInput
-                    selected={selected}
-                    title={title}
-                    handleChange={this.handleChange}
-                    value={name}
-                    name="name"
-                    example="Pedrofon"
-                    label="Név"
-                />
-                <FormSimpleInput
-                    selected={selected}
-                    title={title}
-                    handleChange={this.handleChange}
-                    value={url}
-                    name="url"
-                    example="www.example.com"
-                    label="Weboldal"
-                />
-                <div className={styles.formgroup}>
-                    <input
-                        type="submit"
-                        className={styles.submit}
-                        value={isNew ? 'Zenekar hozzáadása' : 'Zenekar módosítása'}
+            <div className={styles.main}>
+                <div className={styles.formgroup} hidden={selected !== title}>
+                    {isNew ? 'Új Banda adatai:' : 'Banda adatai:'}
+                    <FormSimpleInput
+                        selected={selected}
+                        title={title}
+                        handleChange={this.handleChange}
+                        value={name}
+                        name="name"
+                        example="Pedrofon"
+                        label="Név"
                     />
+                    <FormSimpleInput
+                        selected={selected}
+                        title={title}
+                        handleChange={this.handleChange}
+                        value={url}
+                        name="url"
+                        example="www.example.com"
+                        label="Weboldal"
+                    />
+                    <div className={styles.formgroup}>
+                        <input
+                            type="submit"
+                            className={styles.submit}
+                            value={isNew ? 'Zenekar hozzáadása' : 'Zenekar módosítása'}
+                        />
+                    </div>
                 </div>
+
             </div>
+
         );
     }
 }

@@ -7,14 +7,14 @@ function EventWorkshopForm(props) {
     let rows = [];
     if (props.linkedparty) {
         rows.push(<div className="eventdetail-paragraph">
-            A workshop résztvevői ingyenesen részt vehetnek a <b>{props.details.linkedparty.title}</b> -n amely <b>{props.details.linkedparty.date}</b> -n lesz megrendezve
+            A workshop résztvevői ingyenesen részt vehetnek a  <strong>{props.details.linkedparty.title} </strong> -n amely  <strong>{props.details.linkedparty.date} </strong> -n lesz megrendezve
     </div>);
     }
 
     return (
         <div className="card withpadding">
             <div className="eventdetail-paragraph">
-                <b>JELENTKEZNI az alábbi linken lehet: </b>
+                <strong>JELENTKEZNI az alábbi linken lehet:  </strong>
                 <a href={props.details.link}>Link a formhoz</a>
             </div>
             <div className="eventdetail-paragraph">

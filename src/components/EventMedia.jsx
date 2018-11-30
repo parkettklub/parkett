@@ -15,7 +15,7 @@ function Photos(props) {
     if (props.photos) {
         return (
             <div>
-                <b>Képek a buliról: </b>
+                <strong>Képek a buliról:  </strong>
                 <a href={props.photos}>Link a SPOT oldalára</a>
             </div>
         )
@@ -30,7 +30,7 @@ function Video(props) {
     if (props.video) {
         return (
             <div>
-                <b>Videó a buliról: </b>
+                <strong>Videó a buliról:  </strong>
                 <a href={props.video}>Link a BSS oldalára</a>
             </div>
         )

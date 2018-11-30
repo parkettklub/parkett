@@ -4,8 +4,8 @@ import OpenCloseComponent from './OpenCloseComponent';
 
 function Services() {
     const content = [];
-    content.push(<li><b>Ingyenes ruhatár</b></li>);
-    content.push(<li><b>Italpult kedvezményes árakkal</b></li>);
+    content.push(<li> <strong>Ingyenes ruhatár </strong></li>);
+    content.push(<li> <strong>Italpult kedvezményes árakkal </strong></li>);
     return (
         <OpenCloseComponent title="Bulin lévő szolgáltatások" content={content} />
     )

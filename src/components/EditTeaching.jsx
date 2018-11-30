@@ -2,7 +2,6 @@ import React from 'react';
 import SelectableElement from './SelectableElement';
 import FormTeaching from './FormTeaching';
 import styles from './Editor.module.css';
-import styles2 from './Form.module.css';
 import Plus from './plus.svg';
 
 
@@ -33,7 +32,7 @@ class EditTeaching extends React.Component {
             selectedId: 0,
             selectedObject: null,
         };
-        this.New = this.New.bind(this);
+        this.editTeaching = this.editTeaching.bind(this);
     }
 
     getTeacher(id) {
@@ -41,7 +40,7 @@ class EditTeaching extends React.Component {
         return teachers.find(teacher => teacher.id === id);
     }
 
-    New() {
+    editTeaching() {
         this.setState({
             selectedId: null,
             selectedObject: (
@@ -51,7 +50,7 @@ class EditTeaching extends React.Component {
         });
     }
 
-    Select(selected) {
+    createTeaching(selected) {
         this.setState({
             selectedId: selected.id,
             selectedObject: (<FormTeaching selectedObject={selected} />),
@@ -66,7 +65,7 @@ class EditTeaching extends React.Component {
                     <div className={styles.list}>
                         <div
                             className={styles.selectable}
-                            onClick={this.New}
+                            onClick={this.editTeaching}
                             onKeyDown={() => { }}
                             role="button"
                             tabIndex={0}
@@ -77,15 +76,13 @@ class EditTeaching extends React.Component {
                         {teachings.map(teaching => (
                             <SelectableElement
                                 title={this.getTeacher(teaching.teacherid).name}
-                                onClick={() => this.Select(teaching)}
+                                onClick={() => this.createTeaching(teaching)}
                                 selected={teaching.id === selectedId}
                             />
                         ))}
                     </div>
                     <div className={styles.selected}>
-                        <div className={styles2.main}>
-                            {selectedObject}
-                        </div>
+                        {selectedObject}
                     </div>
                 </div>
             </div>

@@ -18,7 +18,7 @@ class EditEventArticle extends React.Component {
 
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
-        this.ChangeTab = this.ChangeTab.bind(this);
+        this.changeTab = this.changeTab.bind(this);
     }
 
     handleChange(event) {
@@ -31,7 +31,7 @@ class EditEventArticle extends React.Component {
         this.setState({});
     }
 
-    ChangeTab(tabName) {
+    changeTab(tabName) {
         this.setState({
             selectedForm: tabName,
         });
@@ -47,13 +47,13 @@ class EditEventArticle extends React.Component {
                     <FormSelect
                         title="title"
                         selected={selectedForm}
-                        onClick={() => this.ChangeTab('title')}
+                        onClick={() => this.changeTab('title')}
                         label="Alap adatok"
                     />
                     <FormSelect
                         title="poster"
                         selected={selectedForm}
-                        onClick={() => this.ChangeTab('poster')}
+                        onClick={() => this.changeTab('poster')}
                         label="Plakát"
                     />
                 </div>

@@ -10,13 +10,13 @@ function EventDetails(props) {
     if (props.details.band) {
         music.push(
             <div className="eventdetail-dj-and-band eventdetail-paragraph">
-                <b>Zenekar: </b><a href={props.details.band.url}>{props.details.band.name}</a>
+                <strong>Zenekar:  </strong><a href={props.details.band.url}>{props.details.band.name}</a>
             </div>);
     }
     if (props.details.dj) {
         music.push(
             <div className="eventdetail-dj-and-band eventdetail-paragraph">
-                <b>DJ: </b><a href={props.details.dj.url}>{props.details.dj.name}</a>
+                <strong>DJ:  </strong><a href={props.details.dj.url}>{props.details.dj.name}</a>
             </div>);
     }
 

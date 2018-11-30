@@ -1,7 +1,6 @@
 import React from 'react';
 import SelectableElement from './SelectableElement';
 import FormBand from './FormBand';
-import styleForm from './Form.module.css';
 import styles from './Editor.module.css';
 import Plus from './plus.svg';
 
@@ -21,10 +20,10 @@ class EditBand extends React.Component {
             selectedId: 0,
             selectedObject: null,
         };
-        this.New = this.New.bind(this);
+        this.createBand = this.createBand.bind(this);
     }
 
-    Select(id) {
+    editBand(id) {
         const { bands } = this.state;
         const selected = bands.find(band => band.id === id);
         this.setState({
@@ -33,7 +32,7 @@ class EditBand extends React.Component {
         });
     }
 
-    New() {
+    createBand() {
         this.setState({
             selectedId: null,
             selectedObject: (
@@ -52,7 +51,7 @@ class EditBand extends React.Component {
                     <div className={styles.list}>
                         <div
                             className={styles.selectable}
-                            onClick={this.New}
+                            onClick={this.createBand}
                             onKeyDown={() => { }}
                             role="button"
                             tabIndex={0}
@@ -64,16 +63,14 @@ class EditBand extends React.Component {
                             band => (
                                 <SelectableElement
                                     title={band.name}
-                                    onClick={() => this.Select(band.id)}
+                                    onClick={() => this.editBand(band.id)}
                                     selected={band.id === selectedId}
                                 />
                             ),
                         )}
                     </div>
                     <div className={styles.selected}>
-                        <div className={styleForm.main}>
-                            {selectedObject}
-                        </div>
+                        {selectedObject}
                     </div>
                 </div>
             </div>

@@ -15,71 +15,71 @@ class EditEvents extends React.Component {
                     id: 'P1',
                     title: 'Élőzenés Salsa Party',
                     start_date: '2018.01.02. 18:30',
-                    onClick: () => this.Party(1),
+                    onClick: () => this.selectParty(1),
                 },
                 {
                     id: 'P2',
                     title: 'Élőzenés Rock N Roll Party',
                     start_date: '2018.01.02. 18:30',
-                    onClick: () => this.Party(2),
+                    onClick: () => this.selectParty(2),
                 },
                 {
                     id: 'W1',
                     title: 'Kizomba Workshop',
                     start_date: '2018.01.02. 18:30',
-                    onClick: () => this.Workshop(1),
+                    onClick: () => this.selectWorkshop(1),
                 },
                 {
                     id: 'A1',
                     title: 'Gólyabál',
                     start_date: '2018.01.02. 18:30',
-                    onClick: () => this.Article(1),
+                    onClick: () => this.selectArticle(1),
                 },
             ],
             selectedId: '0',
             selectedObject: null,
         };
-        this.NewArticle = this.NewArticle.bind(this);
-        this.NewParty = this.NewParty.bind(this);
-        this.NewWorkshop = this.NewWorkshop.bind(this);
+        this.createArticle = this.createArticle.bind(this);
+        this.createParty = this.createParty.bind(this);
+        this.createWorkshop = this.createWorkshop.bind(this);
     }
 
-    Party(id) {
+    selectParty(id) {
         this.setState({
             selectedId: `P${id}`,
             selectedObject: (<EditEventParty />),
         });
     }
 
-    Article(id) {
+    selectArticle(id) {
         this.setState({
             selectedId: `A${id}`,
             selectedObject: (<EditEventArticle />),
         });
     }
 
-    Workshop(id) {
+    selectWorkshop(id) {
         this.setState({
             selectedId: `W${id}`,
             selectedObject: (<EditEventWorkshop />),
         });
     }
 
-    NewParty() {
+    createParty() {
         this.setState({
             selectedId: '',
             selectedObject: (<EditEventParty />),
         });
     }
 
-    NewArticle() {
+    createArticle() {
         this.setState({
             selectedId: '',
             selectedObject: (<EditEventArticle />),
         });
     }
 
-    NewWorkshop() {
+    createWorkshop() {
         this.setState({
             selectedId: '',
             selectedObject: (<EditEventWorkshop />),
@@ -94,7 +94,7 @@ class EditEvents extends React.Component {
                     <div className={styles.list}>
                         <div
                             className={styles.selectable}
-                            onClick={this.NewParty}
+                            onClick={this.createParty}
                             onKeyDown={() => { }}
                             role="button"
                             tabIndex={0}
@@ -104,7 +104,7 @@ class EditEvents extends React.Component {
                         </div>
                         <div
                             className={styles.selectable}
-                            onClick={this.NewWorkshop}
+                            onClick={this.createWorkshop}
                             onKeyDown={() => { }}
                             role="button"
                             tabIndex={0}
@@ -114,7 +114,7 @@ class EditEvents extends React.Component {
                         </div>
                         <div
                             className={styles.selectable}
-                            onClick={this.NewArticle}
+                            onClick={this.createArticle}
                             onKeyDown={() => { }}
                             role="button"
                             tabIndex={0}

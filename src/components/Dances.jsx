@@ -82,7 +82,7 @@ function Dance(props) {
             <div className={"card withpadding dance " + color + (props.selected ? " open" : "")}
                 onClick={() => props.click(props.dance.id)} style={animationStyle} key="card">
                 <div><img src={icon} /></div>
-                <div><b>{name}</b></div>
+                <div> <strong>{name} </strong></div>
                 <div className="descritpion">{props.dance.content}</div>
             </div>
         </div>

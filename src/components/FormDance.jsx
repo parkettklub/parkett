@@ -14,6 +14,12 @@ class FormDance extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
+    componentWillReceiveProps({ selectedObject }) {
+        this.setState({
+            ...selectedObject,
+        });
+    }
+
     handleChange(event) {
         const { name } = event.target.name;
         this.setState({ [name]: event.target.value });
@@ -24,47 +30,39 @@ class FormDance extends React.Component {
         this.setState({});
     }
 
-    LoadObject({ id, ...props }) {
-        if (id !== this.state.id) {
-            this.setState({
-                id,
-                ...props,
-            });
-        }
-    }
-
     render() {
-        const { selectedObject, selected, title } = this.props;
+        const { selected, title } = this.props;
         const { id, name, content } = this.state;
-        this.LoadObject(selectedObject);
         const isNew = id === -1;
         return (
-            <div className={styles.formgroup} hidden={selected !== title}>
-                {isNew ? 'Új Tánc adatai:' : 'Tánc adatai:'}
-                <FormSimpleInput
-                    selectedForm={selected}
-                    form={title}
-                    handleChange={this.handleChange}
-                    value={name}
-                    name="name"
-                    example="salsa"
-                    label="Név"
-                />
-                <FormTextareaInput
-                    selectedForm={selected}
-                    form={title}
-                    handleChange={this.handleChange}
-                    value={content}
-                    name="content"
-                    example="Ez a tánc a legeslegjobb"
-                    label="Leírás"
-                />
-                <div className={styles.formgroup}>
-                    <input
-                        type="submit"
-                        className={styles.submit}
-                        value={isNew ? 'Tánc hozzáadása' : 'Tánc módosítása'}
+            <div className={styles.main}>
+                <div className={styles.formgroup} hidden={selected !== title}>
+                    {isNew ? 'Új Tánc adatai:' : 'Tánc adatai:'}
+                    <FormSimpleInput
+                        selectedForm={selected}
+                        form={title}
+                        handleChange={this.handleChange}
+                        value={name}
+                        name="name"
+                        example="salsa"
+                        label="Név"
                     />
+                    <FormTextareaInput
+                        selectedForm={selected}
+                        form={title}
+                        handleChange={this.handleChange}
+                        value={content}
+                        name="content"
+                        example="Ez a tánc a legeslegjobb"
+                        label="Leírás"
+                    />
+                    <div className={styles.formgroup}>
+                        <input
+                            type="submit"
+                            className={styles.submit}
+                            value={isNew ? 'Tánc hozzáadása' : 'Tánc módosítása'}
+                        />
+                    </div>
                 </div>
             </div>
         );

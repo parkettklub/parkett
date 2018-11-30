@@ -3,7 +3,6 @@ import SelectableElement from './SelectableElement';
 import FormDJ from './FormDJ';
 import Plus from './plus.svg';
 import styles from './Editor.module.css';
-import stylesForm from './Form.module.css';
 
 class EditDJ extends React.Component {
     constructor() {
@@ -21,10 +20,10 @@ class EditDJ extends React.Component {
             selectedId: 0,
             selectedObject: null,
         };
-        this.New = this.New.bind(this);
+        this.createDJ = this.createDJ.bind(this);
     }
 
-    Select(id) {
+    editDJ(id) {
         const { djs } = this.state;
         const selected = djs.find(dj => dj.id === id);
         this.setState({
@@ -33,7 +32,7 @@ class EditDJ extends React.Component {
         });
     }
 
-    New() {
+    createDJ() {
         this.setState({
             selectedId: null,
             selectedObject: (<FormDJ selectedObject={{
@@ -52,7 +51,7 @@ class EditDJ extends React.Component {
                     <div className={styles.list}>
                         <div
                             className={styles.selectable}
-                            onClick={this.New}
+                            onClick={this.createDJ}
                             onKeyDown={() => { }}
                             role="button"
                             tabIndex={0}
@@ -63,15 +62,13 @@ class EditDJ extends React.Component {
                         {djs.map(dj => (
                             <SelectableElement
                                 title={dj.name}
-                                onClick={() => this.Select(dj.id)}
+                                onClick={() => this.editDJ(dj.id)}
                                 selected={dj.id === selectedId}
                             />
                         ))}
                     </div>
                     <div className={styles.selected}>
-                        <div className={stylesForm.main}>
-                            {selectedObject}
-                        </div>
+                        {selectedObject}
                     </div>
                 </div>
             </div>

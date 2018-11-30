@@ -10,7 +10,7 @@ function EditPoster(props) {
         <div>
             <div className={styles.formgroup} hidden={selectedForm !== form}>
                 <label htmlFor="photo">
-                    <b>Plakát</b>
+                    <strong>Plakát </strong>
                     {'Size must be around 350x400 px'}
                     <input
                         id="photo"

@@ -16,6 +16,12 @@ class FormTeaching extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
+    componentWillReceiveProps({ selectedObject }) {
+        this.setState({
+            ...selectedObject,
+        });
+    }
+
     handleChange(event) {
         const { name } = event.target.name;
         this.setState({ [name]: event.target.value });
@@ -24,15 +30,6 @@ class FormTeaching extends React.Component {
     handleSubmit(event) {
         event.preventDefault();
         this.setState({});
-    }
-
-    LoadObject({ id, ...props }) {
-        if (id !== this.state.id) {
-            this.setState({
-                id,
-                ...props,
-            });
-        }
     }
 
     addNewElement(name) {
@@ -44,11 +41,10 @@ class FormTeaching extends React.Component {
     }
 
     render() {
-        const { selectedObject, selected, title } = this.props;
+        const { selected, title } = this.props;
         const {
             id, danceid, level, length, teacherid, addSelected,
         } = this.state;
-        this.LoadObject(selectedObject);
         const isNew = id === -1;
         const dances = [{
             id: 1,
@@ -66,75 +62,77 @@ class FormTeaching extends React.Component {
             name: 'Ede és Emese és a törpe',
         }];
         return (
-            <div className={styles.formgroup} hidden={selected !== title}>
-                {isNew ? 'Új Tanítás adatai:' : 'Tanítás adatai:'}
-                <FormSelectInput
-                    selected={selected}
-                    title={title}
-                    handleChange={this.handleChange}
-                    value={danceid}
-                    name="danceid"
-                    label="Dance"
-                    options={dances.map(dance => (
-                        <option value={dance.id} key={dance.id}>
-                            {dance.id}
-                            {' - '}
-                            {dance.name}
-                        </option>
-                    ))}
-                    addNew={() => this.addNewElement('dance')}
-                    close={() => this.close()}
-                />
-                <FormDance
-                    selected={addSelected}
-                    title="dance"
-                    selectedObject={{
-                        id: -1,
-                    }}
-                />
-                <FormSimpleInput
-                    selected={selected}
-                    title={title}
-                    handleChange={this.handleChange}
-                    value={level}
-                    name="level"
-                    example="Pedrofon"
-                    label="Név"
-                />
-                <FormSimpleInput
-                    selected={selected}
-                    title={title}
-                    handleChange={this.handleChange}
-                    value={length}
-                    name="length"
-                    example="www.example.com"
-                    label="Url"
-                />
-                <FormSelectInput
-                    selected={selected}
-                    title={title}
-                    handleChange={this.handleChange}
-                    value={teacherid}
-                    name="teacherid"
-                    label="Teacher"
-                    options={teachers.map(teacher => (
-                        <option value={teacher.id} key={teacher.id}>
-                            {teacher.id}
-                            {' - '}
-                            {teacher.name}
-                        </option>))}
-                    addNew={() => this.addNewElement('teacher')}
-                    close={() => this.close()}
-                />
-                <FormTeacher
-                    selected={addSelected}
-                    title="teacher"
-                    selectedObject={{
-                        id: -1,
-                    }}
-                />
-                <div className={styles.formgroup}>
-                    <input type="submit" value={isNew ? 'Tanítás hozzáadása' : 'Tanítás módosítása'} className={styles.submit} />
+            <div className={styles.main}>
+                <div className={styles.formgroup} hidden={selected !== title}>
+                    {isNew ? 'Új Tanítás adatai:' : 'Tanítás adatai:'}
+                    <FormSelectInput
+                        selected={selected}
+                        title={title}
+                        handleChange={this.handleChange}
+                        value={danceid}
+                        name="danceid"
+                        label="Dance"
+                        options={dances.map(dance => (
+                            <option value={dance.id} key={dance.id}>
+                                {dance.id}
+                                {' - '}
+                                {dance.name}
+                            </option>
+                        ))}
+                        addNew={() => this.addNewElement('dance')}
+                        close={() => this.close()}
+                    />
+                    <FormDance
+                        selected={addSelected}
+                        title="dance"
+                        selectedObject={{
+                            id: -1,
+                        }}
+                    />
+                    <FormSimpleInput
+                        selected={selected}
+                        title={title}
+                        handleChange={this.handleChange}
+                        value={level}
+                        name="level"
+                        example="Pedrofon"
+                        label="Név"
+                    />
+                    <FormSimpleInput
+                        selected={selected}
+                        title={title}
+                        handleChange={this.handleChange}
+                        value={length}
+                        name="length"
+                        example="www.example.com"
+                        label="Url"
+                    />
+                    <FormSelectInput
+                        selected={selected}
+                        title={title}
+                        handleChange={this.handleChange}
+                        value={teacherid}
+                        name="teacherid"
+                        label="Teacher"
+                        options={teachers.map(teacher => (
+                            <option value={teacher.id} key={teacher.id}>
+                                {teacher.id}
+                                {' - '}
+                                {teacher.name}
+                            </option>))}
+                        addNew={() => this.addNewElement('teacher')}
+                        close={() => this.close()}
+                    />
+                    <FormTeacher
+                        selected={addSelected}
+                        title="teacher"
+                        selectedObject={{
+                            id: -1,
+                        }}
+                    />
+                    <div className={styles.formgroup}>
+                        <input type="submit" value={isNew ? 'Tanítás hozzáadása' : 'Tanítás módosítása'} className={styles.submit} />
+                    </div>
                 </div>
             </div>
         );

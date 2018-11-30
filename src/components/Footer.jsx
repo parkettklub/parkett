@@ -8,25 +8,25 @@ function Footer(props) {
     return (
         <footer className='main-footer'>
             <div className="dotDotDot">
-                <b>...</b>
+                <strong>... </strong>
             </div>
             <div className="main-footer-content">
                 <div className="footer-left">
-                    <div><b>Köszönet</b></div>
-                    <div><b>A fotókért:</b> SPOT fotókör</div>
-                    <div><b>A hangosításért:</b> AC Studio és Live</div>
-                    <div><b>A videókért:</b> Budavári Schönherz Stúdió</div>
-                    <div><b>Otthonunkért:</b> Schönherz Kollégium</div>
+                    <div> <strong>Köszönet </strong></div>
+                    <div> <strong>A fotókért: </strong> SPOT fotókör</div>
+                    <div> <strong>A hangosításért: </strong> AC Studio és Live</div>
+                    <div> <strong>A videókért: </strong> Budavári Schönherz Stúdió</div>
+                    <div> <strong>Otthonunkért: </strong> Schönherz Kollégium</div>
                 </div>
                 <div className="footer-center">
-                    <div><b>Helyszín</b></div>
+                    <div> <strong>Helyszín </strong></div>
                     <div>Schönherz Zoltán Kollégium,</div>
                     <div>1117 Budapest, Irinyi József utca 42. </div>
-                    <div><b>Designed by:</b> Schönherz Design Stúdió</div>
-                    <div><b>Backend by:</b> Kir-Dev</div>
+                    <div> <strong>Designed by: </strong> Schönherz Design Stúdió</div>
+                    <div> <strong>Backend by: </strong> Kir-Dev</div>
                 </div>
                 <div className="footer-right">
-                    <div><b>Emailcím:</b></div>
+                    <div> <strong>Emailcím: </strong></div>
                     <div>parkettklub@sch.bme.hu</div>
                     <div>
                         <a href="https://www.instagram.com/parkettklub/" target="_blank">

@@ -35,7 +35,7 @@ class EditEventParty extends React.Component {
         };
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
-        this.ChangeTab = this.ChangeTab.bind(this);
+        this.changeTab = this.changeTab.bind(this);
         this.handleMultiple = this.handleMultiple.bind(this);
     }
 
@@ -61,7 +61,7 @@ class EditEventParty extends React.Component {
         this.setState({});
     }
 
-    ChangeTab(tabName) {
+    changeTab(tabName) {
         this.setState({
             selectedForm: tabName,
         });
@@ -77,31 +77,31 @@ class EditEventParty extends React.Component {
                     <FormSelect
                         title="title"
                         selected={selectedForm}
-                        onClick={() => this.ChangeTab('title')}
+                        onClick={() => this.changeTab('title')}
                         label="Alap adatok"
                     />
                     <FormSelect
                         title="poster"
                         selected={selectedForm}
-                        onClick={() => this.ChangeTab('poster')}
+                        onClick={() => this.changeTab('poster')}
                         label="Plakát"
                     />
                     <FormSelect
                         title="details"
                         selected={selectedForm}
-                        onClick={() => this.ChangeTab('details')}
+                        onClick={() => this.changeTab('details')}
                         label="Leírás és Facebook"
                     />
                     <FormSelect
                         title="media"
                         selected={selectedForm}
-                        onClick={() => this.ChangeTab('media')}
+                        onClick={() => this.changeTab('media')}
                         label="SPOT és BSS"
                     />
                     <FormSelect
                         title="music"
                         selected={selectedForm}
-                        onClick={() => this.ChangeTab('music')}
+                        onClick={() => this.changeTab('music')}
                         label="Zene és Tanítás"
                     />
                 </div>

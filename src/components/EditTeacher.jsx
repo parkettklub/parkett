@@ -2,7 +2,6 @@ import React from 'react';
 import SelectableElement from './SelectableElement';
 import FormTeacher from './FormTeacher';
 import styles from './Editor.module.css';
-import styles2 from './Form.module.css';
 import Plus from './plus.svg';
 
 class EditTeacher extends React.Component {
@@ -21,10 +20,10 @@ class EditTeacher extends React.Component {
             selectedId: 0,
             selectedObject: null,
         };
-        this.New = this.New.bind(this);
+        this.createTeacher = this.createTeacher.bind(this);
     }
 
-    Select(id) {
+    editTeacher(id) {
         const { teachers } = this.state;
         const selected = teachers.find(teacher => teacher.id === id);
         this.setState({
@@ -33,7 +32,7 @@ class EditTeacher extends React.Component {
         });
     }
 
-    New() {
+    createTeacher() {
         this.setState({
             selectedId: null,
             selectedObject: (<FormTeacher selectedObject={{
@@ -51,7 +50,7 @@ class EditTeacher extends React.Component {
                     <div className={styles.list}>
                         <div
                             className={styles.selectable}
-                            onClick={this.New}
+                            onClick={this.createTeacher}
                             onKeyDown={() => { }}
                             role="button"
                             tabIndex={0}
@@ -62,15 +61,13 @@ class EditTeacher extends React.Component {
                         {teachers.map(teacher => (
                             <SelectableElement
                                 title={teacher.name}
-                                onClick={() => this.Select(teacher.id)}
+                                onClick={() => this.editTeacher(teacher.id)}
                                 selected={teacher.id === selectedId}
                             />
                         ))}
                     </div>
                     <div className={styles.selected}>
-                        <div className={styles2.main}>
-                            {selectedObject}
-                        </div>
+                        {selectedObject}
                     </div>
                 </div>
             </div>
