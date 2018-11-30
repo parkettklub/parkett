@@ -1,30 +1,79 @@
-import React from 'react'
-import styles from './Form.module.css'
-import FormSimpleInput from './FormSimpleInput'
-import FormBase from './FormBase';
+import React from 'react';
+import PropTypes from 'prop-types';
+import styles from './Form.module.css';
+import FormSimpleInput from './FormSimpleInput';
 
-class FormBand extends FormBase {
+class FormBand extends React.Component {
+    constructor() {
+        super();
+        this.state = {
+            id: -1,
+        };
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
+    handleChange(event) {
+        const { name } = event.target.name;
+        this.setState({ [name]: event.target.value });
+    }
+
+    handleSubmit(event) {
+        event.preventDefault();
+        this.setState({});
+    }
+
+    LoadObject({ id, ...props }) {
+        if (id !== this.state.id) {
+            this.setState({
+                id,
+                ...props,
+            });
+        }
+    }
+
     render() {
-        this.LoadObject(this.props.selectedObject);
-        let isNew = this.state.id == -1;
+        const { selectedObject, selected, title } = this.props;
+        const { id, name, url } = this.state;
+        this.LoadObject(selectedObject);
+        const isNew = id === -1;
         return (
-            <div className={styles.formgroup} hidden={this.props.selected != this.props.title}>
-                <label>{isNew ? "Új" : ""} Banda adatai:</label>
-                <FormSimpleInput selected={this.props.selected} title={this.props.title}
-                    handleChange={this.handleChange} value={this.state.name}
+            <div className={styles.formgroup} hidden={selected !== title}>
+                {isNew ? 'Új Banda adatai:' : 'Banda adatai:'}
+                <FormSimpleInput
+                    selected={selected}
+                    title={title}
+                    handleChange={this.handleChange}
+                    value={name}
                     name="name"
-                    example="Pedrofon" label="Név" />
-                <FormSimpleInput selected={this.props.selected} title={this.props.title}
-                    handleChange={this.handleChange} value={this.state.url}
+                    example="Pedrofon"
+                    label="Név"
+                />
+                <FormSimpleInput
+                    selected={selected}
+                    title={title}
+                    handleChange={this.handleChange}
+                    value={url}
                     name="url"
-                    example="www.example.com" label="Weboldal" />
+                    example="www.example.com"
+                    label="Weboldal"
+                />
                 <div className={styles.formgroup}>
-                    <input type="submit" className={styles.submit}
-                        value={isNew ? "Zenekar hozzáadása" : "Zenekar módosítása"} />
+                    <input
+                        type="submit"
+                        className={styles.submit}
+                        value={isNew ? 'Zenekar hozzáadása' : 'Zenekar módosítása'}
+                    />
                 </div>
             </div>
-        )
+        );
     }
 }
 
-export default FormBand
+FormBand.propTypes = {
+    selectedObject: PropTypes.instanceOf(Object).isRequired,
+    selected: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+};
+
+export default FormBand;

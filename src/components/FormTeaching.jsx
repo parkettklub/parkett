@@ -1,80 +1,150 @@
-import React from 'react'
-import styles from './Form.module.css'
-import FormSimpleInput from './FormSimpleInput'
+import React from 'react';
+import PropTypes from 'prop-types';
+import styles from './Form.module.css';
+import FormSimpleInput from './FormSimpleInput';
 import FormSelectInput from './FormSelectInput';
 import FormDance from './FormDance';
 import FormTeacher from './FormTeacher';
-import FormBase from './FormBase';
 
-class FormTeaching extends FormBase {
+class FormTeaching extends React.Component {
+    constructor() {
+        super();
+        this.state = {
+            id: -1, addSelected: null,
+        };
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
+    handleChange(event) {
+        const { name } = event.target.name;
+        this.setState({ [name]: event.target.value });
+    }
+
+    handleSubmit(event) {
+        event.preventDefault();
+        this.setState({});
+    }
+
+    LoadObject({ id, ...props }) {
+        if (id !== this.state.id) {
+            this.setState({
+                id,
+                ...props,
+            });
+        }
+    }
 
     addNewElement(name) {
-        this.setState({ addSelected: name })
+        this.setState({ addSelected: name });
     }
 
     close() {
-        this.setState({ addSelected: null })
+        this.setState({ addSelected: null });
     }
+
     render() {
-        this.LoadObject(this.props.selectedObject);
-        let isNew = this.state.id == -1;
+        const { selectedObject, selected, title } = this.props;
+        const {
+            id, danceid, level, length, teacherid, addSelected,
+        } = this.state;
+        this.LoadObject(selectedObject);
+        const isNew = id === -1;
         const dances = [{
             id: 1,
-            name: "kizomba"
+            name: 'kizomba',
         }, {
             id: 2,
-            name: "salsa"
-        },];
-        const danceOptions = []
-        dances.forEach((dance) => {
-            danceOptions.push(<option value={dance.id} key={dance.id}>{dance.id} - {dance.name}</option>)
-        });
+            name: 'salsa',
+        }];
 
         const teachers = [{
             id: 1,
-            name: "Martin és Gelda"
+            name: 'Martin és Gelda',
         }, {
             id: 2,
-            name: "Ede és Emese és a törpe"
+            name: 'Ede és Emese és a törpe',
         }];
-
-        const teacherOptions = [];
-        teachers.forEach((teacher) => {
-            teacherOptions.push(<option value={teacher.id} key={teacher.id}>{teacher.id} - {teacher.name}</option>)
-        });
         return (
-            <div className={styles.formgroup} hidden={this.props.selected != this.props.title}>
-                <label>{isNew ? "Új" : ""} Tanítás adatai:</label>
-                <FormSelectInput selected={this.props.selected} title={this.props.title}
-                    handleChange={this.handleChange} value={this.state.danceid}
+            <div className={styles.formgroup} hidden={selected !== title}>
+                {isNew ? 'Új Tanítás adatai:' : 'Tanítás adatai:'}
+                <FormSelectInput
+                    selected={selected}
+                    title={title}
+                    handleChange={this.handleChange}
+                    value={danceid}
                     name="danceid"
-                    label="Dance" options={danceOptions} addNew={() => this.addNewElement("dance")} close={() => this.close()} />
-                <FormDance selected={this.state.addSelected} title="dance"
+                    label="Dance"
+                    options={dances.map(dance => (
+                        <option value={dance.id} key={dance.id}>
+                            {dance.id}
+                            {' - '}
+                            {dance.name}
+                        </option>
+                    ))}
+                    addNew={() => this.addNewElement('dance')}
+                    close={() => this.close()}
+                />
+                <FormDance
+                    selected={addSelected}
+                    title="dance"
                     selectedObject={{
-                        id: -1
-                    }} />
-                <FormSimpleInput selected={this.props.selected} title={this.props.title}
-                    handleChange={this.handleChange} value={this.state.level}
+                        id: -1,
+                    }}
+                />
+                <FormSimpleInput
+                    selected={selected}
+                    title={title}
+                    handleChange={this.handleChange}
+                    value={level}
                     name="level"
-                    example="Pedrofon" label="Név" />
-                <FormSimpleInput selected={this.props.selected} title={this.props.title}
-                    handleChange={this.handleChange} value={this.state.length}
+                    example="Pedrofon"
+                    label="Név"
+                />
+                <FormSimpleInput
+                    selected={selected}
+                    title={title}
+                    handleChange={this.handleChange}
+                    value={length}
                     name="length"
-                    example="www.example.com" label="Url" />
-                <FormSelectInput selected={this.props.selected} title={this.props.title}
-                    handleChange={this.handleChange} value={this.state.teacherid}
+                    example="www.example.com"
+                    label="Url"
+                />
+                <FormSelectInput
+                    selected={selected}
+                    title={title}
+                    handleChange={this.handleChange}
+                    value={teacherid}
                     name="teacherid"
-                    label="Teacher" options={teacherOptions} addNew={() => this.addNewElement("teacher")} close={() => this.close()} />
-                <FormTeacher selected={this.state.addSelected} title="teacher"
+                    label="Teacher"
+                    options={teachers.map(teacher => (
+                        <option value={teacher.id} key={teacher.id}>
+                            {teacher.id}
+                            {' - '}
+                            {teacher.name}
+                        </option>))}
+                    addNew={() => this.addNewElement('teacher')}
+                    close={() => this.close()}
+                />
+                <FormTeacher
+                    selected={addSelected}
+                    title="teacher"
                     selectedObject={{
-                        id: -1
-                    }} />
+                        id: -1,
+                    }}
+                />
                 <div className={styles.formgroup}>
-                    <input type="submit" value={isNew ? "Tanítás hozzáadása" : "Tanítás módosítása"} className={styles.submit} />
+                    <input type="submit" value={isNew ? 'Tanítás hozzáadása' : 'Tanítás módosítása'} className={styles.submit} />
                 </div>
             </div>
-        )
+        );
     }
 }
 
-export default FormTeaching
+FormTeaching.propTypes = {
+    selectedObject: PropTypes.instanceOf(Object).isRequired,
+    selected: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+};
+
+export default FormTeaching;
