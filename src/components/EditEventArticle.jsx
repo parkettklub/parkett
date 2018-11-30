@@ -2,9 +2,8 @@ import React from 'react';
 import Plakat01 from './Plakat.png';
 import styles from './Form.module.css';
 import FormSelect from './FormSelect';
-import FormSimpleInput from './FormSimpleInput';
-import FormDateInput from './FormDateInput';
-import FormTextareaInput from './FormTextareaInput';
+import EditArticleTitle from './EditArticleTitle';
+import EditPoster from './EditPoster';
 
 class EditEventArticle extends React.Component {
     constructor() {
@@ -40,7 +39,7 @@ class EditEventArticle extends React.Component {
 
     render() {
         const {
-            selectedForm, publishedAt, title, content, photo,
+            selectedForm,
         } = this.state;
         return (
             <div className={styles.main} key="EditEventparty">
@@ -60,48 +59,16 @@ class EditEventArticle extends React.Component {
                 </div>
                 <div className={styles.form}>
                     <form onSubmit={this.handleSubmit}>
-                        <FormSimpleInput
-                            selected={selectedForm}
-                            title="title"
+                        <EditArticleTitle
+                            form="title"
                             handleChange={this.handleChange}
-                            value={title}
-                            name="title"
-                            example="Élőzenés Salsa Party: Cuba"
-                            label="Cím"
+                            {...this.state}
                         />
-                        <FormDateInput
-                            selected={selectedForm}
-                            title="title"
+                        <EditPoster
+                            form="poster"
                             handleChange={this.handleChange}
-                            value={publishedAt}
-                            name="published_at"
-                            example="2018. 01. 12 18:00"
-                            label="Időpont"
+                            {...this.state}
                         />
-                        <FormTextareaInput
-                            selected={selectedForm}
-                            title="title"
-                            handleChange={this.handleChange}
-                            value={content}
-                            name="content"
-                            example="Még érezni az előző est hangulatát ..."
-                            label="Leírás:"
-                        />
-                        <div className={styles.formgroup} hidden={selectedForm !== 'poster'}>
-                            <label htmlFor="photo" id="posterLabel">
-                                <b>Plakát </b>
-                                {'Size must be around 350x400 px'}
-                                <input
-                                    id="photo"
-                                    name="photo"
-                                    type="picture"
-                                    className={styles.input}
-                                    value={photo}
-                                    onChange={this.handleChange}
-                                />
-                            </label>
-                            <img alt="" src="https://media.gettyimages.com/photos/theres-always-something-new-to-learn-picture-id1008383410?b=1&k=6&m=1008383410&s=170x170&h=jdv-af6Q0-NNPAX62uhnpM4dGA1tSakzkNTh-aOqXO0=" />
-                        </div>
                         <div className={styles.formgroup}>
                             <input type="submit" value="Submit" className={styles.submit} />
                         </div>

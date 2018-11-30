@@ -2,12 +2,11 @@ import React from 'react';
 import Plakat01 from './Plakat.png';
 import styles from './Form.module.css';
 import FormSelect from './FormSelect';
-import FormSimpleInput from './FormSimpleInput';
-import FormDateInput from './FormDateInput';
+import EditTitleAndDate from './EditTitleAndDate';
+import EditDetails from './EditDetails';
+import EditPoster from './EditPoster';
+import EditTeaachingForm from './EditTeachingForm';
 import FormTextareaInput from './FormTextareaInput';
-import FormSelectInput from './FormSelectInput';
-import FormDance from './FormDance';
-import FormTeacher from './FormTeacher';
 
 class EditEventWorkshop extends React.Component {
     constructor() {
@@ -62,43 +61,10 @@ class EditEventWorkshop extends React.Component {
         });
     }
 
-    addNewElement(name) {
-        this.setState({ addSelected: name });
-    }
-
-    close() {
-        this.setState({ addSelected: null });
-    }
-
     render() {
-        const teachers = [{
-            id: 1,
-            name: 'Me and You',
-        }, {
-            id: 2,
-            name: 'You and Me',
-        }];
-        const dances = [{
-            id: 1,
-            name: 'kizomba',
-        }, {
-            id: 2,
-            name: 'salsa',
-        }];
         const {
-            title,
-            photo,
-            startDate,
-            endDate,
-            program,
-            content,
-            danceid,
-            teacherid,
-            theme,
-            facebookEvent,
-            applicationForm,
             selectedForm,
-            addSelected,
+            theme,
         } = this.state;
         return (
             <div className={styles.main} key="EditEventparty">
@@ -130,139 +96,35 @@ class EditEventWorkshop extends React.Component {
                 </div>
                 <div className={styles.form}>
                     <form onSubmit={this.handleSubmit}>
-                        <FormSimpleInput
-                            selected={selectedForm}
-                            title="title"
+                        <EditTitleAndDate
+                            form="title"
                             handleChange={this.handleChange}
-                            value={title}
-                            name="title"
-                            example="Élőzenés Salsa Party: Cuba"
-                            label="Cím"
+                            {...this.state}
                         />
-                        <FormDateInput
-                            selected={selectedForm}
-                            title="title"
+                        <EditDetails
+                            form="details"
                             handleChange={this.handleChange}
-                            value={startDate}
-                            name="start_date"
-                            example="2018. 01. 12 18:00"
-                            label="Kezdés"
-                        />
-                        <FormDateInput
-                            selected={selectedForm}
-                            title="title"
-                            handleChange={this.handleChange}
-                            value={endDate}
-                            name="end_date"
-                            example="2018. 01. 13 01:00"
-                            label="Vége"
+                            {...this.state}
                         />
                         <FormTextareaInput
-                            selected={selectedForm}
-                            title="details"
-                            handleChange={this.handleChange}
-                            value={content}
-                            name="content"
-                            example="Még érezni az előző est hangulatát ..."
-                            label="Leírás:"
-                        />
-                        <FormTextareaInput
-                            selected={selectedForm}
-                            title="details"
-                            handleChange={this.handleChange}
-                            value={program}
-                            name="program"
-                            example="19:30 kapunyitás ..."
-                            label="Program"
-                        />
-                        <FormTextareaInput
-                            selected={selectedForm}
-                            title="details"
+                            selectedForm={selectedForm}
+                            form="details"
                             handleChange={this.handleChange}
                             value={theme}
                             name="theme"
                             example="Egész hónapos tudás ..."
                             label="Tematika:"
                         />
-                        <FormSimpleInput
-                            selected={selectedForm}
-                            title="details"
+                        <EditTeaachingForm
+                            form="dance"
                             handleChange={this.handleChange}
-                            value={facebookEvent}
-                            name="facebook_event"
-                            example="https://www.facebook.com/events/1598719006921910"
-                            label="Facebook esemény"
+                            {...this.state}
                         />
-                        <FormSelectInput
-                            selected={selectedForm}
-                            title="dance"
+                        <EditPoster
+                            form="poster"
                             handleChange={this.handleChange}
-                            value={danceid}
-                            name="danceid"
-                            label="Tánc"
-                            options={dances.map(dance => (
-                                <option value={dance.id} key={dance.id}>
-                                    {dance.id}
-                                    {' - '}
-                                    {dance.name}
-                                </option>))}
-                            addNew={() => this.addNewElement('dance')}
-                            close={() => this.close()}
+                            {...this.state}
                         />
-                        <FormDance
-                            selected={addSelected}
-                            title="dance"
-                            selectedObject={{
-                                id: -1,
-                            }}
-                        />
-                        <FormSelectInput
-                            selected={selectedForm}
-                            title="dance"
-                            handleChange={this.handleChange}
-                            value={teacherid}
-                            name="teacherid"
-                            label="Tanár"
-                            options={teachers.map(teacher => (
-                                <option value={teacher.id} key={teacher.id}>
-                                    {teacher.id}
-                                    {' - '}
-                                    {teacher.name}
-                                </option>))}
-                            addNew={() => this.addNewElement('teacher')}
-                            close={() => this.close()}
-                        />
-                        <FormTeacher
-                            selected={addSelected}
-                            title="teacher"
-                            selectedObject={{
-                                id: -1,
-                            }}
-                        />
-                        <FormSimpleInput
-                            selected={selectedForm}
-                            title="dance"
-                            handleChange={this.handleChange}
-                            value={applicationForm}
-                            name="application_form"
-                            example="https://goo.gl/forms/EMAqXVoJDJQGNkeq1"
-                            label="Jelentkező form"
-                        />
-                        <div className={styles.formgroup} hidden={selectedForm !== 'poster'}>
-                            <label htmlFor="photo">
-                                <b>Plakát</b>
-                                {'Size must be around 350x400 px'}
-                                <input
-                                    id="photo"
-                                    name="photo"
-                                    type="picture"
-                                    className={styles.input}
-                                    value={photo}
-                                    onChange={this.handleChange}
-                                />
-                            </label>
-                            <img alt="" src="https://media.gettyimages.com/photos/theres-always-something-new-to-learn-picture-id1008383410?b=1&k=6&m=1008383410&s=170x170&h=jdv-af6Q0-NNPAX62uhnpM4dGA1tSakzkNTh-aOqXO0=" />
-                        </div>
                         <div className="formGroup mySubmitgroup">
                             <input type="submit" value="Mentés" className={styles.submit} />
                         </div>

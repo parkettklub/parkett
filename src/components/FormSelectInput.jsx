@@ -1,5 +1,6 @@
-import React from 'react'
-import styles from './Form.module.css'
+import React from 'react';
+import PropTypes from 'prop-types';
+import styles from './Form.module.css';
 import Plus from './plus.svg';
 import Minus from './minus.svg';
 
@@ -7,31 +8,65 @@ class FormSelectInput extends React.Component {
     constructor() {
         super();
         this.state = {
-            open: false
-        }
+            open: false,
+        };
         this.change = this.change.bind(this);
     }
 
     change() {
-        if (this.state.open) this.props.close();
-        else this.props.addNew();
-        this.setState({ open: !this.state.open });
-
+        const { open } = this.state;
+        const { close, addNew } = this.props;
+        if (open) close();
+        else addNew();
+        this.setState({ open: !open });
     }
 
     render() {
-        let { selected, title, label, name, handleChange, value, options } = this.props;
+        const {
+            selectedForm, form, label, name, handleChange, value, options,
+        } = this.props;
+        const {
+            open,
+        } = this.state;
         return (
-            <div className={styles.formgroup} hidden={selected != title}>
-                <label htmlFor={name}><b>{label}</b></label>
-                <select id={name} name={name} value={value} onChange={handleChange}
-                    className={styles.input}  >
+            <div className={styles.formgroup} hidden={selectedForm !== form}>
+                <b>{label}</b>
+                <select
+                    id={name}
+                    name={name}
+                    value={value}
+                    onChange={handleChange}
+                    className={styles.input}
+                >
                     {options}
                 </select>
-                <img src={this.state.open ? Minus : Plus} className={styles.plus} onClick={this.change} />
+                <div
+                    onClick={this.change}
+                    onKeyDown={() => { }}
+                    role="button"
+                    tabIndex={0}
+                >
+                    <img
+                        alt=""
+                        src={open ? Minus : Plus}
+                        className={styles.plus}
+                    />
+                </div>
             </div>
-        )
+        );
     }
 }
 
-export default FormSelectInput
+FormSelectInput.propTypes = {
+    selectedForm: PropTypes.string.isRequired,
+    form: PropTypes.string.isRequired,
+    label: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    handleChange: PropTypes.func.isRequired,
+    value: PropTypes.number.isRequired,
+    close: PropTypes.func.isRequired,
+    options: PropTypes.element.isRequired,
+    addNew: PropTypes.func.isRequired,
+};
+
+export default FormSelectInput;

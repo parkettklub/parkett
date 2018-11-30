@@ -2,14 +2,11 @@ import React from 'react';
 import Plakat01 from './Plakat.png';
 import styles from './Form.module.css';
 import FormSelect from './FormSelect';
-import FormSimpleInput from './FormSimpleInput';
-import FormDateInput from './FormDateInput';
-import FormTextareaInput from './FormTextareaInput';
-import FormSelectInput from './FormSelectInput';
-import FormMultipleSelectInput from './FormMultipleSelectInput';
-import FormDJ from './FormDJ';
-import FormBand from './FormBand';
-import FormTeaching from './FormTeaching';
+import EditTitleAndDate from './EditTitleAndDate';
+import EditPoster from './EditPoster';
+import EditDetails from './EditDetails';
+import EditMedia from './EditMedia';
+import EditMusicTeaching from './EditMusicTeaching';
 
 class EditEventParty extends React.Component {
     constructor() {
@@ -35,50 +32,6 @@ class EditEventParty extends React.Component {
             ],
             selectedForm: 'title',
             addSelected: null,
-            djs: [{
-                id: 1,
-                name: 'DJ Eddy',
-                url: 'google.com',
-            }, {
-                id: 2,
-                name: 'DJ Zoli',
-                url: 'google.com',
-            }, {
-                id: 3,
-                name: 'DJ Nobody',
-                url: 'google.com',
-            }, {
-                id: 4,
-                name: 'DJ Music',
-                url: 'google.com',
-            }, {
-                id: 5,
-                name: 'DJ Somebody',
-                url: 'google.com',
-            }],
-            bands: [{
-                id: 1,
-                name: 'Pedrofon',
-                url: 'google.com',
-            }, {
-                id: 2,
-                name: 'Cuba Ritmo Trio',
-                url: 'google.com',
-            }],
-            teachings: [{
-                id: 1,
-                teacher: 'Plakát János és Marok Béla',
-                danceid: 'salsa',
-                level: 'kezdő',
-                length: '45 perces',
-            }, {
-                id: 2,
-                teacher: 'Helpless Jonas',
-                danceid: 'rocky',
-                level: 'kezdő',
-                length: '45 perces',
-            }],
-
         };
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -114,33 +67,9 @@ class EditEventParty extends React.Component {
         });
     }
 
-    addNewElement(name) {
-        this.setState({ addSelected: name });
-    }
-
-    close() {
-        this.setState({ addSelected: null });
-    }
-
     render() {
         const {
-            djs,
-            bands,
-            teachings,
             selectedForm,
-            title,
-            photo,
-            startDate,
-            endDate,
-            program,
-            content,
-            facebookEvent,
-            spot,
-            bss,
-            teachingid,
-            bandids,
-            djids,
-            addSelected,
         } = this.state;
         return (
             <div className={styles.main} key="EditEventparty">
@@ -178,170 +107,32 @@ class EditEventParty extends React.Component {
                 </div>
                 <div className={styles.form}>
                     <form onSubmit={this.handleSubmit}>
-                        <FormSimpleInput
-                            selected={selectedForm}
-                            title="title"
+                        <EditTitleAndDate
+                            form="title"
                             handleChange={this.handleChange}
-                            value={title}
-                            name="title"
-                            example="Élőzenés Salsa Party: Cuba"
-                            label="Cím"
+                            {...this.state}
                         />
-                        <FormDateInput
-                            selected={selectedForm}
-                            title="title"
+                        <EditDetails
+                            form="details"
                             handleChange={this.handleChange}
-                            value={startDate}
-                            name="start_date"
-                            example="2018. 01. 12 18:00"
-                            label="Kezdés"
+                            {...this.state}
                         />
-                        <FormDateInput
-                            selected={selectedForm}
-                            title="title"
+                        <EditMedia
+                            form="media"
                             handleChange={this.handleChange}
-                            value={endDate}
-                            name="end_date"
-                            example="2018. 01. 13 01:00"
-                            label="Vége"
+                            {...this.state}
                         />
-                        <FormTextareaInput
-                            selected={selectedForm}
-                            title="details"
+                        <EditMusicTeaching
+                            form="music"
                             handleChange={this.handleChange}
-                            value={content}
-                            name="content"
-                            example="Még érezni az előző est hangulatát ..."
-                            label="Leírás:"
+                            handleMultiple={this.handleMultiple}
+                            {...this.state}
                         />
-                        <FormTextareaInput
-                            selected={selectedForm}
-                            title="details"
+                        <EditPoster
+                            form="poster"
                             handleChange={this.handleChange}
-                            value={program}
-                            name="program"
-                            example="19:30 kapunyitás ..."
-                            label="Program"
+                            {...this.state}
                         />
-                        <FormSimpleInput
-                            selected={selectedForm}
-                            title="details"
-                            handleChange={this.handleChange}
-                            value={facebookEvent}
-                            name="facebook_event"
-                            example="https://www.facebook.com/events/1598719006921910"
-                            label="Facebook esemény"
-                        />
-                        <FormSimpleInput
-                            selected={selectedForm}
-                            title="media"
-                            handleChange={this.handleChange}
-                            value={spot}
-                            name="spot"
-                            example="www.spot.bme.hu"
-                            label="SPOT"
-                        />
-                        <FormSimpleInput
-                            selected={selectedForm}
-                            title="media"
-                            handleChange={this.handleChange}
-                            value={bss}
-                            name="bss"
-                            example="www.bss.bme.hu"
-                            label="BSS"
-                        />
-                        <FormSelectInput
-                            selected={selectedForm}
-                            title="music"
-                            handleChange={this.handleChange}
-                            value={teachingid}
-                            name="teachingid"
-                            label="Tanítás"
-                            addNew={() => this.addNewElement('teaching')}
-                            close={() => this.close()}
-                            options={teachings.map(teaching => (
-                                <option value={teaching.id} key={teaching.id}>
-                                    {teaching.id}
-                                    {' - '}
-                                    {teaching.teacher}
-                                    {' '}
-                                    {teaching.dance}
-                                    {' '}
-                                    {teaching.level}
-                                    {' '}
-                                    {teaching.length}
-                                </option>))}
-                        />
-                        <FormTeaching
-                            selected={addSelected}
-                            title="teaching"
-                            selectedObject={{
-                                id: -1,
-                            }}
-                        />
-                        <FormMultipleSelectInput
-                            selected={selectedForm}
-                            title="music"
-                            handleChange={this.handleMultiple}
-                            value={bandids}
-                            name="bandids"
-                            label="Zenekar"
-                            addNew={() => this.addNewElement('band')}
-                            close={() => this.close()}
-                            options={
-                                bands.map(band => (
-                                    <option value={band.id} key={band.id}>
-                                        {band.id}
-                                        {' - '}
-                                        {band.name}
-                                    </option>))}
-                        />
-                        <FormBand
-                            selected={addSelected}
-                            title="band"
-                            selectedObject={{
-                                id: -1,
-                            }}
-                        />
-                        <FormMultipleSelectInput
-                            selected={selectedForm}
-                            title="music"
-                            handleChange={this.handleMultiple}
-                            value={djids}
-                            name="djids"
-                            label="DJ"
-                            addNew={() => this.addNewElement('dj')}
-                            close={() => this.close()}
-                            options={
-                                djs.map(dj => (
-                                    <option value={dj.id} key={dj.id}>
-                                        {dj.id}
-                                        {' - '}
-                                        {dj.name}
-                                    </option>))}
-                        />
-                        <FormDJ
-                            selected={addSelected}
-                            title="dj"
-                            selectedObject={{
-                                id: -1,
-                            }}
-                        />
-                        <div className={styles.formgroup} hidden={selectedForm !== 'poster'}>
-                            <label htmlFor="photo">
-                                <b>Plakát</b>
-                                {'Size must be around 350x400 px'}
-                                <input
-                                    id="photo"
-                                    name="photo"
-                                    type="picture"
-                                    className={styles.input}
-                                    value={photo}
-                                    onChange={this.handleChange}
-                                />
-                            </label>
-                            <img alt="" src="https://media.gettyimages.com/photos/theres-always-something-new-to-learn-picture-id1008383410?b=1&k=6&m=1008383410&s=170x170&h=jdv-af6Q0-NNPAX62uhnpM4dGA1tSakzkNTh-aOqXO0=" />
-                        </div>
                         <div className={styles.formgroup}>
                             <input type="submit" value="Mentés" className={styles.submit} />
                         </div>
