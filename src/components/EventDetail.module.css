@@ -1,0 +1,94 @@
+img {
+    margin-bottom: 0;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+}
+
+.wrapper {
+    display: grid;
+    grid-template-columns: max-content auto;
+    grid-gap: 10px;
+    width: 100%;
+}
+.wrapper.right {
+    grid-template-columns: 1fr max-content;
+}
+
+.poster {
+    width: 167px;
+}
+
+.poster.small {
+    width: 80px;
+}
+
+.title {
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.date {
+    font-weight: normal;
+    font-size: 20px;
+}
+
+.description {
+    padding: 4px 0;
+    font-size: 15px;
+    font-weight: normal;
+}
+
+.title-secondery {
+    font-weight: bold;
+}
+
+.program {
+    padding: 0px;
+    padding-left: 25px;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+.paragraph {
+    padding: 4px;
+}
+
+.danceFigure {
+    text-align: right;
+}
+.danceFigure img{
+    width: 60px;
+    margin-bottom: inherit;
+}
+.facebook-link {
+    text-align: right;
+}
+.facebook-logo {
+    width: 30px;
+}
+
+.media div{
+    padding: 10px;
+}
+
+@media only screen and (min-width: 700px)  {
+    
+    .dance-figure img{
+        width: 90px;
+    }
+}
+
+@media only screen and (min-width: 900px)  {
+    .poster:not(.vertical) {
+        width: 250px;
+    }
+    .poster.small:not(.vertical) {
+        width: 150px;
+    }
+}

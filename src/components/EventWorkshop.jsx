@@ -12,8 +12,8 @@ function EventWorkshop(props) {
         id: 1,
         title: "Kizomba Workshop",
         photo: Plakat02,
-        start_date: new Date(2018, 1, 3, 18, 33, 30, 0),
-        end_date: new Date(2018, 1, 4, 2, 0, 0, 0),
+        startDate: new Date(2018, 1, 3, 18, 33, 30, 0),
+        endDate: new Date(2018, 1, 4, 2, 0, 0, 0),
         program: "19:30 kapunyitás\n20:00 - 21:00 kezdő rocky tánctanítás\n21:00 - 23:00 élőben zenél a Pedrofon zenekar\n23:00 - 02:00 DJ-s buli Kenyeres Tamással",
         content: "Még érezni az előző est hangulatát és máris itt a következő, egyben a félévi utolsó bulink. Várunk titeket egy fergeteges Rock ‘N’ Roll Partyra április 17-én.",
         dance: {
@@ -35,7 +35,7 @@ function EventWorkshop(props) {
         workshopDetails = props.details;
     }
 
-    const date = workshopDetails.start_date;
+    const date = workshopDetails.startDate;
     const dateString = date.getFullYear() + "." + date.getMonth() + "." + date.getDate();
 
     let main = {
