@@ -1,42 +1,49 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Salsa from './dancing-figures/Salsa.svg';
 import Folk from './dancing-figures/FolkDance.svg';
 import Kizomba from './dancing-figures/Kizomba.svg';
 import Swing from './dancing-figures/Swing.svg';
-import './EventDetail.css';
+import styles from './EventDetail.module.css';
 
-function DanceFigure(props) {
-    if (props.dance.name === "salsa") {
+function DanceFigure({ dance }) {
+    const { name } = dance;
+    if (name === 'salsa') {
         return (
-            <div className="eventdetail-dance-figure">
+            <div className={styles.danceFigure}>
                 <img src={Salsa} alt="" />
             </div>
-        )
-    } else if (props.dance.name === "folk") {
+        );
+    }
+    if (name === 'folk') {
         return (
-            <div className="eventdetail-dance-figure">
+            <div className={styles.danceFigure}>
                 <img src={Folk} alt="" />
             </div>
-        )
-    } else if (props.dance.name === "swing") {
+        );
+    }
+    if (name === 'swing') {
         return (
-            <div className="eventdetail-dance-figure">
+            <div className={styles.danceFigure}>
                 <img src={Swing} alt="" />
             </div>
-        )
-    } else if (props.dance.name === "kizomba") {
+        );
+    }
+    if (name === 'kizomba') {
         return (
-            <div className="eventdetail-dance-figure">
+            <div className={styles.danceFigure}>
                 <img src={Kizomba} alt="" />
             </div>
-        )
-    } else {
-        return (
-            <div className="eventdetail-dance-figure">
-            </div>
-        )
+        );
     }
-
+    return (
+        <div className={styles.danceFigure} />
+    );
 }
+
+DanceFigure.propTypes = {
+    dance: PropTypes.instanceOf(Object).isRequired,
+};
+
 
 export default DanceFigure;

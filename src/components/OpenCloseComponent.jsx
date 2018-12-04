@@ -5,8 +5,8 @@ class OpenCloseComponent extends React.Component {
     constructor() {
         super();
         this.state = {
-            open: false
-        }
+            open: false,
+        };
         this.changeStatus = this.changeStatus.bind(this);
     }
 
@@ -21,7 +21,7 @@ class OpenCloseComponent extends React.Component {
             return (
                 <div className="card withpadding" onClick={this.changeStatus}>
                     <div className="title">{this.props.title}</div>
-                    {this.props.content}
+                    {this.props.children}
                 </div>
             )
         } else {
