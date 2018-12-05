@@ -1,56 +1,69 @@
-import React from 'react'
-import Link from 'gatsby-link'
+import React from 'react';
+import PropTypes from 'prop-types';
+import Link from 'gatsby-link';
 import Logo from './lines.svg';
 import './Header.css';
-import ParkettLogo from '../components/ParkettLogoWhite02.svg';
-
-
-const ListLink = props =>
-    <div className={props.hidden ? "hide" : props.active ? "active" : ""}>
-        <Link to={props.to}>
-            <strong className="link">{props.children} </strong>
-        </Link>
-    </div>
+import ParkettLogo from './ParkettLogoWhite02.svg';
+import ListLink from './ListLink';
 
 class HeaderEdit extends React.Component {
     constructor() {
         super();
         this.state = {
             open: false,
-        }
-
+        };
         this.changeOpen = this.changeOpen.bind(this);
     }
 
     changeOpen() {
+        const { open } = this.state;
         this.setState({
-            open: !(this.state.open)
+            open: !(open),
         });
     }
 
     render() {
-
+        const { open } = this.state;
+        const {
+            event, dj, band, teaching, teacher, dance,
+        } = this.props;
         return (
-            <header className={"main-header min" + (this.state.open ? " open" : "")}>
+            <header className={`main-header min ${(open ? ' open' : '')}`}>
                 <div className="logo-div">
-                    <Link to="/" style={{ textShadow: `none`, backgroundImage: `none` }}>
-                        <img className="mainLogo" src={ParkettLogo} />
+                    <Link to="/" style={{ textShadow: 'none', backgroundImage: 'none' }}>
+                        <img className="mainLogo" src={ParkettLogo} alt="" />
                     </Link>
-                    <div onClick={this.changeOpen} className="more">
-                        <img src={Logo} />
+                    <div
+                        onClick={this.changeOpen}
+                        className="more"
+                        role="button"
+                        onKeyDown={() => { }}
+                        tabIndex={0}
+                    >
+                        <img src={Logo} alt="" />
                     </div>
                 </div>
                 <div className="links">
-                    <ListLink to="/edit-events/" active={this.props.event}>Események</ListLink>
-                    <ListLink to="/edit-dj/" active={this.props.dj}>DJ-k</ListLink>
-                    <ListLink to="/edit-band/" active={this.props.band}>Zenekarok</ListLink>
-                    <ListLink to="/edit-teaching/" active={this.props.teaching}>Tanítások</ListLink>
-                    <ListLink to="/edit-teacher/" active={this.props.teacher}>Tanárok</ListLink>
-                    <ListLink to="/edit-dance/" active={this.props.dance}>Táncok</ListLink>
+                    <ListLink to="/edit-events/" active={event}>Események</ListLink>
+                    <ListLink to="/edit-dj/" active={dj}>DJ-k</ListLink>
+                    <ListLink to="/edit-band/" active={band}>Zenekarok</ListLink>
+                    <ListLink to="/edit-teaching/" active={teaching}>Tanítások</ListLink>
+                    <ListLink to="/edit-teacher/" active={teacher}>Tanárok</ListLink>
+                    <ListLink to="/edit-dance/" active={dance}>Táncok</ListLink>
                 </div>
             </header>
-        )
+        );
     }
 }
 
-export default HeaderEdit
+
+HeaderEdit.propTypes = {
+    event: PropTypes.bool.isRequired,
+    dj: PropTypes.bool.isRequired,
+    band: PropTypes.bool.isRequired,
+    teacher: PropTypes.bool.isRequired,
+    teaching: PropTypes.bool.isRequired,
+    dance: PropTypes.bool.isRequired,
+};
+
+export default HeaderEdit;

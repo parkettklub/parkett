@@ -14,9 +14,7 @@
     grid-template-columns: max-content 1fr;
     color: white;
     font-family: 'Roboto', sans-serif;
-    margin-bottom: 6rem;
     padding: 1rem;
-    padding-top: 6rem;
 }
 
 .selectable {

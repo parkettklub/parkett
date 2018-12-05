@@ -8,7 +8,7 @@ function FormSimpleInput({
     return (
         <div className={styles.formgroup} hidden={selectedForm !== form}>
             <label htmlFor={name}>
-                <strong>{label} </strong>
+                <strong>{label}</strong>
                 <input
                     id={name}
                     name={name}

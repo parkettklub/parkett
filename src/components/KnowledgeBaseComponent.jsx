@@ -1,26 +1,24 @@
-import React from 'react'
-import './Knowledge-Base.css';
-import Edit from './pencil_white.svg';
-import TipsAndTricks from '../components/TipsAnTricks.jsx';
-import LocationAccess from '../components/LocationAccess.jsx';
-import Attention from '../components/Attention.jsx';
-import Services from '../components/Services.jsx';
-import Dances from '../components/Dances.jsx';
+import React from 'react';
+import TipsAndTricks from './TipsAnTricks';
+import LocationAccess from './LocationAccess';
+import Attention from './Attention';
+import Services from './Services';
+import Dances from './Dances';
+import EditButton from './EditButton';
 
 function editEventsPage() {
-    window.location = "/edit-dance/";
+    window.location = '/edit-dance/';
 }
 
-const KnowledgeBaseComponent = props =>
-    <div className="pagecenter">
-        <div className="editButton" >
-            <img src={Edit} onClick={editEventsPage} />
-        </div>
+const KnowledgeBaseComponent = () => (
+    <div>
+        <EditButton onClick={editEventsPage} />
         <Dances />
         <LocationAccess />
         <Attention />
         <Services />
         <TipsAndTricks />
     </div>
+);
 
-export default KnowledgeBaseComponent
+export default KnowledgeBaseComponent;

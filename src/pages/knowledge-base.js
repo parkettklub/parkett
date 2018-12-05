@@ -1,9 +1,9 @@
 import React from 'react';
-import '../components/Card.css';
-import Header from '../components/Header.jsx';
 import ReactCssTransitionGroup from 'react-addons-css-transition-group';
+import '../components/Card.css';
+import Header from '../components/Header';
 import KnowledgeBaseComponent from '../components/KnowledgeBaseComponent';
-
+import styles from './Page.module.css';
 
 const KnowledgeBase = () => (
 
@@ -13,11 +13,14 @@ const KnowledgeBase = () => (
             transitionName="fade"
             transitionAppearTimeout={1000}
             transitionEnterTimeout={300}
-            transitionAppear={true}
-            transitionLeaveTimeout={300}>
-            <KnowledgeBaseComponent />
+            transitionAppear
+            transitionLeaveTimeout={300}
+        >
+            <div className={styles.pageCenter}>
+                <KnowledgeBaseComponent />
+            </div>
         </ReactCssTransitionGroup>
     </div>
-)
+);
 
 export default KnowledgeBase;

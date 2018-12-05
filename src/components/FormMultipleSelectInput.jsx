@@ -18,9 +18,7 @@ class FormMultipleSelectInput extends React.Component {
         const { close, addNew } = this.props;
         if (open) close();
         else addNew();
-        this.setState((state) => {
-            return { open: !state.open };
-        });
+        this.setState(state => ({ open: !state.open }));
     }
 
     render() {
@@ -32,7 +30,7 @@ class FormMultipleSelectInput extends React.Component {
         } = this.state;
         return (
             <div className={styles.formgroup} hidden={selectedForm !== form}>
-                <strong>{label} </strong>
+                <strong>{label}</strong>
                 <select
                     multiple
                     id={name}

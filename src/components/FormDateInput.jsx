@@ -8,7 +8,7 @@ function FormDateInput({
     return (
         <div className={styles.formgroup} hidden={selectedForm !== form}>
             <label htmlFor={label}>
-                <strong>{label} </strong>
+                <strong>{label}</strong>
                 <input
                     id={name}
                     name={name}

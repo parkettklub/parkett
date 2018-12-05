@@ -8,7 +8,9 @@ function FormTextareaInput({
     return (
         <div className={styles.formgroup} hidden={selectedForm !== form}>
             <label htmlFor={name}>
-                <strong>{label} </strong>
+                <strong>
+                    {label}
+                </strong>
                 <textarea
                     id={name}
                     name={name}
@@ -20,7 +22,7 @@ function FormTextareaInput({
                 <div className={styles.helper}>{example}</div>
             </label>
         </div>
-    )
+    );
 }
 
 FormTextareaInput.propTypes = {

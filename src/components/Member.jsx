@@ -1,21 +1,32 @@
-import React from 'react'
-import profDefault from './defaultProfile.jpg'
-import styles from './Community.module.css'
+import React from 'react';
+import PropTypes from 'prop-types';
+import profDefault from './defaultProfile.jpg';
+import styles from './Community.module.css';
 
-function Member({ src = profDefault, position, description, name }) {
+function Member({
+    src = profDefault, position, description, name,
+}) {
     return (
         <div className={styles.element}>
-            <img src={src} />
+            <img src={src} alt="" />
             <div className={styles.desc}>
                 <div>{position}</div>
                 <br />
                 <div>{description}</div>
             </div>
             <div className={styles.title}>
-                <strong>{name} </strong>
+                <strong>{name}</strong>
             </div>
         </div>
-    )
+    );
 }
 
-export default Member
+Member.propTypes = {
+    src: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    position: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+};
+
+
+export default Member;

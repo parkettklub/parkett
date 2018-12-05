@@ -79,7 +79,7 @@ class IndexPage extends React.Component {
           animationDuration: 5 + 's'
         }} >
           <h1 style={{ marginTop: `17rem` }} ></h1>
-          <EventWithPoster details={main} />
+          <EventWithPoster {...main} />
         </div>
       </div>
     )

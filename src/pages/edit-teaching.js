@@ -1,8 +1,9 @@
 import React from 'react';
+import ReactCssTransitionGroup from 'react-addons-css-transition-group';
 import EditTeaching from '../components/EditTeaching';
 import '../components/Card.css';
 import Header from '../components/HeaderEdit';
-import ReactCssTransitionGroup from 'react-addons-css-transition-group';
+import styles from './Page.module.css';
 
 const Edit = () => (
 
@@ -12,11 +13,14 @@ const Edit = () => (
             transitionName="fade"
             transitionAppearTimeout={1000}
             transitionEnterTimeout={300}
-            transitionAppear={true}
-            transitionLeaveTimeout={300}>
-            <EditTeaching />
+            transitionAppear
+            transitionLeaveTimeout={300}
+        >
+            <div className={styles.main}>
+                <EditTeaching />
+            </div>
         </ReactCssTransitionGroup>
     </div>
-)
+);
 
 export default Edit;
