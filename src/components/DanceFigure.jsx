@@ -4,7 +4,7 @@ import Salsa from './dancing-figures/Salsa.svg';
 import Folk from './dancing-figures/FolkDance.svg';
 import Kizomba from './dancing-figures/Kizomba.svg';
 import Swing from './dancing-figures/Swing.svg';
-import styles from './EventDetail.module.css';
+import styles from './EventDetails.module.css';
 
 function DanceFigure({ dance }) {
     const { name } = dance;

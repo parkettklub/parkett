@@ -14,9 +14,8 @@
   width: 100%;
   display: grid;
   grid-template-columns: auto max-content;
-  grid-gap: 10px;
   align-items: flex-end;
-  height: 5rem;
+  height: 7em;
   overflow: hidden;
 }
 
@@ -31,7 +30,7 @@
 }
 
 .mainLogo {
-  height: 4rem;
+  height: 4em;
 }
 
 .main-header.max .mainLogo {

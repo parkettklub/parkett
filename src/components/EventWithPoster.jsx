@@ -1,29 +1,43 @@
 import React from 'react';
-import './Card.css';
-import './EventDetail.css';
+import PropTypes from 'prop-types';
+import Card from './Card';
+import styles from './EventPoster.module.css';
 
-function EventWithPoster(props) {
-    if (!props.details.description) {
+function EventWithPoster({
+    description, poster, title, date,
+}) {
+    if (!description) {
         return (
-            <div className="card withpadding eventdetail-wrapper">
-                <img className={"eventdetail-poster small"} src={props.details.poster} alt="" />
-                <div className="eventdetail-title">
-                    <div className="title">{props.details.title}</div>
-                    <div className="eventdetail-date">{props.details.date}</div>
+            <Card>
+                <div className={styles.main}>
+                    <img className={styles.smallPoster} src={poster} alt="" />
+                    <div className={styles.details}>
+                        <div className={styles.title}>{title}</div>
+                        <div className={styles.date}>{date}</div>
+                    </div>
                 </div>
-            </div>
+            </Card>
         );
     }
     return (
-        <div className="card withpadding eventdetail-wrapper">
-            <img className={"eventdetail-poster"} src={props.details.poster} alt="" />
-            <div className="eventdetail-title">
-                <div className="title">{props.details.title}</div>
-                <div className="eventdetail-date">{props.details.date}</div>
-                <div className="eventdetail-description">{props.details.description}</div>
+        <Card>
+            <div className={styles.main}>
+                <img className={styles.poster} src={poster} alt="" />
+                <div className={styles.details}>
+                    <div className={styles.title}>{title}</div>
+                    <div className={styles.date}>{date}</div>
+                    <div className={styles.description}>{description}</div>
+                </div>
             </div>
-        </div>
+        </Card>
     );
 }
+
+EventWithPoster.propTypes = {
+    description: PropTypes.string.isRequired,
+    poster: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    date: PropTypes.string.isRequired,
+};
 
 export default EventWithPoster;

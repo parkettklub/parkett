@@ -1,0 +1,33 @@
+.main {
+    padding: 0.5em;
+    display: grid;
+    grid-template-columns: max-content 1fr;
+}
+
+.details {
+    padding: 1em;
+}
+
+.title {
+    font-size: 2em;
+    font-weight: bolder;
+}
+
+.poster {
+    height: 15em;
+    margin: 0;
+}
+
+.smallPoster {
+    height: 10em;
+    margin: 0;
+}
+
+.date{
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.description{
+    padding-top: 1em;
+}

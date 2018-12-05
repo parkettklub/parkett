@@ -1,46 +1,74 @@
 import React from 'react';
-import './Card.css';
-import './EventDetail.css';
+import PropTypes from 'prop-types';
 import DanceFigure from './DanceFigure';
 import FacebookLogo from './facebook-app-logo.svg';
+import Card from './Card';
+import styles from './EventDetails.module.css';
+
+function EventDetails({
+    bands, djs, facebook, program, dance,
+}) {
+    const music = [];
+    bands.forEach(
+        (band) => {
+            music.push(
+                <div>
+                    <a href={band.url}>{band.name}</a>
+                </div>,
+            );
+        },
+    );
+    djs.forEach(
+        (dj) => {
+            music.push(
+                <div>
+                    <a href={dj.url}>{dj.name}</a>
+                </div>,
+            );
+        },
+    );
 
 
-function EventDetails(props) {
-    let music = [];
-    if (props.details.band) {
-        music.push(
-            <div className="eventdetail-dj-and-band eventdetail-paragraph">
-                <strong>Zenekar:  </strong><a href={props.details.band.url}>{props.details.band.name}</a>
-            </div>);
-    }
-    if (props.details.dj) {
-        music.push(
-            <div className="eventdetail-dj-and-band eventdetail-paragraph">
-                <strong>DJ:  </strong><a href={props.details.dj.url}>{props.details.dj.name}</a>
-            </div>);
-    }
-
-    let links = [];
-    if (props.details.facebook) {
+    const links = [];
+    if (facebook) {
         links.push(
-            <a className="eventdetail-facebook-link" href={props.details.facebook} target="_blank">
-                <img className="eventdetail-facebook-logo"
-                    src={FacebookLogo} alt="" />
-            </a>)
+            <div>
+                <a className={styles.facebook} href={facebook} target="_blank" rel="noopener noreferrer">
+                    <img
+                        className="eventdetail-facebook-logo"
+                        src={FacebookLogo}
+                        alt=""
+                    />
+                </a>
+            </div>,
+        );
     }
     return (
-        <div className="card withpadding eventdetail-wrapper right">
-            <div className="eventdetail-title-and-program">
-                <div className="eventdetail-title-secondery title">Program</div>
-                <div className="eventdetail-program">{props.details.program}</div>
+        <Card>
+            <div className={styles.main}>
+                <div className={styles.fullProgram}>
+                    <div className={styles.title}>Program</div>
+                    <div className={styles.program}>{program}</div>
+                </div>
+                <div className={styles.links}>
+                    <DanceFigure dance={dance} />
+                    {links}
+                </div>
+                <div className={styles.music}>
+                    <strong>Zenét szongáltatja:  </strong>
+                    {music}
+                </div>
             </div>
-            <DanceFigure dance={props.details.dance} />
-            <div className="eventdetail-dj-and-band">
-                {music}
-            </div>
-            {links}
-        </div>
+        </Card>
     );
 }
+
+EventDetails.propTypes = {
+    bands: PropTypes.instanceOf(Array).isRequired,
+    djs: PropTypes.instanceOf(Array).isRequired,
+    dance: PropTypes.instanceOf(Object).isRequired,
+    program: PropTypes.string.isRequired,
+    facebook: PropTypes.string.isRequired,
+};
 
 export default EventDetails;

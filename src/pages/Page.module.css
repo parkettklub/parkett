@@ -1,0 +1,15 @@
+.main {
+    margin-bottom: 6rem;
+    margin-top: 7sem;
+}
+
+.pageCenter {
+    margin-bottom: 6rem;
+    margin-top: 7em;
+}
+
+.pageCenter > div {
+    display: block;
+    margin: 0 auto;
+    width: max-content;
+}
