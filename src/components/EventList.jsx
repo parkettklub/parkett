@@ -33,7 +33,7 @@ class EventList extends React.Component {
                     id: 11,
                     title: "Salsa Party",
                     poster: Actual,
-                    start_date: "2018-10-02T18:00",
+                    start_date: new Date().toISOString()
                 },
                 {
                     id: 12,
