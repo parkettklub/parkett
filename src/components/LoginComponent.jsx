@@ -53,10 +53,19 @@ class LoginComponent extends React.Component {
         });
     }
 
-    render() {
+    componentDidMount() {
         const url = new URL(window.location.href);
         const code = url.searchParams.get("code");
         const state = url.searchParams.get("state");
+        if (code && state) {
+            this.setState({
+                code, state
+            })
+        }
+    }
+
+    render() {
+        const { code, state } = this.state;
         if (code && state) {
             this.Response(code);
             return (
