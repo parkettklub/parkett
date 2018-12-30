@@ -11,7 +11,7 @@ import Swing from '../components/dancing-figures/Swing.svg';
 const ListLink = props =>
     <div className={props.hidden ? "hide" : ""}>
         <Link to={props.to}>
-            <b className="link">{props.children}</b>
+            <strong className="link">{props.children} </strong>
         </Link>
     </div>
 

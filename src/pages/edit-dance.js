@@ -1,24 +1,22 @@
 import React from 'react';
-import EditEventWorkshop from '../components/EditEventWorkshop.jsx';
+import EditDance from '../components/EditDance';
 import '../components/Card.css';
-import Header from '../components/Header.jsx';
+import Header from '../components/HeaderEdit';
 import ReactCssTransitionGroup from 'react-addons-css-transition-group';
 
-const EditWorkshop = () => (
+const Edit = () => (
 
     <div>
-        <Header editevents />
+        <Header dance />
         <ReactCssTransitionGroup
             transitionName="fade"
             transitionAppearTimeout={1000}
             transitionEnterTimeout={300}
             transitionAppear={true}
             transitionLeaveTimeout={300}>
-            <div className="pagecenter">
-                <EditEventWorkshop />
-            </div>
+            <EditDance />
         </ReactCssTransitionGroup>
     </div>
 )
 
-export default EditWorkshop;
+export default Edit;

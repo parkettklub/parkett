@@ -22,7 +22,7 @@ function EventDetailsWorkshop(props) {
             <DanceFigure dance={props.details.dance} />
             <div className="eventdetail-dj-and-band">
                 <div className="theme">
-                    <b>Tematika: </b>
+                    <strong>Tematika:  </strong>
                     {props.details.theme ? props.details.theme : "-"}
                 </div>
             </div>

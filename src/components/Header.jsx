@@ -8,7 +8,7 @@ import ParkettLogo from '../components/ParkettLogoWhite02.svg';
 const ListLink = props =>
   <div className={props.hidden ? "hide" : props.active ? "active" : ""}>
     <Link to={props.to}>
-      <b className="link">{props.children}</b>
+      <strong className="link">{props.children} </strong>
     </Link>
   </div>
 

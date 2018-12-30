@@ -10,6 +10,8 @@
     "gatsby-plugin-react-next": "^1.0.11",
     "gatsby-plugin-typography": "^1.7.19",
     "normalize.css": "^8.0.0",
+    "prop-types": "^15.6.2",
+    "react": "^16.6.3",
     "react-addons-css-transition-group": "^15.6.2",
     "react-helmet": "^5.2.0",
     "react-typography": "^0.16.13",
@@ -29,7 +31,12 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
-    "eslint": "^5.5.0",
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.9.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.2",
+    "eslint-plugin-react": "^7.11.1",
     "instafeed.js": "^1.4.1",
     "prettier": "^1.13.7"
   },

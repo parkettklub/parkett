@@ -12,7 +12,7 @@ function EventSummary(props) {
     }
 
     if (props.details.music) {
-        detailsrows.push(<div key="music"><b>{props.details.music}</b></div>)
+        detailsrows.push(<div key="music"> <strong>{props.details.music} </strong></div>)
     }
 
     const date = props.details.start_date;

@@ -1,24 +1,22 @@
 import React from 'react';
-import EditEventParty from '../components/EditEventParty.jsx';
+import EditTeaching from '../components/EditTeaching';
 import '../components/Card.css';
-import Header from '../components/Header.jsx';
+import Header from '../components/HeaderEdit';
 import ReactCssTransitionGroup from 'react-addons-css-transition-group';
 
-const EditParty = () => (
+const Edit = () => (
 
     <div>
-        <Header editevents />
+        <Header teaching />
         <ReactCssTransitionGroup
             transitionName="fade"
             transitionAppearTimeout={1000}
             transitionEnterTimeout={300}
             transitionAppear={true}
             transitionLeaveTimeout={300}>
-            <div className="pagecenter">
-                <EditEventParty />
-            </div>
+            <EditTeaching />
         </ReactCssTransitionGroup>
     </div>
 )
 
-export default EditParty;
+export default Edit;

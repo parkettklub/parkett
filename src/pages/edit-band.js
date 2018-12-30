@@ -1,20 +1,20 @@
 import React from 'react';
-import EditEventList from '../components/EditEventList';
+import EditBand from '../components/EditBand';
 import '../components/Card.css';
-import Header from '../components/HeaderEdit';
+import HeaderEdit from '../components/HeaderEdit';
 import ReactCssTransitionGroup from 'react-addons-css-transition-group';
 
 const Edit = () => (
 
     <div>
-        <Header event />
+        <HeaderEdit band />
         <ReactCssTransitionGroup
             transitionName="fade"
             transitionAppearTimeout={1000}
             transitionEnterTimeout={300}
             transitionAppear={true}
             transitionLeaveTimeout={300}>
-            <EditEventList />
+            <EditBand />
         </ReactCssTransitionGroup>
     </div>
 )
