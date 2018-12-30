@@ -4,6 +4,7 @@ import Helmet from 'react-helmet'
 import Footer from '../components/Footer.jsx'
 import './index.css'
 import 'normalize.css'
+import 'url-polyfill'
 
 
 const Layout = ({ children, data }) => (
