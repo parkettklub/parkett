@@ -1,0 +1,7 @@
+.main {
+    padding: 0.5em;
+}
+
+.main > div {
+    padding: 0.5em;
+}

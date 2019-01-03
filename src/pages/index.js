@@ -13,37 +13,37 @@ class IndexPage extends React.Component {
           id: 11,
           title: "Salsa Party",
           poster: Actual,
-          start_date: "2018-10-02 18:00",
+          startDate: "2018-10-02 18:00",
         },
         {
           id: 12,
           title: "Kizomba Party",
           poster: Actual,
-          start_date: "2018-10-16 18:00",
+          startDate: "2018-10-16 18:00",
         },
         {
           id: 13,
           title: "Élőzenés Magyar Táncház",
           poster: Actual,
-          start_date: "2018-10-23 18:00",
+          startDate: "2018-10-23 18:00",
         },
         {
           id: 14,
           title: "Bachata Workshop",
           poster: Actual,
-          start_date: "2018-10-28 18:00",
+          startDate: "2018-10-28 18:00",
         },
         {
           id: 15,
           title: "Salsa és Bachata Party",
           poster: Actual,
-          start_date: "2018-11-06 18:00",
+          startDate: "2018-11-06 18:00",
         },
         {
           id: 16,
           title: "Élőzenés Rock'n'Roll Party",
           poster: Actual,
-          start_date: "2018-11-20 18:00",
+          startDate: "2018-11-20 18:00",
         }],
       i: 1
     };
@@ -66,7 +66,7 @@ class IndexPage extends React.Component {
     let i = this.state.i;
     let main = {
       title: this.state.events[i].title,
-      date: this.state.events[i].start_date,
+      date: this.state.events[i].startDate,
       poster: this.state.events[i].poster
     }
 
@@ -79,7 +79,7 @@ class IndexPage extends React.Component {
           animationDuration: 5 + 's'
         }} >
           <h1 style={{ marginTop: `17rem` }} ></h1>
-          <EventWithPoster details={main} />
+          <EventWithPoster {...main} />
         </div>
       </div>
     )

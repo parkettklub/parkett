@@ -1,0 +1,123 @@
+.main {
+    display: block;
+    margin: 0 auto;
+    max-width: 900px;
+    text-align: center;
+    align-items: center;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    padding: 1rem;
+}
+
+.editButton {
+    padding: 1em;
+}
+
+.editButton > div {
+    width: 2em;
+}
+
+.editButton > div:hover {
+    filter: opacity(0.5);
+}
+
+.editButton img {
+    height: 2em;
+}
+
+.old {
+    filter: opacity(0.5);
+}
+
+.event {
+    display: block;
+    margin: 0 auto;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+.event.clickable:hover {
+    filter: opacity(0.5);
+}
+
+.old.clickable:hover {
+    filter: opacity(0.3);
+}
+
+.grid {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: 150px auto 100px;
+    padding: 0;
+    align-items: center;
+    cursor: pointer;
+}
+
+.posterCropper {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+}
+
+.posterCropper img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    max-width: initial;
+    margin-bottom: inherit;
+    object-position: top;
+}
+
+.details div {
+    padding: 0.2em;
+}
+
+.title {
+    font-weight: bolder;
+    font-size: 1.5em;
+}
+
+.eventListCardForm {
+    position: relative;
+}
+
+.eventListCardForm input {
+    padding: 8px 15px 8px 40px;
+    box-shadow: inset 0 2px 3px rgba(0, 0, 0, .1);
+    color: #000000;
+    background: white;
+    border: none;
+    border-radius: 4px;
+    width: 100%;
+}
+
+.eventListCardForm input:focus {
+    outline: none;
+}
+
+.eventListCardForm svg {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    margin-top: -8px;
+    pointer-events: none;
+    opacity: .4;
+    transition: opacity .2s;
+    display: inline-block;
+    vertical-align: middle;
+    box-sizing: border-box;
+    width: 17;
+    height: 17;
+    overflow: hidden;
+}
+
+.eventListOldEvents{
+    padding: 10px;
+    color: #e7caca;
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    line-height: normal;
+}
+

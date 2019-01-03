@@ -1,55 +1,66 @@
-import React from 'react'
-import Link from 'gatsby-link'
+import React from 'react';
+import PropTypes from 'prop-types';
+import Link from 'gatsby-link';
 import Logo from './lines.svg';
 import './Header.css';
-import ParkettLogo from '../components/ParkettLogoWhite02.svg';
-
-
-const ListLink = props =>
-  <div className={props.hidden ? "hide" : props.active ? "active" : ""}>
-    <Link to={props.to}>
-      <strong className="link">{props.children} </strong>
-    </Link>
-  </div>
+import ParkettLogo from './ParkettLogoWhite02.svg';
+import ListLink from './ListLink';
 
 class Header extends React.Component {
   constructor() {
     super();
     this.state = {
       open: false,
-    }
-
+    };
     this.changeOpen = this.changeOpen.bind(this);
   }
 
   changeOpen() {
+    const { open } = this.state;
     this.setState({
-      open: !(this.state.open)
+      open: !(open),
     });
   }
 
   render() {
-
+    const { open } = this.state;
+    const {
+      events, community, media, knowledgebase, profile,
+    } = this.props;
     return (
-      <header className={"main-header min" + (this.state.open ? " open" : "")}>
+      <header className={`main-header min ${(open ? ' open' : '')}`}>
         <div className="logo-div">
-          <Link to="/" style={{ textShadow: `none`, backgroundImage: `none` }}>
-            <img className="mainLogo" src={ParkettLogo} />
+          <Link to="/" style={{ textShadow: 'none', backgroundImage: 'none' }}>
+            <img className="mainLogo" src={ParkettLogo} alt="" />
           </Link>
-          <div onClick={this.changeOpen} className="more">
-            <img src={Logo} />
+          <div
+            onClick={this.changeOpen}
+            className="more"
+            role="button"
+            onKeyDown={() => { }}
+            tabIndex={0}
+          >
+            <img src={Logo} alt="" />
           </div>
         </div>
         <div className="links">
-          <ListLink to="/events/" active={this.props.events}>Események</ListLink>
-          <ListLink to="/community/" active={this.props.community}>Közösség</ListLink>
-          <ListLink to="/media/" active={this.props.media}>Média</ListLink>
-          <ListLink to="/knowledge-base/" active={this.props.knowledgebase}>Tudásbázis</ListLink>
-          <ListLink to="/profile/" active={this.props.profile}>Profilom</ListLink>
+          <ListLink to="/events/" active={events}>Események</ListLink>
+          <ListLink to="/community/" active={community} hidden>Közösség</ListLink>
+          <ListLink to="/media/" active={media}>Média</ListLink>
+          <ListLink to="/knowledge-base/" active={knowledgebase}>Tudásbázis</ListLink>
+          <ListLink to="/profile/" active={profile}>Profilom</ListLink>
         </div>
       </header>
-    )
+    );
   }
 }
 
-export default Header
+Header.propTypes = {
+  events: PropTypes.bool.isRequired,
+  community: PropTypes.bool.isRequired,
+  media: PropTypes.bool.isRequired,
+  knowledgebase: PropTypes.bool.isRequired,
+  profile: PropTypes.bool.isRequired,
+};
+
+export default Header;

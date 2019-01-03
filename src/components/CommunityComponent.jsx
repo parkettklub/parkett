@@ -1,12 +1,12 @@
-import React from 'react'
-import styles from './Community.module.css'
-import SocialFeed from './SocialFeed'
-import Members from './Members'
+import React from 'react';
+import styles from './Community.module.css';
+import SocialFeed from './SocialFeed';
+import Members from './Members';
 
-const CommunityComponent = props =>
+const CommunityComponent = () => (
     <div className={styles.main}>
         {/* <SocialFeed /> */}
         <Members />
-    </div>
+    </div>);
 
 export default CommunityComponent;
