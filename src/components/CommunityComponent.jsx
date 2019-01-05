@@ -5,7 +5,7 @@ import Members from './Members';
 
 const CommunityComponent = () => (
     <div className={styles.main}>
-        {/* <SocialFeed /> */}
+        <SocialFeed />
         <Members />
     </div>);
 

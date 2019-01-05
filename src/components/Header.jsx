@@ -45,7 +45,7 @@ class Header extends React.Component {
         </div>
         <div className="links">
           <ListLink to="/events/" active={events}>Események</ListLink>
-          <ListLink to="/community/" active={community} hidden>Közösség</ListLink>
+          <ListLink to="/community/" active={community}>Közösség</ListLink>
           <ListLink to="/media/" active={media}>Média</ListLink>
           <ListLink to="/knowledge-base/" active={knowledgebase}>Tudásbázis</ListLink>
           <ListLink to="/profile/" active={profile}>Profilom</ListLink>

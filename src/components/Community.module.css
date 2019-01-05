@@ -1,6 +1,12 @@
 .main {
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    line-height: normal;
+    text-align: left;
+    margin: 0 auto;
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-columns: 60% 30%;
     grid-gap: 0.5em;
     width: min-content;
 }
@@ -10,6 +16,11 @@
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: inherit;
     width: min-content;
+}
+
+.loading {
+    display: grid;
+    color: white;
 }
 
 .people6 {
@@ -71,8 +82,8 @@
     padding: 0.25em;
     color: white;
     position: relative;
-    bottom: 2em;
-    height: 2em;
+    bottom: 4em;
+    height: 3em;
     background: black;
 }
 

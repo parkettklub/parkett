@@ -13,7 +13,7 @@ class SocialFeed extends React.Component {
   handleResize = this.handleResize.bind(this);
 
   fetchInstaPhotos() {
-
+    console.log('fetch');
     fetch(`https://api.instagram.com/v1/tags/${this.tag}/media/recent?access_token=${this.accessToken}`).then(response =>
       response.json()).then(data => {
         this.setState({ photos: data.data })
@@ -34,8 +34,15 @@ class SocialFeed extends React.Component {
   }
 
 
+  Loading() {
+    return <div className={styles.loading}>
+      Loading
+    </div>
+  }
+
   componentDidMount() {
     window.addEventListener("resize", this.handleResize);
+    if (!this.state.photos) this.fetchInstaPhotos();
   }
 
   handleResize() {
@@ -44,13 +51,10 @@ class SocialFeed extends React.Component {
 
   render() {
 
-    if (!this.state.photos) this.fetchInstaPhotos();
-
     console.log("feed rendered");
-
     return (
       <div className={styles.instagram}>
-        {this.state.photos ? this.photoElements(this.state.photos) : "Loading"}
+        {this.state.photos ? this.photoElements(this.state.photos) : this.Loading()}
       </div>
     );
   }
