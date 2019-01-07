@@ -48,6 +48,13 @@ class EventList extends React.Component {
                     id: 11,
                     title: 'Salsa Party',
                     poster: Actual,
+                    startDate: '2020-10-03T18:00',
+                    onClick: onClickParty,
+                },
+                {
+                    id: 11,
+                    title: 'Salsa Party fasz',
+                    poster: Actual,
                     startDate: '2020-10-02T18:00',
                     onClick: onClickParty,
                 },
