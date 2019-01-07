@@ -12,14 +12,13 @@ class EditMusicTeaching extends React.Component {
         this.state = {
             addSelected: null,
         };
-        this.close = this.close.bind(this);
     }
 
     addNewElement(name) {
         this.setState({ addSelected: name });
     }
 
-    close() {
+    close = () => {
         this.setState({ addSelected: null });
     }
 

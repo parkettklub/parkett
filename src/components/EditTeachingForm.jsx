@@ -56,7 +56,8 @@ class EditTeaachingForm extends React.Component {
                             {dance.id}
                             {' - '}
                             {dance.name}
-                        </option>))}
+                        </option>
+                    ))}
                     addNew={() => this.addNewElement('dance')}
                     close={() => this.close()}
                 />
@@ -79,7 +80,8 @@ class EditTeaachingForm extends React.Component {
                             {teacher.id}
                             {' - '}
                             {teacher.name}
-                        </option>))}
+                        </option>
+                    ))}
                     addNew={() => this.addNewElement('teacher')}
                     close={() => this.close()}
                 />

@@ -20,7 +20,6 @@ class EditBand extends React.Component {
             selectedId: 0,
             selectedObject: null,
         };
-        this.createBand = this.createBand.bind(this);
     }
 
     editBand(id) {
@@ -32,7 +31,7 @@ class EditBand extends React.Component {
         });
     }
 
-    createBand() {
+    createBand = () => {
         this.setState({
             selectedId: null,
             selectedObject: (

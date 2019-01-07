@@ -39,9 +39,6 @@ class EditEvents extends React.Component {
             selectedId: '0',
             selectedObject: null,
         };
-        this.createArticle = this.createArticle.bind(this);
-        this.createParty = this.createParty.bind(this);
-        this.createWorkshop = this.createWorkshop.bind(this);
     }
 
     selectParty(id) {
@@ -65,21 +62,21 @@ class EditEvents extends React.Component {
         });
     }
 
-    createParty() {
+    createParty = () => {
         this.setState({
             selectedId: '',
             selectedObject: (<EditEventParty />),
         });
     }
 
-    createArticle() {
+    createArticle = () => {
         this.setState({
             selectedId: '',
             selectedObject: (<EditEventArticle />),
         });
     }
 
-    createWorkshop() {
+    createWorkshop = () => {
         this.setState({
             selectedId: '',
             selectedObject: (<EditEventWorkshop />),

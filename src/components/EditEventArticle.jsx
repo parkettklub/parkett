@@ -15,23 +15,19 @@ class EditEventArticle extends React.Component {
             content: 'Még érezni az előző est hangulatát és máris itt a következő, egyben a félévi utolsó bulink. Várunk titeket egy fergeteges Rock ‘N’ Roll Partyra április 17-én.',
             selectedForm: 'title',
         };
-
-        this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
-        this.changeTab = this.changeTab.bind(this);
     }
 
-    handleChange(event) {
+    handleChange = (event) => {
         const { name } = event.target;
         this.setState({ [name]: event.target.value });
     }
 
-    handleSubmit(event) {
+    handleSubmit = (event) => {
         event.preventDefault();
         this.setState({});
     }
 
-    changeTab(tabName) {
+    changeTab = (tabName) => {
         this.setState({
             selectedForm: tabName,
         });

@@ -20,7 +20,6 @@ class EditDance extends React.Component {
             selectedId: 0,
             selectedObject: null,
         };
-        this.createDance = this.createDance.bind(this);
     }
 
     editDance(id) {
@@ -32,7 +31,7 @@ class EditDance extends React.Component {
         });
     }
 
-    createDance() {
+    createDance = () => {
         this.setState({
             selectedId: null,
             selectedObject: (<FormDance selectedObject={{ id: -1 }} />),

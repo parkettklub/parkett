@@ -26,14 +26,9 @@ class EditEventWorkshop extends React.Component {
             selectedForm: 'title',
             addSelected: null,
         };
-
-        this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
-        this.changeTab = this.changeTab.bind(this);
-        this.handleMultiple = this.handleMultiple.bind(this);
     }
 
-    handleMultiple(event) {
+    handleMultiple = (event) => {
         const { options } = event.target;
         const value = [];
         for (let i = 0, l = options.length; i < l; i += 1) {
@@ -45,17 +40,17 @@ class EditEventWorkshop extends React.Component {
         this.setState({ [name]: value });
     }
 
-    handleChange(event) {
+    handleChange = (event) => {
         const { name } = event.target;
         this.setState({ [name]: event.target.value });
     }
 
-    handleSubmit(event) {
+    handleSubmit = (event) => {
         event.preventDefault();
         this.setState({});
     }
 
-    changeTab(tabName) {
+    changeTab = (tabName) => {
         this.setState({
             selectedForm: tabName,
         });

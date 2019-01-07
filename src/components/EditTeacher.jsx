@@ -20,8 +20,18 @@ class EditTeacher extends React.Component {
             selectedId: 0,
             selectedObject: null,
         };
-        this.createTeacher = this.createTeacher.bind(this);
     }
+
+    createTeacher = () => {
+        this.setState({
+            selectedId: null,
+            selectedObject: (<FormTeacher selectedObject={{
+                id: -1,
+            }}
+            />),
+        });
+    }
+
 
     editTeacher(id) {
         const { teachers } = this.state;
@@ -29,16 +39,6 @@ class EditTeacher extends React.Component {
         this.setState({
             selectedId: id,
             selectedObject: (<FormTeacher selectedObject={selected} />),
-        });
-    }
-
-    createTeacher() {
-        this.setState({
-            selectedId: null,
-            selectedObject: (<FormTeacher selectedObject={{
-                id: -1,
-            }}
-            />),
         });
     }
 
