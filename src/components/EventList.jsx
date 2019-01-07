@@ -38,10 +38,24 @@ class EventList extends React.Component {
             search: '',
             events: [
                 {
-                    id: 11,
+                    id: 111,
                     title: 'Salsa Party',
                     poster: Actual,
+                    startDate: '2020-10-03T18:00',
+                    onClick: onClickParty,
+                },
+                {
+                    id: 11,
+                    title: 'Salsa Party fasz',
+                    poster: Actual,
                     startDate: '2020-10-02T18:00',
+                    onClick: onClickParty,
+                },
+                {
+                    id: 112,
+                    title: 'Salsa Party',
+                    poster: Actual,
+                    startDate: '2020-10-04T18:00',
                     onClick: onClickParty,
                 },
                 {
@@ -128,16 +142,14 @@ class EventList extends React.Component {
                     facebook: '://www.facebook.com/events/527353247650799/',
                 }],
         };
-        this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    handleSubmit(event) {
+    handleSubmit = (event) => {
         event.preventDefault();
         this.setState({});
     }
 
-    handleChange({ target }) {
+    handleChange = ({ target }) => {
         this.setState({
             search: target.value ? target.value : '',
         });
@@ -145,40 +157,25 @@ class EventList extends React.Component {
 
     render() {
         const today = new Date();
-        const newEvents = [];
         const { events, search } = this.state;
-        events.sort((a, b) => new Date(a.startDate).valueOf() - new Date(b.startDate).valueOf());
-        events.forEach((event) => {
-            if (filterEvent(search, event)) {
-                if (new Date(event.startDate).valueOf() - today.valueOf() >= 0) {
-                    newEvents.push(<EventSummary {...event} key={event.id} />);
-                }
-            }
+        events.sort((a, b) => {
+            const aValue = new Date(a.startDate).valueOf();
+            const bValue = new Date(b.startDate).valueOf();
+            return Math.abs(aValue - today.valueOf())
+                - Math.abs(bValue - today.valueOf());
         });
         let middleMan = [];
         middleMan.push(
             <div className={styles.eventListOldEvents} key="oldevents">Régebbi Események</div>,
         );
-
-        const oldEvents = [];
-        events.sort((a, b) => new Date(b.startDate).valueOf() - new Date(a.startDate).valueOf());
-        events.forEach((event) => {
-            if (filterEvent(search, event)) {
-                if (new Date(event.startDate).valueOf() - today.valueOf() < 0) {
-                    oldEvents.push(<EventSummary old {...event} key={event.id} />);
-                }
-            }
-        });
-
-        if (!events.find((event) => {
-            return filterEvent(search, event);
-        })) {
+        if (!events.find(event => (
+            filterEvent(search, event)
+        ))) {
             middleMan = [];
             middleMan.push(
                 <div className={styles.eventListOldEvents} key="oldevents">Nincs ilyen esemény</div>,
             );
         }
-
         return (
             <div className={styles.main}>
                 <div className={styles.editButton}>
@@ -215,9 +212,19 @@ class EventList extends React.Component {
                     transitionLeaveTimeout={300}
                     style={{ width: '100%' }}
                 >
-                    {newEvents}
+                    {events.filter(
+                        event => (
+                            filterEvent(search, event)
+                            && new Date(event.startDate).valueOf() - today.valueOf() >= 0
+                        ),
+                    ).map(event => (<EventSummary {...event} key={event.id} />))}
                     {middleMan}
-                    {oldEvents}
+                    {events.filter(
+                        event => (
+                            filterEvent(search, event)
+                            && new Date(event.startDate).valueOf() - today.valueOf() < 0
+                        ),
+                    ).map(event => (<EventSummary old {...event} key={event.id} />))}
                 </ReactCssTransitionGroup>
             </div>
         );

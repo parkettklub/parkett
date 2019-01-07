@@ -8,27 +8,6 @@ import styles from './EventDetails.module.css';
 function EventDetails({
     bands, djs, facebook, program, dance,
 }) {
-    const music = [];
-    bands.forEach(
-        (band) => {
-            music.push(
-                <div>
-                    <a href={band.url}>{band.name}</a>
-                </div>,
-            );
-        },
-    );
-    djs.forEach(
-        (dj) => {
-            music.push(
-                <div>
-                    <a href={dj.url}>{dj.name}</a>
-                </div>,
-            );
-        },
-    );
-
-
     const links = [];
     if (facebook) {
         links.push(
@@ -56,7 +35,16 @@ function EventDetails({
                 </div>
                 <div className={styles.music}>
                     <strong>Zenét szongáltatja:  </strong>
-                    {music}
+                    {bands.map(band => (
+                        <div>
+                            <a href={band.url}>{band.name}</a>
+                        </div>
+                    ))}
+                    {djs.map(dj => (
+                        <div>
+                            <a href={dj.url}>{dj.name}</a>
+                        </div>
+                    ))}
                 </div>
             </div>
         </Card>

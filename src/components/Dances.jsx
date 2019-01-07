@@ -38,10 +38,9 @@ class Dances extends React.Component {
             }],
             selectedid: null,
         };
-        this.select = this.select.bind(this);
     }
 
-    select(id) {
+    select = (id) => {
         const { selectedid } = this.state;
         if (selectedid !== id) {
             this.setState({

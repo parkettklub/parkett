@@ -20,10 +20,9 @@ class EditDJ extends React.Component {
             selectedId: 0,
             selectedObject: null,
         };
-        this.createDJ = this.createDJ.bind(this);
     }
 
-    editDJ(id) {
+    editDJ = (id) => {
         const { djs } = this.state;
         const selected = djs.find(dj => dj.id === id);
         this.setState({

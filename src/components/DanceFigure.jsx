@@ -8,36 +8,18 @@ import styles from './EventDetails.module.css';
 
 function DanceFigure({ dance }) {
     const { name } = dance;
-    if (name === 'salsa') {
-        return (
-            <div className={styles.danceFigure}>
-                <img src={Salsa} alt="" />
-            </div>
-        );
+
+    const src = {
+        salsa: Salsa,
+        folk: Folk,
+        swing: Swing,
+        kizomba: Kizomba
     }
-    if (name === 'folk') {
-        return (
-            <div className={styles.danceFigure}>
-                <img src={Folk} alt="" />
-            </div>
-        );
-    }
-    if (name === 'swing') {
-        return (
-            <div className={styles.danceFigure}>
-                <img src={Swing} alt="" />
-            </div>
-        );
-    }
-    if (name === 'kizomba') {
-        return (
-            <div className={styles.danceFigure}>
-                <img src={Kizomba} alt="" />
-            </div>
-        );
-    }
+
     return (
-        <div className={styles.danceFigure} />
+        <div className={styles.danceFigure}>
+            <img src={src[name]} alt="" />
+        </div>
     );
 }
 

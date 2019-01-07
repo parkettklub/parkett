@@ -32,7 +32,6 @@ class EditTeaching extends React.Component {
             selectedId: 0,
             selectedObject: null,
         };
-        this.editTeaching = this.editTeaching.bind(this);
     }
 
     getTeacher(id) {
@@ -40,7 +39,7 @@ class EditTeaching extends React.Component {
         return teachers.find(teacher => teacher.id === id);
     }
 
-    editTeaching() {
+    editTeaching = () => {
         this.setState({
             selectedId: null,
             selectedObject: (
