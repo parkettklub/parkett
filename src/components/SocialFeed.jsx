@@ -1,9 +1,8 @@
-import React from 'react'
-import styles from './Community.module.css'
+import React from 'react';
+import styles from './Community.module.css';
 import SquareImage from './SquareImage';
 
 class SocialFeed extends React.Component {
-
   accessToken = '452551435.528baf9.7214f2b42088402e80f3467c4d89901b';
   tag = "legjobbcsapat";
   state = {
@@ -23,21 +22,23 @@ class SocialFeed extends React.Component {
   };
 
   photoElements(photos) {
-    return photos.map((datum, i) => {
-      return <a key={this.state.resizeImages.toString() + datum.id} href={datum.link}>
+    return photos.map((datum, i) => (
+      <a key={this.state.resizeImages.toString() + datum.id} href={datum.link}>
         <div className={styles.element}>
           <SquareImage resize={this.state.resizeImages} location={datum.images.standard_resolution.url} />
           <div className={styles.caption}>{photos[i].caption.text}</div>
         </div>
       </a>
-    })
+    ));
   }
 
 
   Loading() {
-    return <div className={styles.loading}>
-      Loading
-    </div>
+    return (
+      <div className={styles.loading}>
+        Loading
+      </div>
+    );
   }
 
   componentDidMount() {
@@ -50,7 +51,6 @@ class SocialFeed extends React.Component {
   }
 
   render() {
-
     console.log("feed rendered");
     return (
       <div className={styles.instagram}>

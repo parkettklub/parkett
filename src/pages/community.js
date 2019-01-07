@@ -20,6 +20,6 @@ const Community = () => (
             </div>
         </ReactCssTransitionGroup>
     </div>
-)
+);
 
 export default Community;

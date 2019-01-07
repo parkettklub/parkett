@@ -1,5 +1,6 @@
 import React from 'react';
 import Member from './Member';
+import SocialFeed from './SocialFeed';
 import LittleMember from './LittleMember';
 import Emese from './Emese.jpg';
 import profDefault from './gergoProfile.jpg';
@@ -30,6 +31,7 @@ class Members extends React.Component {
                 email: 'dorogix@gmail.com',
                 src: profDefault,
                 position: 'pr felelős',
+                description: 'Hello1',
 
             }, {
                 id: 3,
@@ -177,42 +179,39 @@ class Members extends React.Component {
 
     render() {
         const { members } = this.state;
-        const rows = [];
-        rows.push(
-            <div className={styles.people6}>
-                {members.map((member) => {
-                    if (member.position !== 'öregtag') {
-                        if (member.id < 6) {
-                            return (<Member {...member} key={member.id} />);
+        return (
+            <div className={styles.main}>
+                <SocialFeed />
+                <div className={styles.people6}>
+                    {members.map((member) => {
+                        if (member.position !== 'öregtag') {
+                            if (member.id < 6) {
+                                return (<Member {...member} key={member.id} />);
+                            }
                         }
-                    }
-                    return null;
-                })}
-            </div>,
-        );
-        rows.push(
-            <div className={styles.peopleOthers}>
-                {members.map((member) => {
-                    if (member.position !== 'öregtag') {
-                        if (member.id > 5) {
-                            return (<Member {...member} key={member.id} />);
+                        return null;
+                    })}
+                </div>
+                <div className={styles.peopleOthers}>
+                    {members.map((member) => {
+                        if (member.position !== 'öregtag') {
+                            if (member.id > 5) {
+                                return (<Member {...member} key={member.id} />);
+                            }
                         }
-                    }
-                    return null;
-                })}
-            </div>,
+                        return null;
+                    })}
+                </div>
+                <div className={styles.peopleOthers}>
+                    {members.map((member) => {
+                        if (member.position === 'öregtag') {
+                            return (<LittleMember {...member} key={member.id} />);
+                        }
+                        return null;
+                    })}
+                </div>
+            </div>
         );
-        rows.push(
-            <div className={styles.peopleOthers}>
-                {members.map((member) => {
-                    if (member.position === 'öregtag') {
-                        return (<LittleMember {...member} key={member.id} />);
-                    }
-                    return null;
-                })}
-            </div>,
-        );
-        return rows;
     }
 }
 

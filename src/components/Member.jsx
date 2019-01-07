@@ -22,7 +22,6 @@ function Member({
 }
 
 Member.propTypes = {
-    src: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
     position: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,

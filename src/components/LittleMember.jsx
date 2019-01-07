@@ -15,7 +15,6 @@ function LittleMember({ src = profDefault, name }) {
 }
 
 LittleMember.propTypes = {
-    src: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
 };
 
