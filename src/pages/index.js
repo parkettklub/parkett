@@ -1,8 +1,10 @@
+import ReactCssTransitionGroup from 'react-addons-css-transition-group';
 import React from 'react';
-import '../components/Card.css';
 import HeaderMax from '../components/HeaderMax.jsx';
 import EventWithPoster from '../components/EventWithPoster';
 import Actual from '../components/osszesitoActual.jpg';
+import styles from './Page.module.css';
+import './Animation.css';
 
 class IndexPage extends React.Component {
   constructor() {
@@ -11,41 +13,41 @@ class IndexPage extends React.Component {
       events: [
         {
           id: 11,
-          title: "Salsa Party",
+          title: 'Salsa Party',
           poster: Actual,
-          startDate: "2018-10-02 18:00",
+          startDate: '2018-10-02 18:00',
         },
         {
           id: 12,
-          title: "Kizomba Party",
+          title: 'Kizomba Party',
           poster: Actual,
-          startDate: "2018-10-16 18:00",
+          startDate: '2018-10-16 18:00',
         },
         {
           id: 13,
-          title: "Élőzenés Magyar Táncház",
+          title: 'Élőzenés Magyar Táncház',
           poster: Actual,
-          startDate: "2018-10-23 18:00",
+          startDate: '2018-10-23 18:00',
         },
         {
           id: 14,
-          title: "Bachata Workshop",
+          title: 'Bachata Workshop',
           poster: Actual,
-          startDate: "2018-10-28 18:00",
+          startDate: '2018-10-28 18:00',
         },
         {
           id: 15,
-          title: "Salsa és Bachata Party",
+          title: 'Salsa és Bachata Party',
           poster: Actual,
-          startDate: "2018-11-06 18:00",
+          startDate: '2018-11-06 18:00',
         },
         {
           id: 16,
           title: "Élőzenés Rock'n'Roll Party",
           poster: Actual,
-          startDate: "2018-11-20 18:00",
+          startDate: '2018-11-20 18:00',
         }],
-      i: 1
+      i: 1,
     };
     this.tick = this.tick.bind(this);
   }
@@ -53,37 +55,48 @@ class IndexPage extends React.Component {
   componentDidMount() {
     this.timer = setInterval(this.tick, 1000 * 5);
   }
+
   componentWillUnmount() {
     clearInterval(this.timer);
   }
+
   tick() {
-    if (this.state.i < this.state.events.length - 1)
-      this.setState({ i: this.state.i + 1 });
+    const { i, events } = this.state;
+    if (i < events.length - 1) this.setState({ i: i + 1 });
     else this.setState({ i: 0 });
   }
 
   render() {
-    let i = this.state.i;
-    let main = {
-      title: this.state.events[i].title,
-      date: this.state.events[i].startDate,
-      poster: this.state.events[i].poster
-    }
-
+    const { i, events } = this.state;
+    const main = {
+      title: events[i].title,
+      date: events[i].startDate,
+      poster: events[i].poster,
+    };
     return (
-      <div className="indexpage">
+      <ReactCssTransitionGroup
+        transitionName="fade"
+        transitionAppearTimeout={1000}
+        transitionEnterTimeout={500}
+        transitionAppear
+        transitionLeaveTimeout={500}
+      >
         <HeaderMax />
-        <div className="pagecenter mainAttraction" style={{
-          animationName: 'myTransform',
-          animationIterationCount: 'infinite',
-          animationDuration: 5 + 's'
-        }} >
-          <h1 style={{ marginTop: `17rem` }} ></h1>
-          <EventWithPoster {...main} />
+        <div
+          className={styles.home}
+        >
+          <ReactCssTransitionGroup
+            transitionName="fade"
+            transitionAppearTimeout={1000}
+            transitionEnterTimeout={500}
+            transitionLeaveTimeout={500}
+          >
+            <EventWithPoster {...main} key={i} />
+          </ReactCssTransitionGroup>
         </div>
-      </div>
-    )
+      </ReactCssTransitionGroup>
+    );
   }
 }
 
-export default IndexPage
+export default IndexPage;

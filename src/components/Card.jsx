@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import styles from './Card.module.css';
 
 const Card = (props) => {
-  const { title, children } = props;
+  const { title, children, key } = props;
   return (
-    <article className={styles.card}>
+    <article className={styles.card} key={key}>
       {title && <header className={styles.header}>{title}</header>}
       {children}
     </article>
@@ -15,6 +15,7 @@ const Card = (props) => {
 Card.propTypes = {
   children: PropTypes.instanceOf(Object).isRequired,
   title: PropTypes.string.isRequired,
+  key: PropTypes.number.isRequired,
 };
 
 export default Card;

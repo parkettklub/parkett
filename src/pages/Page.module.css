@@ -14,3 +14,17 @@
     margin: 0 auto;
     width: max-content;
 }
+
+.home {
+    margin-bottom: 0rem;
+    margin-top: 17rem;
+}
+
+.home article {
+    display: block;
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+}

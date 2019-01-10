@@ -4,11 +4,11 @@ import Card from './Card';
 import styles from './EventPoster.module.css';
 
 function EventWithPoster({
-    description, poster, title, date,
+    description, poster, title, date, key,
 }) {
     if (!description) {
         return (
-            <Card>
+            <Card key={key}>
                 <div className={styles.main}>
                     <img className={styles.smallPoster} src={poster} alt="" />
                     <div className={styles.details}>
@@ -20,7 +20,7 @@ function EventWithPoster({
         );
     }
     return (
-        <Card>
+        <Card key={key}>
             <div className={styles.main}>
                 <img className={styles.poster} src={poster} alt="" />
                 <div className={styles.details}>
@@ -38,6 +38,7 @@ EventWithPoster.propTypes = {
     poster: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     date: PropTypes.string.isRequired,
+    key: PropTypes.number.isRequired,
 };
 
 export default EventWithPoster;
