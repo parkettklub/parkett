@@ -1,0 +1,25 @@
+.main {
+    display: block;
+    margin: 0 auto;
+}
+
+.title {
+    font-size: 2rem;
+    text-align: center;
+    font-weight: bold;
+}
+
+.formgroup {
+    padding: 0.5rem;
+}
+
+.formgroup label {
+    display: grid;
+}
+
+.formgroup input[type='submit'] {
+    background: green;
+    border: 0;
+    padding: 0.5rem;
+    color: white;
+}

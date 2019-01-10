@@ -20,8 +20,16 @@
     margin-top: 17rem;
 }
 
-.home article {
+.home > article {
     display: block;
+    margin: 0 auto;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.home span article {
+    display: block;
+    margin-top: 0;
     position: absolute;
     margin-left: auto;
     margin-right: auto;

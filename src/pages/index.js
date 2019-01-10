@@ -1,6 +1,7 @@
 import ReactCssTransitionGroup from 'react-addons-css-transition-group';
 import React from 'react';
 import HeaderMax from '../components/HeaderMax.jsx';
+import JoinUsComponent from '../components/JoinUsComponent.jsx';
 import EventWithPoster from '../components/EventWithPoster';
 import Actual from '../components/osszesitoActual.jpg';
 import styles from './Page.module.css';
@@ -85,6 +86,7 @@ class IndexPage extends React.Component {
         <div
           className={styles.home}
         >
+          <JoinUsComponent />
           <ReactCssTransitionGroup
             transitionName="fade"
             transitionAppearTimeout={1000}

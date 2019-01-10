@@ -1,3 +1,9 @@
+.page article{
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 1rem;
+}
+
 .main {
     font-family: 'Roboto', sans-serif;
     font-style: normal;
