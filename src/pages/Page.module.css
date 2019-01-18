@@ -16,8 +16,11 @@
 }
 
 .home {
+    display: block;
+    margin: 0 auto;
     margin-bottom: 0rem;
     margin-top: 17rem;
+    max-width: 900px;
 }
 
 .home > article {
@@ -31,8 +34,4 @@
     display: block;
     margin-top: 0;
     position: absolute;
-    margin-left: auto;
-    margin-right: auto;
-    left: 0;
-    right: 0;
 }

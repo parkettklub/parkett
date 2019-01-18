@@ -1,11 +1,11 @@
 import React from 'react';
 import Members from './Members';
-import JoinUsComponent from './JoinUsComponent';
 import styles from './Community.module.css';
+import JoinUsSimple from './JoinUsSimple';
 
 const CommunityComponent = () => (
     <div className={styles.page}>
-        <JoinUsComponent />
+        <JoinUsSimple />
         <Members />
     </div>
 );

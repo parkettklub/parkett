@@ -1,6 +1,5 @@
 import React from 'react';
 import Card from './Card';
-import FormSimpleInput from './FormSimpleInput';
 import styles from './JoinUs.module.css';
 
 class JoinUsComponent extends React.Component {

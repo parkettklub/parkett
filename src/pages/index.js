@@ -1,7 +1,7 @@
 import ReactCssTransitionGroup from 'react-addons-css-transition-group';
 import React from 'react';
 import HeaderMax from '../components/HeaderMax.jsx';
-import JoinUsComponent from '../components/JoinUsComponent.jsx';
+import JoinUsSimple from '../components/JoinUsSimple';
 import EventWithPoster from '../components/EventWithPoster';
 import Actual from '../components/osszesitoActual.jpg';
 import styles from './Page.module.css';
@@ -16,37 +16,37 @@ class IndexPage extends React.Component {
           id: 11,
           title: 'Salsa Party',
           poster: Actual,
-          startDate: '2018-10-02 18:00',
+          startDate: '2018 10 02 18:00',
         },
         {
           id: 12,
           title: 'Kizomba Party',
           poster: Actual,
-          startDate: '2018-10-16 18:00',
+          startDate: '2018 10 16 18:00',
         },
         {
           id: 13,
           title: 'Élőzenés Magyar Táncház',
           poster: Actual,
-          startDate: '2018-10-23 18:00',
+          startDate: '2018 10 23 18:00',
         },
         {
           id: 14,
           title: 'Bachata Workshop',
           poster: Actual,
-          startDate: '2018-10-28 18:00',
+          startDate: '2018 10 28 18:00',
         },
         {
           id: 15,
           title: 'Salsa és Bachata Party',
           poster: Actual,
-          startDate: '2018-11-06 18:00',
+          startDate: '2018 11 06 18:00',
         },
         {
           id: 16,
           title: "Élőzenés Rock'n'Roll Party",
           poster: Actual,
-          startDate: '2018-11-20 18:00',
+          startDate: '2018 11 20 18:00',
         }],
       i: 1,
     };
@@ -86,15 +86,21 @@ class IndexPage extends React.Component {
         <div
           className={styles.home}
         >
-          <JoinUsComponent />
-          <ReactCssTransitionGroup
-            transitionName="fade"
-            transitionAppearTimeout={1000}
-            transitionEnterTimeout={500}
-            transitionLeaveTimeout={500}
-          >
-            <EventWithPoster {...main} key={i} />
-          </ReactCssTransitionGroup>
+          <div>
+            <div>
+              <JoinUsSimple />
+            </div>
+            <div className={styles.event}>
+              <ReactCssTransitionGroup
+                transitionName="fade"
+                transitionAppearTimeout={1000}
+                transitionEnterTimeout={500}
+                transitionLeaveTimeout={500}
+              >
+                <EventWithPoster {...main} key={i} />
+              </ReactCssTransitionGroup>
+            </div>
+          </div>
         </div>
       </ReactCssTransitionGroup>
     );

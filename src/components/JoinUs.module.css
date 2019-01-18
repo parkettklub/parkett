@@ -1,6 +1,7 @@
 .main {
     display: block;
     margin: 0 auto;
+    padding: 2rem;
 }
 
 .title {
@@ -17,9 +18,17 @@
     display: grid;
 }
 
-.formgroup input[type='submit'] {
+.submit {
     background: green;
     border: 0;
     padding: 0.5rem;
     color: white;
+    display: block;
+    margin: 0 auto;
+    width: max-content;
+    cursor: pointer;
+}
+
+.submit:hover {
+    background: darkgreen;
 }
