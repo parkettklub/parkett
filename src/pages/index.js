@@ -63,7 +63,7 @@ class IndexPage extends React.Component {
 
   tick() {
     const { i, events } = this.state;
-    if (i < events.length - 1) this.setState({ i: i + 1 });
+    if (i < events.length - 1) this.setState(state => ({ i: state.i + 1 }));
     else this.setState({ i: 0 });
   }
 
