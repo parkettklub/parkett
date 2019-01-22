@@ -214,9 +214,9 @@ class EventList extends React.Component {
                 <ReactCssTransitionGroup
                     transitionName="fade"
                     transitionAppearTimeout={1000}
-                    transitionEnterTimeout={300}
+                    transitionEnterTimeout={500}
                     transitionAppear
-                    transitionLeaveTimeout={300}
+                    transitionLeaveTimeout={500}
                     style={{ width: '100%' }}
                 >
                     {events.filter(

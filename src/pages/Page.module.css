@@ -14,3 +14,24 @@
     margin: 0 auto;
     width: max-content;
 }
+
+.home {
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 0rem;
+    margin-top: 17rem;
+    max-width: 900px;
+}
+
+.home > article {
+    display: block;
+    margin: 0 auto;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.home span article {
+    display: block;
+    margin-top: 0;
+    position: absolute;
+}
