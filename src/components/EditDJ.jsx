@@ -8,18 +8,15 @@ class EditDJ extends React.Component {
     constructor() {
         super();
         this.state = {
-            djs: [{
-                id: 1,
-                name: 'DJ Andrea',
-                url: 'google.com',
-            }, {
-                id: 2,
-                name: 'DJ Béla',
-                url: 'bela.dj.com',
-            }],
+            djs: [],
             selectedId: 0,
             selectedObject: null,
         };
+    }
+
+    componentDidMount() {
+        this.createDJ();
+        this.fetchDJs();
     }
 
     editDJ = (id) => {
@@ -27,17 +24,34 @@ class EditDJ extends React.Component {
         const selected = djs.find(dj => dj.id === id);
         this.setState({
             selectedId: id,
-            selectedObject: (<FormDJ selectedObject={selected} />),
+            selectedObject: (
+                <FormDJ
+                    selectedObject={selected}
+                    fetchFunction={this.fetchDJs}
+                />
+            ),
         });
     }
 
-    createDJ() {
+    createDJ = () => {
         this.setState({
             selectedId: null,
-            selectedObject: (<FormDJ selectedObject={{
-                id: -1,
-            }}
-            />),
+            selectedObject: (
+                <FormDJ
+                    selectedObject={{
+                        id: -1,
+                    }}
+                    fetchFunction={this.fetchDJs}
+                />),
+        });
+    }
+
+    fetchDJs = () => {
+        fetch('http://parkett-klub.herokuapp.com/djs/').then((response) => {
+            return response.json();
+        }).then((myJson) => {
+            console.log(myJson[0]);
+            this.setState({ djs: myJson });
         });
     }
 
