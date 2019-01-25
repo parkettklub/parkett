@@ -1,6 +1,7 @@
 import React from 'react';
 import SelectableElement from './SelectableElement';
 import FormTeacher from './FormTeacher';
+import { fetchAll } from './FetchFunctions';
 import styles from './Editor.module.css';
 import Plus from './plus.svg';
 
@@ -8,37 +9,50 @@ class EditTeacher extends React.Component {
     constructor() {
         super();
         this.state = {
-            teachers: [{
-                id: 1,
-                name: 'Kovács Béla és Heves Kornélia',
-                url: 'wwww.parkettklub.hu',
-            }, {
-                id: 2,
-                name: 'Komjáti Ede és Padányi Emese',
-                url: 'wwww.komjati.emese.hu',
-            }],
+            teachers: [],
             selectedId: 0,
             selectedObject: null,
         };
     }
 
-    createTeacher = () => {
+    componentDidMount() {
+        this.createTeacer();
+        this.fetchTeachers();
+    }
+
+    createTeacer = () => {
         this.setState({
             selectedId: null,
-            selectedObject: (<FormTeacher selectedObject={{
-                id: -1,
-            }}
-            />),
+            selectedObject: (
+                <FormTeacher
+                    selectedObject={{
+                        id: -1,
+                    }}
+                    fetchFunction={this.fetchDJs}
+                />),
         });
     }
 
 
-    editTeacher(id) {
+    editTeacher = (id) => {
         const { teachers } = this.state;
         const selected = teachers.find(teacher => teacher.id === id);
         this.setState({
             selectedId: id,
-            selectedObject: (<FormTeacher selectedObject={selected} />),
+            selectedObject: (
+                <FormTeacher
+                    selectedObject={selected}
+                    fetchFunction={this.fetchDJs}
+                />
+            ),
+        });
+    }
+
+    fetchTeachers = () => {
+        fetchAll('dance_teachers').then(
+            response => response.json(),
+        ).then((myJson) => {
+            this.setState({ teachers: myJson });
         });
     }
 

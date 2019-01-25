@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { fetchPost, fetchPut } from './FetchFunctions';
 import styles from './Form.module.css';
 import FormSimpleInput from './FormSimpleInput';
 
@@ -38,13 +39,7 @@ class FormBand extends React.Component {
             name,
             url,
         };
-        fetch('http://parkett-klub.herokuapp.com/bands', {
-            method: 'POST',
-            body: JSON.stringify(band),
-            headers: {
-                "Content-Type": "application/json",
-            },
-        }).then(() => {
+        fetchPost('bands', band).then(() => {
             const { fetchFunction } = this.props;
             fetchFunction();
         });
@@ -57,13 +52,7 @@ class FormBand extends React.Component {
             name,
             url,
         };
-        fetch('http://parkett-klub.herokuapp.com/bands/' + id, {
-            method: 'PUT',
-            body: JSON.stringify(band),
-            headers: {
-                "Content-Type": "application/json",
-            },
-        }).then(() => {
+        fetchPut('bands', band, id).then(() => {
             const { fetchFunction } = this.props;
             fetchFunction();
         });
@@ -105,9 +94,7 @@ class FormBand extends React.Component {
                         </div>
                     </div>
                 </form>
-
             </div>
-
         );
     }
 }

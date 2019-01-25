@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { fetchPost, fetchPut } from './FetchFunctions';
 import styles from './Form.module.css';
 import FormSimpleInput from './FormSimpleInput';
 
@@ -9,8 +10,6 @@ class FormTeacher extends React.Component {
         this.state = {
             id: -1,
         };
-        this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     componentWillReceiveProps({ selectedObject }) {
@@ -19,14 +18,44 @@ class FormTeacher extends React.Component {
         });
     }
 
-    handleChange(event) {
-        const { name } = event.target.name;
+    handleChange = (event) => {
+        const { name } = event.target;
         this.setState({ [name]: event.target.value });
     }
 
-    handleSubmit(event) {
+    handleSubmit = (event) => {
         event.preventDefault();
-        this.setState({});
+        const { id } = this.state;
+        if (id === -1) {
+            this.addTeacher();
+        } else {
+            this.updateTeacher();
+        }
+    }
+
+    addTeacher = () => {
+        const { name, content } = this.state;
+        const teacher = {
+            name,
+            content,
+        };
+        fetchPost('dance_teachers', teacher).then(() => {
+            const { fetchFunction } = this.props;
+            fetchFunction();
+        });
+    }
+
+    updateTeacher = () => {
+        const { id, name, content } = this.state;
+        const teacher = {
+            id,
+            name,
+            content,
+        };
+        fetchPut('dance_teachers', teacher, id).then(() => {
+            const { fetchFunction } = this.props;
+            fetchFunction();
+        });
     }
 
     render() {
@@ -35,30 +64,32 @@ class FormTeacher extends React.Component {
         const isNew = id === -1;
         return (
             <div className={styles.main}>
-                <div className={styles.formgroup} hidden={selected !== title}>
-                    {isNew ? 'Új Tanár adatai:' : 'Tanár adatai:'}
-                    <FormSimpleInput
-                        selected={selected}
-                        title={title}
-                        handleChange={this.handleChange}
-                        value={name}
-                        name="name"
-                        example="Pedrofon"
-                        label="Név"
-                    />
-                    <FormSimpleInput
-                        selected={selected}
-                        title={title}
-                        handleChange={this.handleChange}
-                        value={url}
-                        name="url"
-                        example="www.example.com"
-                        label="Weboldal"
-                    />
-                    <div className={styles.formgroup}>
-                        <input type="submit" value={isNew ? 'Tanár hozzáadása' : 'Tanár módosítása'} className={styles.submit} />
+                <form onSubmit={this.handleSubmit}>
+                    <div className={styles.formgroup} hidden={selected !== title}>
+                        {isNew ? 'Új Tanár adatai:' : 'Tanár adatai:'}
+                        <FormSimpleInput
+                            selected={selected}
+                            title={title}
+                            handleChange={this.handleChange}
+                            value={name}
+                            name="name"
+                            example="Pedrofon"
+                            label="Név"
+                        />
+                        <FormSimpleInput
+                            selected={selected}
+                            title={title}
+                            handleChange={this.handleChange}
+                            value={url}
+                            name="url"
+                            example="www.example.com"
+                            label="Weboldal"
+                        />
+                        <div className={styles.formgroup}>
+                            <input type="submit" value={isNew ? 'Tanár hozzáadása' : 'Tanár módosítása'} className={styles.submit} />
+                        </div>
                     </div>
-                </div>
+                </form>
             </div>
         );
     }
@@ -68,6 +99,7 @@ FormTeacher.propTypes = {
     selectedObject: PropTypes.instanceOf(Object).isRequired,
     selected: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
+    fetchFunction: PropTypes.func.isRequired,
 };
 
 export default FormTeacher;
