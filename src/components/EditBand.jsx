@@ -1,6 +1,7 @@
 import React from 'react';
 import SelectableElement from './SelectableElement';
 import FormBand from './FormBand';
+import { fetchAll } from './FetchFunctions';
 import styles from './Editor.module.css';
 import Plus from './plus.svg';
 
@@ -8,26 +9,28 @@ class EditBand extends React.Component {
     constructor() {
         super();
         this.state = {
-            bands: [{
-                id: 1,
-                name: 'Pedrofon',
-                url: 'google.com',
-            }, {
-                id: 2,
-                name: 'Török Testvérek',
-                url: 'torok.testverek.hu',
-            }],
+            bands: [],
             selectedId: 0,
             selectedObject: null,
         };
     }
 
-    editBand(id) {
+    componentDidMount() {
+        this.createBand();
+        this.fetchBands();
+    }
+
+    editBand = (id) => {
         const { bands } = this.state;
         const selected = bands.find(band => band.id === id);
         this.setState({
             selectedId: id,
-            selectedObject: (<FormBand selectedObject={selected} />),
+            selectedObject: (
+                <FormBand
+                    selectedObject={selected}
+                    fetchFunction={this.fetchBands}
+                />
+            ),
         });
     }
 
@@ -35,10 +38,20 @@ class EditBand extends React.Component {
         this.setState({
             selectedId: null,
             selectedObject: (
-                <FormBand selectedObject={{
-                    id: -1,
-                }}
+                <FormBand
+                    selectedObject={{
+                        id: -1,
+                    }}
+                    fetchFunction={this.fetchBands}
                 />),
+        });
+    }
+
+    fetchBands = () => {
+        fetchAll('bands').then(
+            response => response.json(),
+        ).then((myJson) => {
+            this.setState({ bands: myJson });
         });
     }
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { fetchPost, fetchPut } from './FetchFunctions';
 import styles from './Form.module.css';
 import FormSimpleInput from './FormSimpleInput';
 
@@ -38,13 +39,7 @@ class FormDJ extends React.Component {
             name,
             content,
         };
-        fetch('http://parkett-klub.herokuapp.com/djs', {
-            method: 'POST',
-            body: JSON.stringify(dj),
-            headers: {
-                "Content-Type": "application/json",
-            },
-        }).then(() => {
+        fetchPost('djs', dj).then(() => {
             const { fetchFunction } = this.props;
             fetchFunction();
         });
@@ -57,13 +52,7 @@ class FormDJ extends React.Component {
             name,
             content,
         };
-        fetch('http://parkett-klub.herokuapp.com/djs/' + id, {
-            method: 'PUT',
-            body: JSON.stringify(dj),
-            headers: {
-                "Content-Type": "application/json",
-            },
-        }).then(() => {
+        fetchPut('djs', dj, id).then(() => {
             const { fetchFunction } = this.props;
             fetchFunction();
         });

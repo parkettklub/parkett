@@ -1,6 +1,7 @@
 import React from 'react';
 import SelectableElement from './SelectableElement';
 import FormDJ from './FormDJ';
+import { fetchAll } from './FetchFunctions';
 import Plus from './plus.svg';
 import styles from './Editor.module.css';
 
@@ -47,10 +48,9 @@ class EditDJ extends React.Component {
     }
 
     fetchDJs = () => {
-        fetch('http://parkett-klub.herokuapp.com/djs/').then((response) => {
-            return response.json();
-        }).then((myJson) => {
-            console.log(myJson[0]);
+        fetchAll('djs').then(
+            response => response.json(),
+        ).then((myJson) => {
             this.setState({ djs: myJson });
         });
     }
