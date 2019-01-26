@@ -101,9 +101,15 @@ class FormBand extends React.Component {
 
 FormBand.propTypes = {
     selectedObject: PropTypes.instanceOf(Object).isRequired,
-    selected: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
+    selected: PropTypes.string,
+    title: PropTypes.string,
     fetchFunction: PropTypes.func.isRequired,
 };
+
+FormBand.defaultProps = {
+    selected: '',
+    title: '',
+};
+
 
 export default FormBand;

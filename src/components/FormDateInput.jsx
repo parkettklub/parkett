@@ -24,13 +24,18 @@ function FormDateInput({
 }
 
 FormDateInput.propTypes = {
-    selectedForm: PropTypes.string.isRequired,
-    form: PropTypes.string.isRequired,
+    selectedForm: PropTypes.string,
+    form: PropTypes.string,
     label: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
     value: PropTypes.string.isRequired,
     example: PropTypes.string.isRequired,
     handleChange: PropTypes.func.isRequired,
+};
+
+FormDateInput.defaultProps = {
+    selectedForm: '',
+    form: '',
 };
 
 export default FormDateInput;

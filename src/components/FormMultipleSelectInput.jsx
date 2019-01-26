@@ -56,8 +56,8 @@ class FormMultipleSelectInput extends React.Component {
 }
 
 FormMultipleSelectInput.propTypes = {
-    selectedForm: PropTypes.string.isRequired,
-    form: PropTypes.string.isRequired,
+    selectedForm: PropTypes.string,
+    form: PropTypes.string,
     label: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
     handleChange: PropTypes.func.isRequired,
@@ -65,6 +65,11 @@ FormMultipleSelectInput.propTypes = {
     close: PropTypes.func.isRequired,
     options: PropTypes.element.isRequired,
     addNew: PropTypes.func.isRequired,
+};
+
+FormMultipleSelectInput.defaultProps = {
+    selectedForm: '',
+    form: '',
 };
 
 export default FormMultipleSelectInput;

@@ -58,12 +58,21 @@ class HeaderEdit extends React.Component {
 
 
 HeaderEdit.propTypes = {
-    event: PropTypes.bool.isRequired,
-    dj: PropTypes.bool.isRequired,
-    band: PropTypes.bool.isRequired,
-    teacher: PropTypes.bool.isRequired,
-    teaching: PropTypes.bool.isRequired,
-    dance: PropTypes.bool.isRequired,
+    event: PropTypes.bool,
+    dj: PropTypes.bool,
+    band: PropTypes.bool,
+    teacher: PropTypes.bool,
+    teaching: PropTypes.bool,
+    dance: PropTypes.bool,
+};
+
+HeaderEdit.defaultProps = {
+    event: false,
+    dj: false,
+    band: false,
+    teacher: false,
+    teaching: false,
+    dance: false,
 };
 
 export default HeaderEdit;

@@ -97,9 +97,15 @@ class FormTeacher extends React.Component {
 
 FormTeacher.propTypes = {
     selectedObject: PropTypes.instanceOf(Object).isRequired,
-    selected: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
+    selected: PropTypes.string,
+    title: PropTypes.string,
     fetchFunction: PropTypes.func.isRequired,
 };
+
+FormTeacher.defaultProps = {
+    selected: '',
+    title: '',
+};
+
 
 export default FormTeacher;

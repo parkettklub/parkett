@@ -19,10 +19,16 @@ function FormSelect({
 }
 
 FormSelect.propTypes = {
-    selected: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
+    selected: PropTypes.string,
+    title: PropTypes.string,
     label: PropTypes.string.isRequired,
     onClick: PropTypes.func.isRequired,
 };
+
+FormSelect.defaultProps = {
+    selected: '',
+    title: '',
+};
+
 
 export default FormSelect;

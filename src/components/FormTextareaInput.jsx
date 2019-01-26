@@ -26,13 +26,20 @@ function FormTextareaInput({
 }
 
 FormTextareaInput.propTypes = {
-    selectedForm: PropTypes.string.isRequired,
-    form: PropTypes.string.isRequired,
+    selectedForm: PropTypes.string,
+    form: PropTypes.string,
     label: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
-    value: PropTypes.string.isRequired,
+    value: PropTypes.string,
     example: PropTypes.string.isRequired,
     handleChange: PropTypes.func.isRequired,
 };
+
+FormTextareaInput.defaultProps = {
+    selectedForm: '',
+    form: '',
+    value: '',
+};
+
 
 export default FormTextareaInput;

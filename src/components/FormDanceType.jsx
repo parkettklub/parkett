@@ -4,7 +4,7 @@ import { fetchPost, fetchPut } from './FetchFunctions';
 import styles from './Form.module.css';
 import FormSimpleInput from './FormSimpleInput';
 
-class FormDJ extends React.Component {
+class FormDanceType extends React.Component {
     constructor() {
         super();
         this.state = {
@@ -27,32 +27,32 @@ class FormDJ extends React.Component {
         event.preventDefault();
         const { id } = this.state;
         if (id === -1) {
-            this.addDJ();
+            this.addDanceType();
         } else {
-            this.updateDJ();
+            this.updateDanceType();
         }
     }
 
-    addDJ = () => {
-        const { name, content } = this.state;
-        const dj = {
+    addDanceType = () => {
+        const { name, color } = this.state;
+        const dance_type = {
             name,
-            content,
+            color,
         };
-        fetchPost('djs', dj).then(() => {
+        fetchPost('dance_types', dance_type).then(() => {
             const { fetchFunction } = this.props;
             fetchFunction();
         });
     }
 
-    updateDJ = () => {
-        const { id, name, content } = this.state;
-        const dj = {
+    updateDanceType = () => {
+        const { id, name, color } = this.state;
+        const dance_type = {
             id,
             name,
-            content,
+            color,
         };
-        fetchPut('djs', dj, id).then(() => {
+        fetchPut('dance_types', dance_type, id).then(() => {
             const { fetchFunction } = this.props;
             fetchFunction();
         });
@@ -61,13 +61,13 @@ class FormDJ extends React.Component {
 
     render() {
         const { selected, title } = this.props;
-        const { id, name, content } = this.state;
+        const { id, name, color } = this.state;
         const isNew = id === -1;
         return (
             <div className={styles.main}>
                 <form onSubmit={this.handleSubmit}>
                     <div className={styles.formgroup} hidden={selected !== title}>
-                        {isNew ? 'Új DJ adatai:' : 'DJ adatai:'}
+                        {isNew ? 'Új Dance type adatai:' : 'Dance type adatai:'}
                         <FormSimpleInput
                             selected={selected}
                             title={title}
@@ -81,15 +81,15 @@ class FormDJ extends React.Component {
                             selected={selected}
                             title={title}
                             handleChange={this.handleChange}
-                            value={content}
-                            name="content"
-                            example="www.example.com"
-                            label="Weboldal"
+                            value={color}
+                            name="color"
+                            example="#FFFFFF"
+                            label="Szín"
                         />
                         <div className={styles.formgroup}>
                             <input
                                 type="submit"
-                                value={isNew ? 'DJ hozzáadása' : 'DJ módosítása'}
+                                value={isNew ? 'Dance type hozzáadása' : 'Dance type módosítása'}
                                 className={styles.submit}
                             />
                         </div>
@@ -100,16 +100,16 @@ class FormDJ extends React.Component {
     }
 }
 
-FormDJ.propTypes = {
+FormDanceType.propTypes = {
     selectedObject: PropTypes.instanceOf(Object).isRequired,
     selected: PropTypes.string,
     title: PropTypes.string,
     fetchFunction: PropTypes.func.isRequired,
 };
 
-FormDJ.defaulProps = {
+FormDanceType.defaultProps = {
     selected: '',
     title: '',
 };
 
-export default FormDJ;
+export default FormDanceType;

@@ -1,6 +1,7 @@
 import React from 'react';
 import SelectableElement from './SelectableElement';
 import FormDance from './FormDance';
+import { fetchAll } from './FetchFunctions';
 import styles from './Editor.module.css';
 import Plus from './plus.svg';
 
@@ -8,33 +9,46 @@ class EditDance extends React.Component {
     constructor() {
         super();
         this.state = {
-            dances: [{
-                id: 1,
-                name: 'salsa',
-                content: 'A salsa egy világszerte elterjedt társastánc neve, mely az utcai latin táncokhoz sorolható. A név közvetlen jelentése fűszeres szósz, melyet eredetileg a kubai zenék elnevezéseként használtak, de elterjedten használják a tánc jelölésére. Sokféle fajtája létezik ma. Ilyen például a kubai, Puerto Rico-i, kolumbiai, de vannak vonalon táncolt változatai is, mint a Los Angeles-i és a New York-i stílus.',
-            }, {
-                id: 2,
-                name: 'rock n roll',
-                content: 'A rocky egy világszerte elterjedt társastánc neve, mely az utcai latin táncokhoz sorolható. A név közvetlen jelentése fűszeres szósz, melyet eredetileg a kubai zenék elnevezéseként használtak, de elterjedten használják a tánc jelölésére. Sokféle fajtája létezik ma. Ilyen például a kubai, Puerto Rico-i, kolumbiai, de vannak vonalon táncolt változatai is, mint a Los Angeles-i és a New York-i stílus.',
-            }],
+            dances: [],
             selectedId: 0,
             selectedObject: null,
         };
     }
 
-    editDance(id) {
+    componentDidMount() {
+        this.createDance();
+        this.fetchDances();
+    }
+
+    editDance = (id) => {
         const { dances } = this.state;
         const selected = dances.find(dance => dance.id === id);
         this.setState({
             selectedId: id,
-            selectedObject: (<FormDance selectedObject={selected} />),
+            selectedObject: (
+                <FormDance
+                    selectedObject={selected}
+                    fetchFunction={this.fetchDances}
+                />),
         });
     }
 
     createDance = () => {
         this.setState({
             selectedId: null,
-            selectedObject: (<FormDance selectedObject={{ id: -1 }} />),
+            selectedObject: (
+                <FormDance
+                    selectedObject={{ id: -1 }}
+                    fetchFunction={this.fetchDances}
+                />),
+        });
+    }
+
+    fetchDances = () => {
+        fetchAll('dances').then(
+            response => response.json(),
+        ).then((myJson) => {
+            this.setState({ dances: myJson });
         });
     }
 
@@ -44,8 +58,18 @@ class EditDance extends React.Component {
             <div className={styles.center}>
                 <div className={styles.main}>
                     <div className={styles.list}>
-                        <div className={styles.selectable} onClick={this.createDance} onKeyDown={() => { }} role="button" tabIndex={0}>
-                            <img src={Plus} className={styles.addElement} alt="" />
+                        <div
+                            className={styles.selectable}
+                            onClick={this.createDance}
+                            onKeyDown={() => { }}
+                            role="button"
+                            tabIndex={0}
+                        >
+                            <img
+                                src={Plus}
+                                className={styles.addElement}
+                                alt=""
+                            />
                             {'Új Tánc'}
                         </div>
                         {dances.map(
@@ -54,7 +78,8 @@ class EditDance extends React.Component {
                                     title={dance.name}
                                     onClick={() => this.editDance(dance.id)}
                                     selected={dance.id === selectedId}
-                                />),
+                                />
+                            ),
                         )}
                     </div>
                     <div className={styles.selected}>
