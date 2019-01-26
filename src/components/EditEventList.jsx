@@ -4,58 +4,83 @@ import SelectableElement from './SelectableElement';
 import EditEventArticle from './EditEventArticle';
 import EditEventParty from './EditEventParty';
 import EditEventWorkshop from './EditEventWorkshop';
+import { fetchAll } from './FetchFunctions';
 import Plus from './plus.svg';
 
 class EditEvents extends React.Component {
     constructor() {
         super();
         this.state = {
-            events: [
-                {
-                    id: 'P1',
-                    title: 'Élőzenés Salsa Party',
-                    startDate: '2018.01.02. 18:30',
-                    onClick: () => this.selectParty(1),
-                },
-                {
-                    id: 'P2',
-                    title: 'Élőzenés Rock N Roll Party',
-                    startDate: '2018.01.02. 18:30',
-                    onClick: () => this.selectParty(2),
-                },
-                {
-                    id: 'W1',
-                    title: 'Kizomba Workshop',
-                    startDate: '2018.01.02. 18:30',
-                    onClick: () => this.selectWorkshop(1),
-                },
-                {
-                    id: 'A1',
-                    title: 'Gólyabál',
-                    startDate: '2018.01.02. 18:30',
-                    onClick: () => this.selectArticle(1),
-                },
-            ],
+            articles: [],
+            workshops: [],
+            parties: [],
             selectedId: '0',
             selectedObject: null,
         };
     }
 
-    selectParty(id) {
+    componentDidMount() {
+        this.fetchEvents();
+    }
+
+    fetchEvents = () => {
+        this.fetchParties();
+        this.fetchWorkshops();
+        this.fetchArticles();
+    }
+
+    fetchParties = () => {
+        fetchAll('parties').then(
+            response => response.json(),
+        ).then((myJson) => {
+            this.setState({ parties: myJson });
+        });
+    }
+
+    fetchWorkshops = () => {
+        fetchAll('workshops').then(
+            response => response.json(),
+        ).then((myJson) => {
+            this.setState({ workshops: myJson });
+        });
+    }
+
+    fetchArticles = () => {
+        fetchAll('articles').then(
+            response => response.json(),
+        ).then((myJson) => {
+            this.setState({ articles: myJson });
+        });
+    }
+
+    selectParty = (id) => {
+        const { parties } = this.state;
+        const selected = parties.find(dance => dance.id === id);
         this.setState({
             selectedId: `P${id}`,
-            selectedObject: (<EditEventParty />),
+            selectedObject: (
+                <EditEventParty
+                    selectedObject={selected}
+                    fetchFunction={this.fetchDances}
+                />
+            ),
         });
     }
 
-    selectArticle(id) {
+    selectArticle = (id) => {
+        const { articles } = this.state;
+        const selected = articles.find(article => article.id === id);
         this.setState({
             selectedId: `A${id}`,
-            selectedObject: (<EditEventArticle />),
+            selectedObject: (
+                <EditEventArticle
+                    selectedObject={selected}
+                    fetchFunction={this.fetchArticles}
+                />),
         });
     }
 
-    selectWorkshop(id) {
+    selectWorkshop = (id) => {
         this.setState({
             selectedId: `W${id}`,
             selectedObject: (<EditEventWorkshop />),
@@ -72,7 +97,10 @@ class EditEvents extends React.Component {
     createArticle = () => {
         this.setState({
             selectedId: '',
-            selectedObject: (<EditEventArticle />),
+            selectedObject: (<EditEventArticle
+                selectedObject={{ id: -1 }}
+                fetchFunction={this.fetchArticles}
+            />),
         });
     }
 
@@ -84,7 +112,9 @@ class EditEvents extends React.Component {
     }
 
     render() {
-        const { events, selectedObject, selectedId } = this.state;
+        const {
+            parties, workshops, articles, selectedObject, selectedId,
+        } = this.state;
         return (
             <div className={styles.center}>
                 <div className={styles.main}>
@@ -120,8 +150,30 @@ class EditEvents extends React.Component {
                             {'Új Bejegyzés'}
                         </div>
                         {
-                            events.map(event => (
-                                <SelectableElement {...event} selected={event.id === selectedId} />
+                            parties.map(event => (
+                                <SelectableElement
+                                    {...event}
+                                    selected={`P${event.id}` === selectedId}
+                                    onClick={() => this.selectParty(event.id)}
+                                />
+                            ))
+                        }
+                        {
+                            workshops.map(event => (
+                                <SelectableElement
+                                    {...event}
+                                    selected={`W${event.id}` === selectedId}
+                                    onClick={() => this.selectWorkshop(event.id)}
+                                />
+                            ))
+                        }
+                        {
+                            articles.map(event => (
+                                <SelectableElement
+                                    {...event}
+                                    selected={`A${event.id}` === selectedId}
+                                    onClick={() => this.selectArticle(event.id)}
+                                />
                             ))
                         }
                     </div>

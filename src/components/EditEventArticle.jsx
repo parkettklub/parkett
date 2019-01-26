@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import { fetchPost, fetchPut } from './FetchFunctions';
 import Plakat01 from './Plakat.png';
 import styles from './Form.module.css';
 import FormSelect from './FormSelect';
@@ -9,12 +11,36 @@ class EditEventArticle extends React.Component {
     constructor() {
         super();
         this.state = {
-            title: 'Élőzenés Salsa Party: Cuba',
+            title: '',
             photo: Plakat01,
-            publishedAt: '2018-01-12T18:00',
-            content: 'Még érezni az előző est hangulatát és máris itt a következő, egyben a félévi utolsó bulink. Várunk titeket egy fergeteges Rock ‘N’ Roll Partyra április 17-én.',
+            publishedAt: '',
+            content: '',
             selectedForm: 'title',
         };
+    }
+
+    componentDidMount() {
+        const { selectedObject } = this.props;
+        this.setObject(selectedObject);
+    }
+
+    componentWillReceiveProps({ selectedObject }) {
+        this.setObject(selectedObject);
+    }
+
+    setObject = (selectedObject) => {
+        if (selectedObject.id === -1) {
+            this.setState({
+                id: -1,
+            });
+        } else {
+            const date = new Date(selectedObject.published_at);
+            const dateString = date.toISOString().slice(0, 16);
+            this.setState({
+                publishedAt: dateString,
+                ...selectedObject,
+            });
+        }
     }
 
     handleChange = (event) => {
@@ -24,7 +50,41 @@ class EditEventArticle extends React.Component {
 
     handleSubmit = (event) => {
         event.preventDefault();
-        this.setState({});
+        const { id } = this.state;
+        if (id === -1) {
+            this.addArticle();
+        } else {
+            this.updateArticle();
+        }
+    }
+
+    addArticle = () => {
+        const { title, content, publishedAt } = this.state;
+        const article = {
+            title,
+            content,
+            published_at: publishedAt,
+        };
+        fetchPost('articles', article).then(() => {
+            const { fetchFunction } = this.props;
+            fetchFunction();
+        });
+    }
+
+    updateArticle = () => {
+        const {
+            id, title, content, publishedAt,
+        } = this.state;
+        const article = {
+            id,
+            title,
+            content,
+            published_at: publishedAt,
+        };
+        fetchPut('articles', article, id).then(() => {
+            const { fetchFunction } = this.props;
+            fetchFunction();
+        });
     }
 
     changeTab = (tabName) => {
@@ -74,5 +134,17 @@ class EditEventArticle extends React.Component {
         );
     }
 }
+
+EditEventArticle.propTypes = {
+    selectedObject: PropTypes.instanceOf(Object).isRequired,
+    selected: PropTypes.string,
+    title: PropTypes.string,
+    fetchFunction: PropTypes.func.isRequired,
+};
+
+EditEventArticle.defaultProps = {
+    selected: '',
+    title: '',
+};
 
 export default EditEventArticle;
