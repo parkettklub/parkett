@@ -9,14 +9,42 @@ class FormDanceType extends React.Component {
         super();
         this.state = {
             id: -1,
+            selectedFile: null,
+            src: null,
         };
     }
 
     componentWillReceiveProps({ selectedObject }) {
         this.setState({
-            ...selectedObject,
+            ...selectedObject, src: selectedObject.image,
         });
     }
+
+
+    fileSelectedHandler = (event) => {
+        this.setState({
+            selectedFile: event.target.files[0],
+        });
+        console.log(event.target.files[0]);
+    }
+
+    fileUploadHandler = (event) => {
+        event.preventDefault();
+        const { selectedFile } = this.state;
+
+        let reader = new FileReader();
+        reader.readAsDataURL(selectedFile);
+        reader.onload = () => {
+            this.setState({
+                src: reader.result,
+            });
+            console.log("loaded");
+        };
+        reader.onerror = function (error) {
+            console.log('Error: ', error);
+        };
+    }
+
 
     handleChange = (event) => {
         const { name } = event.target;
@@ -34,10 +62,11 @@ class FormDanceType extends React.Component {
     }
 
     addDanceType = () => {
-        const { name, color } = this.state;
+        const { name, color, src } = this.state;
         const dance_type = {
             name,
             color,
+            image: src,
         };
         fetchPost('dance_types', dance_type).then(() => {
             const { fetchFunction } = this.props;
@@ -46,11 +75,12 @@ class FormDanceType extends React.Component {
     }
 
     updateDanceType = () => {
-        const { id, name, color } = this.state;
+        const { id, name, color, src } = this.state;
         const dance_type = {
             id,
             name,
             color,
+            image: src,
         };
         fetchPut('dance_types', dance_type, id).then(() => {
             const { fetchFunction } = this.props;
@@ -86,6 +116,11 @@ class FormDanceType extends React.Component {
                             example="#FFFFFF"
                             label="Szín"
                         />
+                        <div className={styles.formgroup}>
+                            <input type="file" onChange={this.fileSelectedHandler} />
+                            <button onClick={this.fileUploadHandler}>Uppload</button>
+                            <img src={this.state.src} />
+                        </div>
                         <div className={styles.formgroup}>
                             <input
                                 type="submit"

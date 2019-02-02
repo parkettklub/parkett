@@ -58,7 +58,7 @@ class FormDance extends React.Component {
         const dance = {
             name,
             content,
-            dance_type_id,
+            dance_type_id: parseInt(dance_type_id),
         };
         console.log(dance);
         fetchPost('dances', dance).then(() => {

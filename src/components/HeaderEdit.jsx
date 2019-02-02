@@ -25,7 +25,7 @@ class HeaderEdit extends React.Component {
     render() {
         const { open } = this.state;
         const {
-            event, dj, band, teaching, teacher, dance,
+            event, dj, band, teaching, teacher, dance, dancetype,
         } = this.props;
         return (
             <header className={`main-header min ${(open ? ' open' : '')}`}>
@@ -50,6 +50,7 @@ class HeaderEdit extends React.Component {
                     <ListLink to="/edit-teaching/" active={teaching}>Tanítások</ListLink>
                     <ListLink to="/edit-teacher/" active={teacher}>Tanárok</ListLink>
                     <ListLink to="/edit-dance/" active={dance}>Táncok</ListLink>
+                    <ListLink to="/edit-dance-type/" active={dancetype}>Táncok</ListLink>
                 </div>
             </header>
         );
@@ -64,6 +65,7 @@ HeaderEdit.propTypes = {
     teacher: PropTypes.bool,
     teaching: PropTypes.bool,
     dance: PropTypes.bool,
+    dancetype: PropTypes.bool,
 };
 
 HeaderEdit.defaultProps = {
@@ -73,6 +75,7 @@ HeaderEdit.defaultProps = {
     teacher: false,
     teaching: false,
     dance: false,
+    dancetype: false,
 };
 
 export default HeaderEdit;
