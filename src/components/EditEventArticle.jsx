@@ -12,7 +12,7 @@ class EditEventArticle extends React.Component {
         super();
         this.state = {
             title: '',
-            photo: Plakat01,
+            photo: '',
             publishedAt: '',
             content: '',
             selectedForm: 'title',
@@ -59,11 +59,14 @@ class EditEventArticle extends React.Component {
     }
 
     addArticle = () => {
-        const { title, content, publishedAt } = this.state;
+        const {
+            title, content, publishedAt, photo,
+        } = this.state;
         const article = {
             title,
             content,
             published_at: publishedAt,
+            photo,
         };
         fetchPost('articles', article).then(() => {
             const { fetchFunction } = this.props;
@@ -73,13 +76,14 @@ class EditEventArticle extends React.Component {
 
     updateArticle = () => {
         const {
-            id, title, content, publishedAt,
+            id, title, content, publishedAt, photo,
         } = this.state;
         const article = {
             id,
             title,
             content,
             published_at: publishedAt,
+            photo,
         };
         fetchPut('articles', article, id).then(() => {
             const { fetchFunction } = this.props;

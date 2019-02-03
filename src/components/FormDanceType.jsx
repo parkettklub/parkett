@@ -25,20 +25,19 @@ class FormDanceType extends React.Component {
         this.setState({
             selectedFile: event.target.files[0],
         });
-        console.log(event.target.files[0]);
     }
 
     fileUploadHandler = (event) => {
         event.preventDefault();
         const { selectedFile } = this.state;
 
-        let reader = new FileReader();
+        const reader = new FileReader();
         reader.readAsDataURL(selectedFile);
         reader.onload = () => {
             this.setState({
                 src: reader.result,
             });
-            console.log("loaded");
+            console.log('loaded');
         };
         reader.onerror = function (error) {
             console.log('Error: ', error);
