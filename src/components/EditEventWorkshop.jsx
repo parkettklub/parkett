@@ -6,7 +6,7 @@ import FormSelect from './FormSelect';
 import EditTitleAndDate from './EditTitleAndDate';
 import EditDetails from './EditDetails';
 import EditPoster from './EditPoster';
-import EditTeaachingForm from './EditDanceCourseForm';
+import EditDanceCourseForm from './EditDanceCourseForm';
 import FormTextareaInput from './FormTextareaInput';
 
 class EditEventWorkshop extends React.Component {
@@ -84,8 +84,7 @@ class EditEventWorkshop extends React.Component {
         });
     }
 
-    handleSubmit = (event) => {
-        event.preventDefault();
+    uploadChanges = () => {
         const { id } = this.state;
         if (id === -1) {
             this.addWorkshop();
@@ -200,40 +199,44 @@ class EditEventWorkshop extends React.Component {
                     />
                 </div>
                 <div className={styles.form}>
-                    <form onSubmit={this.handleSubmit}>
-                        <EditTitleAndDate
-                            form="title"
-                            handleChange={this.handleChange}
-                            {...this.state}
-                        />
-                        <EditDetails
-                            form="details"
-                            handleChange={this.handleChange}
-                            {...this.state}
-                        />
-                        <FormTextareaInput
-                            selectedForm={selectedForm}
-                            form="details"
-                            handleChange={this.handleChange}
-                            value={theme}
-                            name="theme"
-                            example="Egész hónapos tudás ..."
-                            label="Tematika:"
-                        />
-                        <EditTeaachingForm
-                            form="dance"
-                            handleChange={this.handleChange}
-                            {...this.state}
-                        />
-                        <EditPoster
-                            form="poster"
-                            handleChange={this.handleChange}
-                            {...this.state}
-                        />
-                        <div className="formGroup mySubmitgroup">
-                            <input type="submit" value="Mentés" className={styles.submit} />
-                        </div>
-                    </form>
+                    <EditTitleAndDate
+                        form="title"
+                        handleChange={this.handleChange}
+                        {...this.state}
+                    />
+                    <EditDetails
+                        form="details"
+                        handleChange={this.handleChange}
+                        {...this.state}
+                    />
+                    <FormTextareaInput
+                        selectedForm={selectedForm}
+                        form="details"
+                        handleChange={this.handleChange}
+                        value={theme}
+                        name="theme"
+                        example="Egész hónapos tudás ..."
+                        label="Tematika:"
+                    />
+                    <EditDanceCourseForm
+                        form="dance"
+                        handleChange={this.handleChange}
+                        {...this.state}
+                    />
+                    <EditPoster
+                        form="poster"
+                        handleChange={this.handleChange}
+                        {...this.state}
+                    />
+                    <div className={styles.formgroup}>
+                        <button
+                            onClick={this.uploadChanges}
+                            type="submit"
+                            className={styles.submit}
+                        >
+                            {'Mentés'}
+                        </button>
+                    </div>
                 </div>
             </div>
         );

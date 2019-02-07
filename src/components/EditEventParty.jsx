@@ -88,8 +88,7 @@ class EditEventParty extends React.Component {
         });
     }
 
-    handleSubmit = (event) => {
-        event.preventDefault();
+    uploadChanges = () => {
         const { id } = this.state;
         if (id === -1) {
             this.addParty();
@@ -201,37 +200,41 @@ class EditEventParty extends React.Component {
                     />
                 </div>
                 <div className={styles.form}>
-                    <form onSubmit={this.handleSubmit}>
-                        <EditTitleAndDate
-                            form="title"
-                            handleChange={this.handleChange}
-                            {...this.state}
-                        />
-                        <EditDetails
-                            form="details"
-                            handleChange={this.handleChange}
-                            {...this.state}
-                        />
-                        <EditMedia
-                            form="media"
-                            handleChange={this.handleChange}
-                            {...this.state}
-                        />
-                        <EditMusicDanceCourse
-                            form="music"
-                            handleChange={this.handleChange}
-                            handleMultiple={this.handleMultiple}
-                            {...this.state}
-                        />
-                        <EditPoster
-                            form="poster"
-                            handleChange={this.handleChange}
-                            {...this.state}
-                        />
-                        <div className={styles.formgroup}>
-                            <input type="submit" value="Mentés" className={styles.submit} />
-                        </div>
-                    </form>
+                    <EditTitleAndDate
+                        form="title"
+                        handleChange={this.handleChange}
+                        {...this.state}
+                    />
+                    <EditDetails
+                        form="details"
+                        handleChange={this.handleChange}
+                        {...this.state}
+                    />
+                    <EditMedia
+                        form="media"
+                        handleChange={this.handleChange}
+                        {...this.state}
+                    />
+                    <EditMusicDanceCourse
+                        form="music"
+                        handleChange={this.handleChange}
+                        handleMultiple={this.handleMultiple}
+                        {...this.state}
+                    />
+                    <EditPoster
+                        form="poster"
+                        handleChange={this.handleChange}
+                        {...this.state}
+                    />
+                    <div className={styles.formgroup}>
+                        <button
+                            onClick={this.uploadChanges}
+                            type="submit"
+                            className={styles.submit}
+                        >
+                            {'Mentés'}
+                        </button>
+                    </div>
                 </div>
             </div>
         );

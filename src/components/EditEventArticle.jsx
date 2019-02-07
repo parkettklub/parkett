@@ -47,8 +47,7 @@ class EditEventArticle extends React.Component {
         this.setState({ [name]: event.target.value });
     }
 
-    handleSubmit = (event) => {
-        event.preventDefault();
+    uploadChanges = () => {
         const { id } = this.state;
         if (id === -1) {
             this.addArticle();
@@ -117,21 +116,25 @@ class EditEventArticle extends React.Component {
                     />
                 </div>
                 <div className={styles.form}>
-                    <form onSubmit={this.handleSubmit}>
-                        <EditArticleTitle
-                            form="title"
-                            handleChange={this.handleChange}
-                            {...this.state}
-                        />
-                        <EditPoster
-                            form="poster"
-                            handleChange={this.handleChange}
-                            {...this.state}
-                        />
-                        <div className={styles.formgroup}>
-                            <input type="submit" value="Submit" className={styles.submit} />
-                        </div>
-                    </form>
+                    <EditArticleTitle
+                        form="title"
+                        handleChange={this.handleChange}
+                        {...this.state}
+                    />
+                    <EditPoster
+                        form="poster"
+                        handleChange={this.handleChange}
+                        {...this.state}
+                    />
+                    <div className={styles.formgroup}>
+                        <button
+                            onClick={this.uploadChanges}
+                            type="submit"
+                            className={styles.submit}
+                        >
+                            {'Mentés'}
+                        </button>
+                    </div>
                 </div>
             </div>
         );
