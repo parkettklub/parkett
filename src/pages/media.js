@@ -3,7 +3,6 @@ import ReactCssTransitionGroup from 'react-addons-css-transition-group';
 import '../components/Card.css';
 import Header from '../components/Header';
 import styles from './Page.module.css';
-import Help from '../components/Help.jsx';
 
 const Media = () => (
 
@@ -16,11 +15,7 @@ const Media = () => (
             transitionAppear
             transitionLeaveTimeout={300}
         >
-            <div className={styles.pageCenter}>
-                <div>
-                    <Help />
-                </div>
-            </div>
+            <div className={styles.pageCenter}>Media</div>
         </ReactCssTransitionGroup>
     </div>
 );

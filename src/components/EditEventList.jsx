@@ -56,7 +56,6 @@ class EditEvents extends React.Component {
     selectParty = (id) => {
         const { parties } = this.state;
         const selected = parties.find(dance => dance.id === id);
-        console.log(selected);
         this.setState({
             selectedId: `P${id}`,
             selectedObject: (

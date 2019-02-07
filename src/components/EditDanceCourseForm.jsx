@@ -57,7 +57,7 @@ class EditTeaachingForm extends React.Component {
 
     render() {
         const {
-            selectedForm, form, handleChange, danceid, teacherid, applicationForm, party_id,
+            selectedForm, form, handleChange, dance_id, dance_teacher_id, applicationForm, party_id,
         } = this.props;
         const {
             addSelected,
@@ -69,8 +69,8 @@ class EditTeaachingForm extends React.Component {
                     selectedForm={selectedForm}
                     form={form}
                     handleChange={handleChange}
-                    value={danceid}
-                    name="danceid"
+                    value={dance_id}
+                    name="dance_id"
                     label="Tánc"
                     options={dances.map(dance => (
                         <option value={dance.id} key={dance.id}>
@@ -93,8 +93,8 @@ class EditTeaachingForm extends React.Component {
                     selectedForm={selectedForm}
                     form={form}
                     handleChange={handleChange}
-                    value={teacherid}
-                    name="teacherid"
+                    value={dance_teacher_id}
+                    name="dance_teacher_id"
                     label="Tanár"
                     options={teachers.map(teacher => (
                         <option value={teacher.id} key={teacher.id}>
@@ -148,8 +148,8 @@ EditTeaachingForm.propTypes = {
     selectedForm: PropTypes.string.isRequired,
     form: PropTypes.string.isRequired,
     applicationForm: PropTypes.string.isRequired,
-    danceid: PropTypes.number.isRequired,
-    teacherid: PropTypes.number.isRequired,
+    dance_id: PropTypes.number.isRequired,
+    dance_teacher_id: PropTypes.number.isRequired,
     handleChange: PropTypes.func.isRequired,
 };
 

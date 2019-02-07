@@ -24,7 +24,7 @@ function EventDetailsWorkshop({
                     <div className={styles.program}>{program}</div>
                 </div>
                 <div>
-                    <DanceFigure dance={dance} />
+                    <DanceFigure id={dance} />
                 </div>
                 <div>
                     <div className="theme">

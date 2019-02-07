@@ -1,31 +1,40 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Salsa from './dancing-figures/Salsa.svg';
-import Folk from './dancing-figures/FolkDance.svg';
-import Kizomba from './dancing-figures/Kizomba.svg';
-import Swing from './dancing-figures/Swing.svg';
+import { fetchAll } from './FetchFunctions';
 import styles from './EventDetails.module.css';
 
-function DanceFigure({ dance }) {
-    if (!dance) return null;
-    const { name } = dance;
+class DanceFigure extends React.Component {
+    state = {};
 
-    const src = {
-        salsa: Salsa,
-        folk: Folk,
-        swing: Swing,
-        kizomba: Kizomba,
+    componentDidMount() {
+        const { id } = this.props;
+        if (id) this.fetchObject(id);
     }
 
-    return (
-        <div className={styles.danceFigure}>
-            <img src={src[name]} alt="" />
-        </div>
-    );
+    componentWillReceiveProps({ id }) {
+        if (id) this.fetchObject(id);
+    }
+
+    fetchObject = (id) => {
+        fetchAll(`dance_types/${id}`).then(
+            response => response.json(),
+        ).then((selectedObject) => {
+            this.setState({ ...selectedObject, src: selectedObject.image });
+        });
+    }
+
+    render() {
+        const { src } = this.state;
+        return (
+            <div className={styles.danceFigure}>
+                <img src={src} alt="" />
+            </div>
+        );
+    }
 }
 
 DanceFigure.propTypes = {
-    dance: PropTypes.instanceOf(Object).isRequired,
+    id: PropTypes.number.isRequired,
 };
 
 

@@ -30,7 +30,6 @@ class Dances extends React.Component {
             response => response.json(),
         ).then((myJson) => {
             this.setState({ dances: myJson });
-            console.log(myJson);
         });
     }
 
