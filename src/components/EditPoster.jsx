@@ -22,6 +22,10 @@ class EditPoster extends React.Component {
         event.preventDefault();
         const { selectedFile } = this.state;
         const reader = new FileReader();
+        if (selectedFile.size > 500000) {
+            console.error('Too Bog File!' + selectedFile.size);
+            return;
+        }
         reader.readAsDataURL(selectedFile);
         reader.onload = () => {
             this.setState({

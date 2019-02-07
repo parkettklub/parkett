@@ -27,9 +27,9 @@ function EventWorkshopForm({ linkedParty, link, teachers }) {
                 <div className={styles.paragraph}>
                     {'Siess, a helyek limitáltak! Amennyiben párban jöttök a kérdőívet mindketten töltsétek ki. A workshop csak elegendő számú jelentkező esetén indul.'}
                 </div>
-                <div className={styles.paragraph}>
+                <div className={styles.paragraph} hidden={!teachers}>
                     {'A tánccal '}
-                    <a href={teachers.url}>{teachers.name}</a>
+                    <a href={teachers ? teachers.url : ''}>{teachers ? teachers.name : ''}</a>
                     {' fognak megismertetni'}
                 </div>
                 {rows}

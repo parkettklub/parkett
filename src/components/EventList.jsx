@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactCssTransitionGroup from 'react-addons-css-transition-group';
 import { fetchAll } from './FetchFunctions';
+import { dateToString } from './DateFunctions';
 import styles from './EventList.module.css';
 import EventSummary from './Event';
 import Edit from './pencil_white.svg';
@@ -10,10 +11,10 @@ function editEventsPage() {
 }
 
 function goToParty(id) {
-    window.location = '/event-party/';
+    window.location = '/event-party?' + id;
 }
 function goToWorkshop(id) {
-    window.location = '/event-workshop/';
+    window.location = '/event-workshop?' + id;
 }
 function goToArticle(id) {
     window.location = '/event-article?' + id;
@@ -21,7 +22,7 @@ function goToArticle(id) {
 
 function filterEvent(search, event) {
     const date = event.start_date;
-    const dateString = `${date.split('T')[0]} ${date.split('T')[0]}`;
+    const dateString = dateToString(date);
     return (event.title.toUpperCase().indexOf(search.toUpperCase()) !== -1)
         || (dateString.indexOf(search.toUpperCase()) !== -1);
 }
@@ -54,6 +55,7 @@ class EventList extends React.Component {
             const newEvents = events.concat(myJson.map(original => ({
                 ...original,
                 onClick: () => goToParty(original.id),
+                complexId: `P${original.id}`,
             })));
             this.setState({ events: newEvents });
         });
@@ -67,6 +69,7 @@ class EventList extends React.Component {
             const newEvents = events.concat(myJson.map(original => ({
                 ...original,
                 onClick: () => goToWorkshop(original.id),
+                complexId: `W${original.id}`,
             })));
             this.setState({ events: newEvents });
         });
@@ -81,6 +84,7 @@ class EventList extends React.Component {
                 ...original,
                 start_date: original.published_at,
                 onClick: () => goToArticle(original.id),
+                complexId: `A${original.id}`,
             })));
             this.setState({ events: newEvents });
         });
@@ -162,7 +166,7 @@ class EventList extends React.Component {
                     ).map(event => (
                         <EventSummary
                             {...event}
-                            key={event.id}
+                            key={event.complexId}
                             startDate={event.start_date}
                         />
                     ))}
@@ -177,7 +181,7 @@ class EventList extends React.Component {
                             old
                             {...event}
                             startDate={event.start_date}
-                            key={event.id}
+                            key={event.complexId}
                         />
                     ))}
                 </ReactCssTransitionGroup>

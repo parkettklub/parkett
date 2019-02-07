@@ -2,82 +2,54 @@ import React from 'react';
 import EventWithPoster from './EventWithPoster';
 import EventDetails from './EventDetails';
 import EventMedia from './EventMedia';
-import Plakat01 from './Plakat.jpg';
+import { fetchAll } from './FetchFunctions';
 
+class EventParty extends React.Component {
+    state = {}
 
-function EventParty() {
-    const partyDetails = {
-        id: 1,
-        title: 'Élőzenés Salsa Party: Cuba',
-        photo: Plakat01,
-        startDate: new Date(2018, 1, 3, 18, 33, 30, 0),
-        endDate: new Date(2018, 1, 4, 2, 0, 0, 0),
-        program: '19:30 kapunyitás\n20:00 - 21:00 kezdő rocky tánctanítás\n21:00 - 23:00 élőben zenél a Pedrofon zenekar\n23:00 - 02:00 DJ-s buli Kenyeres Tamással',
-        content: 'Még érezni az előző est hangulatát és máris itt a következő, egyben a félévi utolsó bulink. Várunk titeket egy fergeteges Rock ‘N’ Roll Partyra április 17-én.',
-        dance: {
-            id: 1,
-            name: 'salsa',
-            content: 'Salsa is a dance',
-        },
-        facebookEvent: 'https://www.facebook.com/events/1598719006921910/',
-        spot: 'https://www.facebook.com/events/1598719006921910/',
-        bss: 'https://www.facebook.com/events/1598719006921910/',
-        danceCourse: {
-            id: 1,
-            teacher: {
-                id: 1,
-                name: 'Me and Me',
-                url: 'https://www.facebook.com/events/1598719006921910/',
-            },
-            dance: {
-                id: 1,
-                name: 'salsa',
-                content: 'Salsa is a dance',
-            },
-        },
-        bands: [{
-            id: 1,
-            name: 'Pedrofon',
-            url: 'https://www.facebook.com/events/1598719006921910/',
-        }],
-        djs: [{
-            id: 1,
-            name: 'DJ Eddy',
-            url: '',
-        }, {
-            id: 2,
-            name: 'DJ Meno',
-            url: '',
-        }],
-    };
+    componentDidMount() {
+        this.fetchEvent();
+    }
 
-    const { startDate } = partyDetails;
-    const main = {
-        title: partyDetails.title,
-        date: `${startDate.getFullYear()}.${startDate.getMonth()}.${startDate.getDate()}`,
-        description: partyDetails.content,
-        poster: partyDetails.photo,
-    };
+    fetchEvent = () => {
+        const id = window.location.href.split('?')[1];
+        fetchAll(`parties/${id}`).then(
+            response => response.json(),
+        ).then((myJson) => {
+            this.setState({ details: myJson });
+        });
+    }
 
-    const detail = {
-        program: partyDetails.program,
-        djs: partyDetails.djs,
-        bands: partyDetails.bands,
-        dance: partyDetails.dance,
-        facebook: partyDetails.facebookEvent,
-    };
+    render() {
+        const { details } = this.state;
+        if (!details) return null;
+        const main = {
+            title: details.title,
+            date: details.start_date,
+            content: details.content,
+            photo: details.photo,
+        };
 
-    const media = {
-        photos: partyDetails.spot,
-        video: partyDetails.bss,
-    };
-    return (
-        <div>
-            <EventWithPoster {...main} />
-            <EventDetails {...detail} />
-            <EventMedia {...media} />
-        </div>
-    );
+        const detail = {
+            program: details.program,
+            djs: details.djs,
+            bands: details.bands,
+            dance: details.dance,
+            facebook: details.facebookEvent,
+        };
+
+        const media = {
+            photos: details.spot,
+            video: details.bss,
+        };
+        return (
+            <div>
+                <EventWithPoster {...main} />
+                <EventDetails {...detail} />
+                <EventMedia {...media} />
+            </div>
+        );
+    }
 }
 
 export default EventParty;

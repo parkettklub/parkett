@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import FacebookLogo from './facebook-app-logo.svg';
 import Card from './Card';
 import styles from './EventList.module.css';
+import { dateToString } from './DateFunctions';
 
 function EventSummary({
     formlink, music, startDate, facebook_event, id, onClick, photo, title, old,
@@ -61,7 +62,7 @@ function EventSummary({
                     </div>
                     <div className={styles.details}>
                         <div className={styles.title}>{title}</div>
-                        <div>{`${startDate.split('T')[0]} ${startDate.split('T')[1]}`}</div>
+                        <div>{dateToString(startDate)}</div>
                         {detailsrows}
                     </div>
                     <div className={styles.facebook}>

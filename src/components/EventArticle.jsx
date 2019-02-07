@@ -1,10 +1,9 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import EventWithPoster from './EventWithPoster';
 import { fetchAll } from './FetchFunctions';
 import styles from './Article.module.css';
 
-class EventParty extends React.Component {
+class EventArticle extends React.Component {
     state = {}
 
     componentDidMount() {
@@ -31,4 +30,4 @@ class EventParty extends React.Component {
     }
 }
 
-export default EventParty;
+export default EventArticle;

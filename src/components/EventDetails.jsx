@@ -35,16 +35,21 @@ function EventDetails({
                 </div>
                 <div className={styles.music}>
                     <strong>Zenét szongáltatja:  </strong>
-                    {bands.map(band => (
-                        <div>
-                            <a href={band.url}>{band.name}</a>
-                        </div>
-                    ))}
-                    {djs.map(dj => (
-                        <div>
-                            <a href={dj.url}>{dj.name}</a>
-                        </div>
-                    ))}
+                    {bands
+                        ? bands.map(band => (
+                            <div>
+                                <a href={band.url}>{band.name}</a>
+                            </div>
+                        ))
+                        : null
+                    }
+                    {djs
+                        ? djs.map(dj => (
+                            <div>
+                                <a href={dj.url}>{dj.name}</a>
+                            </div>
+                        ))
+                        : null}
                 </div>
             </div>
         </Card>

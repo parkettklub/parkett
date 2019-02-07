@@ -104,6 +104,7 @@ class EditMusicDanceCourse extends React.Component {
                 <FormDanceCourse
                     selected={addSelected}
                     title="danceCourse"
+                    fetchFunction={this.fetchDanceCourses}
                     selectedObject={{
                         id: -1,
                     }}

@@ -23,7 +23,7 @@ function EventWithPoster({
     return (
         <Card>
             <div className={styles.main}>
-                <img className={styles.photo} src={photo} alt="" />
+                <img className={styles.poster} src={photo} alt="" />
                 <div className={styles.details}>
                     <div className={styles.title}>{title}</div>
                     <div className={styles.date}>{dateToString(date)}</div>

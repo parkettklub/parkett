@@ -7,13 +7,14 @@ import Swing from './dancing-figures/Swing.svg';
 import styles from './EventDetails.module.css';
 
 function DanceFigure({ dance }) {
+    if (!dance) return null;
     const { name } = dance;
 
     const src = {
         salsa: Salsa,
         folk: Folk,
         swing: Swing,
-        kizomba: Kizomba
+        kizomba: Kizomba,
     }
 
     return (
