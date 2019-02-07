@@ -23,8 +23,7 @@ class FormDJ extends React.Component {
         this.setState({ [name]: event.target.value });
     }
 
-    handleSubmit = (event) => {
-        event.preventDefault();
+    uploadChanges = () => {
         const { id } = this.state;
         if (id === -1) {
             this.addDJ();
@@ -65,36 +64,36 @@ class FormDJ extends React.Component {
         const isNew = id === -1;
         return (
             <div className={styles.main}>
-                <form onSubmit={this.handleSubmit}>
-                    <div className={styles.formgroup} hidden={selected !== title}>
-                        {isNew ? 'Új DJ adatai:' : 'DJ adatai:'}
-                        <FormSimpleInput
-                            selected={selected}
-                            title={title}
-                            handleChange={this.handleChange}
-                            value={name}
-                            name="name"
-                            example="DJ Eddy"
-                            label="Név"
-                        />
-                        <FormSimpleInput
-                            selected={selected}
-                            title={title}
-                            handleChange={this.handleChange}
-                            value={content}
-                            name="content"
-                            example="www.example.com"
-                            label="Weboldal"
-                        />
-                        <div className={styles.formgroup}>
-                            <input
-                                type="submit"
-                                value={isNew ? 'DJ hozzáadása' : 'DJ módosítása'}
-                                className={styles.submit}
-                            />
-                        </div>
+                <div className={styles.formgroup} hidden={selected !== title}>
+                    {isNew ? 'Új DJ adatai:' : 'DJ adatai:'}
+                    <FormSimpleInput
+                        selected={selected}
+                        title={title}
+                        handleChange={this.handleChange}
+                        value={name}
+                        name="name"
+                        example="DJ Eddy"
+                        label="Név"
+                    />
+                    <FormSimpleInput
+                        selected={selected}
+                        title={title}
+                        handleChange={this.handleChange}
+                        value={content}
+                        name="content"
+                        example="www.example.com"
+                        label="Weboldal"
+                    />
+                    <div className={styles.formgroup}>
+                        <button
+                            onClick={this.uploadChanges}
+                            type="submit"
+                            className={styles.submit}
+                        >
+                            {isNew ? 'DJ hozzáadása' : 'DJ módosítása'}
+                        </button>
                     </div>
-                </form>
+                </div>
             </div>
         );
     }

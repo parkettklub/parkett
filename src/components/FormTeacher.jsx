@@ -23,8 +23,7 @@ class FormTeacher extends React.Component {
         this.setState({ [name]: event.target.value });
     }
 
-    handleSubmit = (event) => {
-        event.preventDefault();
+    uploadChanges = () => {
         const { id } = this.state;
         if (id === -1) {
             this.addTeacher();
@@ -64,32 +63,36 @@ class FormTeacher extends React.Component {
         const isNew = id === -1;
         return (
             <div className={styles.main}>
-                <form onSubmit={this.handleSubmit}>
-                    <div className={styles.formgroup} hidden={selected !== title}>
-                        {isNew ? 'Új Tanár adatai:' : 'Tanár adatai:'}
-                        <FormSimpleInput
-                            selected={selected}
-                            title={title}
-                            handleChange={this.handleChange}
-                            value={name}
-                            name="name"
-                            example="Pedrofon"
-                            label="Név"
-                        />
-                        <FormSimpleInput
-                            selected={selected}
-                            title={title}
-                            handleChange={this.handleChange}
-                            value={url}
-                            name="url"
-                            example="www.example.com"
-                            label="Weboldal"
-                        />
-                        <div className={styles.formgroup}>
-                            <input type="submit" value={isNew ? 'Tanár hozzáadása' : 'Tanár módosítása'} className={styles.submit} />
-                        </div>
+                <div className={styles.formgroup} hidden={selected !== title}>
+                    {isNew ? 'Új Tanár adatai:' : 'Tanár adatai:'}
+                    <FormSimpleInput
+                        selected={selected}
+                        title={title}
+                        handleChange={this.handleChange}
+                        value={name}
+                        name="name"
+                        example="Pedrofon"
+                        label="Név"
+                    />
+                    <FormSimpleInput
+                        selected={selected}
+                        title={title}
+                        handleChange={this.handleChange}
+                        value={url}
+                        name="url"
+                        example="www.example.com"
+                        label="Weboldal"
+                    />
+                    <div className={styles.formgroup}>
+                        <button
+                            onClick={this.uploadChanges}
+                            type="submit"
+                            className={styles.submit}
+                        >
+                            {isNew ? 'Tanár hozzáadása' : 'Tanár módosítása'}
+                        </button>
                     </div>
-                </form>
+                </div>
             </div>
         );
     }
