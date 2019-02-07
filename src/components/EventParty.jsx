@@ -22,7 +22,7 @@ function EventParty() {
         facebookEvent: 'https://www.facebook.com/events/1598719006921910/',
         spot: 'https://www.facebook.com/events/1598719006921910/',
         bss: 'https://www.facebook.com/events/1598719006921910/',
-        teaching: {
+        danceCourse: {
             id: 1,
             teacher: {
                 id: 1,

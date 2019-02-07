@@ -5,7 +5,7 @@ import FormSelect from './FormSelect';
 import EditTitleAndDate from './EditTitleAndDate';
 import EditDetails from './EditDetails';
 import EditPoster from './EditPoster';
-import EditTeaachingForm from './EditTeachingForm';
+import EditTeaachingForm from './EditDanceCourseForm';
 import FormTextareaInput from './FormTextareaInput';
 
 class EditEventWorkshop extends React.Component {

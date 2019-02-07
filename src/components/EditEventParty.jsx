@@ -6,7 +6,7 @@ import EditTitleAndDate from './EditTitleAndDate';
 import EditPoster from './EditPoster';
 import EditDetails from './EditDetails';
 import EditMedia from './EditMedia';
-import EditMusicTeaching from './EditMusicTeaching';
+import EditMusicDanceCourse from './EditMusicDanceCourse';
 
 class EditEventParty extends React.Component {
     constructor() {
@@ -21,7 +21,7 @@ class EditEventParty extends React.Component {
             facebookEvent: 'https://www.facebook.com/events/1598719006921910/',
             spot: 'https://www.facebook.com/events/1598719006921910/',
             bss: 'https://www.facebook.com/events/1598719006921910/',
-            teachingid: 1,
+            danceCourseid: 1,
             bandids: [
                 1,
                 2,
@@ -118,7 +118,7 @@ class EditEventParty extends React.Component {
                             handleChange={this.handleChange}
                             {...this.state}
                         />
-                        <EditMusicTeaching
+                        <EditMusicDanceCourse
                             form="music"
                             handleChange={this.handleChange}
                             handleMultiple={this.handleMultiple}

@@ -2,11 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import FormDJ from './FormDJ';
 import FormBand from './FormBand';
-import FormTeaching from './FormTeaching';
+import FormDanceCourse from './FormDanceCourse';
 import FormSelectInput from './FormSelectInput';
 import FormMultipleSelectInput from './FormMultipleSelectInput';
 
-class EditMusicTeaching extends React.Component {
+class EditMusicDanceCourse extends React.Component {
     constructor() {
         super();
         this.state = {
@@ -24,7 +24,7 @@ class EditMusicTeaching extends React.Component {
 
     render() {
         const {
-            selectedForm, form, handleChange, teachingid, handleMultiple, bandids, djids,
+            selectedForm, form, handleChange, danceCourseid, handleMultiple, bandids, djids,
         } = this.props;
         const {
             addSelected,
@@ -59,7 +59,7 @@ class EditMusicTeaching extends React.Component {
             name: 'Cuba Ritmo Trio',
             url: 'google.com',
         }];
-        const teachings = [{
+        const danceCourses = [{
             id: 1,
             teacher: 'Plakát János és Marok Béla',
             danceid: 'salsa',
@@ -78,27 +78,27 @@ class EditMusicTeaching extends React.Component {
                     selectedForm={selectedForm}
                     form={form}
                     handleChange={handleChange}
-                    value={teachingid}
-                    name="teachingid"
+                    value={danceCourseid}
+                    name="danceCourseid"
                     label="Tanítás"
-                    addNew={() => this.addNewElement('teaching')}
+                    addNew={() => this.addNewElement('danceCourse')}
                     close={this.close}
-                    options={teachings.map(teaching => (
-                        <option value={teaching.id} key={teaching.id}>
-                            {teaching.id}
+                    options={danceCourses.map(danceCourse => (
+                        <option value={danceCourse.id} key={danceCourse.id}>
+                            {danceCourse.id}
                             {' - '}
-                            {teaching.teacher}
+                            {danceCourse.teacher}
                             {' '}
-                            {teaching.dance}
+                            {danceCourse.dance}
                             {' '}
-                            {teaching.level}
+                            {danceCourse.level}
                             {' '}
-                            {teaching.length}
+                            {danceCourse.length}
                         </option>))}
                 />
-                <FormTeaching
+                <FormDanceCourse
                     selected={addSelected}
-                    title="teaching"
+                    title="danceCourse"
                     selectedObject={{
                         id: -1,
                     }}
@@ -156,14 +156,14 @@ class EditMusicTeaching extends React.Component {
     }
 }
 
-EditMusicTeaching.propTypes = {
+EditMusicDanceCourse.propTypes = {
     selectedForm: PropTypes.string.isRequired,
     form: PropTypes.string.isRequired,
-    teachingid: PropTypes.number.isRequired,
+    danceCourseid: PropTypes.number.isRequired,
     djids: PropTypes.instanceOf(Array).isRequired,
     bandids: PropTypes.instanceOf(Array).isRequired,
     handleChange: PropTypes.func.isRequired,
     handleMultiple: PropTypes.func.isRequired,
 };
 
-export default EditMusicTeaching;
+export default EditMusicDanceCourse;
