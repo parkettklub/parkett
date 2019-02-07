@@ -21,13 +21,14 @@ function FormSelect({
 FormSelect.propTypes = {
     selected: PropTypes.string,
     title: PropTypes.string,
-    label: PropTypes.string.isRequired,
+    label: PropTypes.string,
     onClick: PropTypes.func.isRequired,
 };
 
 FormSelect.defaultProps = {
     selected: '',
     title: '',
+    label: '',
 };
 
 

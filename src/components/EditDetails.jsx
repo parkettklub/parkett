@@ -41,12 +41,20 @@ function EditDetails(props) {
 }
 
 EditDetails.propTypes = {
-    selectedForm: PropTypes.string.isRequired,
-    form: PropTypes.string.isRequired,
-    content: PropTypes.string.isRequired,
-    program: PropTypes.string.isRequired,
-    facebookEvent: PropTypes.string.isRequired,
+    selectedForm: PropTypes.string,
+    form: PropTypes.string,
+    content: PropTypes.string,
+    program: PropTypes.string,
+    facebookEvent: PropTypes.string,
     handleChange: PropTypes.func.isRequired,
+};
+
+EditDetails.defaultProps = {
+    selectedForm: '',
+    form: '',
+    content: '',
+    program: '',
+    facebookEvent: '',
 };
 
 export default EditDetails;

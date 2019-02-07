@@ -31,11 +31,18 @@ function EditMedia(props) {
 }
 
 EditMedia.propTypes = {
-    selectedForm: PropTypes.string.isRequired,
-    form: PropTypes.string.isRequired,
-    spot: PropTypes.string.isRequired,
-    bss: PropTypes.string.isRequired,
+    selectedForm: PropTypes.string,
+    form: PropTypes.string,
+    spot: PropTypes.string,
+    bss: PropTypes.string,
     handleChange: PropTypes.func.isRequired,
+};
+
+EditMedia.defaultProps = {
+    selectedForm: '',
+    form: '',
+    spot: '',
+    bss: '',
 };
 
 export default EditMedia;

@@ -41,12 +41,18 @@ function EditTitleAndDate(props) {
 }
 
 EditTitleAndDate.propTypes = {
-    selectedForm: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
-    form: PropTypes.string.isRequired,
+    selectedForm: PropTypes.string,
+    title: PropTypes.string,
+    form: PropTypes.string,
     startDate: PropTypes.string.isRequired,
     endDate: PropTypes.string.isRequired,
     handleChange: PropTypes.func.isRequired,
+};
+
+EditTitleAndDate.defaultProps = {
+    selectedForm: '',
+    form: '',
+    title: '',
 };
 
 export default EditTitleAndDate;

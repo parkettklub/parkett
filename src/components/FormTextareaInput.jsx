@@ -28,10 +28,10 @@ function FormTextareaInput({
 FormTextareaInput.propTypes = {
     selectedForm: PropTypes.string,
     form: PropTypes.string,
-    label: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired,
+    label: PropTypes.string,
+    name: PropTypes.string,
     value: PropTypes.string,
-    example: PropTypes.string.isRequired,
+    example: PropTypes.string,
     handleChange: PropTypes.func.isRequired,
 };
 
@@ -39,6 +39,9 @@ FormTextareaInput.defaultProps = {
     selectedForm: '',
     form: '',
     value: '',
+    label: '',
+    name: '',
+    example: '',
 };
 
 

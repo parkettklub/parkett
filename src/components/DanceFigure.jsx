@@ -34,7 +34,11 @@ class DanceFigure extends React.Component {
 }
 
 DanceFigure.propTypes = {
-    id: PropTypes.number.isRequired,
+    id: PropTypes.number,
+};
+
+DanceFigure.defaultProps = {
+    id: null,
 };
 
 

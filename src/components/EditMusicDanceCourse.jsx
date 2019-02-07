@@ -163,13 +163,21 @@ class EditMusicDanceCourse extends React.Component {
 }
 
 EditMusicDanceCourse.propTypes = {
-    selectedForm: PropTypes.string.isRequired,
-    form: PropTypes.string.isRequired,
-    danceCourseid: PropTypes.number.isRequired,
-    djids: PropTypes.instanceOf(Array).isRequired,
-    bandids: PropTypes.instanceOf(Array).isRequired,
+    selectedForm: PropTypes.string,
+    form: PropTypes.string,
+    danceCourseid: PropTypes.number,
+    djids: PropTypes.instanceOf(Array),
+    bandids: PropTypes.instanceOf(Array),
     handleChange: PropTypes.func.isRequired,
     handleMultiple: PropTypes.func.isRequired,
+};
+
+EditMusicDanceCourse.defaultProps = {
+    selectedForm: '',
+    form: '',
+    danceCourseid: null,
+    djids: [],
+    bandids: [],
 };
 
 export default EditMusicDanceCourse;

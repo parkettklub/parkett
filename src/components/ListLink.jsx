@@ -24,13 +24,15 @@ const ListLink = (props) => {
 ListLink.propTypes = {
     hidden: PropTypes.bool,
     active: PropTypes.bool,
-    to: PropTypes.string.isRequired,
-    children: PropTypes.string.isRequired,
+    to: PropTypes.string,
+    children: PropTypes.string,
 };
 
 ListLink.defaultProps = {
     hidden: false,
     active: false,
-}
+    to: '',
+    children: '',
+};
 
 export default ListLink;

@@ -4,7 +4,7 @@ import profDefault from './defaultProfile.jpg';
 import styles from './Community.module.css';
 
 function Member({
-    src = profDefault, position, description, name,
+    src, position, description, name,
 }) {
     return (
         <div className={styles.element}>
@@ -22,10 +22,18 @@ function Member({
 }
 
 Member.propTypes = {
-    name: PropTypes.string.isRequired,
-    position: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired,
+    src: PropTypes.string,
+    name: PropTypes.string,
+    position: PropTypes.string,
+    description: PropTypes.string,
 };
+
+Member.defaultProps = {
+    src: profDefault,
+    name: '',
+    position: '',
+    description: '',
+}
 
 
 export default Member;

@@ -23,12 +23,13 @@ SelectableElement.propTypes = {
     title: PropTypes.string,
     startDate: PropTypes.string,
     onClick: PropTypes.func.isRequired,
-    selected: PropTypes.bool.isRequired,
+    selected: PropTypes.bool,
 };
 
 SelectableElement.defaultProps = {
     startDate: '',
     title: '',
+    selected: false,
 }
 
 export default SelectableElement;

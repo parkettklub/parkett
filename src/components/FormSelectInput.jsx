@@ -60,18 +60,22 @@ class FormSelectInput extends React.Component {
 FormSelectInput.propTypes = {
     selectedForm: PropTypes.string,
     form: PropTypes.string,
-    label: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired,
+    label: PropTypes.string,
+    name: PropTypes.string,
     handleChange: PropTypes.func.isRequired,
-    value: PropTypes.number.isRequired,
+    value: PropTypes.number,
     close: PropTypes.func.isRequired,
-    options: PropTypes.arrayOf(PropTypes.element).isRequired,
+    options: PropTypes.arrayOf(PropTypes.element),
     addNew: PropTypes.func.isRequired,
 };
 
 FormSelectInput.defaultProps = {
     selectedForm: '',
     form: '',
+    label: '',
+    name: '',
+    value: '',
+    options: [],
 };
 
 export default FormSelectInput;

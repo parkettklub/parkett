@@ -3,15 +3,15 @@ import PropTypes from 'prop-types';
 import Card from './Card';
 import styles from './EventForm.module.css';
 
-function EventWorkshopForm({ linkedParty, link, teachers }) {
+function EventWorkshopForm({ party_id, link, dance_teacher_id }) {
     const rows = [];
-    if (linkedParty) {
+    if (party_id) {
         rows.push(
             <div className="eventdetail-paragraph">
                 {'A workshop résztvevői ingyenesen részt vehetnek a '}
-                <strong>{linkedParty.title}</strong>
+                <strong>{party_id}</strong>
                 {' nevű rendezvényen amely '}
-                <strong>{linkedParty.startDate}</strong>
+                <strong>{party_id}</strong>
                 {' estéjén lesz megrendezve '}
             </div>,
         );
@@ -27,9 +27,9 @@ function EventWorkshopForm({ linkedParty, link, teachers }) {
                 <div className={styles.paragraph}>
                     {'Siess, a helyek limitáltak! Amennyiben párban jöttök a kérdőívet mindketten töltsétek ki. A workshop csak elegendő számú jelentkező esetén indul.'}
                 </div>
-                <div className={styles.paragraph} hidden={!teachers}>
+                <div className={styles.paragraph} hidden={!dance_teacher_id}>
                     {'A tánccal '}
-                    <a href={teachers ? teachers.url : ''}>{teachers ? teachers.name : ''}</a>
+                    {'teacher'}
                     {' fognak megismertetni'}
                 </div>
                 {rows}
@@ -39,9 +39,15 @@ function EventWorkshopForm({ linkedParty, link, teachers }) {
 }
 
 EventWorkshopForm.propTypes = {
-    linkedParty: PropTypes.instanceOf(Object).isRequired,
-    link: PropTypes.string.isRequired,
-    teachers: PropTypes.instanceOf(Object).isRequired,
+    party_id: PropTypes.number,
+    link: PropTypes.string,
+    dance_teacher_id: PropTypes.number,
+};
+
+EventWorkshopForm.defaultProps = {
+    party_id: null,
+    link: '',
+    dance_teacher_id: null,
 };
 
 export default EventWorkshopForm;

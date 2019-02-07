@@ -6,7 +6,7 @@ import FormSelectInput from './FormSelectInput';
 import FormDance from './FormDance';
 import FormTeacher from './FormTeacher';
 
-class EditTeaachingForm extends React.Component {
+class EditDanceCourseForm extends React.Component {
     constructor() {
         super();
         this.state = {
@@ -144,13 +144,21 @@ class EditTeaachingForm extends React.Component {
     }
 }
 
-EditTeaachingForm.propTypes = {
-    selectedForm: PropTypes.string.isRequired,
-    form: PropTypes.string.isRequired,
-    applicationForm: PropTypes.string.isRequired,
-    dance_id: PropTypes.number.isRequired,
-    dance_teacher_id: PropTypes.number.isRequired,
+EditDanceCourseForm.propTypes = {
+    selectedForm: PropTypes.string,
+    form: PropTypes.string,
+    applicationForm: PropTypes.string,
+    dance_id: PropTypes.number,
+    dance_teacher_id: PropTypes.number,
     handleChange: PropTypes.func.isRequired,
 };
 
-export default EditTeaachingForm;
+EditDanceCourseForm.defaultProps = {
+    selectedForm: '',
+    form: '',
+    applicationForm: '',
+    dance_id: null,
+    dance_teacher_id: null,
+}
+
+export default EditDanceCourseForm;

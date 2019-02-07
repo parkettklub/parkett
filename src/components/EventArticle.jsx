@@ -21,11 +21,15 @@ class EventArticle extends React.Component {
 
     render() {
         const { details } = this.state;
-
+        if (details) {
+            return (
+                <div className={styles.main}>
+                    <EventWithPoster {...details} date={details ? details.published_at : null} />
+                </div>
+            );
+        }
         return (
-            <div className={styles.main}>
-                <EventWithPoster {...details} date={details ? details.published_at : null} />
-            </div>
+            <div className={styles.main} />
         );
     }
 }

@@ -66,10 +66,16 @@ class EditPoster extends React.Component {
 }
 
 EditPoster.propTypes = {
-    selectedForm: PropTypes.string.isRequired,
-    form: PropTypes.string.isRequired,
-    photo: PropTypes.string.isRequired,
+    selectedForm: PropTypes.string,
+    form: PropTypes.string,
+    photo: PropTypes.string,
     handleChange: PropTypes.func.isRequired,
+};
+
+EditPoster.defaultProps = {
+    selectedForm: '',
+    form: '',
+    photo: '',
 };
 
 export default EditPoster;

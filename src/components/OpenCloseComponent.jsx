@@ -55,8 +55,13 @@ class OpenCloseComponent extends React.Component {
 }
 
 OpenCloseComponent.propTypes = {
-    children: PropTypes.instanceOf(Object).isRequired,
-    title: PropTypes.string.isRequired,
+    children: PropTypes.instanceOf(Object),
+    title: PropTypes.string,
+};
+
+OpenCloseComponent.defaultProps = {
+    children: [],
+    title: '',
 };
 
 export default OpenCloseComponent;

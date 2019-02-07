@@ -106,7 +106,7 @@ FormDJ.propTypes = {
     fetchFunction: PropTypes.func.isRequired,
 };
 
-FormDJ.defaulProps = {
+FormDJ.defaultProps = {
     selected: '',
     title: '',
 };
