@@ -11,7 +11,7 @@ function EventDetails({
     const links = [];
     if (facebook) {
         links.push(
-            <div>
+            <div key="facebook">
                 <a className={styles.facebook} href={facebook} target="_blank" rel="noopener noreferrer">
                     <img
                         className="eventdetail-facebook-logo"

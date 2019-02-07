@@ -27,8 +27,8 @@ class FormDance extends React.Component {
     componentWillReceiveProps({ selectedObject }) {
         this.setState({
             dance_type_id: selectedObject.dance_type
-                ? selectedObject.dance_type.id
-                : selectedObject.dance_type_id,
+                ? parseInt(selectedObject.dance_type.id)
+                : parseInt(selectedObject.dance_type_id),
             ...selectedObject,
         });
     }

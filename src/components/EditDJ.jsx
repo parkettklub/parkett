@@ -77,6 +77,7 @@ class EditDJ extends React.Component {
                                 title={dj.name}
                                 onClick={() => this.editDJ(dj.id)}
                                 selected={dj.id === selectedId}
+                                key={dj.id}
                             />
                         ))}
                     </div>

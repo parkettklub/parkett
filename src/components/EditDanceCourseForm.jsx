@@ -88,6 +88,7 @@ class EditDanceCourseForm extends React.Component {
                     selectedObject={{
                         id: -1,
                     }}
+                    fetchFunction={this.fetchDances}
                 />
                 <FormSelectInput
                     selectedForm={selectedForm}
@@ -112,6 +113,7 @@ class EditDanceCourseForm extends React.Component {
                     selectedObject={{
                         id: -1,
                     }}
+                    fetchFunction={this.fetchDanceTeachers}
                 />
                 <FormSelectInput
                     selectedForm={selectedForm}

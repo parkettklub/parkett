@@ -77,6 +77,7 @@ class EditTeacher extends React.Component {
                                 title={teacher.name}
                                 onClick={() => this.editTeacher(teacher.id)}
                                 selected={teacher.id === selectedId}
+                                key={teacher.id}
                             />
                         ))}
                     </div>

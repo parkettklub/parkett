@@ -167,6 +167,7 @@ class EditEvents extends React.Component {
                                     {...event}
                                     selected={`P${event.id}` === selectedId}
                                     onClick={() => this.selectParty(event.id)}
+                                    key={`P${event.id}`}
                                 />
                             ))
                         }
@@ -176,6 +177,7 @@ class EditEvents extends React.Component {
                                     {...event}
                                     selected={`W${event.id}` === selectedId}
                                     onClick={() => this.selectWorkshop(event.id)}
+                                    key={`W${event.id}`}
                                 />
                             ))
                         }
@@ -185,6 +187,7 @@ class EditEvents extends React.Component {
                                     {...event}
                                     selected={`A${event.id}` === selectedId}
                                     onClick={() => this.selectArticle(event.id)}
+                                    key={`A${event.id}`}
                                 />
                             ))
                         }

@@ -5,13 +5,13 @@ import OpenCloseComponent from './OpenCloseComponent';
 function LocationAccess() {
     const content = [];
     content.push(
-        <div>
+        <div key="megkozelites">
             <strong>Megközelítés: </strong>
             {'4-es villamos › Budafoki út 33, 86, 212-es busz › Október huszonharmadika utca'}
         </div>,
     );
     content.push(
-        <div>
+        <div key="bejutas">
             <strong>Bejutás: </strong>
             {'A lépcsőn fel a porta mellett elhaladva bal oldalt (nem a forgó villákon keresztül)'}
         </div>,

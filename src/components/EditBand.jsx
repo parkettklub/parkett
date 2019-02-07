@@ -77,6 +77,7 @@ class EditBand extends React.Component {
                                     title={band.name}
                                     onClick={() => this.editBand(band.id)}
                                     selected={band.id === selectedId}
+                                    key={band.id}
                                 />
                             ),
                         )}

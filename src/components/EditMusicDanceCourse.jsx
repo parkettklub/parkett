@@ -124,7 +124,8 @@ class EditMusicDanceCourse extends React.Component {
                                 {band.id}
                                 {' - '}
                                 {band.name}
-                            </option>))}
+                            </option>
+                        ))}
                 />
                 <FormBand
                     selected={addSelected}
@@ -132,6 +133,7 @@ class EditMusicDanceCourse extends React.Component {
                     selectedObject={{
                         id: -1,
                     }}
+                    fetchFunction={this.fetchBands}
                 />
                 <FormMultipleSelectInput
                     selectedForm={selectedForm}
@@ -148,7 +150,8 @@ class EditMusicDanceCourse extends React.Component {
                                 {dj.id}
                                 {' - '}
                                 {dj.name}
-                            </option>))}
+                            </option>
+                        ))}
                 />
                 <FormDJ
                     selected={addSelected}
@@ -156,6 +159,7 @@ class EditMusicDanceCourse extends React.Component {
                     selectedObject={{
                         id: -1,
                     }}
+                    fetchFunction={this.fetchDjs}
                 />
             </div>
         );

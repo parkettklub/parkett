@@ -61,7 +61,7 @@ FormMultipleSelectInput.propTypes = {
     label: PropTypes.string,
     name: PropTypes.string,
     handleChange: PropTypes.func.isRequired,
-    value: PropTypes.number,
+    value: PropTypes.arrayOf(PropTypes.number),
     close: PropTypes.func.isRequired,
     options: PropTypes.arrayOf(PropTypes.element),
     addNew: PropTypes.func.isRequired,
@@ -72,7 +72,7 @@ FormMultipleSelectInput.defaultProps = {
     form: '',
     label: '',
     name: '',
-    value: '',
+    value: [],
     options: [],
 };
 

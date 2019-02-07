@@ -78,6 +78,7 @@ class EditDanceType extends React.Component {
                                     title={dance_type.name}
                                     onClick={() => this.editDance(dance_type.id)}
                                     selected={dance_type.id === selectedId}
+                                    key={dance_type.id}
                                 />
                             ),
                         )}

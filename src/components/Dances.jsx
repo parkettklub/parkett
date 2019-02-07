@@ -104,8 +104,12 @@ function Dance({ dance, selected, click }) {
 
 Dance.propTypes = {
     dance: PropTypes.instanceOf(Object).isRequired,
-    selected: PropTypes.string.isRequired,
+    selected: PropTypes.bool,
     click: PropTypes.func.isRequired,
 };
+
+Dance.defaultProps = {
+    selected: false,
+}
 
 export default Dances;

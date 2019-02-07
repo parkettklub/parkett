@@ -35,7 +35,7 @@ class EventParty extends React.Component {
             djs: details.djs,
             bands: details.bands,
             dance: details.dance,
-            facebook: details.facebookEvent,
+            facebook: details.facebook_event,
         };
 
         const media = {
@@ -44,9 +44,9 @@ class EventParty extends React.Component {
         };
         return (
             <div>
-                <EventWithPoster {...main} />
-                <EventDetails {...detail} />
-                <EventMedia {...media} />
+                <EventWithPoster {...main} key="poster" />
+                <EventDetails {...detail} key="details" />
+                <EventMedia {...media} key="media" />
             </div>
         );
     }

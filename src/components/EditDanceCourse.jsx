@@ -90,6 +90,7 @@ class EditDanceCourse extends React.Component {
                                 title={`${course.id} ${this.getDanceCourseName(course.dance_teacher_id)}`}
                                 onClick={() => this.editDanceCourse(course.id)}
                                 selected={course.id === selectedId}
+                                key={course.id}
                             />
                         ))}
                     </div>
