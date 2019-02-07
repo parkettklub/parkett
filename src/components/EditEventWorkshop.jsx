@@ -1,5 +1,6 @@
 import React from 'react';
-import Plakat01 from './Plakat.png';
+import PropTypes from 'prop-types';
+import { fetchPost, fetchPut } from './FetchFunctions';
 import styles from './Form.module.css';
 import FormSelect from './FormSelect';
 import EditTitleAndDate from './EditTitleAndDate';
@@ -12,20 +13,52 @@ class EditEventWorkshop extends React.Component {
     constructor() {
         super();
         this.state = {
-            title: 'Élőzenés Salsa Party: Cuba',
-            photo: Plakat01,
-            startDate: '2018-01-12T18:00',
-            endDate: '2018-01-13T01:00',
-            program: '19:30 kapunyitás\n20:00 - 21:00 kezdő rocky tánctanítás\n21:00 - 23:00 élőben zenél a Pedrofon zenekar\n23:00 - 02:00 DJ-s buli Kenyeres Tamással',
-            content: 'Még érezni az előző est hangulatát és máris itt a következő, egyben a félévi utolsó bulink. Várunk titeket egy fergeteges Rock ‘N’ Roll Partyra április 17-én.',
+            title: '',
+            photo: '',
+            startDate: '',
+            endDate: '',
+            program: '',
+            content: '',
             danceid: 1,
             teacherid: 1,
-            theme: 'Teljesen kezdő gyorstalpaló kizomba tánctanítás, amely egy hónapnyi tánctudást biztosít és lehetővé teszi a már elindult tánctanfolyamokba való bekapcsolódást.',
-            facebookEvent: 'https://www.facebook.com/events/1598719006921910/',
-            applicationForm: 'https://goo.gl/forms/EMAqXVoJDJQGNkeq1',
+            theme: '',
+            facebookEvent: '',
+            applicationForm: '',
+            party_id: 1,
             selectedForm: 'title',
             addSelected: null,
         };
+    }
+
+    componentDidMount() {
+        const { selectedObject } = this.props;
+        this.setObject(selectedObject);
+    }
+
+    componentWillReceiveProps({ selectedObject }) {
+        this.setObject(selectedObject);
+    }
+
+    setObject = (selectedObject) => {
+        if (selectedObject.id === -1) {
+            this.setState({
+                id: -1,
+            });
+        } else {
+            const startDate = new Date(selectedObject.start_date);
+            const startDateString = startDate.toISOString().slice(0, 16);
+            const endDate = new Date(selectedObject.end_date);
+            const endDateString = endDate.toISOString().slice(0, 16);
+            this.setState({
+                startDate: startDateString,
+                endDate: endDateString,
+                facebookEvent: selectedObject.facebook_event,
+                applicationForm: selectedObject.application_form,
+                danceid: selectedObject.dance_id,
+                teacherid: selectedObject.teacher_id,
+                ...selectedObject,
+            });
+        }
     }
 
     handleMultiple = (event) => {
@@ -45,14 +78,91 @@ class EditEventWorkshop extends React.Component {
         this.setState({ [name]: event.target.value });
     }
 
-    handleSubmit = (event) => {
-        event.preventDefault();
-        this.setState({});
-    }
-
     changeTab = (tabName) => {
         this.setState({
             selectedForm: tabName,
+        });
+    }
+
+    handleSubmit = (event) => {
+        event.preventDefault();
+        const { id } = this.state;
+        if (id === -1) {
+            this.addWorkshop();
+        } else {
+            this.updateWorkshop();
+        }
+    }
+
+    addWorkshop = () => {
+        const {
+            title,
+            photo,
+            startDate,
+            endDate,
+            program,
+            content,
+            danceid,
+            teacherid,
+            theme,
+            facebookEvent,
+            applicationForm,
+            party_id,
+        } = this.state;
+        const workshop = {
+            title,
+            photo,
+            start_date: startDate,
+            end_date: endDate,
+            program,
+            content,
+            dance_id: danceid,
+            dance_teacher_id: teacherid,
+            theme,
+            facebook_event: facebookEvent,
+            application_form: applicationForm,
+            party_id,
+        };
+        fetchPost('workshops', workshop).then(() => {
+            const { fetchFunction } = this.props;
+            fetchFunction();
+        });
+    }
+
+    updateWorkshop = () => {
+        const {
+            id,
+            title,
+            photo,
+            startDate,
+            endDate,
+            program,
+            content,
+            danceid,
+            teacherid,
+            theme,
+            facebookEvent,
+            applicationForm,
+            party_id,
+        } = this.state;
+        const workshop = {
+            id,
+            title,
+            photo,
+            start_date: startDate,
+            end_date: endDate,
+            program,
+            content,
+            dance_id: danceid,
+            dance_teacher_id: teacherid,
+            theme,
+            facebook_event: facebookEvent,
+            application_form: applicationForm,
+            party_id,
+        };
+        fetchPut('workshops', workshop, id).then(() => {
+            const { fetchFunction } = this.props;
+            fetchFunction();
         });
     }
 
@@ -129,5 +239,17 @@ class EditEventWorkshop extends React.Component {
         );
     }
 }
+
+EditEventWorkshop.propTypes = {
+    selectedObject: PropTypes.instanceOf(Object).isRequired,
+    selected: PropTypes.string,
+    title: PropTypes.string,
+    fetchFunction: PropTypes.func.isRequired,
+};
+
+EditEventWorkshop.defaultProps = {
+    selected: '',
+    title: '',
+};
 
 export default EditEventWorkshop;
