@@ -5,12 +5,18 @@ import styles from './EventPoster.module.css';
 import { dateToString } from './DateFunctions';
 
 function EventWithPoster({
-    content, photo, title, date,
+    content, photo, title, date, onClick,
 }) {
     if (!content) {
         return (
             <Card>
-                <div className={styles.main}>
+                <div
+                    className={`${styles.main} ${onClick ? styles.clickable : ''}`}
+                    onClick={onClick}
+                    role="button"
+                    onKeyDown={() => { }}
+                    tabIndex={0}
+                >
                     <img className={styles.smallPoster} src={photo} alt="" />
                     <div className={styles.details}>
                         <div className={styles.title}>{title}</div>
@@ -22,7 +28,13 @@ function EventWithPoster({
     }
     return (
         <Card>
-            <div className={styles.main}>
+            <div
+                className={`${styles.main} ${onClick ? styles.clickable : ''}`}
+                onClick={onClick}
+                role="button"
+                onKeyDown={() => { }}
+                tabIndex={0}
+            >
                 <img className={styles.poster} src={photo} alt="" />
                 <div className={styles.details}>
                     <div className={styles.title}>{title}</div>
@@ -39,12 +51,14 @@ EventWithPoster.propTypes = {
     photo: PropTypes.string,
     title: PropTypes.string,
     date: PropTypes.string.isRequired,
+    onClick: PropTypes.func,
 };
 
 EventWithPoster.defaultProps = {
     content: '',
     photo: '',
     title: '',
+    onClick: null,
 };
 
 export default EventWithPoster;

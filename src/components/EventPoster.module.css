@@ -4,6 +4,11 @@
     grid-template-columns: max-content 1fr;
 }
 
+.main.clickable:hover {
+    cursor: pointer;
+    filter: opacity(0.5);
+}
+
 .details {
     padding: 1em;
 }
