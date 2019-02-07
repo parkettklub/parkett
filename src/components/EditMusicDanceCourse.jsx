@@ -1,8 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { fetchAll } from './FetchFunctions';
 import FormDJ from './FormDJ';
 import FormBand from './FormBand';
 import FormDanceCourse from './FormDanceCourse';
+import EditDanceCourse from './EditDanceCourse';
 import FormSelectInput from './FormSelectInput';
 import FormMultipleSelectInput from './FormMultipleSelectInput';
 
@@ -11,7 +13,56 @@ class EditMusicDanceCourse extends React.Component {
         super();
         this.state = {
             addSelected: null,
+            danceCourses: [],
+            bands: [],
+            djs: [],
+            dance_teachers: [],
         };
+    }
+
+    componentDidMount() {
+        this.fetchBands();
+        this.fetchDjs();
+        this.fetchDanceTeachers();
+        this.fetchDanceCourses();
+    }
+
+    fetchDanceCourses = () => {
+        fetchAll('dance_courses').then(
+            response => response.json(),
+        ).then((myJson) => {
+            this.setState({ danceCourses: myJson });
+        });
+    }
+
+    fetchBands = () => {
+        fetchAll('bands').then(
+            response => response.json(),
+        ).then((myJson) => {
+            this.setState({ bands: myJson });
+        });
+    }
+
+    fetchDjs = () => {
+        fetchAll('djs').then(
+            response => response.json(),
+        ).then((myJson) => {
+            this.setState({ djs: myJson });
+        });
+    }
+
+    fetchDanceTeachers = () => {
+        fetchAll('dance_teachers').then(
+            response => response.json(),
+        ).then((myJson) => {
+            this.setState({ dance_teachers: myJson });
+        });
+    }
+
+    getTeacherName = (id) => {
+        const { dance_teachers } = this.state;
+        const dance_teacher = dance_teachers.find(teacher => teacher.id === id);
+        return dance_teacher ? dance_teacher.name : 'undifined';
     }
 
     addNewElement(name) {
@@ -29,49 +80,7 @@ class EditMusicDanceCourse extends React.Component {
         const {
             addSelected,
         } = this.state;
-        const djs = [{
-            id: 1,
-            name: 'DJ Eddy',
-            url: 'google.com',
-        }, {
-            id: 2,
-            name: 'DJ Zoli',
-            url: 'google.com',
-        }, {
-            id: 3,
-            name: 'DJ Nobody',
-            url: 'google.com',
-        }, {
-            id: 4,
-            name: 'DJ Music',
-            url: 'google.com',
-        }, {
-            id: 5,
-            name: 'DJ Somebody',
-            url: 'google.com',
-        }];
-        const bands = [{
-            id: 1,
-            name: 'Pedrofon',
-            url: 'google.com',
-        }, {
-            id: 2,
-            name: 'Cuba Ritmo Trio',
-            url: 'google.com',
-        }];
-        const danceCourses = [{
-            id: 1,
-            teacher: 'Plakát János és Marok Béla',
-            danceid: 'salsa',
-            level: 'kezdő',
-            length: '45 perces',
-        }, {
-            id: 2,
-            teacher: 'Helpless Jonas',
-            danceid: 'rocky',
-            level: 'kezdő',
-            length: '45 perces',
-        }];
+        const { danceCourses, djs, bands } = this.state;
         return (
             <div>
                 <FormSelectInput
@@ -84,17 +93,13 @@ class EditMusicDanceCourse extends React.Component {
                     addNew={() => this.addNewElement('danceCourse')}
                     close={this.close}
                     options={danceCourses.map(danceCourse => (
-                        <option value={danceCourse.id} key={danceCourse.id}>
-                            {danceCourse.id}
-                            {' - '}
-                            {danceCourse.teacher}
-                            {' '}
-                            {danceCourse.dance}
-                            {' '}
-                            {danceCourse.level}
-                            {' '}
-                            {danceCourse.length}
-                        </option>))}
+                        <option
+                            value={danceCourse.id}
+                            key={danceCourse.id}
+                        >
+                            {`${danceCourse.id} ${this.getTeacherName(danceCourse.dance_teacher_id)}`}
+                        </option>
+                    ))}
                 />
                 <FormDanceCourse
                     selected={addSelected}

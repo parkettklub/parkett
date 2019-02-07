@@ -1,5 +1,6 @@
 import React from 'react';
-import Plakat01 from './Plakat.png';
+import PropTypes from 'prop-types';
+import { fetchPost, fetchPut } from './FetchFunctions';
 import styles from './Form.module.css';
 import FormSelect from './FormSelect';
 import EditTitleAndDate from './EditTitleAndDate';
@@ -12,15 +13,15 @@ class EditEventParty extends React.Component {
     constructor() {
         super();
         this.state = {
-            title: 'Élőzenés Salsa Party: Cuba',
-            photo: Plakat01,
-            startDate: '2018-01-12T18:00',
-            endDate: '2018-01-13T01:00',
-            program: '19:30 kapunyitás\n20:00 - 21:00 kezdő rocky tánctanítás\n21:00 - 23:00 élőben zenél a Pedrofon zenekar\n23:00 - 02:00 DJ-s buli Kenyeres Tamással',
-            content: 'Még érezni az előző est hangulatát és máris itt a következő, egyben a félévi utolsó bulink. Várunk titeket egy fergeteges Rock ‘N’ Roll Partyra április 17-én.',
-            facebookEvent: 'https://www.facebook.com/events/1598719006921910/',
-            spot: 'https://www.facebook.com/events/1598719006921910/',
-            bss: 'https://www.facebook.com/events/1598719006921910/',
+            title: '',
+            photo: '',
+            startDate: '',
+            endDate: '',
+            program: '',
+            content: '',
+            facebookEvent: '',
+            spot: '',
+            bss: '',
             danceCourseid: 1,
             bandids: [
                 1,
@@ -33,6 +34,35 @@ class EditEventParty extends React.Component {
             selectedForm: 'title',
             addSelected: null,
         };
+    }
+
+    componentDidMount() {
+        const { selectedObject } = this.props;
+        this.setObject(selectedObject);
+    }
+
+    componentWillReceiveProps({ selectedObject }) {
+        this.setObject(selectedObject);
+    }
+
+    setObject = (selectedObject) => {
+        if (selectedObject.id === -1) {
+            this.setState({
+                id: -1,
+            });
+        } else {
+            const startDate = new Date(selectedObject.start_date);
+            const startDateString = startDate.toISOString().slice(0, 16);
+            const endDate = new Date(selectedObject.end_date);
+            const endDateString = endDate.toISOString().slice(0, 16);
+            this.setState({
+                startDate: startDateString,
+                endDate: endDateString,
+                facebookEvent: selectedObject.facebook_event,
+                danceCourseid: selectedObject.dance_course_id,
+                ...selectedObject,
+            });
+        }
     }
 
     handleMultiple = (event) => {
@@ -52,14 +82,83 @@ class EditEventParty extends React.Component {
         this.setState({ [name]: event.target.value });
     }
 
-    handleSubmit = (event) => {
-        event.preventDefault();
-        this.setState({});
-    }
-
     changeTab = (tabName) => {
         this.setState({
             selectedForm: tabName,
+        });
+    }
+
+    handleSubmit = (event) => {
+        event.preventDefault();
+        const { id } = this.state;
+        if (id === -1) {
+            this.addParty();
+        } else {
+            this.updateParty();
+        }
+    }
+
+    addParty = () => {
+        const {
+            title,
+            photo,
+            startDate,
+            endDate,
+            program,
+            content,
+            facebookEvent,
+            spot,
+            bss,
+            danceCourseid,
+        } = this.state;
+        const party = {
+            title,
+            photo,
+            start_date: startDate,
+            end_date: endDate,
+            program,
+            content,
+            facebook_event: facebookEvent,
+            spot,
+            bss,
+            dance_course_id: danceCourseid,
+        };
+        fetchPost('parties', party).then(() => {
+            const { fetchFunction } = this.props;
+            fetchFunction();
+        });
+    }
+
+    updateParty = () => {
+        const {
+            id,
+            title,
+            photo,
+            startDate,
+            endDate,
+            program,
+            content,
+            facebookEvent,
+            spot,
+            bss,
+            danceCourseid,
+        } = this.state;
+        const party = {
+            id,
+            title,
+            photo,
+            start_date: startDate,
+            end_date: endDate,
+            program,
+            content,
+            facebook_event: facebookEvent,
+            spot,
+            bss,
+            dance_course_id: danceCourseid,
+        };
+        fetchPut('parties', party, id).then(() => {
+            const { fetchFunction } = this.props;
+            fetchFunction();
         });
     }
 
@@ -138,5 +237,17 @@ class EditEventParty extends React.Component {
         );
     }
 }
+
+EditEventParty.propTypes = {
+    selectedObject: PropTypes.instanceOf(Object).isRequired,
+    selected: PropTypes.string,
+    title: PropTypes.string,
+    fetchFunction: PropTypes.func.isRequired,
+};
+
+EditEventParty.defaultProps = {
+    selected: '',
+    title: '',
+};
 
 export default EditEventParty;

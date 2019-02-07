@@ -56,12 +56,13 @@ class EditEvents extends React.Component {
     selectParty = (id) => {
         const { parties } = this.state;
         const selected = parties.find(dance => dance.id === id);
+        console.log(selected);
         this.setState({
             selectedId: `P${id}`,
             selectedObject: (
                 <EditEventParty
                     selectedObject={selected}
-                    fetchFunction={this.fetchDances}
+                    fetchFunction={this.fetchParties}
                 />
             ),
         });
@@ -81,16 +82,25 @@ class EditEvents extends React.Component {
     }
 
     selectWorkshop = (id) => {
+        const { workshops } = this.state;
+        const selected = workshops.find(article => article.id === id);
         this.setState({
             selectedId: `W${id}`,
-            selectedObject: (<EditEventWorkshop />),
+            selectedObject: (
+                <EditEventWorkshop
+                    selectedObject={selected}
+                    fetchFunction={this.fetchWorkshops}
+                />),
         });
     }
 
     createParty = () => {
         this.setState({
             selectedId: '',
-            selectedObject: (<EditEventParty />),
+            selectedObject: (<EditEventParty
+                selectedObject={{ id: -1 }}
+                fetchFunction={this.fetchParties}
+            />),
         });
     }
 
@@ -107,7 +117,10 @@ class EditEvents extends React.Component {
     createWorkshop = () => {
         this.setState({
             selectedId: '',
-            selectedObject: (<EditEventWorkshop />),
+            selectedObject: (<EditEventWorkshop
+                selectedObject={{ id: -1 }}
+                fetchFunction={this.fetchWorkshops}
+            />),
         });
     }
 

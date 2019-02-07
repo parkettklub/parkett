@@ -34,10 +34,10 @@ class FormTeacher extends React.Component {
     }
 
     addTeacher = () => {
-        const { name, content } = this.state;
+        const { name, url } = this.state;
         const teacher = {
             name,
-            content,
+            url,
         };
         fetchPost('dance_teachers', teacher).then(() => {
             const { fetchFunction } = this.props;
@@ -46,11 +46,11 @@ class FormTeacher extends React.Component {
     }
 
     updateTeacher = () => {
-        const { id, name, content } = this.state;
+        const { id, name, url } = this.state;
         const teacher = {
             id,
             name,
-            content,
+            url,
         };
         fetchPut('dance_teachers', teacher, id).then(() => {
             const { fetchFunction } = this.props;

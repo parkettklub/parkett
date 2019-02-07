@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { fetchPost, fetchPut } from './FetchFunctions';
-import Plakat01 from './Plakat.png';
 import styles from './Form.module.css';
 import FormSelect from './FormSelect';
 import EditArticleTitle from './EditArticleTitle';

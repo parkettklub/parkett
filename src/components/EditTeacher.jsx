@@ -16,11 +16,11 @@ class EditTeacher extends React.Component {
     }
 
     componentDidMount() {
-        this.createTeacer();
+        this.createTeacher();
         this.fetchTeachers();
     }
 
-    createTeacer = () => {
+    createTeacher = () => {
         this.setState({
             selectedId: null,
             selectedObject: (
@@ -28,7 +28,7 @@ class EditTeacher extends React.Component {
                     selectedObject={{
                         id: -1,
                     }}
-                    fetchFunction={this.fetchDJs}
+                    fetchFunction={this.fetchTeachers}
                 />),
         });
     }
@@ -42,7 +42,7 @@ class EditTeacher extends React.Component {
             selectedObject: (
                 <FormTeacher
                     selectedObject={selected}
-                    fetchFunction={this.fetchDJs}
+                    fetchFunction={this.fetchTeachers}
                 />
             ),
         });
