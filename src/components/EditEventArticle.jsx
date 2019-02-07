@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { fetchPost, fetchPut } from './FetchFunctions';
+import { dateToInput } from './DateFunctions';
 import styles from './Form.module.css';
 import FormSelect from './FormSelect';
 import EditArticleTitle from './EditArticleTitle';
@@ -34,7 +35,7 @@ class EditEventArticle extends React.Component {
             });
         } else {
             const date = new Date(selectedObject.published_at);
-            const dateString = date.toISOString().slice(0, 16);
+            const dateString = dateToInput(date);
             this.setState({
                 publishedAt: dateString,
                 ...selectedObject,

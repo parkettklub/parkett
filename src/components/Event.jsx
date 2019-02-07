@@ -5,7 +5,7 @@ import Card from './Card';
 import styles from './EventList.module.css';
 
 function EventSummary({
-    formlink, music, startDate, facebook, id, onClick, poster, title, old,
+    formlink, music, startDate, facebook_event, id, onClick, photo, title, old,
 }) {
     const detailsrows = [];
     if (formlink) {
@@ -31,10 +31,10 @@ function EventSummary({
     }
 
     const facebookLink = [];
-    if (facebook) {
+    if (facebook_event) {
         facebookLink.push(
             <a
-                href={facebook}
+                href={facebook_event}
                 target="_blank"
                 rel="noopener noreferrer"
                 key="FacebookLink"
@@ -57,7 +57,7 @@ function EventSummary({
             <Card>
                 <div className={styles.grid}>
                     <div className={styles.posterCropper}>
-                        <img alt="" src={poster} />
+                        <img alt="" src={photo} />
                     </div>
                     <div className={styles.details}>
                         <div className={styles.title}>{title}</div>
@@ -74,15 +74,24 @@ function EventSummary({
 }
 
 EventSummary.propTypes = {
-    formlink: PropTypes.string.isRequired,
-    music: PropTypes.string.isRequired,
+    formlink: PropTypes.string,
+    music: PropTypes.string,
     startDate: PropTypes.string.isRequired,
-    facebook: PropTypes.string.isRequired,
+    facebook_event: PropTypes.string,
     id: PropTypes.number.isRequired,
     onClick: PropTypes.func.isRequired,
-    poster: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
-    old: PropTypes.bool.isRequired,
+    photo: PropTypes.string,
+    title: PropTypes.string,
+    old: PropTypes.bool,
+};
+
+EventSummary.defaultProps = {
+    formlink: '',
+    music: '',
+    facebook_event: '',
+    photo: '',
+    title: '',
+    old: false,
 };
 
 export default EventSummary;

@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { fetchPost, fetchPut } from './FetchFunctions';
+import { dateToInput } from './DateFunctions';
 import styles from './Form.module.css';
 import FormSelect from './FormSelect';
 import EditTitleAndDate from './EditTitleAndDate';
@@ -52,9 +53,9 @@ class EditEventParty extends React.Component {
             });
         } else {
             const startDate = new Date(selectedObject.start_date);
-            const startDateString = startDate.toISOString().slice(0, 16);
+            const startDateString = dateToInput(startDate);
             const endDate = new Date(selectedObject.end_date);
-            const endDateString = endDate.toISOString().slice(0, 16);
+            const endDateString = dateToInput(endDate);
             this.setState({
                 startDate: startDateString,
                 endDate: endDateString,
