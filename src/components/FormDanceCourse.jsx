@@ -33,6 +33,22 @@ class FormDanceCourse extends React.Component {
         });
     }
 
+    fetchDances = () => {
+        fetchAll('dances').then(
+            response => response.json(),
+        ).then((myJson) => {
+            this.setState({ dances: myJson });
+        });
+    }
+
+    fetchDanceTeachers = () => {
+        fetchAll('dance_teachers').then(
+            response => response.json(),
+        ).then((myJson) => {
+            this.setState({ dance_teachers: myJson });
+        });
+    }
+
     addNewElement = (name) => {
         this.setState({ addSelected: name });
     }
@@ -56,23 +72,6 @@ class FormDanceCourse extends React.Component {
         }
     }
 
-    addDanceCourse() {
-        const {
-            dance_id, dance_teacher_id, level, length,
-        } = this.state;
-        const danceCourse = {
-            level,
-            length,
-            dance_id: parseInt(dance_id),
-            dance_teacher_id: parseInt(dance_teacher_id),
-        };
-        console.log(danceCourse);
-        fetchPost('dance_courses', danceCourse).then(() => {
-            const { fetchFunction } = this.props;
-            fetchFunction();
-        });
-    }
-
     updateDanceCourse = () => {
         const {
             id, dance_id, dance_teacher_id, level, length,
@@ -90,19 +89,20 @@ class FormDanceCourse extends React.Component {
         });
     }
 
-    fetchDances = () => {
-        fetchAll('dances').then(
-            response => response.json(),
-        ).then((myJson) => {
-            this.setState({ dances: myJson });
-        });
-    }
-
-    fetchDanceTeachers = () => {
-        fetchAll('dance_teachers').then(
-            response => response.json(),
-        ).then((myJson) => {
-            this.setState({ dance_teachers: myJson });
+    addDanceCourse() {
+        const {
+            dance_id, dance_teacher_id, level, length,
+        } = this.state;
+        const danceCourse = {
+            level,
+            length,
+            dance_id: parseInt(dance_id),
+            dance_teacher_id: parseInt(dance_teacher_id),
+        };
+        console.log(danceCourse);
+        fetchPost('dance_courses', danceCourse).then(() => {
+            const { fetchFunction } = this.props;
+            fetchFunction();
         });
     }
 
@@ -131,7 +131,7 @@ class FormDanceCourse extends React.Component {
                                     {dance.name}
                                 </option>
                             ))}
-                            addNew={() => this.addNewElement('dance_id')}
+                            addNew={() => this.addNewElement('dance')}
                             close={() => this.close()}
                         />
                         <FormDance
@@ -140,6 +140,7 @@ class FormDanceCourse extends React.Component {
                             selectedObject={{
                                 id: -1,
                             }}
+                            fetchFunction={this.fetchDances}
                         />
                         <FormSimpleInput
                             selected={selected}
@@ -172,7 +173,7 @@ class FormDanceCourse extends React.Component {
                                     {' - '}
                                     {teacher.name}
                                 </option>))}
-                            addNew={() => this.addNewElement('dance_teacher_id')}
+                            addNew={() => this.addNewElement('teacher')}
                             close={() => this.close()}
                         />
                         <FormTeacher
@@ -181,6 +182,7 @@ class FormDanceCourse extends React.Component {
                             selectedObject={{
                                 id: -1,
                             }}
+                            fetchFunction={this.fetchDanceTeachers}
                         />
                         <div className={styles.formgroup}>
                             <input type="submit" value={isNew ? 'Tanítás hozzáadása' : 'Tanítás módosítása'} className={styles.submit} />

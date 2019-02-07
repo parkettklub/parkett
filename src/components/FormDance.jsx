@@ -26,6 +26,7 @@ class FormDance extends React.Component {
 
     componentWillReceiveProps({ selectedObject }) {
         this.setState({
+            dance_type_id: selectedObject.dance_type.id,
             ...selectedObject,
         });
     }
@@ -43,8 +44,7 @@ class FormDance extends React.Component {
         this.setState({ [name]: event.target.value });
     }
 
-    handleSubmit = (event) => {
-        event.preventDefault();
+    uploadChanges = () => {
         const { id } = this.state;
         if (id === -1) {
             this.addDance();
@@ -60,7 +60,6 @@ class FormDance extends React.Component {
             content,
             dance_type_id: parseInt(dance_type_id),
         };
-        console.log(dance);
         fetchPost('dances', dance).then(() => {
             const { fetchFunction } = this.props;
             fetchFunction();
@@ -75,7 +74,7 @@ class FormDance extends React.Component {
             id,
             name,
             content,
-            dance_type_id,
+            dance_type_id: parseInt(dance_type_id),
         };
         fetchPut('dances', dance, id).then(() => {
             const { fetchFunction } = this.props;
@@ -97,63 +96,63 @@ class FormDance extends React.Component {
         const isNew = id === -1;
         return (
             <div className={styles.main}>
-                <form onSubmit={this.handleSubmit}>
-                    <div className={styles.formgroup} hidden={selected !== title}>
-                        {isNew ? 'Új Tánc adatai:' : 'Tánc adatai:'}
-                        <FormSimpleInput
-                            selectedForm={selected}
-                            form={title}
-                            handleChange={this.handleChange}
-                            value={name}
-                            name="name"
-                            example="salsa"
-                            label="Név"
-                        />
-                        <FormTextareaInput
-                            selectedForm={selected}
-                            form={title}
-                            handleChange={this.handleChange}
-                            value={content}
-                            name="content"
-                            example="Ez a tánc a legeslegjobb"
-                            label="Leírás"
-                        />
-                        <FormSelectInput
-                            selected={selected}
-                            title={title}
-                            handleChange={this.handleChange}
-                            value={dance_type_id}
-                            name="dance_type_id"
-                            label="DanceType"
-                            options={dance_types.map(type => (
-                                <option value={type.id} key={type.id}>
-                                    {type.id}
-                                    {' - '}
-                                    {type.name}
-                                    {' - '}
-                                    {type.color}
-                                </option>
-                            ))}
-                            addNew={() => this.addNewElement('dance_type_id')}
-                            close={() => this.close()}
-                        />
-                        <FormDanceType
-                            selected={addSelected}
-                            title="dance_type_id"
-                            selectedObject={{
-                                id: -1,
-                            }}
-                            fetchFunction={this.fetchDanceTypes}
-                        />
-                        <div className={styles.formgroup}>
-                            <input
-                                type="submit"
-                                className={styles.submit}
-                                value={isNew ? 'Tánc hozzáadása' : 'Tánc módosítása'}
-                            />
-                        </div>
+                <div className={styles.formgroup} hidden={selected !== title}>
+                    {isNew ? 'Új Tánc adatai:' : 'Tánc adatai:'}
+                    <FormSimpleInput
+                        selectedForm={selected}
+                        form={title}
+                        handleChange={this.handleChange}
+                        value={name}
+                        name="name"
+                        example="salsa"
+                        label="Név"
+                    />
+                    <FormTextareaInput
+                        selectedForm={selected}
+                        form={title}
+                        handleChange={this.handleChange}
+                        value={content}
+                        name="content"
+                        example="Ez a tánc a legeslegjobb"
+                        label="Leírás"
+                    />
+                    <FormSelectInput
+                        selected={selected}
+                        title={title}
+                        handleChange={this.handleChange}
+                        value={dance_type_id}
+                        name="dance_type_id"
+                        label="DanceType"
+                        options={dance_types.map(type => (
+                            <option value={type.id} key={type.id}>
+                                {type.id}
+                                {' - '}
+                                {type.name}
+                                {' - '}
+                                {type.color}
+                            </option>
+                        ))}
+                        addNew={() => this.addNewElement('dance_type_id')}
+                        close={() => this.close()}
+                    />
+                    <FormDanceType
+                        selected={addSelected}
+                        title="dance_type_id"
+                        selectedObject={{
+                            id: -1,
+                        }}
+                        fetchFunction={this.fetchDanceTypes}
+                    />
+                    <div className={styles.formgroup}>
+                        <button
+                            onClick={this.uploadChanges}
+                            type="submit"
+                            className={styles.submit}
+                        >
+                            {isNew ? 'Tánc hozzáadása' : 'Tánc módosítása'}
+                        </button>
                     </div>
-                </form>
+                </div>
             </div>
         );
     }

@@ -50,8 +50,7 @@ class FormDanceType extends React.Component {
         this.setState({ [name]: event.target.value });
     }
 
-    handleSubmit = (event) => {
-        event.preventDefault();
+    uploadChanges = () => {
         const { id } = this.state;
         if (id === -1) {
             this.addDanceType();
@@ -94,41 +93,41 @@ class FormDanceType extends React.Component {
         const isNew = id === -1;
         return (
             <div className={styles.main}>
-                <form onSubmit={this.handleSubmit}>
-                    <div className={styles.formgroup} hidden={selected !== title}>
-                        {isNew ? 'Új Dance type adatai:' : 'Dance type adatai:'}
-                        <FormSimpleInput
-                            selected={selected}
-                            title={title}
-                            handleChange={this.handleChange}
-                            value={name}
-                            name="name"
-                            example="DJ Eddy"
-                            label="Név"
-                        />
-                        <FormSimpleInput
-                            selected={selected}
-                            title={title}
-                            handleChange={this.handleChange}
-                            value={color}
-                            name="color"
-                            example="#FFFFFF"
-                            label="Szín"
-                        />
-                        <div className={styles.formgroup}>
-                            <input type="file" onChange={this.fileSelectedHandler} />
-                            <button onClick={this.fileUploadHandler}>Uppload</button>
-                            <img src={this.state.src} />
-                        </div>
-                        <div className={styles.formgroup}>
-                            <input
-                                type="submit"
-                                value={isNew ? 'Dance type hozzáadása' : 'Dance type módosítása'}
-                                className={styles.submit}
-                            />
-                        </div>
+                <div className={styles.formgroup} hidden={selected !== title}>
+                    {isNew ? 'Új Dance type adatai:' : 'Dance type adatai:'}
+                    <FormSimpleInput
+                        selected={selected}
+                        title={title}
+                        handleChange={this.handleChange}
+                        value={name}
+                        name="name"
+                        example="DJ Eddy"
+                        label="Név"
+                    />
+                    <FormSimpleInput
+                        selected={selected}
+                        title={title}
+                        handleChange={this.handleChange}
+                        value={color}
+                        name="color"
+                        example="#FFFFFF"
+                        label="Szín"
+                    />
+                    <div className={styles.formgroup}>
+                        <input type="file" onChange={this.fileSelectedHandler} />
+                        <button onClick={this.fileUploadHandler}>Uppload</button>
+                        <img src={this.state.src} />
                     </div>
-                </form>
+                    <div className={styles.formgroup}>
+                        <button
+                            onClick={this.uploadChanges}
+                            type="submit"
+                            className={styles.submit}
+                        >
+                            {isNew ? 'Dance type hozzáadása' : 'Dance type módosítása'}
+                        </button>
+                    </div>
+                </div>
             </div>
         );
     }
