@@ -167,7 +167,7 @@ class EventList extends React.Component {
                         <EventSummary
                             {...event}
                             key={event.complexId}
-                            startDate={event.start_date}
+                            start_date={event.start_date}
                         />
                     ))}
                     {middleMan}
@@ -180,7 +180,7 @@ class EventList extends React.Component {
                         <EventSummary
                             old
                             {...event}
-                            startDate={event.start_date}
+                            start_date={event.start_date}
                             key={event.complexId}
                         />
                     ))}

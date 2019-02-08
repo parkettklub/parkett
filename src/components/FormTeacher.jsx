@@ -33,25 +33,14 @@ class FormTeacher extends React.Component {
     }
 
     addTeacher = () => {
-        const { name, url } = this.state;
-        const teacher = {
-            name,
-            url,
-        };
-        fetchPost('dance_teachers', teacher).then(() => {
+        fetchPost('dance_teachers', this.state).then(() => {
             const { fetchFunction } = this.props;
             fetchFunction();
         });
     }
 
     updateTeacher = () => {
-        const { id, name, url } = this.state;
-        const teacher = {
-            id,
-            name,
-            url,
-        };
-        fetchPut('dance_teachers', teacher, id).then(() => {
+        fetchPut('dance_teachers', this.state).then(() => {
             const { fetchFunction } = this.props;
             fetchFunction();
         });

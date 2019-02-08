@@ -33,25 +33,14 @@ class FormDJ extends React.Component {
     }
 
     addDJ = () => {
-        const { name, content } = this.state;
-        const dj = {
-            name,
-            content,
-        };
-        fetchPost('djs', dj).then(() => {
+        fetchPost('djs', this.state).then(() => {
             const { fetchFunction } = this.props;
             fetchFunction();
         });
     }
 
     updateDJ = () => {
-        const { id, name, content } = this.state;
-        const dj = {
-            id,
-            name,
-            content,
-        };
-        fetchPut('djs', dj, id).then(() => {
+        fetchPut('djs', this.state).then(() => {
             const { fetchFunction } = this.props;
             fetchFunction();
         });

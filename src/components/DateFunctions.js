@@ -9,3 +9,14 @@ export function dateToString(date) {
 export function dateToInput(date) {
     return date.toISOString().slice(0, 16);
 }
+
+export function fetchDateToInput(dateString) {
+    const date = new Date(dateString);
+    return dateToInput(date);
+}
+
+export function dateToShortString(date) {
+    if (!date) return '';
+    const dates = date.split('T');
+    return dates[0];
+}

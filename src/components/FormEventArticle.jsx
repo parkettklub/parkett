@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { fetchPost, fetchPut } from './FetchFunctions';
-import { dateToInput } from './DateFunctions';
+import { fetchDateToInput } from './DateFunctions';
 import styles from './Form.module.css';
 import SubFormSelect from './SubFormSelect';
 import SubFormArticle from './SubFormArticle';
@@ -13,7 +13,7 @@ class FormEventArticle extends React.Component {
         this.state = {
             title: '',
             photo: '',
-            publishedAt: '',
+            published_at: '',
             content: '',
             selectedForm: 'title',
         };
@@ -34,11 +34,9 @@ class FormEventArticle extends React.Component {
                 id: -1,
             });
         } else {
-            const date = new Date(selectedObject.published_at);
-            const dateString = dateToInput(date);
             this.setState({
-                publishedAt: dateString,
                 ...selectedObject,
+                published_at: fetchDateToInput(selectedObject.published_at),
             });
         }
     }
@@ -58,33 +56,14 @@ class FormEventArticle extends React.Component {
     }
 
     addArticle = () => {
-        const {
-            title, content, publishedAt, photo,
-        } = this.state;
-        const article = {
-            title,
-            content,
-            published_at: publishedAt,
-            photo,
-        };
-        fetchPost('articles', article).then(() => {
+        fetchPost('articles', this.state).then(() => {
             const { fetchFunction } = this.props;
             fetchFunction();
         });
     }
 
     updateArticle = () => {
-        const {
-            id, title, content, publishedAt, photo,
-        } = this.state;
-        const article = {
-            id,
-            title,
-            content,
-            published_at: publishedAt,
-            photo,
-        };
-        fetchPut('articles', article, id).then(() => {
+        fetchPut('articles', this.state).then(() => {
             const { fetchFunction } = this.props;
             fetchFunction();
         });

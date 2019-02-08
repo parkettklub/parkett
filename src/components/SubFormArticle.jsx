@@ -6,7 +6,7 @@ import InputFormTextarea from './InputFormTextarea';
 
 function SubFormArticle(props) {
     const {
-        selectedForm, form, handleChange, title, publishedAt, content,
+        selectedForm, form, handleChange, title, published_at, content,
     } = props;
     return (
         <div>
@@ -23,8 +23,8 @@ function SubFormArticle(props) {
                 selectedForm={selectedForm}
                 form={form}
                 handleChange={handleChange}
-                value={publishedAt}
-                name="publishedAt"
+                value={published_at}
+                name="published_at"
                 example="2018. 01. 12 18:00"
                 label="Időpont"
             />
@@ -45,7 +45,7 @@ SubFormArticle.propTypes = {
     selectedForm: PropTypes.string,
     title: PropTypes.string,
     form: PropTypes.string,
-    publishedAt: PropTypes.string.isRequired,
+    published_at: PropTypes.string.isRequired,
     content: PropTypes.string,
     handleChange: PropTypes.func.isRequired,
 };

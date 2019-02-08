@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './Editor.module.css';
+import { dateToShortString } from './DateFunctions';
 
 function SelectableElement({
-    title, startDate, onClick, selected,
+    title, start_date, onClick, selected, published_at,
 }) {
     return (
         <div
@@ -13,23 +14,24 @@ function SelectableElement({
             tabIndex={0}
             onKeyDown={() => { }}
         >
-            {startDate}
-            {title}
+            {`${dateToShortString(start_date)}${dateToShortString(published_at)} : ${title}`}
         </div>
     );
 }
 
 SelectableElement.propTypes = {
     title: PropTypes.string,
-    startDate: PropTypes.string,
+    start_date: PropTypes.string,
     onClick: PropTypes.func.isRequired,
     selected: PropTypes.bool,
+    published_at: PropTypes.string,
 };
 
 SelectableElement.defaultProps = {
-    startDate: '',
+    start_date: '',
     title: '',
     selected: false,
-}
+    published_at: '',
+};
 
 export default SelectableElement;

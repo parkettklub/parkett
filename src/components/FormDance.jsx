@@ -56,10 +56,9 @@ class FormDance extends React.Component {
     }
 
     addDance = () => {
-        const { name, content, dance_type_id } = this.state;
+        const { dance_type_id } = this.state;
         const dance = {
-            name,
-            content,
+            ...this.state,
             dance_type_id: parseInt(dance_type_id, 10),
         };
         fetchPost('dances', dance).then(() => {
@@ -70,15 +69,13 @@ class FormDance extends React.Component {
 
     updateDance = () => {
         const {
-            id, name, content, dance_type_id,
+            dance_type_id,
         } = this.state;
         const dance = {
-            id,
-            name,
-            content,
+            ...this.state,
             dance_type_id: parseInt(dance_type_id, 10),
         };
-        fetchPut('dances', dance, id).then(() => {
+        fetchPut('dances', dance).then(() => {
             const { fetchFunction } = this.props;
             fetchFunction();
         });

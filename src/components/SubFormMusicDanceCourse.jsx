@@ -74,7 +74,7 @@ class SubFormMusicDanceCourse extends React.Component {
 
     render() {
         const {
-            selectedForm, form, handleChange, danceCourseid, handleMultiple, bandids, djids,
+            selectedForm, form, handleChange, dance_course_id, handleMultiple, bandids, djids,
         } = this.props;
         const {
             addSelected,
@@ -86,8 +86,8 @@ class SubFormMusicDanceCourse extends React.Component {
                     selectedForm={selectedForm}
                     form={form}
                     handleChange={handleChange}
-                    value={danceCourseid}
-                    name="danceCourseid"
+                    value={dance_course_id}
+                    name="dance_course_id"
                     label="Tanítás"
                     addNew={() => this.addNewElement('danceCourse')}
                     close={this.close}
@@ -168,7 +168,7 @@ class SubFormMusicDanceCourse extends React.Component {
 SubFormMusicDanceCourse.propTypes = {
     selectedForm: PropTypes.string,
     form: PropTypes.string,
-    danceCourseid: PropTypes.number,
+    dance_course_id: PropTypes.number,
     djids: PropTypes.instanceOf(Array),
     bandids: PropTypes.instanceOf(Array),
     handleChange: PropTypes.func.isRequired,
@@ -178,7 +178,7 @@ SubFormMusicDanceCourse.propTypes = {
 SubFormMusicDanceCourse.defaultProps = {
     selectedForm: '',
     form: '',
-    danceCourseid: null,
+    dance_course_id: null,
     djids: [],
     bandids: [],
 };

@@ -5,7 +5,7 @@ import InputFormDate from './InputFormDate';
 
 function SubFormTitleAndDate(props) {
     const {
-        selectedForm, form, handleChange, title, startDate, endDate,
+        selectedForm, form, handleChange, title, start_date, end_date,
     } = props;
     return (
         <div>
@@ -22,8 +22,8 @@ function SubFormTitleAndDate(props) {
                 selectedForm={selectedForm}
                 handleChange={handleChange}
                 form={form}
-                value={startDate}
-                name="startDate"
+                value={start_date}
+                name="start_date"
                 example="2018. 01. 12 18:00"
                 label="Kezdés"
             />
@@ -31,8 +31,8 @@ function SubFormTitleAndDate(props) {
                 selectedForm={selectedForm}
                 handleChange={handleChange}
                 form={form}
-                value={endDate}
-                name="endDate"
+                value={end_date}
+                name="end_date"
                 example="2018. 01. 13 01:00"
                 label="Vége"
             />
@@ -44,8 +44,8 @@ SubFormTitleAndDate.propTypes = {
     selectedForm: PropTypes.string,
     title: PropTypes.string,
     form: PropTypes.string,
-    startDate: PropTypes.string.isRequired,
-    endDate: PropTypes.string.isRequired,
+    start_date: PropTypes.string.isRequired,
+    end_date: PropTypes.string.isRequired,
     handleChange: PropTypes.func.isRequired,
 };
 

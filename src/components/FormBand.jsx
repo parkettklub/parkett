@@ -33,26 +33,15 @@ class FormBand extends React.Component {
     }
 
     addBand = () => {
-        const { name, url } = this.state;
-        const band = {
-            name,
-            url,
-        };
-        fetchPost('bands', band).then(() => {
-            const { fetchFunction } = this.props;
+        const { fetchFunction } = this.props;
+        fetchPost('bands', this.state).then(() => {
             fetchFunction();
         });
     }
 
     updateBand = () => {
-        const { id, name, url } = this.state;
-        const band = {
-            id,
-            name,
-            url,
-        };
-        fetchPut('bands', band, id).then(() => {
-            const { fetchFunction } = this.props;
+        const { fetchFunction } = this.props;
+        fetchPut('bands', this.state).then(() => {
             fetchFunction();
         });
     }

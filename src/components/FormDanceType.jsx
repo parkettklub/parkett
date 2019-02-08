@@ -10,13 +10,13 @@ class FormDanceType extends React.Component {
         this.state = {
             id: -1,
             selectedFile: null,
-            src: null,
+            image: null,
         };
     }
 
     componentWillReceiveProps({ selectedObject }) {
         this.setState({
-            ...selectedObject, src: selectedObject.image,
+            ...selectedObject, image: selectedObject.image,
         });
     }
 
@@ -35,7 +35,7 @@ class FormDanceType extends React.Component {
         reader.readAsDataURL(selectedFile);
         reader.onload = () => {
             this.setState({
-                src: reader.result,
+                image: reader.result,
             });
             console.log('loaded');
         };
@@ -60,29 +60,14 @@ class FormDanceType extends React.Component {
     }
 
     addDanceType = () => {
-        const { name, color, src } = this.state;
-        const dance_type = {
-            name,
-            color,
-            image: src,
-        };
-        fetchPost('dance_types', dance_type).then(() => {
+        fetchPost('dance_types', this.state).then(() => {
             const { fetchFunction } = this.props;
             fetchFunction();
         });
     }
 
     updateDanceType = () => {
-        const {
-            id, name, color, src,
-        } = this.state;
-        const dance_type = {
-            id,
-            name,
-            color,
-            image: src,
-        };
-        fetchPut('dance_types', dance_type, id).then(() => {
+        fetchPut('dance_types', this.state).then(() => {
             const { fetchFunction } = this.props;
             fetchFunction();
         });
@@ -92,7 +77,7 @@ class FormDanceType extends React.Component {
     render() {
         const { selected, title } = this.props;
         const {
-            id, name, color, src,
+            id, name, color, image,
         } = this.state;
         const isNew = id === -1;
         return (
@@ -120,7 +105,7 @@ class FormDanceType extends React.Component {
                     <div className={styles.formgroup}>
                         <input type="file" onChange={this.fileSelectedHandler} />
                         <button onClick={this.fileUploadHandler} type="submit">Uppload</button>
-                        <img src={src} alt="" />
+                        <img src={image} alt="" />
                     </div>
                     <div className={styles.formgroup}>
                         <button

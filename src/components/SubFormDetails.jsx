@@ -5,7 +5,7 @@ import InputFormTextarea from './InputFormTextarea';
 
 function SubFormDetails(props) {
     const {
-        selectedForm, form, handleChange, content, program, facebookEvent,
+        selectedForm, form, handleChange, content, program, facebook_event,
     } = props;
     return (
         <div>
@@ -31,8 +31,8 @@ function SubFormDetails(props) {
                 selectedForm={selectedForm}
                 form={form}
                 handleChange={handleChange}
-                value={facebookEvent}
-                name="facebookEvent"
+                value={facebook_event}
+                name="facebook_event"
                 example="https://www.facebook.com/events/1598719006921910"
                 label="Facebook esemény"
             />
@@ -45,7 +45,7 @@ SubFormDetails.propTypes = {
     form: PropTypes.string,
     content: PropTypes.string,
     program: PropTypes.string,
-    facebookEvent: PropTypes.string,
+    facebook_event: PropTypes.string,
     handleChange: PropTypes.func.isRequired,
 };
 
@@ -54,7 +54,7 @@ SubFormDetails.defaultProps = {
     form: '',
     content: '',
     program: '',
-    facebookEvent: '',
+    facebook_event: '',
 };
 
 export default SubFormDetails;

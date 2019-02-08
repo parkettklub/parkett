@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { fetchPost, fetchPut } from './FetchFunctions';
-import { dateToInput } from './DateFunctions';
+import { fetchDateToInput } from './DateFunctions';
 import styles from './Form.module.css';
 import SubFormSelect from './SubFormSelect';
 import SubFormTitleAndDate from './SubFormTitleAndDate';
@@ -16,14 +16,14 @@ class FormEventParty extends React.Component {
         this.state = {
             title: '',
             photo: '',
-            startDate: '',
-            endDate: '',
+            start_date: '',
+            end_date: '',
             program: '',
             content: '',
-            facebookEvent: '',
+            facebook_event: '',
             spot: '',
             bss: '',
-            danceCourseid: 1,
+            dance_course_id: 1,
             bandids: [
                 1,
                 2,
@@ -52,16 +52,10 @@ class FormEventParty extends React.Component {
                 id: -1,
             });
         } else {
-            const startDate = new Date(selectedObject.start_date);
-            const startDateString = dateToInput(startDate);
-            const endDate = new Date(selectedObject.end_date);
-            const endDateString = dateToInput(endDate);
             this.setState({
-                startDate: startDateString,
-                endDate: endDateString,
-                facebookEvent: selectedObject.facebook_event,
-                danceCourseid: selectedObject.dance_course_id,
                 ...selectedObject,
+                start_date: fetchDateToInput(selectedObject.start_date),
+                end_date: fetchDateToInput(selectedObject.end_date),
             });
         }
     }
@@ -99,64 +93,14 @@ class FormEventParty extends React.Component {
     }
 
     addParty = () => {
-        const {
-            title,
-            photo,
-            startDate,
-            endDate,
-            program,
-            content,
-            facebookEvent,
-            spot,
-            bss,
-            danceCourseid,
-        } = this.state;
-        const party = {
-            title,
-            photo,
-            start_date: startDate,
-            end_date: endDate,
-            program,
-            content,
-            facebook_event: facebookEvent,
-            spot,
-            bss,
-            dance_course_id: danceCourseid,
-        };
-        fetchPost('parties', party).then(() => {
+        fetchPost('parties', this.state).then(() => {
             const { fetchFunction } = this.props;
             fetchFunction();
         });
     }
 
     updateParty = () => {
-        const {
-            id,
-            title,
-            photo,
-            startDate,
-            endDate,
-            program,
-            content,
-            facebookEvent,
-            spot,
-            bss,
-            danceCourseid,
-        } = this.state;
-        const party = {
-            id,
-            title,
-            photo,
-            start_date: startDate,
-            end_date: endDate,
-            program,
-            content,
-            facebook_event: facebookEvent,
-            spot,
-            bss,
-            dance_course_id: danceCourseid,
-        };
-        fetchPut('parties', party, id).then(() => {
+        fetchPut('parties', this.state).then(() => {
             const { fetchFunction } = this.props;
             fetchFunction();
         });

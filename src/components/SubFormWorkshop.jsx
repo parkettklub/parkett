@@ -57,7 +57,7 @@ class SubFormWorkshop extends React.Component {
 
     render() {
         const {
-            selectedForm, form, handleChange, dance_id, dance_teacher_id, applicationForm, party_id,
+            selectedForm, form, handleChange, dance_id, dance_teacher_id, application_form, party_id,
         } = this.props;
         const {
             addSelected,
@@ -136,8 +136,8 @@ class SubFormWorkshop extends React.Component {
                     selectedForm={selectedForm}
                     form={form}
                     handleChange={handleChange}
-                    value={applicationForm}
-                    name="applicationForm"
+                    value={application_form}
+                    name="application_form"
                     example="https://goo.gl/forms/EMAqXVoJDJQGNkeq1"
                     label="Jelentkező form"
                 />
@@ -149,7 +149,7 @@ class SubFormWorkshop extends React.Component {
 SubFormWorkshop.propTypes = {
     selectedForm: PropTypes.string,
     form: PropTypes.string,
-    applicationForm: PropTypes.string,
+    application_form: PropTypes.string,
     dance_id: PropTypes.number,
     dance_teacher_id: PropTypes.number,
     party_id: PropTypes.number,
@@ -159,7 +159,7 @@ SubFormWorkshop.propTypes = {
 SubFormWorkshop.defaultProps = {
     selectedForm: '',
     form: '',
-    applicationForm: '',
+    application_form: '',
     dance_id: null,
     dance_teacher_id: null,
     party_id: null,

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { fetchPost, fetchPut } from './FetchFunctions';
-import { dateToInput } from './DateFunctions';
+import { fetchDateToInput } from './DateFunctions';
 import styles from './Form.module.css';
 import SubFormSelect from './SubFormSelect';
 import SubFormTitleAndDate from './SubFormTitleAndDate';
@@ -16,15 +16,15 @@ class FormEventWorkshop extends React.Component {
         this.state = {
             title: '',
             photo: '',
-            startDate: '',
-            endDate: '',
+            start_date: '',
+            end_date: '',
             program: '',
             content: '',
             dance_id: 1,
             dance_teacher_id: 1,
             theme: '',
-            facebookEvent: '',
-            applicationForm: '',
+            facebook_event: '',
+            application_form: '',
             party_id: 1,
             selectedForm: 'title',
             addSelected: null,
@@ -46,16 +46,10 @@ class FormEventWorkshop extends React.Component {
                 id: -1,
             });
         } else {
-            const startDate = new Date(selectedObject.start_date);
-            const startDateString = dateToInput(startDate);
-            const endDate = new Date(selectedObject.end_date);
-            const endDateString = dateToInput(endDate);
             this.setState({
-                startDate: startDateString,
-                endDate: endDateString,
-                facebookEvent: selectedObject.facebook_event,
-                applicationForm: selectedObject.application_form,
                 ...selectedObject,
+                start_date: fetchDateToInput(selectedObject.start_date),
+                end_date: fetchDateToInput(selectedObject.end_date),
             });
         }
     }
@@ -93,72 +87,14 @@ class FormEventWorkshop extends React.Component {
     }
 
     addWorkshop = () => {
-        const {
-            title,
-            photo,
-            startDate,
-            endDate,
-            program,
-            content,
-            dance_id,
-            dance_teacher_id,
-            theme,
-            facebookEvent,
-            applicationForm,
-            party_id,
-        } = this.state;
-        const workshop = {
-            title,
-            photo,
-            start_date: startDate,
-            end_date: endDate,
-            program,
-            content,
-            dance_id,
-            dance_teacher_id,
-            theme,
-            facebook_event: facebookEvent,
-            application_form: applicationForm,
-            party_id,
-        };
-        fetchPost('workshops', workshop).then(() => {
+        fetchPost('workshops', this.state).then(() => {
             const { fetchFunction } = this.props;
             fetchFunction();
         });
     }
 
     updateWorkshop = () => {
-        const {
-            id,
-            title,
-            photo,
-            startDate,
-            endDate,
-            program,
-            content,
-            dance_id,
-            dance_teacher_id,
-            theme,
-            facebookEvent,
-            applicationForm,
-            party_id,
-        } = this.state;
-        const workshop = {
-            id,
-            title,
-            photo,
-            start_date: startDate,
-            end_date: endDate,
-            program,
-            content,
-            dance_id,
-            dance_teacher_id,
-            theme,
-            facebook_event: facebookEvent,
-            application_form: applicationForm,
-            party_id,
-        };
-        fetchPut('workshops', workshop, id).then(() => {
+        fetchPut('workshops', this.state).then(() => {
             const { fetchFunction } = this.props;
             fetchFunction();
         });

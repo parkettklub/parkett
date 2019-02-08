@@ -73,16 +73,14 @@ class FormDanceCourse extends React.Component {
 
     updateDanceCourse = () => {
         const {
-            id, dance_id, dance_teacher_id, level, length,
+            dance_id, dance_teacher_id,
         } = this.state;
         const danceCourse = {
-            id,
-            level,
-            length,
+            ...this.state,
             dance_id: parseInt(dance_id, 10),
             dance_teacher_id: parseInt(dance_teacher_id, 10),
         };
-        fetchPut('dance_courses', danceCourse, id).then(() => {
+        fetchPut('dance_courses', danceCourse).then(() => {
             const { fetchFunction } = this.props;
             fetchFunction();
         });
@@ -90,11 +88,10 @@ class FormDanceCourse extends React.Component {
 
     addDanceCourse() {
         const {
-            dance_id, dance_teacher_id, level, length,
+            dance_id, dance_teacher_id,
         } = this.state;
         const danceCourse = {
-            level,
-            length,
+            ...this.state,
             dance_id: parseInt(dance_id, 10),
             dance_teacher_id: parseInt(dance_teacher_id, 10),
         };

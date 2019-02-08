@@ -6,7 +6,7 @@ import styles from './EventList.module.css';
 import { dateToString } from './DateFunctions';
 
 function EventSummary({
-    formlink, music, startDate, facebook_event, id, onClick, photo, title, old,
+    formlink, music, start_date, facebook_event, id, onClick, photo, title, old,
 }) {
     const detailsrows = [];
     if (formlink) {
@@ -62,7 +62,7 @@ function EventSummary({
                     </div>
                     <div className={styles.details}>
                         <div className={styles.title}>{title}</div>
-                        <div>{dateToString(startDate)}</div>
+                        <div>{dateToString(start_date)}</div>
                         {detailsrows}
                     </div>
                     <div className={styles.facebook}>
@@ -77,7 +77,7 @@ function EventSummary({
 EventSummary.propTypes = {
     formlink: PropTypes.string,
     music: PropTypes.string,
-    startDate: PropTypes.string.isRequired,
+    start_date: PropTypes.string.isRequired,
     facebook_event: PropTypes.string,
     id: PropTypes.number.isRequired,
     onClick: PropTypes.func.isRequired,

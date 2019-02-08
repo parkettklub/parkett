@@ -7,17 +7,17 @@ export function fetchPost(type, element) {
         method: 'POST',
         body: JSON.stringify(element),
         headers: {
-            "Content-Type": "application/json",
+            'Content-Type': 'application/json',
         },
     });
 }
 
-export function fetchPut(type, element, id) {
-    return fetch(`http://parkett-klub.herokuapp.com/${type}/${id}`, {
+export function fetchPut(type, element) {
+    return fetch(`http://parkett-klub.herokuapp.com/${type}/${element.id}`, {
         method: 'PUT',
         body: JSON.stringify(element),
         headers: {
-            "Content-Type": "application/json",
+            'Content-Type': 'application/json',
         },
     });
 }
