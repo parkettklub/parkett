@@ -53,7 +53,7 @@ class MainEvents extends React.Component {
         fetchAll('parties').then(
             response => response.json(),
         ).then((myJson) => {
-            this.addEvents(myJson, goToParty);
+            this.addEvents('P', myJson, goToParty);
         });
     }
 
@@ -61,7 +61,7 @@ class MainEvents extends React.Component {
         fetchAll('workshops').then(
             response => response.json(),
         ).then((myJson) => {
-            this.addEvents(myJson, goToWorkshop);
+            this.addEvents('W', myJson, goToWorkshop);
         });
     }
 
@@ -69,11 +69,11 @@ class MainEvents extends React.Component {
         fetchAll('articles').then(
             response => response.json(),
         ).then((myJson) => {
-            this.addEvents(myJson, goToArticle, true);
+            this.addEvents('A', myJson, goToArticle, true);
         });
     }
 
-    addEvents = (newEvents, onClick, article = false) => {
+    addEvents = (char, newEvents, onClick, article = false) => {
         const { events } = this.state;
         let filteredEvents = newEvents.filter(
             event => new Date(article ? event.published_at : event.start_date).valueOf() - today.valueOf() >= 0,
@@ -81,13 +81,13 @@ class MainEvents extends React.Component {
         filteredEvents = filteredEvents.map(original => ({
             ...original,
             onClick: () => onClick(original.id),
-            complexId: `P${original.id}`,
+            complexId: `${char}${original.id}`,
             date: article ? original.published_at : original.start_date,
         }));
         let allEvents = events.concat(filteredEvents);
         allEvents = allEvents.sort((a, b) => {
-            const aValue = new Date(a.start_date).valueOf();
-            const bValue = new Date(b.start_date).valueOf();
+            const aValue = new Date(a.date).valueOf();
+            const bValue = new Date(b.date).valueOf();
             return Math.abs(aValue - today.valueOf())
                 - Math.abs(bValue - today.valueOf());
         });
