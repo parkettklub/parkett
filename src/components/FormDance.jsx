@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { fetchAll, fetchPost, fetchPut } from './FetchFunctions';
 import styles from './Form.module.css';
-import FormSimpleInput from './FormSimpleInput';
-import FormSelectInput from './FormSelectInput';
-import FormTextareaInput from './FormTextareaInput';
+import InputFormSimple from './InputFormSimple';
+import InputFormSelect from './InputFormSelect';
+import InputFormTextarea from './InputFormTextarea';
 import FormDanceType from './FormDanceType';
 
 class FormDance extends React.Component {
@@ -27,8 +27,8 @@ class FormDance extends React.Component {
     componentWillReceiveProps({ selectedObject }) {
         this.setState({
             dance_type_id: selectedObject.dance_type
-                ? parseInt(selectedObject.dance_type.id)
-                : parseInt(selectedObject.dance_type_id),
+                ? parseInt(selectedObject.dance_type.id, 10)
+                : parseInt(selectedObject.dance_type_id, 10),
             ...selectedObject,
         });
     }
@@ -60,7 +60,7 @@ class FormDance extends React.Component {
         const dance = {
             name,
             content,
-            dance_type_id: parseInt(dance_type_id),
+            dance_type_id: parseInt(dance_type_id, 10),
         };
         fetchPost('dances', dance).then(() => {
             const { fetchFunction } = this.props;
@@ -76,7 +76,7 @@ class FormDance extends React.Component {
             id,
             name,
             content,
-            dance_type_id: parseInt(dance_type_id),
+            dance_type_id: parseInt(dance_type_id, 10),
         };
         fetchPut('dances', dance, id).then(() => {
             const { fetchFunction } = this.props;
@@ -94,13 +94,15 @@ class FormDance extends React.Component {
 
     render() {
         const { selected, title } = this.props;
-        const { id, name, content, dance_type_id, dance_types, addSelected } = this.state;
+        const {
+            id, name, content, dance_type_id, dance_types, addSelected,
+        } = this.state;
         const isNew = id === -1;
         return (
             <div className={styles.main}>
                 <div className={styles.formgroup} hidden={selected !== title}>
                     {isNew ? 'Új Tánc adatai:' : 'Tánc adatai:'}
-                    <FormSimpleInput
+                    <InputFormSimple
                         selectedForm={selected}
                         form={title}
                         handleChange={this.handleChange}
@@ -109,7 +111,7 @@ class FormDance extends React.Component {
                         example="salsa"
                         label="Név"
                     />
-                    <FormTextareaInput
+                    <InputFormTextarea
                         selectedForm={selected}
                         form={title}
                         handleChange={this.handleChange}
@@ -118,7 +120,7 @@ class FormDance extends React.Component {
                         example="Ez a tánc a legeslegjobb"
                         label="Leírás"
                     />
-                    <FormSelectInput
+                    <InputFormSelect
                         selected={selected}
                         title={title}
                         handleChange={this.handleChange}

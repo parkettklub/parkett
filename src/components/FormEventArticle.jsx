@@ -3,11 +3,11 @@ import PropTypes from 'prop-types';
 import { fetchPost, fetchPut } from './FetchFunctions';
 import { dateToInput } from './DateFunctions';
 import styles from './Form.module.css';
-import FormSelect from './FormSelect';
-import EditArticleTitle from './EditArticleTitle';
-import EditPoster from './EditPoster';
+import SubFormSelect from './SubFormSelect';
+import SubFormArticle from './SubFormArticle';
+import SubFormPoster from './SubFormPoster';
 
-class EditEventArticle extends React.Component {
+class FormEventArticle extends React.Component {
     constructor() {
         super();
         this.state = {
@@ -101,15 +101,15 @@ class EditEventArticle extends React.Component {
             selectedForm,
         } = this.state;
         return (
-            <div className={styles.main} key="EditEventparty">
+            <div className={styles.main} key="FormEventParty">
                 <div className={styles.steps}>
-                    <FormSelect
+                    <SubFormSelect
                         title="title"
                         selected={selectedForm}
                         onClick={() => this.changeTab('title')}
                         label="Alap adatok"
                     />
-                    <FormSelect
+                    <SubFormSelect
                         title="poster"
                         selected={selectedForm}
                         onClick={() => this.changeTab('poster')}
@@ -117,12 +117,12 @@ class EditEventArticle extends React.Component {
                     />
                 </div>
                 <div className={styles.form}>
-                    <EditArticleTitle
+                    <SubFormArticle
                         form="title"
                         handleChange={this.handleChange}
                         {...this.state}
                     />
-                    <EditPoster
+                    <SubFormPoster
                         form="poster"
                         handleChange={this.handleChange}
                         {...this.state}
@@ -142,16 +142,16 @@ class EditEventArticle extends React.Component {
     }
 }
 
-EditEventArticle.propTypes = {
+FormEventArticle.propTypes = {
     selectedObject: PropTypes.instanceOf(Object).isRequired,
     selected: PropTypes.string,
     title: PropTypes.string,
     fetchFunction: PropTypes.func.isRequired,
 };
 
-EditEventArticle.defaultProps = {
+FormEventArticle.defaultProps = {
     selected: '',
     title: '',
 };
 
-export default EditEventArticle;
+export default FormEventArticle;

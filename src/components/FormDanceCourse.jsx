@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { fetchAll, fetchPost, fetchPut } from './FetchFunctions';
 import styles from './Form.module.css';
-import FormSimpleInput from './FormSimpleInput';
-import FormSelectInput from './FormSelectInput';
+import InputFormSimple from './InputFormSimple';
+import InputFormSelect from './InputFormSelect';
 import FormDance from './FormDance';
 import FormTeacher from './FormTeacher';
 
@@ -79,8 +79,8 @@ class FormDanceCourse extends React.Component {
             id,
             level,
             length,
-            dance_id: parseInt(dance_id),
-            dance_teacher_id: parseInt(dance_teacher_id),
+            dance_id: parseInt(dance_id, 10),
+            dance_teacher_id: parseInt(dance_teacher_id, 10),
         };
         fetchPut('dance_courses', danceCourse, id).then(() => {
             const { fetchFunction } = this.props;
@@ -95,8 +95,8 @@ class FormDanceCourse extends React.Component {
         const danceCourse = {
             level,
             length,
-            dance_id: parseInt(dance_id),
-            dance_teacher_id: parseInt(dance_teacher_id),
+            dance_id: parseInt(dance_id, 10),
+            dance_teacher_id: parseInt(dance_teacher_id, 10),
         };
         fetchPost('dance_courses', danceCourse).then(() => {
             const { fetchFunction } = this.props;
@@ -114,7 +114,7 @@ class FormDanceCourse extends React.Component {
             <div className={styles.main}>
                 <div className={styles.formgroup} hidden={selected !== title}>
                     {isNew ? 'Új Tanítás adatai:' : 'Tanítás adatai:'}
-                    <FormSelectInput
+                    <InputFormSelect
                         selected={selected}
                         title={title}
                         handleChange={this.handleChange}
@@ -139,7 +139,7 @@ class FormDanceCourse extends React.Component {
                         }}
                         fetchFunction={this.fetchDances}
                     />
-                    <FormSimpleInput
+                    <InputFormSimple
                         selected={selected}
                         title={title}
                         handleChange={this.handleChange}
@@ -148,7 +148,7 @@ class FormDanceCourse extends React.Component {
                         example="kezdő"
                         label="Level"
                     />
-                    <FormSimpleInput
+                    <InputFormSimple
                         selected={selected}
                         title={title}
                         handleChange={this.handleChange}
@@ -157,7 +157,7 @@ class FormDanceCourse extends React.Component {
                         example="1 óra"
                         label="Length"
                     />
-                    <FormSelectInput
+                    <InputFormSelect
                         selected={selected}
                         title={title}
                         handleChange={this.handleChange}

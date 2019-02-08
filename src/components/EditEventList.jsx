@@ -1,9 +1,9 @@
 import React from 'react';
 import styles from './Editor.module.css';
 import SelectableElement from './SelectableElement';
-import EditEventArticle from './EditEventArticle';
-import EditEventParty from './EditEventParty';
-import EditEventWorkshop from './EditEventWorkshop';
+import FormEventArticle from './FormEventArticle';
+import FormEventParty from './FormEventParty';
+import FormEventWorkshop from './FormEventWorkshop';
 import { fetchAll } from './FetchFunctions';
 import Plus from './plus.svg';
 
@@ -59,7 +59,7 @@ class EditEvents extends React.Component {
         this.setState({
             selectedId: `P${id}`,
             selectedObject: (
-                <EditEventParty
+                <FormEventParty
                     selectedObject={selected}
                     fetchFunction={this.fetchParties}
                 />
@@ -73,7 +73,7 @@ class EditEvents extends React.Component {
         this.setState({
             selectedId: `A${id}`,
             selectedObject: (
-                <EditEventArticle
+                <FormEventArticle
                     selectedObject={selected}
                     fetchFunction={this.fetchArticles}
                 />),
@@ -86,7 +86,7 @@ class EditEvents extends React.Component {
         this.setState({
             selectedId: `W${id}`,
             selectedObject: (
-                <EditEventWorkshop
+                <FormEventWorkshop
                     selectedObject={selected}
                     fetchFunction={this.fetchWorkshops}
                 />),
@@ -96,7 +96,7 @@ class EditEvents extends React.Component {
     createParty = () => {
         this.setState({
             selectedId: '',
-            selectedObject: (<EditEventParty
+            selectedObject: (<FormEventParty
                 selectedObject={{ id: -1 }}
                 fetchFunction={this.fetchParties}
             />),
@@ -106,7 +106,7 @@ class EditEvents extends React.Component {
     createArticle = () => {
         this.setState({
             selectedId: '',
-            selectedObject: (<EditEventArticle
+            selectedObject: (<FormEventArticle
                 selectedObject={{ id: -1 }}
                 fetchFunction={this.fetchArticles}
             />),
@@ -116,7 +116,7 @@ class EditEvents extends React.Component {
     createWorkshop = () => {
         this.setState({
             selectedId: '',
-            selectedObject: (<EditEventWorkshop
+            selectedObject: (<FormEventWorkshop
                 selectedObject={{ id: -1 }}
                 fetchFunction={this.fetchWorkshops}
             />),

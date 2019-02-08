@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { fetchPost, fetchPut } from './FetchFunctions';
 import styles from './Form.module.css';
-import FormSimpleInput from './FormSimpleInput';
+import InputFormSimple from './InputFormSimple';
 
 class FormTeacher extends React.Component {
     constructor() {
@@ -65,7 +65,7 @@ class FormTeacher extends React.Component {
             <div className={styles.main}>
                 <div className={styles.formgroup} hidden={selected !== title}>
                     {isNew ? 'Új Tanár adatai:' : 'Tanár adatai:'}
-                    <FormSimpleInput
+                    <InputFormSimple
                         selected={selected}
                         title={title}
                         handleChange={this.handleChange}
@@ -74,7 +74,7 @@ class FormTeacher extends React.Component {
                         example="Pedrofon"
                         label="Név"
                     />
-                    <FormSimpleInput
+                    <InputFormSimple
                         selected={selected}
                         title={title}
                         handleChange={this.handleChange}

@@ -2,17 +2,19 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './Form.module.css';
 
-function FormDateInput({
+function InputFormTextarea({
     selectedForm, form, label, name, handleChange, value, example,
 }) {
     return (
         <div className={styles.formgroup} hidden={selectedForm !== form}>
-            <label htmlFor={label}>
-                <strong>{label}</strong>
-                <input
+            <label htmlFor={name}>
+                <strong>
+                    {label}
+                </strong>
+                <textarea
                     id={name}
                     name={name}
-                    type="datetime-local"
+                    type="text"
                     className={styles.input}
                     value={value}
                     onChange={handleChange}
@@ -23,7 +25,7 @@ function FormDateInput({
     );
 }
 
-FormDateInput.propTypes = {
+InputFormTextarea.propTypes = {
     selectedForm: PropTypes.string,
     form: PropTypes.string,
     label: PropTypes.string,
@@ -33,13 +35,14 @@ FormDateInput.propTypes = {
     handleChange: PropTypes.func.isRequired,
 };
 
-FormDateInput.defaultProps = {
+InputFormTextarea.defaultProps = {
     selectedForm: '',
     form: '',
+    value: '',
     label: '',
     name: '',
-    value: '',
     example: '',
 };
 
-export default FormDateInput;
+
+export default InputFormTextarea;

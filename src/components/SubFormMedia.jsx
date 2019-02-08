@@ -1,14 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import FormSimpleInput from './FormSimpleInput';
+import InputFormSimple from './InputFormSimple';
 
-function EditMedia(props) {
+function SubFormMedia(props) {
     const {
         selectedForm, form, handleChange, spot, bss,
     } = props;
     return (
         <div>
-            <FormSimpleInput
+            <InputFormSimple
                 selectedForm={selectedForm}
                 form={form}
                 handleChange={handleChange}
@@ -17,7 +17,7 @@ function EditMedia(props) {
                 example="www.spot.bme.hu"
                 label="SPOT"
             />
-            <FormSimpleInput
+            <InputFormSimple
                 selectedForm={selectedForm}
                 form={form}
                 handleChange={handleChange}
@@ -30,7 +30,7 @@ function EditMedia(props) {
     );
 }
 
-EditMedia.propTypes = {
+SubFormMedia.propTypes = {
     selectedForm: PropTypes.string,
     form: PropTypes.string,
     spot: PropTypes.string,
@@ -38,11 +38,11 @@ EditMedia.propTypes = {
     handleChange: PropTypes.func.isRequired,
 };
 
-EditMedia.defaultProps = {
+SubFormMedia.defaultProps = {
     selectedForm: '',
     form: '',
     spot: '',
     bss: '',
 };
 
-export default EditMedia;
+export default SubFormMedia;

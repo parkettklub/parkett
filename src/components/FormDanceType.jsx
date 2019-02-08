@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { fetchPost, fetchPut } from './FetchFunctions';
 import styles from './Form.module.css';
-import FormSimpleInput from './FormSimpleInput';
+import InputFormSimple from './InputFormSimple';
 
 class FormDanceType extends React.Component {
     constructor() {
@@ -73,7 +73,9 @@ class FormDanceType extends React.Component {
     }
 
     updateDanceType = () => {
-        const { id, name, color, src } = this.state;
+        const {
+            id, name, color, src,
+        } = this.state;
         const dance_type = {
             id,
             name,
@@ -89,13 +91,15 @@ class FormDanceType extends React.Component {
 
     render() {
         const { selected, title } = this.props;
-        const { id, name, color } = this.state;
+        const {
+            id, name, color, src,
+        } = this.state;
         const isNew = id === -1;
         return (
             <div className={styles.main}>
                 <div className={styles.formgroup} hidden={selected !== title}>
                     {isNew ? 'Új Dance type adatai:' : 'Dance type adatai:'}
-                    <FormSimpleInput
+                    <InputFormSimple
                         selected={selected}
                         title={title}
                         handleChange={this.handleChange}
@@ -104,7 +108,7 @@ class FormDanceType extends React.Component {
                         example="DJ Eddy"
                         label="Név"
                     />
-                    <FormSimpleInput
+                    <InputFormSimple
                         selected={selected}
                         title={title}
                         handleChange={this.handleChange}
@@ -115,8 +119,8 @@ class FormDanceType extends React.Component {
                     />
                     <div className={styles.formgroup}>
                         <input type="file" onChange={this.fileSelectedHandler} />
-                        <button onClick={this.fileUploadHandler}>Uppload</button>
-                        <img src={this.state.src} />
+                        <button onClick={this.fileUploadHandler} type="submit">Uppload</button>
+                        <img src={src} alt="" />
                     </div>
                     <div className={styles.formgroup}>
                         <button

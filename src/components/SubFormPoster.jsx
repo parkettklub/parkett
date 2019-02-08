@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './Form.module.css';
 
-class EditPoster extends React.Component {
+class SubFormPoster extends React.Component {
     state = {
         selectedFile: null,
         src: null,
@@ -65,17 +65,17 @@ class EditPoster extends React.Component {
     }
 }
 
-EditPoster.propTypes = {
+SubFormPoster.propTypes = {
     selectedForm: PropTypes.string,
     form: PropTypes.string,
     photo: PropTypes.string,
     handleChange: PropTypes.func.isRequired,
 };
 
-EditPoster.defaultProps = {
+SubFormPoster.defaultProps = {
     selectedForm: '',
     form: '',
     photo: '',
 };
 
-export default EditPoster;
+export default SubFormPoster;

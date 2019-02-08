@@ -2,17 +2,17 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './Form.module.css';
 
-function FormSimpleInput({
+function InputFormDate({
     selectedForm, form, label, name, handleChange, value, example,
 }) {
     return (
         <div className={styles.formgroup} hidden={selectedForm !== form}>
-            <label htmlFor={name}>
+            <label htmlFor={label}>
                 <strong>{label}</strong>
                 <input
                     id={name}
                     name={name}
-                    type="text"
+                    type="datetime-local"
                     className={styles.input}
                     value={value}
                     onChange={handleChange}
@@ -23,7 +23,7 @@ function FormSimpleInput({
     );
 }
 
-FormSimpleInput.propTypes = {
+InputFormDate.propTypes = {
     selectedForm: PropTypes.string,
     form: PropTypes.string,
     label: PropTypes.string,
@@ -33,13 +33,13 @@ FormSimpleInput.propTypes = {
     handleChange: PropTypes.func.isRequired,
 };
 
-FormSimpleInput.defaultProps = {
+InputFormDate.defaultProps = {
     selectedForm: '',
     form: '',
-    value: '',
     label: '',
     name: '',
+    value: '',
     example: '',
 };
 
-export default FormSimpleInput;
+export default InputFormDate;

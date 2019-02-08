@@ -3,14 +3,14 @@ import PropTypes from 'prop-types';
 import { fetchPost, fetchPut } from './FetchFunctions';
 import { dateToInput } from './DateFunctions';
 import styles from './Form.module.css';
-import FormSelect from './FormSelect';
-import EditTitleAndDate from './EditTitleAndDate';
-import EditPoster from './EditPoster';
-import EditDetails from './EditDetails';
-import EditMedia from './EditMedia';
-import EditMusicDanceCourse from './EditMusicDanceCourse';
+import SubFormSelect from './SubFormSelect';
+import SubFormTitleAndDate from './SubFormTitleAndDate';
+import SubFormDetails from './SubFormDetails';
+import SubFormPoster from './SubFormPoster';
+import SubFormWorkshop from './SubFormWorkshop';
+import InputFormTextarea from './InputFormTextarea';
 
-class EditEventParty extends React.Component {
+class FormEventWorkshop extends React.Component {
     constructor() {
         super();
         this.state = {
@@ -20,18 +20,12 @@ class EditEventParty extends React.Component {
             endDate: '',
             program: '',
             content: '',
+            dance_id: 1,
+            dance_teacher_id: 1,
+            theme: '',
             facebookEvent: '',
-            spot: '',
-            bss: '',
-            danceCourseid: 1,
-            bandids: [
-                1,
-                2,
-            ],
-            djids: [
-                1,
-                3,
-            ],
+            applicationForm: '',
+            party_id: 1,
             selectedForm: 'title',
             addSelected: null,
         };
@@ -60,7 +54,7 @@ class EditEventParty extends React.Component {
                 startDate: startDateString,
                 endDate: endDateString,
                 facebookEvent: selectedObject.facebook_event,
-                danceCourseid: selectedObject.dance_course_id,
+                applicationForm: selectedObject.application_form,
                 ...selectedObject,
             });
         }
@@ -92,13 +86,13 @@ class EditEventParty extends React.Component {
     uploadChanges = () => {
         const { id } = this.state;
         if (id === -1) {
-            this.addParty();
+            this.addWorkshop();
         } else {
-            this.updateParty();
+            this.updateWorkshop();
         }
     }
 
-    addParty = () => {
+    addWorkshop = () => {
         const {
             title,
             photo,
@@ -106,30 +100,34 @@ class EditEventParty extends React.Component {
             endDate,
             program,
             content,
+            dance_id,
+            dance_teacher_id,
+            theme,
             facebookEvent,
-            spot,
-            bss,
-            danceCourseid,
+            applicationForm,
+            party_id,
         } = this.state;
-        const party = {
+        const workshop = {
             title,
             photo,
             start_date: startDate,
             end_date: endDate,
             program,
             content,
+            dance_id,
+            dance_teacher_id,
+            theme,
             facebook_event: facebookEvent,
-            spot,
-            bss,
-            dance_course_id: danceCourseid,
+            application_form: applicationForm,
+            party_id,
         };
-        fetchPost('parties', party).then(() => {
+        fetchPost('workshops', workshop).then(() => {
             const { fetchFunction } = this.props;
             fetchFunction();
         });
     }
 
-    updateParty = () => {
+    updateWorkshop = () => {
         const {
             id,
             title,
@@ -138,12 +136,14 @@ class EditEventParty extends React.Component {
             endDate,
             program,
             content,
+            dance_id,
+            dance_teacher_id,
+            theme,
             facebookEvent,
-            spot,
-            bss,
-            danceCourseid,
+            applicationForm,
+            party_id,
         } = this.state;
-        const party = {
+        const workshop = {
             id,
             title,
             photo,
@@ -151,12 +151,14 @@ class EditEventParty extends React.Component {
             end_date: endDate,
             program,
             content,
+            dance_id,
+            dance_teacher_id,
+            theme,
             facebook_event: facebookEvent,
-            spot,
-            bss,
-            dance_course_id: danceCourseid,
+            application_form: applicationForm,
+            party_id,
         };
-        fetchPut('parties', party, id).then(() => {
+        fetchPut('workshops', workshop, id).then(() => {
             const { fetchFunction } = this.props;
             fetchFunction();
         });
@@ -165,64 +167,62 @@ class EditEventParty extends React.Component {
     render() {
         const {
             selectedForm,
+            theme,
         } = this.state;
         return (
-            <div className={styles.main} key="EditEventparty">
+            <div className={styles.main} key="FormEventParty">
                 <div className={styles.steps}>
-                    <FormSelect
+                    <SubFormSelect
                         title="title"
                         selected={selectedForm}
                         onClick={() => this.changeTab('title')}
                         label="Alap adatok"
                     />
-                    <FormSelect
+                    <SubFormSelect
                         title="poster"
                         selected={selectedForm}
                         onClick={() => this.changeTab('poster')}
                         label="Plakát"
                     />
-                    <FormSelect
+                    <SubFormSelect
                         title="details"
                         selected={selectedForm}
                         onClick={() => this.changeTab('details')}
                         label="Leírás és Facebook"
                     />
-                    <FormSelect
-                        title="media"
+                    <SubFormSelect
+                        title="dance"
                         selected={selectedForm}
-                        onClick={() => this.changeTab('media')}
-                        label="SPOT és BSS"
-                    />
-                    <FormSelect
-                        title="music"
-                        selected={selectedForm}
-                        onClick={() => this.changeTab('music')}
-                        label="Zene és Tanítás"
+                        onClick={() => this.changeTab('dance')}
+                        label="Tanítás és Form"
                     />
                 </div>
                 <div className={styles.form}>
-                    <EditTitleAndDate
+                    <SubFormTitleAndDate
                         form="title"
                         handleChange={this.handleChange}
                         {...this.state}
                     />
-                    <EditDetails
+                    <SubFormDetails
                         form="details"
                         handleChange={this.handleChange}
                         {...this.state}
                     />
-                    <EditMedia
-                        form="media"
+                    <InputFormTextarea
+                        selectedForm={selectedForm}
+                        form="details"
+                        handleChange={this.handleChange}
+                        value={theme}
+                        name="theme"
+                        example="Egész hónapos tudás ..."
+                        label="Tematika:"
+                    />
+                    <SubFormWorkshop
+                        form="dance"
                         handleChange={this.handleChange}
                         {...this.state}
                     />
-                    <EditMusicDanceCourse
-                        form="music"
-                        handleChange={this.handleChange}
-                        handleMultiple={this.handleMultiple}
-                        {...this.state}
-                    />
-                    <EditPoster
+                    <SubFormPoster
                         form="poster"
                         handleChange={this.handleChange}
                         {...this.state}
@@ -242,16 +242,16 @@ class EditEventParty extends React.Component {
     }
 }
 
-EditEventParty.propTypes = {
+FormEventWorkshop.propTypes = {
     selectedObject: PropTypes.instanceOf(Object).isRequired,
     selected: PropTypes.string,
     title: PropTypes.string,
     fetchFunction: PropTypes.func.isRequired,
 };
 
-EditEventParty.defaultProps = {
+FormEventWorkshop.defaultProps = {
     selected: '',
     title: '',
 };
 
-export default EditEventParty;
+export default FormEventWorkshop;

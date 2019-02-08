@@ -1,16 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import FormSimpleInput from './FormSimpleInput';
-import FormDateInput from './FormDateInput';
-import FormTextareaInput from './FormTextareaInput';
+import InputFormSimple from './InputFormSimple';
+import InputFormDate from './InputFormDate';
+import InputFormTextarea from './InputFormTextarea';
 
-function EditTitleAndDate(props) {
+function SubFormArticle(props) {
     const {
         selectedForm, form, handleChange, title, publishedAt, content,
     } = props;
     return (
         <div>
-            <FormSimpleInput
+            <InputFormSimple
                 selectedForm={selectedForm}
                 form={form}
                 handleChange={handleChange}
@@ -19,7 +19,7 @@ function EditTitleAndDate(props) {
                 example="Élőzenés Salsa Party: Cuba"
                 label="Cím"
             />
-            <FormDateInput
+            <InputFormDate
                 selectedForm={selectedForm}
                 form={form}
                 handleChange={handleChange}
@@ -28,7 +28,7 @@ function EditTitleAndDate(props) {
                 example="2018. 01. 12 18:00"
                 label="Időpont"
             />
-            <FormTextareaInput
+            <InputFormTextarea
                 selectedForm={selectedForm}
                 form={form}
                 handleChange={handleChange}
@@ -41,7 +41,7 @@ function EditTitleAndDate(props) {
     );
 }
 
-EditTitleAndDate.propTypes = {
+SubFormArticle.propTypes = {
     selectedForm: PropTypes.string,
     title: PropTypes.string,
     form: PropTypes.string,
@@ -50,11 +50,11 @@ EditTitleAndDate.propTypes = {
     handleChange: PropTypes.func.isRequired,
 };
 
-EditTitleAndDate.defaultProps = {
+SubFormArticle.defaultProps = {
     selectedForm: '',
     title: '',
     form: '',
     content: '',
-}
+};
 
-export default EditTitleAndDate;
+export default SubFormArticle;

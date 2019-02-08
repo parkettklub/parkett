@@ -6,13 +6,9 @@ import Services from './Services';
 import Dances from './Dances';
 import EditButton from './EditButton';
 
-function editEventsPage() {
-    window.location = '/edit-dance/';
-}
-
 const KnowledgeBaseComponent = () => (
     <div>
-        <EditButton onClick={editEventsPage} />
+        <EditButton />
         <Dances />
         <LocationAccess />
         <Attention />

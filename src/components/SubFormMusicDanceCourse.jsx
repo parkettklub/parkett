@@ -4,11 +4,10 @@ import { fetchAll } from './FetchFunctions';
 import FormDJ from './FormDJ';
 import FormBand from './FormBand';
 import FormDanceCourse from './FormDanceCourse';
-import EditDanceCourse from './EditDanceCourse';
-import FormSelectInput from './FormSelectInput';
-import FormMultipleSelectInput from './FormMultipleSelectInput';
+import InputFormSelect from './InputFormSelect';
+import InputFormMultipleSelect from './InputFormMultipleSelect';
 
-class EditMusicDanceCourse extends React.Component {
+class SubFormMusicDanceCourse extends React.Component {
     constructor() {
         super();
         this.state = {
@@ -65,12 +64,12 @@ class EditMusicDanceCourse extends React.Component {
         return dance_teacher ? dance_teacher.name : 'undifined';
     }
 
-    addNewElement(name) {
-        this.setState({ addSelected: name });
-    }
-
     close = () => {
         this.setState({ addSelected: null });
+    }
+
+    addNewElement(name) {
+        this.setState({ addSelected: name });
     }
 
     render() {
@@ -83,7 +82,7 @@ class EditMusicDanceCourse extends React.Component {
         const { danceCourses, djs, bands } = this.state;
         return (
             <div>
-                <FormSelectInput
+                <InputFormSelect
                     selectedForm={selectedForm}
                     form={form}
                     handleChange={handleChange}
@@ -109,7 +108,7 @@ class EditMusicDanceCourse extends React.Component {
                         id: -1,
                     }}
                 />
-                <FormMultipleSelectInput
+                <InputFormMultipleSelect
                     selectedForm={selectedForm}
                     form={form}
                     handleChange={handleMultiple}
@@ -135,7 +134,7 @@ class EditMusicDanceCourse extends React.Component {
                     }}
                     fetchFunction={this.fetchBands}
                 />
-                <FormMultipleSelectInput
+                <InputFormMultipleSelect
                     selectedForm={selectedForm}
                     form={form}
                     handleChange={handleMultiple}
@@ -166,7 +165,7 @@ class EditMusicDanceCourse extends React.Component {
     }
 }
 
-EditMusicDanceCourse.propTypes = {
+SubFormMusicDanceCourse.propTypes = {
     selectedForm: PropTypes.string,
     form: PropTypes.string,
     danceCourseid: PropTypes.number,
@@ -176,7 +175,7 @@ EditMusicDanceCourse.propTypes = {
     handleMultiple: PropTypes.func.isRequired,
 };
 
-EditMusicDanceCourse.defaultProps = {
+SubFormMusicDanceCourse.defaultProps = {
     selectedForm: '',
     form: '',
     danceCourseid: null,
@@ -184,4 +183,4 @@ EditMusicDanceCourse.defaultProps = {
     bandids: [],
 };
 
-export default EditMusicDanceCourse;
+export default SubFormMusicDanceCourse;

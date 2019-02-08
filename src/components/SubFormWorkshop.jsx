@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { fetchAll } from './FetchFunctions';
-import FormSimpleInput from './FormSimpleInput';
-import FormSelectInput from './FormSelectInput';
+import InputFormSimple from './InputFormSimple';
+import InputFormSelect from './InputFormSelect';
 import FormDance from './FormDance';
 import FormTeacher from './FormTeacher';
 
-class EditDanceCourseForm extends React.Component {
+class SubFormWorkshop extends React.Component {
     constructor() {
         super();
         this.state = {
@@ -65,7 +65,7 @@ class EditDanceCourseForm extends React.Component {
         const { teachers, dances, parties } = this.state;
         return (
             <div>
-                <FormSelectInput
+                <InputFormSelect
                     selectedForm={selectedForm}
                     form={form}
                     handleChange={handleChange}
@@ -90,7 +90,7 @@ class EditDanceCourseForm extends React.Component {
                     }}
                     fetchFunction={this.fetchDances}
                 />
-                <FormSelectInput
+                <InputFormSelect
                     selectedForm={selectedForm}
                     form={form}
                     handleChange={handleChange}
@@ -115,7 +115,7 @@ class EditDanceCourseForm extends React.Component {
                     }}
                     fetchFunction={this.fetchDanceTeachers}
                 />
-                <FormSelectInput
+                <InputFormSelect
                     selectedForm={selectedForm}
                     form={form}
                     handleChange={handleChange}
@@ -132,7 +132,7 @@ class EditDanceCourseForm extends React.Component {
                     addNew={() => this.addNewElement('teacher')}
                     close={() => this.close()}
                 />
-                <FormSimpleInput
+                <InputFormSimple
                     selectedForm={selectedForm}
                     form={form}
                     handleChange={handleChange}
@@ -146,21 +146,23 @@ class EditDanceCourseForm extends React.Component {
     }
 }
 
-EditDanceCourseForm.propTypes = {
+SubFormWorkshop.propTypes = {
     selectedForm: PropTypes.string,
     form: PropTypes.string,
     applicationForm: PropTypes.string,
     dance_id: PropTypes.number,
     dance_teacher_id: PropTypes.number,
+    party_id: PropTypes.number,
     handleChange: PropTypes.func.isRequired,
 };
 
-EditDanceCourseForm.defaultProps = {
+SubFormWorkshop.defaultProps = {
     selectedForm: '',
     form: '',
     applicationForm: '',
     dance_id: null,
     dance_teacher_id: null,
-}
+    party_id: null,
+};
 
-export default EditDanceCourseForm;
+export default SubFormWorkshop;

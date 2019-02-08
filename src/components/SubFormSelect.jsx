@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './Form.module.css';
 
-function FormSelect({
+function SubFormSelect({
     selected, title, label, onClick,
 }) {
     return (
@@ -18,18 +18,18 @@ function FormSelect({
     );
 }
 
-FormSelect.propTypes = {
+SubFormSelect.propTypes = {
     selected: PropTypes.string,
     title: PropTypes.string,
     label: PropTypes.string,
     onClick: PropTypes.func.isRequired,
 };
 
-FormSelect.defaultProps = {
+SubFormSelect.defaultProps = {
     selected: '',
     title: '',
     label: '',
 };
 
 
-export default FormSelect;
+export default SubFormSelect;

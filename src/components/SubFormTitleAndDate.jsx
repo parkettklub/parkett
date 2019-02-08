@@ -1,15 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import FormSimpleInput from './FormSimpleInput';
-import FormDateInput from './FormDateInput';
+import InputFormSimple from './InputFormSimple';
+import InputFormDate from './InputFormDate';
 
-function EditTitleAndDate(props) {
+function SubFormTitleAndDate(props) {
     const {
         selectedForm, form, handleChange, title, startDate, endDate,
     } = props;
     return (
         <div>
-            <FormSimpleInput
+            <InputFormSimple
                 selectedForm={selectedForm}
                 handleChange={handleChange}
                 form={form}
@@ -18,7 +18,7 @@ function EditTitleAndDate(props) {
                 example="Élőzenés Salsa Party: Cuba"
                 label="Cím"
             />
-            <FormDateInput
+            <InputFormDate
                 selectedForm={selectedForm}
                 handleChange={handleChange}
                 form={form}
@@ -27,7 +27,7 @@ function EditTitleAndDate(props) {
                 example="2018. 01. 12 18:00"
                 label="Kezdés"
             />
-            <FormDateInput
+            <InputFormDate
                 selectedForm={selectedForm}
                 handleChange={handleChange}
                 form={form}
@@ -40,7 +40,7 @@ function EditTitleAndDate(props) {
     );
 }
 
-EditTitleAndDate.propTypes = {
+SubFormTitleAndDate.propTypes = {
     selectedForm: PropTypes.string,
     title: PropTypes.string,
     form: PropTypes.string,
@@ -49,10 +49,10 @@ EditTitleAndDate.propTypes = {
     handleChange: PropTypes.func.isRequired,
 };
 
-EditTitleAndDate.defaultProps = {
+SubFormTitleAndDate.defaultProps = {
     selectedForm: '',
     form: '',
     title: '',
 };
 
-export default EditTitleAndDate;
+export default SubFormTitleAndDate;

@@ -1,12 +1,16 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import Edit from './pencil_white.svg';
 import styles from './EditButton.module.css';
 
-const KnowledgeBaseComponent = ({ onClick }) => (
+
+function editEventsPage() {
+    window.location = '/edit-dance/';
+}
+
+const KnowledgeBaseComponent = () => (
     <div
         className={styles.button}
-        onClick={onClick}
+        onClick={editEventsPage}
         role="button"
         onKeyDown={() => { }}
         tabIndex={0}
@@ -15,8 +19,4 @@ const KnowledgeBaseComponent = ({ onClick }) => (
     </div>
 );
 
-
-KnowledgeBaseComponent.propTypes = {
-    onClick: PropTypes.func.isRequired,
-};
 export default KnowledgeBaseComponent;

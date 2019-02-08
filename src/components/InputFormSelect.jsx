@@ -4,7 +4,7 @@ import styles from './Form.module.css';
 import Plus from './plus.svg';
 import Minus from './minus.svg';
 
-class FormMultipleSelectInput extends React.Component {
+class InputFormSelect extends React.Component {
     constructor() {
         super();
         this.state = {
@@ -32,7 +32,6 @@ class FormMultipleSelectInput extends React.Component {
             <div className={styles.formgroup} hidden={selectedForm !== form}>
                 <strong>{label}</strong>
                 <select
-                    multiple
                     id={name}
                     name={name}
                     value={value}
@@ -47,33 +46,36 @@ class FormMultipleSelectInput extends React.Component {
                     role="button"
                     tabIndex={0}
                 >
-                    <img alt="" src={open ? Minus : Plus} className={styles.plus} />
+                    <img
+                        alt=""
+                        src={open ? Minus : Plus}
+                        className={styles.plus}
+                    />
                 </div>
-
             </div>
         );
     }
 }
 
-FormMultipleSelectInput.propTypes = {
+InputFormSelect.propTypes = {
     selectedForm: PropTypes.string,
     form: PropTypes.string,
     label: PropTypes.string,
     name: PropTypes.string,
     handleChange: PropTypes.func.isRequired,
-    value: PropTypes.arrayOf(PropTypes.number),
+    value: PropTypes.number,
     close: PropTypes.func.isRequired,
     options: PropTypes.arrayOf(PropTypes.element),
     addNew: PropTypes.func.isRequired,
 };
 
-FormMultipleSelectInput.defaultProps = {
+InputFormSelect.defaultProps = {
     selectedForm: '',
     form: '',
     label: '',
     name: '',
-    value: [],
+    value: '',
     options: [],
 };
 
-export default FormMultipleSelectInput;
+export default InputFormSelect;

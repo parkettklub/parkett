@@ -1,15 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import FormSimpleInput from './FormSimpleInput';
-import FormTextareaInput from './FormTextareaInput';
+import InputFormSimple from './InputFormSimple';
+import InputFormTextarea from './InputFormTextarea';
 
-function EditDetails(props) {
+function SubFormDetails(props) {
     const {
         selectedForm, form, handleChange, content, program, facebookEvent,
     } = props;
     return (
         <div>
-            <FormTextareaInput
+            <InputFormTextarea
                 selectedForm={selectedForm}
                 form={form}
                 handleChange={handleChange}
@@ -18,7 +18,7 @@ function EditDetails(props) {
                 example="Még érezni az előző est hangulatát ..."
                 label="Leírás:"
             />
-            <FormTextareaInput
+            <InputFormTextarea
                 selectedForm={selectedForm}
                 form={form}
                 handleChange={handleChange}
@@ -27,7 +27,7 @@ function EditDetails(props) {
                 example="19:30 kapunyitás ..."
                 label="Program"
             />
-            <FormSimpleInput
+            <InputFormSimple
                 selectedForm={selectedForm}
                 form={form}
                 handleChange={handleChange}
@@ -40,7 +40,7 @@ function EditDetails(props) {
     );
 }
 
-EditDetails.propTypes = {
+SubFormDetails.propTypes = {
     selectedForm: PropTypes.string,
     form: PropTypes.string,
     content: PropTypes.string,
@@ -49,7 +49,7 @@ EditDetails.propTypes = {
     handleChange: PropTypes.func.isRequired,
 };
 
-EditDetails.defaultProps = {
+SubFormDetails.defaultProps = {
     selectedForm: '',
     form: '',
     content: '',
@@ -57,4 +57,4 @@ EditDetails.defaultProps = {
     facebookEvent: '',
 };
 
-export default EditDetails;
+export default SubFormDetails;
