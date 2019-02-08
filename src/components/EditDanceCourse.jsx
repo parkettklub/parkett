@@ -87,9 +87,10 @@ class EditDanceCourse extends React.Component {
                         </div>
                         {dance_courses.map(course => (
                             <SelectableElement
-                                title={`${course.id} ${this.getDanceCourseName(course.dance_teacher_id)}`}
+                                title={`${course.id} - ${this.getDanceCourseName(course.dance_teacher_id)}`}
                                 onClick={() => this.editDanceCourse(course.id)}
                                 selected={course.id === selectedId}
+                                start_date={course.updated_at}
                                 key={course.id}
                             />
                         ))}

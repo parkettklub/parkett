@@ -75,9 +75,10 @@ class EditDanceType extends React.Component {
                         {dance_types.map(
                             dance_type => (
                                 <SelectableElement
-                                    title={dance_type.name}
+                                    title={`${dance_type.id} -  ${dance_type.name}`}
                                     onClick={() => this.editDance(dance_type.id)}
                                     selected={dance_type.id === selectedId}
+                                    start_date={dance_type.updated_at}
                                     key={dance_type.id}
                                 />
                             ),

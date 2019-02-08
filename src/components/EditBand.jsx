@@ -74,7 +74,8 @@ class EditBand extends React.Component {
                         {bands.map(
                             band => (
                                 <SelectableElement
-                                    title={band.name}
+                                    title={`${band.id} - ${band.name}`}
+                                    start_date={band.updated_at}
                                     onClick={() => this.editBand(band.id)}
                                     selected={band.id === selectedId}
                                     key={band.id}

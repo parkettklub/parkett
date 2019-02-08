@@ -144,7 +144,6 @@ class EditEvents extends React.Component {
         const {
             events, selectedObject, selectedId,
         } = this.state;
-        console.log(events);
         return (
             <div className={styles.center}>
                 <div className={styles.main}>

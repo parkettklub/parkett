@@ -74,7 +74,8 @@ class EditTeacher extends React.Component {
                         </div>
                         {teachers.map(teacher => (
                             <SelectableElement
-                                title={teacher.name}
+                                title={`${teacher.id} -  ${teacher.name}`}
+                                start_date={teacher.updated_at}
                                 onClick={() => this.editTeacher(teacher.id)}
                                 selected={teacher.id === selectedId}
                                 key={teacher.id}
