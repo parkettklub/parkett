@@ -1,15 +1,11 @@
 import React from 'react';
 import OpenCloseComponent from './OpenCloseComponent';
 
-function Services() {
-    const content = [];
-    content.push(<li key="ruhatar"><strong>Ingyenes ruhatár </strong></li>);
-    content.push(<li key="italpult"><strong>Italpult kedvezményes árakkal </strong></li>);
-    return (
-        <OpenCloseComponent title="Bulin lévő szolgáltatások">
-            {content}
-        </OpenCloseComponent>
-    );
-}
+const Services = () => (
+    <OpenCloseComponent title="Bulin lévő szolgáltatások">
+        <li key="ruhatar"><strong>Ingyenes ruhatár </strong></li>
+        <li key="italpult"><strong>Italpult kedvezményes árakkal </strong></li>
+    </OpenCloseComponent>
+);
 
 export default Services;

@@ -1,6 +1,6 @@
 import React from 'react';
 import Member from './Member';
-import SocialFeed from './SocialFeed';
+import AboutUs from './AboutUs';
 import LittleMember from './LittleMember';
 import Emese from './Emese.jpg';
 import profDefault from './gergoProfile.jpg';
@@ -14,7 +14,7 @@ class Members extends React.Component {
                 id: 0,
                 name: 'Padányi Emese',
                 email: 'dorogix@gmail.com',
-                position: 'tag',
+                position: 'gazdasági felelős',
                 src: Emese,
                 description: 'Ez egy hosszú description mert ez itt hosszú Minden rendben van és a parkett klub is a legjobb',
 
@@ -181,7 +181,7 @@ class Members extends React.Component {
         const { members } = this.state;
         return (
             <div className={styles.main}>
-                <SocialFeed />
+                <AboutUs />
                 <div className={styles.people6}>
                     {members.map((member) => {
                         if (member.position !== 'öregtag') {

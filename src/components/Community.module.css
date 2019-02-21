@@ -21,7 +21,19 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: inherit;
-    width: min-content;
+    width: max-content;
+}
+
+.instagram > .description {
+    display: block;
+    color: white;
+    width: 100%;
+    max-width: 46em;
+    height: 15em;
+    text-align: center;
+    padding: 5em;
+    grid-column-start: 1;
+    grid-column-end: 4;
 }
 
 .loading {
@@ -45,15 +57,16 @@
 }
 
 .element {
-    width: 250px;
-    height: 250px;
+    text-align: center;
+    width: 15em;
+    height: 15em;
     background: black;
     overflow: hidden;
     border-radius: 4px;
     box-shadow: 4px 4px 4px rgba(0, 0, 0, .3);
 }
 
-@media only screen and (max-width: 1300px)  {
+@media only screen and (max-width: 100em)  {
     .main {
         display: block;
         width: 100%;
@@ -107,8 +120,8 @@
     color: white;
     position: relative;
     font-size: 0;
-    bottom: 10em;
-    height: 10em;
+    bottom: 12em;
+    height: 12em;
 }
 
 .element:hover .caption {
@@ -124,7 +137,7 @@
 }
 
 .instagram > .element {
-    background: green;
+    background: black;
 }
 
 .element.first {

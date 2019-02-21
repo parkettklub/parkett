@@ -33,7 +33,6 @@ Member.defaultProps = {
     name: '',
     position: '',
     description: '',
-}
-
+};
 
 export default Member;
