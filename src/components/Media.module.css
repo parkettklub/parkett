@@ -1,0 +1,47 @@
+.center {
+    display: block;
+    margin: 0 auto;
+    max-width: 70em;
+    padding: 1em;
+}
+
+.title {
+    text-align: center;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    font-size: 25px;
+    padding: 1em;
+
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 1em;
+}
+
+.spot {
+    padding: 0.5em;
+    align-content: center;
+    text-align: center;
+}
+
+.link {
+    height: 5em;
+}
+
+.link img {
+    height: 5em;
+}
+
+.link img:hover {
+    opacity: 0.5;
+}
+@media only screen and (max-width: 70em)  {
+    .center {
+        max-width: unset;
+    }
+    .grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}

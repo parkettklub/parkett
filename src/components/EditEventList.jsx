@@ -11,9 +11,6 @@ class EditEvents extends React.Component {
     constructor() {
         super();
         this.state = {
-            articles: [],
-            workshops: [],
-            parties: [],
             events: [],
             selectedId: '0',
             selectedObject: null,
