@@ -7,8 +7,6 @@ import FormEventWorkshop from './FormEventWorkshop';
 import { fetchAll } from './FetchFunctions';
 import Plus from './plus.svg';
 
-const today = new Date();
-
 class EditEvents extends React.Component {
     constructor() {
         super();
@@ -27,7 +25,11 @@ class EditEvents extends React.Component {
     }
 
     fetchEvents = () => {
-        this.setState({ events: [] });
+        this.setState({
+            events: [],
+            selectedObject: null,
+            selectedId: '0',
+        });
         this.fetchParties();
         this.fetchWorkshops();
         this.fetchArticles();
@@ -70,8 +72,7 @@ class EditEvents extends React.Component {
         allEvents = allEvents.sort((a, b) => {
             const aValue = new Date(a.date).valueOf();
             const bValue = new Date(b.date).valueOf();
-            return Math.abs(aValue - today.valueOf())
-                - Math.abs(bValue - today.valueOf());
+            return bValue - aValue;
         });
         this.setState({ events: allEvents });
     }
@@ -82,7 +83,7 @@ class EditEvents extends React.Component {
             selectedObject: (
                 <FormEventParty
                     selectedObject={selected}
-                    fetchFunction={this.fetchParties}
+                    fetchFunction={this.fetchEvents}
                 />
             ),
         });
@@ -94,7 +95,7 @@ class EditEvents extends React.Component {
             selectedObject: (
                 <FormEventArticle
                     selectedObject={selected}
-                    fetchFunction={this.fetchArticles}
+                    fetchFunction={this.fetchEvents}
                 />),
         });
     }
@@ -105,7 +106,7 @@ class EditEvents extends React.Component {
             selectedObject: (
                 <FormEventWorkshop
                     selectedObject={selected}
-                    fetchFunction={this.fetchWorkshops}
+                    fetchFunction={this.fetchEvents}
                 />),
         });
     }
@@ -115,7 +116,7 @@ class EditEvents extends React.Component {
             selectedId: '',
             selectedObject: (<FormEventParty
                 selectedObject={{ id: -1 }}
-                fetchFunction={this.fetchParties}
+                fetchFunction={this.fetchEvents}
             />),
         });
     }
@@ -125,7 +126,7 @@ class EditEvents extends React.Component {
             selectedId: '',
             selectedObject: (<FormEventArticle
                 selectedObject={{ id: -1 }}
-                fetchFunction={this.fetchArticles}
+                fetchFunction={this.fetchEvents}
             />),
         });
     }
@@ -135,7 +136,7 @@ class EditEvents extends React.Component {
             selectedId: '',
             selectedObject: (<FormEventWorkshop
                 selectedObject={{ id: -1 }}
-                fetchFunction={this.fetchWorkshops}
+                fetchFunction={this.fetchEvents}
             />),
         });
     }
