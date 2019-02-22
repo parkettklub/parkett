@@ -8,7 +8,9 @@ import EditButton from './EditButton';
 
 const KnowledgeBaseComponent = () => (
     <div>
-        <EditButton />
+        <div>
+            <EditButton />
+        </div>
         <Dances />
         <LocationAccess />
         <Attention />

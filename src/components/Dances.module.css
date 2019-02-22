@@ -37,6 +37,10 @@
     overflow:hidden;
 }
 
+.dance.open:hover {
+    cursor: pointer;
+}
+
 .dance.open {
     max-height: 30em;
     color: black;
@@ -60,4 +64,5 @@
 
 .dance:hover {
   filter: brightness(80%);
+    cursor: pointer;
 }

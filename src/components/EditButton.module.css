@@ -1,6 +1,13 @@
 .button {
     height: 2em;
     margin: 1em;
+    outline: none;
+    width: max-content;
+}
+
+.button:hover {
+    cursor: pointer;
+    opacity: 0.5;
 }
  
 .button img {
