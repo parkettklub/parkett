@@ -5,7 +5,9 @@ import texts from './Descriptions';
 const AboutUs = () => (
     <div className={styles.instagram}>
         <div className={styles.description}>
-            {texts.community}
+            <div>
+                {texts.community}
+            </div>
         </div>
         {texts.smallThings.map((element, index) => (
             <div className={styles.element} key={index}>

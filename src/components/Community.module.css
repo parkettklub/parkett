@@ -31,9 +31,14 @@
     max-width: 46em;
     height: 15em;
     text-align: center;
-    padding: 5em;
+    padding: 2em;
+    padding-top: 3em;
     grid-column-start: 1;
     grid-column-end: 4;
+}
+
+.instagram > .description > div {
+    font-size: 1.5em;
 }
 
 .loading {
