@@ -14,6 +14,13 @@ class FormDanceType extends React.Component {
         };
     }
 
+    componentDidMount() {
+        const { selectedObject } = this.props;
+        this.setState({
+            ...selectedObject,
+        });
+    }
+
     componentWillReceiveProps({ selectedObject }) {
         this.setState({
             ...selectedObject, image: selectedObject.image,

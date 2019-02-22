@@ -12,6 +12,13 @@ class FormBand extends React.Component {
         };
     }
 
+    componentDidMount() {
+        const { selectedObject } = this.props;
+        this.setState({
+            ...selectedObject,
+        });
+    }
+
     componentWillReceiveProps({ selectedObject }) {
         this.setState({
             ...selectedObject,

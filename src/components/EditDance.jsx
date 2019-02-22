@@ -45,6 +45,9 @@ class EditDance extends React.Component {
     }
 
     fetchDances = () => {
+        this.setState({
+            selectedObject: null,
+        });
         fetchAll('dances').then(
             response => response.json(),
         ).then((myJson) => {

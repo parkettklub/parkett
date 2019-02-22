@@ -48,6 +48,10 @@ class EditBand extends React.Component {
     }
 
     fetchBands = () => {
+        this.setState({
+            selectedObject: null,
+            selectedId: 0,
+        });
         fetchAll('bands').then(
             response => response.json(),
         ).then((myJson) => {

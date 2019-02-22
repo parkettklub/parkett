@@ -23,6 +23,10 @@ class FormDanceCourse extends React.Component {
     }
 
     componentDidMount() {
+        const { selectedObject } = this.props;
+        this.setState({
+            ...selectedObject,
+        });
         this.fetchDances();
         this.fetchDanceTeachers();
     }

@@ -21,6 +21,10 @@ class FormDance extends React.Component {
     }
 
     componentDidMount() {
+        const { selectedObject } = this.props;
+        this.setState({
+            ...selectedObject,
+        });
         this.fetchDanceTypes();
     }
 

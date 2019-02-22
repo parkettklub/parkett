@@ -3,8 +3,10 @@ import PropTypes from 'prop-types';
 import { fetchPost, fetchPut } from './FetchFunctions';
 import styles from './Form.module.css';
 import InputFormSimple from './InputFormSimple';
+import InputFormTextArea from './InputFormTextarea';
+import SubFormPoster from './SubFormPoster';
 
-class FormTeacher extends React.Component {
+class FormMember extends React.Component {
     constructor() {
         super();
         this.state = {
@@ -22,6 +24,7 @@ class FormTeacher extends React.Component {
     componentWillReceiveProps({ selectedObject }) {
         this.setState({
             ...selectedObject,
+            photo: selectedObject.image,
         });
     }
 
@@ -33,51 +36,79 @@ class FormTeacher extends React.Component {
     uploadChanges = () => {
         const { id } = this.state;
         if (id === -1) {
-            this.addTeacher();
+            this.addMember();
         } else {
-            this.updateTeacher();
+            this.updateMember();
         }
     }
 
-    addTeacher = () => {
-        fetchPost('dance_teachers', this.state).then(() => {
+    addMember = () => {
+        const { photo } = this.state;
+        fetchPost('members', { ...this.state, image: photo }).then(() => {
             const { fetchFunction } = this.props;
             fetchFunction();
         });
     }
 
-    updateTeacher = () => {
-        fetchPut('dance_teachers', this.state).then(() => {
+    updateMember = () => {
+        const { photo } = this.state;
+        console.log({ ...this.state, image: photo });
+        fetchPut('members', { ...this.state, image: photo }).then(() => {
             const { fetchFunction } = this.props;
             fetchFunction();
         });
     }
+
 
     render() {
         const { selected, title } = this.props;
-        const { id, name, url } = this.state;
+        const {
+            id, name, email, position, description,
+        } = this.state;
         const isNew = id === -1;
         return (
             <div className={styles.main}>
                 <div className={styles.formgroup} hidden={selected !== title}>
-                    {isNew ? 'Új Tanár adatai:' : 'Tanár adatai:'}
+                    {isNew ? 'Új Tag adatai:' : 'Tag adatai:'}
                     <InputFormSimple
                         selected={selected}
                         title={title}
                         handleChange={this.handleChange}
                         value={name}
                         name="name"
-                        example="Pedrofon"
+                        example="DJ Eddy"
                         label="Név"
                     />
                     <InputFormSimple
                         selected={selected}
                         title={title}
                         handleChange={this.handleChange}
-                        value={url}
-                        name="url"
+                        value={email}
+                        name="email"
                         example="www.example.com"
-                        label="Weboldal"
+                        label="Email"
+                    />
+                    <InputFormSimple
+                        selected={selected}
+                        title={title}
+                        handleChange={this.handleChange}
+                        value={position}
+                        name="position"
+                        example="tag"
+                        label="Pozíció"
+                    />
+                    <InputFormTextArea
+                        selected={selected}
+                        title={title}
+                        handleChange={this.handleChange}
+                        value={description}
+                        name="description"
+                        example="Csatlakoztam a körhöz"
+                        label="Leírás"
+                    />
+                    <SubFormPoster
+                        handleChange={this.handleChange}
+                        {...this.state}
                     />
                     <div className={styles.formgroup}>
                         <button
@@ -85,7 +116,7 @@ class FormTeacher extends React.Component {
                             type="submit"
                             className={styles.submit}
                         >
-                            {isNew ? 'Tanár hozzáadása' : 'Tanár módosítása'}
+                            {isNew ? 'Tag hozzáadása' : 'Tag módosítása'}
                         </button>
                     </div>
                 </div>
@@ -94,17 +125,16 @@ class FormTeacher extends React.Component {
     }
 }
 
-FormTeacher.propTypes = {
+FormMember.propTypes = {
     selectedObject: PropTypes.instanceOf(Object).isRequired,
     selected: PropTypes.string,
     title: PropTypes.string,
     fetchFunction: PropTypes.func.isRequired,
 };
 
-FormTeacher.defaultProps = {
+FormMember.defaultProps = {
     selected: '',
     title: '',
 };
 
-
-export default FormTeacher;
+export default FormMember;
