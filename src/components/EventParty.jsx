@@ -21,11 +21,42 @@ class EventParty extends React.Component {
             response => response.json(),
         ).then((myJson) => {
             this.setState({ details: myJson });
+            const { dance_course_id } = myJson;
+            this.fetchDanceCourse(dance_course_id);
+        });
+    }
+
+    fetchDanceCourse = (id) => {
+        fetchAll(`dance_courses/${id}`).then(
+            response => response.json(),
+        ).then((myJson) => {
+            this.setState({ dance_course: myJson });
+            const { dance_id, dance_teacher_id } = myJson;
+            this.fetchDance(dance_id);
+            this.fetchTeacher(dance_teacher_id);
+        });
+    }
+
+    fetchDance = (id) => {
+        fetchAll(`dances/${id}`).then(
+            response => response.json(),
+        ).then((myJson) => {
+            this.setState({ dance: myJson });
+        });
+    }
+
+    fetchTeacher = (id) => {
+        fetchAll(`dance_teachers/${id}`).then(
+            response => response.json(),
+        ).then((myJson) => {
+            this.setState({ teacher: myJson });
         });
     }
 
     render() {
-        const { details, complexId } = this.state;
+        const {
+            details, complexId, dance_course, dance, teacher,
+        } = this.state;
         if (!details) return null;
         const main = {
             title: details.title,
@@ -34,12 +65,20 @@ class EventParty extends React.Component {
             photo: details.photo,
         };
 
+        let danceCourseString = '';
+        if (dance_course && dance && teacher) {
+            danceCourseString = `Tánctanítás: ${teacher.name} : ${dance.name} (${dance_course.level}) ${dance_course.length}`;
+        }
+
+
         const detail = {
             program: details.program,
             djs: details.djs,
             bands: details.bands,
             dance: details.dance,
             facebook: details.facebook_event,
+            dance_course: danceCourseString,
+            dance_id: dance ? dance.dance_type.id : null,
         };
 
         const media = {

@@ -15,13 +15,13 @@ class SubFormMusicDanceCourse extends React.Component {
             danceCourses: [],
             bands: [],
             djs: [],
-            dance_teachers: [],
         };
     }
 
     componentDidMount() {
         this.fetchBands();
         this.fetchDjs();
+        this.fetchDances();
         this.fetchDanceTeachers();
         this.fetchDanceCourses();
     }
@@ -31,6 +31,14 @@ class SubFormMusicDanceCourse extends React.Component {
             response => response.json(),
         ).then((myJson) => {
             this.setState({ danceCourses: myJson });
+        });
+    }
+
+    fetchDances = () => {
+        fetchAll('dances').then(
+            response => response.json(),
+        ).then((myJson) => {
+            this.setState({ dances: myJson });
         });
     }
 
@@ -58,10 +66,12 @@ class SubFormMusicDanceCourse extends React.Component {
         });
     }
 
-    getTeacherName = (id) => {
-        const { dance_teachers } = this.state;
+    getTeacherName = (id, dance_id) => {
+        const { dance_teachers, dances } = this.state;
+        if (!dance_teachers || !dances) return 'loading...';
         const dance_teacher = dance_teachers.find(teacher => teacher.id === id);
-        return dance_teacher ? dance_teacher.name : 'undifined';
+        const danceObj = dances.find(dance => dance.id === dance_id);
+        return (dance_teacher && danceObj) ? `${dance_teacher.name} ${danceObj.name}` : 'undefined';
     }
 
     close = () => {
@@ -96,7 +106,7 @@ class SubFormMusicDanceCourse extends React.Component {
                             value={danceCourse.id}
                             key={danceCourse.id}
                         >
-                            {`${danceCourse.id} ${this.getTeacherName(danceCourse.dance_teacher_id)}`}
+                            {`${danceCourse.id} ${this.getTeacherName(danceCourse.dance_teacher_id, danceCourse.dance_id)}`}
                         </option>
                     ))}
                 />

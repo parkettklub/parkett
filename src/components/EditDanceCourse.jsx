@@ -19,14 +19,17 @@ class EditDanceCourse extends React.Component {
 
     componentDidMount() {
         this.createDanceCourse();
+        this.fetchDances();
         this.fetchDanceTeachers();
         this.fetchDanceCourses();
     }
 
-    getDanceCourseName = (id) => {
-        const { dance_teachers } = this.state;
+    getDanceCourseName = (id, dance_id) => {
+        const { dance_teachers, dances } = this.state;
+        if (!dance_teachers || !dances) return 'loading...';
         const dance_teacher = dance_teachers.find(teacher => teacher.id === id);
-        return dance_teacher ? dance_teacher.name : 'undifined';
+        const danceObj = dances.find(dance => dance.id === dance_id);
+        return (dance_teacher && danceObj) ? `${dance_teacher.name} ${danceObj.name}` : 'undefined';
     }
 
     createDanceCourse = () => {
@@ -56,6 +59,14 @@ class EditDanceCourse extends React.Component {
             response => response.json(),
         ).then((myJson) => {
             this.setState({ dance_teachers: myJson });
+        });
+    }
+
+    fetchDances = () => {
+        fetchAll('dances').then(
+            response => response.json(),
+        ).then((myJson) => {
+            this.setState({ dances: myJson });
         });
     }
 
@@ -90,7 +101,7 @@ class EditDanceCourse extends React.Component {
                         </div>
                         {dance_courses.map(course => (
                             <SelectableElement
-                                title={`${course.id} - ${this.getDanceCourseName(course.dance_teacher_id)}`}
+                                title={`${course.id} - ${this.getDanceCourseName(course.dance_teacher_id, course.dance_id)}`}
                                 onClick={() => this.editDanceCourse(course.id)}
                                 selected={course.id === selectedId}
                                 start_date={course.updated_at}
