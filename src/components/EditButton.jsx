@@ -1,16 +1,17 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Edit from './pencil_white.svg';
 import styles from './EditButton.module.css';
 
 
-function editEventsPage() {
-    window.location = '/edit-dance/';
+function editPage(location) {
+    window.location = location;
 }
 
-const KnowledgeBaseComponent = () => (
+const EditButton = ({ link }) => (
     <div
         className={styles.button}
-        onClick={editEventsPage}
+        onClick={() => editPage(link)}
         role="button"
         onKeyDown={() => { }}
         tabIndex={0}
@@ -19,4 +20,12 @@ const KnowledgeBaseComponent = () => (
     </div>
 );
 
-export default KnowledgeBaseComponent;
+EditButton.propTypes = {
+    link: PropTypes.string,
+};
+
+EditButton.defaultProps = {
+    link: '/edit-events',
+};
+
+export default EditButton;

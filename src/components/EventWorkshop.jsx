@@ -3,6 +3,7 @@ import EventWithPoster from './EventWithPoster';
 import EventDetailsWorkshop from './EventDetailsWorkshop';
 import EventWorkshopForm from './EventWorkshopForm';
 import { fetchAll } from './FetchFunctions';
+import EditButton from './EditButton';
 
 class EventWorkshop extends React.Component {
     state = {}
@@ -13,6 +14,9 @@ class EventWorkshop extends React.Component {
 
     fetchEvent = () => {
         const id = window.location.href.split('?')[1];
+        this.setState({
+            complexId: `W${id}`,
+        });
         fetchAll(`workshops/${id}`).then(
             response => response.json(),
         ).then((myJson) => {
@@ -21,7 +25,7 @@ class EventWorkshop extends React.Component {
     }
 
     render() {
-        const { details } = this.state;
+        const { details, complexId } = this.state;
         if (!details) return null;
         const main = {
             title: details.title,
@@ -44,6 +48,7 @@ class EventWorkshop extends React.Component {
         };
         return (
             <div>
+                <EditButton link={`/edit-events?${complexId}`} />
                 <EventWithPoster {...main} />
                 <EventDetailsWorkshop {...detail} />
                 <EventWorkshopForm {...formdetails} />

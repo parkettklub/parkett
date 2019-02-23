@@ -2,6 +2,7 @@ import React from 'react';
 import EventWithPoster from './EventWithPoster';
 import { fetchAll } from './FetchFunctions';
 import styles from './Article.module.css';
+import EditButton from './EditButton';
 
 class EventArticle extends React.Component {
     state = {}
@@ -12,6 +13,9 @@ class EventArticle extends React.Component {
 
     fetchEvent = () => {
         const id = window.location.href.split('?')[1];
+        this.setState({
+            complexId: `A${id}`,
+        });
         fetchAll(`articles/${id}`).then(
             response => response.json(),
         ).then((myJson) => {
@@ -20,10 +24,11 @@ class EventArticle extends React.Component {
     }
 
     render() {
-        const { details } = this.state;
+        const { details, complexId } = this.state;
         if (details) {
             return (
                 <div className={styles.main}>
+                    <EditButton link={`/edit-events?${complexId}`} />
                     <EventWithPoster {...details} date={details ? details.published_at : null} />
                 </div>
             );

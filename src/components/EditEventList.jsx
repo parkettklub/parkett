@@ -22,10 +22,11 @@ class EditEvents extends React.Component {
     }
 
     fetchEvents = () => {
+        const complexId = window.location.href.split('?')[1];
         this.setState({
             events: [],
             selectedObject: null,
-            selectedId: '0',
+            selectedId: complexId,
         });
         this.fetchParties();
         this.fetchWorkshops();
@@ -57,11 +58,11 @@ class EditEvents extends React.Component {
     }
 
     addEvents = (char, newEvents, onClick, article = false) => {
-        const { events } = this.state;
+        const { events, selectedId } = this.state;
         let filteredEvents = newEvents;
         filteredEvents = filteredEvents.map(original => ({
             ...original,
-            onClick: () => onClick(original),
+            onClick: () => onClick({ ...original, complexId: `${char}${original.id}` }),
             complexId: `${char}${original.id}`,
             date: article ? original.published_at : original.start_date,
         }));
@@ -71,7 +72,36 @@ class EditEvents extends React.Component {
             const bValue = new Date(b.date).valueOf();
             return bValue - aValue;
         });
-        this.setState({ events: allEvents });
+        let selectedObject = null;
+        allEvents.forEach((event) => {
+            if (event.complexId === selectedId) {
+                if (selectedId[0] === 'P') {
+                    selectedObject = (
+                        <FormEventParty
+                            selectedObject={event}
+                            fetchFunction={this.fetchEvents}
+                        />
+                    );
+                }
+                if (selectedId[0] === 'W') {
+                    selectedObject = (
+                        <FormEventWorkshop
+                            selectedObject={event}
+                            fetchFunction={this.fetchEvents}
+                        />
+                    );
+                }
+                if (selectedId[0] === 'A') {
+                    selectedObject = (
+                        <FormEventArticle
+                            selectedObject={event}
+                            fetchFunction={this.fetchEvents}
+                        />
+                    );
+                }
+            }
+        });
+        this.setState({ events: allEvents, selectedObject });
     }
 
     selectParty = (selected) => {
@@ -155,6 +185,7 @@ class EditEvents extends React.Component {
                         >
                             <img alt="" src={Plus} className={styles.addElement} />
                             {'Új party'}
+                            {selectedId}
                         </div>
                         <div
                             className={styles.selectable}

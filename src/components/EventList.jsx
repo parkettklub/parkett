@@ -11,13 +11,13 @@ function editEventsPage() {
 }
 
 function goToParty(id) {
-    window.location = '/event-party?' + id;
+    window.location = `/event-party?${id}`;
 }
 function goToWorkshop(id) {
-    window.location = '/event-workshop?' + id;
+    window.location = `/event-workshop?${id}`;
 }
 function goToArticle(id) {
-    window.location = '/event-article?' + id;
+    window.location = `/event-article?${id}`;
 }
 
 function filterEvent(search, event) {
