@@ -9,6 +9,9 @@ export function fetchPost(type, element) {
         headers: {
             'Content-Type': 'application/json',
         },
+    }).then((response) => {
+        alert(`(${element.id ? element.id : ''}. ${type}) ${element.name ? element.name : ''} ${element.title ? element.title : ''} is Saved`);
+        return response;
     });
 }
 
@@ -19,5 +22,8 @@ export function fetchPut(type, element) {
         headers: {
             'Content-Type': 'application/json',
         },
+    }).then((response) => {
+        alert(`(${element.id ? element.id : ''}. ${type}) ${element.name ? element.name : ''} ${element.title ? element.title : ''} is Saved`);
+        return response;
     });
 }
