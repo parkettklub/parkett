@@ -105,7 +105,9 @@ class MainEvents extends React.Component {
                     transitionEnterTimeout={500}
                     transitionLeaveTimeout={500}
                 >
-                    <EventWithPoster {...(events[i])} key={i} onClick={events[i].onClick} />
+                    <div key={i}>
+                        <EventWithPoster {...(events[i])} key={i} onClick={events[i].onClick} />
+                    </div>
                 </ReactCssTransitionGroup>
             </div>
         );

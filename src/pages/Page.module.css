@@ -21,17 +21,33 @@
     margin-bottom: 0rem;
     margin-top: 17rem;
     max-width: 900px;
+    width: 100%;
+    padding: 0.5em;
 }
 
 .home > article {
     display: block;
     margin: 0 auto;
-    padding: 0.5rem;
     margin-bottom: 1rem;
 }
 
-.home span article {
+.event span > div {
+    display: block;
+    position: relative;
+}
+
+.event span > div > article {
     display: block;
     margin-top: 0;
     position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+}
+
+@media only screen and (min-width: 900px)  {
+    .home span > article {
+        max-width: 900px;
+    }
 }

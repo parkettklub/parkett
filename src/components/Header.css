@@ -15,12 +15,12 @@
   display: grid;
   grid-template-columns: auto max-content;
   align-items: flex-end;
-  height: 7em;
+  height: 6em;
   overflow: hidden;
 }
 
 .main-header.max { 
-  height: 15rem;
+  height: 17rem;
   grid-template-columns: auto
 }
 
@@ -94,7 +94,7 @@
   }
 
   .main-header.max {
-    overflow: visible;
+    overflow: hidden;
   }
 
   .logo-div > div.more > img {
