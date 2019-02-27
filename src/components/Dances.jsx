@@ -2,10 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { fetchAll } from './FetchFunctions';
 import styles from './Dances.module.css';
-import Folk from './dancing-figures/FolkDance.svg';
-import Kizomba from './dancing-figures/Kizomba.svg';
-import Salsa from './dancing-figures/Salsa.svg';
-import Swing from './dancing-figures/Swing.svg';
 import Card from './Card';
 
 const animationStyle = {

@@ -5,9 +5,10 @@ import Attention from './Attention';
 import Services from './Services';
 import Dances from './Dances';
 import EditButton from './EditButton';
+import styles from '../pages/Page.module.css';
 
 const KnowledgeBaseComponent = () => (
-    <div>
+    <div className={styles.knwoledge}>
         <div>
             <EditButton />
         </div>

@@ -18,12 +18,6 @@
     }
 }
 
-@media only screen and (max-width: 900px) {
-    .grid {
-        grid-template-columns: 1fr;
-    }
-}
-
 .dance {
     padding: 0.5em;
     display: grid;
@@ -65,4 +59,10 @@
 .dance:hover {
   filter: brightness(80%);
     cursor: pointer;
+}
+
+@media only screen and (max-width: 900px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
 }
