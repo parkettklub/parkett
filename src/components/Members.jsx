@@ -2,7 +2,6 @@ import React from 'react';
 import Member from './Member';
 import AboutUs from './AboutUs';
 import LittleMember from './LittleMember';
-import profDefault from './gergoProfile.jpg';
 import { fetchAll } from './FetchFunctions';
 import styles from './Community.module.css';
 
