@@ -88,6 +88,14 @@
   height: 0rem;
 }
 
+div.more:focus {
+  outline: 0;
+}
+
+div.more:hover {
+  opacity: 0.5;
+}
+
 @media only screen and (max-width: 950px)  {
   .main-header {
     grid-template-columns: auto;
