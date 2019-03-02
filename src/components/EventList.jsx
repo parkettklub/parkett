@@ -47,47 +47,38 @@ class EventList extends React.Component {
         this.fetchArticles();
     }
 
-    fetchParties = () => {
-        fetchAll('parties').then(
-            response => response.json(),
-        ).then((myJson) => {
-            const { events } = this.state;
-            const newEvents = events.concat(myJson.map(original => ({
-                ...original,
-                onClick: () => goToParty(original.id),
-                complexId: `P${original.id}`,
-            })));
-            this.setState({ events: newEvents });
-        });
+    fetchParties = async () => {
+        const myJson = await fetchAll('parties');
+        const { events } = this.state;
+        const newEvents = events.concat(myJson.map(original => ({
+            ...original,
+            onClick: () => goToParty(original.id),
+            complexId: `P${original.id}`,
+        })));
+        this.setState({ events: newEvents });
     }
 
-    fetchWorkshops = () => {
-        fetchAll('workshops').then(
-            response => response.json(),
-        ).then((myJson) => {
-            const { events } = this.state;
-            const newEvents = events.concat(myJson.map(original => ({
-                ...original,
-                onClick: () => goToWorkshop(original.id),
-                complexId: `W${original.id}`,
-            })));
-            this.setState({ events: newEvents });
-        });
+    fetchWorkshops = async () => {
+        const myJson = await fetchAll('workshops');
+        const { events } = this.state;
+        const newEvents = events.concat(myJson.map(original => ({
+            ...original,
+            onClick: () => goToWorkshop(original.id),
+            complexId: `W${original.id}`,
+        })));
+        this.setState({ events: newEvents });
     }
 
-    fetchArticles = () => {
-        fetchAll('articles').then(
-            response => response.json(),
-        ).then((myJson) => {
-            const { events } = this.state;
-            const newEvents = events.concat(myJson.map(original => ({
-                ...original,
-                start_date: original.published_at,
-                onClick: () => goToArticle(original.id),
-                complexId: `A${original.id}`,
-            })));
-            this.setState({ events: newEvents });
-        });
+    fetchArticles = async () => {
+        const myJson = await fetchAll('articles');
+        const { events } = this.state;
+        const newEvents = events.concat(myJson.map(original => ({
+            ...original,
+            start_date: original.published_at,
+            onClick: () => goToArticle(original.id),
+            complexId: `A${original.id}`,
+        })));
+        this.setState({ events: newEvents });
     }
 
     handleSubmit = (event) => {

@@ -26,28 +26,19 @@ class MediaComponent extends React.Component {
         this.fetchArticles();
     }
 
-    fetchParties = () => {
-        fetchAll('parties').then(
-            response => response.json(),
-        ).then((myJson) => {
-            this.addEvents('P', myJson, this.selectParty);
-        });
+    fetchParties = async () => {
+        const myJson = await fetchAll('parties');
+        this.addEvents('P', myJson, this.selectParty);
     }
 
-    fetchWorkshops = () => {
-        fetchAll('workshops').then(
-            response => response.json(),
-        ).then((myJson) => {
-            this.addEvents('W', myJson, this.selectWorkshop);
-        });
+    fetchWorkshops = async () => {
+        const myJson = await fetchAll('workshops');
+        this.addEvents('W', myJson, this.selectWorkshop);
     }
 
-    fetchArticles = () => {
-        fetchAll('articles').then(
-            response => response.json(),
-        ).then((myJson) => {
-            this.addEvents('A', myJson, this.selectArticle, true);
-        });
+    fetchArticles = async () => {
+        const myJson = await fetchAll('articles');
+        this.addEvents('A', myJson, this.selectArticle, true);
     }
 
     addEvents = (char, newEvents, onClick, article = false) => {

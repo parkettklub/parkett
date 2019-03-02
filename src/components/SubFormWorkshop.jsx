@@ -23,28 +23,19 @@ class SubFormWorkshop extends React.Component {
         this.fetchParties();
     }
 
-    fetchDanceTeachers = () => {
-        fetchAll('dance_teachers').then(
-            response => response.json(),
-        ).then((myJson) => {
-            this.setState({ teachers: myJson });
-        });
+    fetchDanceTeachers = async () => {
+        const myJson = await fetchAll('dance_teachers');
+        this.setState({ teachers: myJson });
     }
 
-    fetchDances = () => {
-        fetchAll('dances').then(
-            response => response.json(),
-        ).then((myJson) => {
-            this.setState({ dances: myJson });
-        });
+    fetchDances = async () => {
+        const myJson = await fetchAll('dances');
+        this.setState({ dances: myJson });
     }
 
-    fetchParties = () => {
-        fetchAll('parties').then(
-            response => response.json(),
-        ).then((myJson) => {
-            this.setState({ parties: myJson });
-        });
+    fetchParties = async () => {
+        const myJson = await fetchAll('parties');
+        this.setState({ parties: myJson });
     }
 
     addNewElement(name) {
@@ -57,7 +48,8 @@ class SubFormWorkshop extends React.Component {
 
     render() {
         const {
-            selectedForm, form, handleChange, dance_id, dance_teacher_id, application_form, party_id,
+            selectedForm, form, handleChange, dance_id,
+            dance_teacher_id, application_form, party_id,
         } = this.props;
         const {
             addSelected,

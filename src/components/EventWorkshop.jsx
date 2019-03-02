@@ -12,16 +12,13 @@ class EventWorkshop extends React.Component {
         this.fetchEvent();
     }
 
-    fetchEvent = () => {
+    fetchEvent = async () => {
         const id = window.location.href.split('?')[1];
         this.setState({
             complexId: `W${id}`,
         });
-        fetchAll(`workshops/${id}`).then(
-            response => response.json(),
-        ).then((myJson) => {
-            this.setState({ details: myJson });
-        });
+        const myJson = await fetchAll(`workshops/${id}`);
+        this.setState({ details: myJson });
     }
 
     render() {

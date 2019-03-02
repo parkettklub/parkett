@@ -37,20 +37,14 @@ class FormDanceCourse extends React.Component {
         });
     }
 
-    fetchDances = () => {
-        fetchAll('dances').then(
-            response => response.json(),
-        ).then((myJson) => {
-            this.setState({ dances: myJson });
-        });
+    fetchDances = async () => {
+        const myJson = await fetchAll('dances');
+        this.setState({ dances: myJson });
     }
 
-    fetchDanceTeachers = () => {
-        fetchAll('dance_teachers').then(
-            response => response.json(),
-        ).then((myJson) => {
-            this.setState({ dance_teachers: myJson });
-        });
+    fetchDanceTeachers = async () => {
+        const myJson = await fetchAll('dance_teachers');
+        this.setState({ dance_teachers: myJson });
     }
 
     addNewElement = (name) => {

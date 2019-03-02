@@ -1,5 +1,5 @@
 export function fetchAll(type) {
-    return fetch(`http://parkett-klub.herokuapp.com/${type}`);
+    return fetch(`http://parkett-klub.herokuapp.com/${type}`).then(response => response.json());
 }
 
 export function fetchPost(type, element) {

@@ -49,34 +49,26 @@ class MainEvents extends React.Component {
         this.fetchArticles();
     }
 
-    fetchParties = () => {
-        fetchAll('parties').then(
-            response => response.json(),
-        ).then((myJson) => {
-            this.addEvents('P', myJson, goToParty);
-        });
+    fetchParties = async () => {
+        const myJson = await fetchAll('parties');
+        this.addEvents('P', myJson, goToParty);
     }
 
-    fetchWorkshops = () => {
-        fetchAll('workshops').then(
-            response => response.json(),
-        ).then((myJson) => {
-            this.addEvents('W', myJson, goToWorkshop);
-        });
+    fetchWorkshops = async () => {
+        const myJson = await fetchAll('workshops');
+        this.addEvents('W', myJson, goToWorkshop);
     }
 
-    fetchArticles = () => {
-        fetchAll('articles').then(
-            response => response.json(),
-        ).then((myJson) => {
-            this.addEvents('A', myJson, goToArticle, true);
-        });
+    fetchArticles = async () => {
+        const myJson = await fetchAll('articles');
+        this.addEvents('A', myJson, goToArticle, true);
     }
 
     addEvents = (char, newEvents, onClick, article = false) => {
         const { events } = this.state;
         let filteredEvents = newEvents.filter(
-            event => new Date(article ? event.published_at : event.start_date).valueOf() - today.valueOf() >= 0,
+            event => new Date(article ? event.published_at : event.start_date).valueOf()
+                - today.valueOf() >= 0,
         );
         filteredEvents = filteredEvents.map(original => ({
             ...original,

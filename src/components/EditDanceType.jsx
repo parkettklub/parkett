@@ -44,15 +44,12 @@ class EditDanceType extends React.Component {
         });
     }
 
-    fetchDances = () => {
+    fetchDances = async () => {
         this.setState({
             selectedObject: null,
         });
-        fetchAll('dance_types').then(
-            response => response.json(),
-        ).then((myJson) => {
-            this.setState({ dance_types: myJson });
-        });
+        const myJson = await fetchAll('dance_types');
+        this.setState({ dance_types: myJson });
     }
 
     render() {

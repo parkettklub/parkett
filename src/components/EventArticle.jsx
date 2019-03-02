@@ -11,16 +11,13 @@ class EventArticle extends React.Component {
         this.fetchEvent();
     }
 
-    fetchEvent = () => {
+    fetchEvent = async () => {
         const id = window.location.href.split('?')[1];
         this.setState({
             complexId: `A${id}`,
         });
-        fetchAll(`articles/${id}`).then(
-            response => response.json(),
-        ).then((myJson) => {
-            this.setState({ details: myJson });
-        });
+        const myJson = await fetchAll(`articles/${id}`);
+        this.setState({ details: myJson });
     }
 
     render() {

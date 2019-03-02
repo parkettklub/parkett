@@ -47,15 +47,12 @@ class EditDJ extends React.Component {
         });
     }
 
-    fetchDJs = () => {
+    fetchDJs = async () => {
         this.setState({
             selectedObject: null,
         });
-        fetchAll('djs').then(
-            response => response.json(),
-        ).then((myJson) => {
-            this.setState({ djs: myJson });
-        });
+        const myJson = await fetchAll('djs');
+        this.setState({ djs: myJson });
     }
 
 
