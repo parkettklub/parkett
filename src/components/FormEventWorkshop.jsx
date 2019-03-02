@@ -41,7 +41,7 @@ class FormEventWorkshop extends React.Component {
     }
 
     setObject = (selectedObject) => {
-        if (selectedObject.id === -1) {
+        if (selectedObject.id  < 0) {
             this.setState({
                 id: -1,
             });
@@ -79,7 +79,7 @@ class FormEventWorkshop extends React.Component {
 
     uploadChanges = () => {
         const { id } = this.state;
-        if (id === -1) {
+        if (id  < 0) {
             this.addWorkshop();
         } else {
             this.updateWorkshop();

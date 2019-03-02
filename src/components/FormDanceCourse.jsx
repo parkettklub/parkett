@@ -62,7 +62,7 @@ class FormDanceCourse extends React.Component {
 
     uploadChanges = () => {
         const { id } = this.state;
-        if (id === -1) {
+        if (id  < 0) {
             this.addDanceCourse();
         } else {
             this.updateDanceCourse();
@@ -104,7 +104,7 @@ class FormDanceCourse extends React.Component {
         const {
             id, dance_id, level, length, dance_teacher_id, addSelected, dances, dance_teachers,
         } = this.state;
-        const isNew = id === -1;
+        const isNew = id  < 0;
         return (
             <div className={styles.main}>
                 <div className={styles.formgroup} hidden={selected !== title}>

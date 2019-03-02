@@ -29,7 +29,7 @@ class FormEventArticle extends React.Component {
     }
 
     setObject = (selectedObject) => {
-        if (selectedObject.id === -1) {
+        if (selectedObject.id  < 0) {
             this.setState({
                 id: -1,
             });
@@ -48,7 +48,7 @@ class FormEventArticle extends React.Component {
 
     uploadChanges = () => {
         const { id } = this.state;
-        if (id === -1) {
+        if (id  < 0) {
             this.addArticle();
         } else {
             this.updateArticle();

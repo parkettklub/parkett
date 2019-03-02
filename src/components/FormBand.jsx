@@ -32,7 +32,7 @@ class FormBand extends React.Component {
 
     uploadChanges = () => {
         const { id } = this.state;
-        if (id === -1) {
+        if (id < 0) {
             this.addBand();
         } else {
             this.updateBand();
@@ -56,7 +56,7 @@ class FormBand extends React.Component {
     render() {
         const { selected, title } = this.props;
         const { id, name, url } = this.state;
-        const isNew = id === -1;
+        const isNew = id  < 0;
         return (
             <div className={styles.main}>
                 <div className={styles.formgroup} hidden={selected !== title}>
