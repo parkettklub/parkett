@@ -17,6 +17,31 @@ function goToArticle(id) {
 
 const today = new Date();
 
+function filterEvents(newEvents, article) {
+    return newEvents.filter(
+        event => new Date(article ? event.published_at : event.start_date).valueOf()
+            - today.valueOf() >= 0,
+    );
+}
+
+function mapEvents(filteredEvents, char, onClick, article) {
+    return filteredEvents.map(original => ({
+        ...original,
+        onClick: () => onClick(original.id),
+        complexId: `${char}${original.id}`,
+        date: article ? original.published_at : original.start_date,
+    }));
+}
+
+function sortEvents(allEvents) {
+    return allEvents.sort((a, b) => {
+        const aValue = new Date(a.date).valueOf();
+        const bValue = new Date(b.date).valueOf();
+        return Math.abs(aValue - today.valueOf())
+            - Math.abs(bValue - today.valueOf());
+    });
+}
+
 class MainEvents extends React.Component {
     constructor() {
         super();
@@ -66,24 +91,9 @@ class MainEvents extends React.Component {
 
     addEvents = (char, newEvents, onClick, article = false) => {
         const { events } = this.state;
-        let filteredEvents = newEvents.filter(
-            event => new Date(article ? event.published_at : event.start_date).valueOf()
-                - today.valueOf() >= 0,
-        );
-        filteredEvents = filteredEvents.map(original => ({
-            ...original,
-            onClick: () => onClick(original.id),
-            complexId: `${char}${original.id}`,
-            date: article ? original.published_at : original.start_date,
-        }));
-        let allEvents = events.concat(filteredEvents);
-        allEvents = allEvents.sort((a, b) => {
-            const aValue = new Date(a.date).valueOf();
-            const bValue = new Date(b.date).valueOf();
-            return Math.abs(aValue - today.valueOf())
-                - Math.abs(bValue - today.valueOf());
-        });
-        this.setState({ events: allEvents });
+        const filteredEvents = filterEvents(newEvents, article);
+        const allEvents = [...events, ...mapEvents(filteredEvents, char, onClick, article)];
+        this.setState({ events: sortEvents(allEvents) });
     }
 
     render() {
@@ -97,7 +107,7 @@ class MainEvents extends React.Component {
                     transitionEnterTimeout={500}
                     transitionLeaveTimeout={500}
                 >
-                    <div key={i}>
+                    <div key={events[i].complexId}>
                         <EventWithPoster {...(events[i])} key={i} onClick={events[i].onClick} />
                     </div>
                 </ReactCssTransitionGroup>

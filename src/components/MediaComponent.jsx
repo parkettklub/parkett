@@ -65,9 +65,7 @@ class MediaComponent extends React.Component {
         } = this.state;
         return (
             <div className={styles.center}>
-                <div className={styles.title}>
-                    {'SPOT képek'}
-                </div>
+                <div className={styles.title}>SPOT képek</div>
                 <div className={styles.grid}>
                     {
                         events.map(event => (
@@ -80,9 +78,7 @@ class MediaComponent extends React.Component {
                         ))
                     }
                 </div>
-                <div className={styles.title}>
-                    {'BSS videók'}
-                </div>
+                <div className={styles.title}>BSS videók</div>
                 <div className={styles.grid}>
                     {
                         events.map(event => (
