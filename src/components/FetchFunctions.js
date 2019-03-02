@@ -1,9 +1,9 @@
 export async function fetchAll(type) {
-    const response = await fetch(`http://parkett-klub.herokuapp.com/${type}`)
+    const response = await fetch(`http://parkett-klub.herokuapp.com/${type}`);
     return response.json();
 }
 
-export async function fetchPost(type, element)  {
+export async function fetchPost(type, element) {
     const response = await fetch(`http://parkett-klub.herokuapp.com/${type}`, {
         method: 'POST',
         body: JSON.stringify(element),

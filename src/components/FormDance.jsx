@@ -127,11 +127,7 @@ class FormDance extends React.Component {
                         label="DanceType"
                         options={dance_types.map(type => (
                             <option value={type.id} key={type.id}>
-                                {type.id}
-                                {' – '}
-                                {type.name}
-                                {' – '}
-                                {type.color}
+                                {`${type.id} – ${type.name} – ${type.color}`}
                             </option>
                         ))}
                         addNew={() => this.addNewElement('dance_type_id')}
