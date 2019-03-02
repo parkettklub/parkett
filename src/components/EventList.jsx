@@ -23,8 +23,8 @@ function goToArticle(id) {
 function filterEvent(search, event) {
     const date = event.start_date;
     const dateString = dateToString(date);
-    return (event.title.toUpperCase().indexOf(search.toUpperCase()) !== -1)
-        || (dateString.indexOf(search.toUpperCase()) !== -1);
+    return (event.title.toUpperCase().indexOf(search.toUpperCase()) >= 0)
+        || (dateString.indexOf(search.toUpperCase()) >= 0);
 }
 
 class EventList extends React.Component {

@@ -31,14 +31,15 @@ function EventDetails({
                 </div>
                 <div className={styles.links}>
                     <DanceFigure id={dance_id} />
-                    {links}
                 </div>
                 <div>
                     {dance_course}
                 </div>
-                <div />
+                <div>
+                    {links}
+                </div>
                 <div className={styles.music}>
-                    <strong>{(bands.lenght > 0 || djs.lenght > 0) ? 'Zenét szongáltatja:  ' : ''}</strong>
+                    <strong>{(bands.length > 0 || djs.length > 0) ? 'Zenét szongáltatja: ' : ''}</strong>
                     {bands
                         ? bands.map(band => (
                             <div>

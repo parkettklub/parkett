@@ -40,7 +40,7 @@ class EventWorkshop extends React.Component {
 
         const formdetails = {
             link: details.application_form,
-            teachers: details.teacher,
+            dance_teacher_id: details.dance_teacher_id,
             linkedParty: details.party,
         };
         return (
