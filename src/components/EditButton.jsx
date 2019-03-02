@@ -9,15 +9,15 @@ function editPage(location) {
 }
 
 const EditButton = ({ link }) => (
-    <div
+    <button
         className={styles.button}
         onClick={() => editPage(link)}
-        role="button"
         onKeyDown={() => { }}
         tabIndex={0}
+        type="button"
     >
         <img src={Edit} alt="" />
-    </div>
+    </button>
 );
 
 EditButton.propTypes = {

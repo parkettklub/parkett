@@ -57,7 +57,7 @@ class EditEvents extends React.Component {
             complexId: `${char}${original.id}`,
             date: article ? original.published_at : original.start_date,
         }));
-        let allEvents = events.concat(filteredEvents);
+        let allEvents = [...events, ...filteredEvents];
         allEvents = allEvents.sort((a, b) => {
             const aValue = new Date(a.date).valueOf();
             const bValue = new Date(b.date).valueOf();
@@ -176,7 +176,6 @@ class EditEvents extends React.Component {
                         >
                             <img alt="" src={Plus} className={styles.addElement} />
                             {'Új party'}
-                            {selectedId}
                         </div>
                         <div
                             className={styles.selectable}

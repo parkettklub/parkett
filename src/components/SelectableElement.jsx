@@ -7,15 +7,15 @@ function SelectableElement({
     title, start_date, onClick, selected, published_at,
 }) {
     return (
-        <div
+        <button
             className={selected ? styles.selectedline : styles.selectable}
             onClick={onClick}
-            role="button"
             tabIndex={0}
             onKeyDown={() => { }}
+            type="button"
         >
             {`${dateToShortString(start_date)}${dateToShortString(published_at)} : ${title}`}
-        </div>
+        </button>
     );
 }
 

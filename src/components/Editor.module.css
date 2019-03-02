@@ -18,12 +18,15 @@
 }
 
 .selectable {
+    color: white;
+    display: block;
+    background: rgba(0, 0, 0, 0);
+    border: 0;
     padding: 10px;
 }
 
 .selectable:hover {
     background: rgba(0, 0, 0, 0.5);
-    cursor: pointer;
 }
 
 .selected {
@@ -31,6 +34,7 @@
 }
 
 .selectedline {
+    border: 0;
     padding: 10px;
     background: rgba(255, 200, 0, 0.5);
 }

@@ -3,6 +3,7 @@
     margin: 1em;
     outline: none;
     width: max-content;
+    background: 0;
 }
 
 .button:hover {
