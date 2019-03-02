@@ -47,7 +47,7 @@ class FormEventParty extends React.Component {
     }
 
     setObject = (selectedObject) => {
-        if (selectedObject.id  < 0) {
+        if (selectedObject.id < 0) {
             this.setState({
                 id: -1,
             });
@@ -85,7 +85,7 @@ class FormEventParty extends React.Component {
 
     uploadChanges = () => {
         const { id } = this.state;
-        if (id  < 0) {
+        if (id < 0) {
             this.addParty();
         } else {
             this.updateParty();
