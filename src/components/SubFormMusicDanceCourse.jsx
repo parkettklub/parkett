@@ -116,7 +116,7 @@ class SubFormMusicDanceCourse extends React.Component {
                         bands.map(band => (
                             <option value={band.id} key={band.id}>
                                 {band.id}
-                                {' - '}
+                                {' – '}
                                 {band.name}
                             </option>
                         ))}
@@ -142,7 +142,7 @@ class SubFormMusicDanceCourse extends React.Component {
                         djs.map(dj => (
                             <option value={dj.id} key={dj.id}>
                                 {dj.id}
-                                {' - '}
+                                {' – '}
                                 {dj.name}
                             </option>
                         ))}

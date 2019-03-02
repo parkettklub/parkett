@@ -67,7 +67,7 @@ class SubFormWorkshop extends React.Component {
                     options={dances.map(dance => (
                         <option value={dance.id} key={dance.id}>
                             {dance.id}
-                            {' - '}
+                            {' – '}
                             {dance.name}
                         </option>
                     ))}
@@ -92,7 +92,7 @@ class SubFormWorkshop extends React.Component {
                     options={teachers.map(teacher => (
                         <option value={teacher.id} key={teacher.id}>
                             {teacher.id}
-                            {' - '}
+                            {' – '}
                             {teacher.name}
                         </option>
                     ))}
@@ -117,7 +117,7 @@ class SubFormWorkshop extends React.Component {
                     options={parties.map(party => (
                         <option value={party.id} key={party.id}>
                             {party.id}
-                            {' - '}
+                            {' – '}
                             {party.title}
                         </option>
                     ))}

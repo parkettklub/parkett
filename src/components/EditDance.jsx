@@ -75,7 +75,7 @@ class EditDance extends React.Component {
                         {dances.map(
                             dance => (
                                 <SelectableElement
-                                    title={`${dance.id} -  ${dance.name}`}
+                                    title={`${dance.id} –  ${dance.name}`}
                                     start_date={dance.updated_at}
                                     onClick={() => this.editDance(dance.id)}
                                     selected={dance.id === selectedId}

@@ -52,7 +52,7 @@ class EditBand extends React.Component {
             selectedObject: null,
             selectedId: 0,
         });
-        const myJson = await fetchAll('bands')
+        const myJson = await fetchAll('bands');
         this.setState({ bands: myJson });
     }
 
@@ -75,7 +75,7 @@ class EditBand extends React.Component {
                         {bands.map(
                             band => (
                                 <SelectableElement
-                                    title={`${band.id} - ${band.name}`}
+                                    title={`${band.id} – ${band.name}`}
                                     start_date={band.updated_at}
                                     onClick={() => this.editBand(band.id)}
                                     selected={band.id === selectedId}
