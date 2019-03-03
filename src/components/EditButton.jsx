@@ -3,20 +3,29 @@ import PropTypes from 'prop-types';
 import Edit from './pencil_white.svg';
 import styles from './EditButton.module.css';
 
-const KnowledgeBaseComponent = ({ onClick }) => (
-    <div
+
+function editPage(location) {
+    window.location = location;
+}
+
+const EditButton = ({ link }) => (
+    <button
         className={styles.button}
-        onClick={onClick}
-        role="button"
+        onClick={() => editPage(link)}
         onKeyDown={() => { }}
         tabIndex={0}
+        type="button"
     >
         <img src={Edit} alt="" />
-    </div>
+    </button>
 );
 
-
-KnowledgeBaseComponent.propTypes = {
-    onClick: PropTypes.func.isRequired,
+EditButton.propTypes = {
+    link: PropTypes.string,
 };
-export default KnowledgeBaseComponent;
+
+EditButton.defaultProps = {
+    link: '/edit-events',
+};
+
+export default EditButton;

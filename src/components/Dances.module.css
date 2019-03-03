@@ -8,19 +8,13 @@
 .grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-gap: 1rem;
+    grid-column-gap: 1rem;
     width: 100%;
 }
 
 @media only screen and (min-width: 900px)  {
     .main {
         max-width: 900px;
-    }
-}
-
-@media only screen and (max-width: 900px) {
-    .grid {
-        grid-template-columns: 1fr;
     }
 }
 
@@ -37,9 +31,13 @@
     overflow:hidden;
 }
 
+.dance.open:hover {
+    cursor: pointer;
+}
+
 .dance.open {
     max-height: 30em;
-    color: #000000;
+    color: black;
 }
 
 .dance  > .descritpion {
@@ -48,23 +46,23 @@
     text-align: justify;
 }
 
-.dance img {
-    height: 3em;
+.dance > .title {
+    align-items: center;
+    align-content: center;
 }
 
-.dance.green { background: #219653;}
-.dance.green:hover { background: #51ca86;}
-.descritpion.green {  background: #51ca86;}
+.dance img {
+    height: 3em;
+    margin-bottom: 0;
+}
 
+.dance:hover {
+  filter: brightness(80%);
+    cursor: pointer;
+}
 
-.dance.red { background: #B64848;}
-.descritpion.red { background: rgb(224, 147, 147);}
-.dance.red:hover {background: rgb(224, 147, 147);}
-
-.dance.purple { background: #896997;}
-.descritpion.purple {background: #e2bcf3;}
-.dance.purple:hover { background: #e2bcf3;}
-
-.dance.yellow {background: #AB902F}
-.descritpion.yellow {background: rgb(231, 215, 141);}
-.dance.yellow:hover {background: rgb(231, 215, 141);}
+@media only screen and (max-width: 900px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+}

@@ -19,6 +19,11 @@
 
 .editButton > div:hover {
     filter: opacity(0.5);
+    cursor: pointer;
+}
+
+.editButton > div:focus {
+    outline: none;
 }
 
 .editButton img {
@@ -37,7 +42,7 @@
 }
 
 .event.clickable:hover {
-    filter: opacity(0.5);
+    filter: opacity(0.6);
 }
 
 .old.clickable:hover {
@@ -119,5 +124,9 @@
     font-style: normal;
     font-weight: bold;
     line-height: normal;
+}
+
+.facebook:hover {
+    filter: brightness(2);
 }
 

@@ -2,82 +2,86 @@ import React from 'react';
 import EventWithPoster from './EventWithPoster';
 import EventDetails from './EventDetails';
 import EventMedia from './EventMedia';
-import Plakat01 from './Plakat.jpg';
+import { fetchAll } from './FetchFunctions';
+import EditButton from './EditButton';
+
+class EventParty extends React.Component {
+    state = {}
+
+    componentDidMount() {
+        this.fetchEvent();
+    }
+
+    fetchEvent = async () => {
+        const id = window.location.href.split('?')[1];
+        this.setState({
+            complexId: `P${id}`,
+        });
+        const myJson = await fetchAll(`parties/${id}`);
+        this.setState({ details: myJson });
+        const { dance_course_id } = myJson;
+        this.fetchDanceCourse(dance_course_id);
+    }
+
+    fetchDanceCourse = async (id) => {
+        const myJson = await fetchAll(`dance_courses/${id}`);
+        this.setState({ dance_course: myJson });
+        const { dance_id, dance_teacher_id } = myJson;
+        this.fetchDance(dance_id);
+        this.fetchTeacher(dance_teacher_id);
+    }
+
+    fetchDance = async (id) => {
+        const myJson = await fetchAll(`dances/${id}`);
+        this.setState({ dance: myJson });
+    }
+
+    fetchTeacher = async (id) => {
+        const myJson = await fetchAll(`dance_teachers/${id}`);
+        this.setState({ teacher: myJson });
+    }
+
+    render() {
+        const {
+            details, complexId, dance_course, dance, teacher,
+        } = this.state;
+        if (!details) return null;
+        const main = {
+            title: details.title,
+            date: details.start_date,
+            content: details.content,
+            photo: details.photo,
+        };
+
+        let danceCourseString = '';
+        if (dance_course && dance && teacher) {
+            danceCourseString = `Tánctanítás: ${teacher.name} : ${dance.name} (${dance_course.level}) ${dance_course.length}`;
+        }
 
 
-function EventParty() {
-    const partyDetails = {
-        id: 1,
-        title: 'Élőzenés Salsa Party: Cuba',
-        photo: Plakat01,
-        startDate: new Date(2018, 1, 3, 18, 33, 30, 0),
-        endDate: new Date(2018, 1, 4, 2, 0, 0, 0),
-        program: '19:30 kapunyitás\n20:00 - 21:00 kezdő rocky tánctanítás\n21:00 - 23:00 élőben zenél a Pedrofon zenekar\n23:00 - 02:00 DJ-s buli Kenyeres Tamással',
-        content: 'Még érezni az előző est hangulatát és máris itt a következő, egyben a félévi utolsó bulink. Várunk titeket egy fergeteges Rock ‘N’ Roll Partyra április 17-én.',
-        dance: {
-            id: 1,
-            name: 'salsa',
-            content: 'Salsa is a dance',
-        },
-        facebookEvent: 'https://www.facebook.com/events/1598719006921910/',
-        spot: 'https://www.facebook.com/events/1598719006921910/',
-        bss: 'https://www.facebook.com/events/1598719006921910/',
-        teaching: {
-            id: 1,
-            teacher: {
-                id: 1,
-                name: 'Me and Me',
-                url: 'https://www.facebook.com/events/1598719006921910/',
-            },
-            dance: {
-                id: 1,
-                name: 'salsa',
-                content: 'Salsa is a dance',
-            },
-        },
-        bands: [{
-            id: 1,
-            name: 'Pedrofon',
-            url: 'https://www.facebook.com/events/1598719006921910/',
-        }],
-        djs: [{
-            id: 1,
-            name: 'DJ Eddy',
-            url: '',
-        }, {
-            id: 2,
-            name: 'DJ Meno',
-            url: '',
-        }],
-    };
+        const detail = {
+            program: details.program,
+            djs: details.djs,
+            bands: details.bands,
+            dance: details.dance,
+            facebook: details.facebook_event,
+            dance_course: danceCourseString,
+            dance_id: dance ? dance.dance_type.id : null,
+        };
 
-    const { startDate } = partyDetails;
-    const main = {
-        title: partyDetails.title,
-        date: `${startDate.getFullYear()}.${startDate.getMonth()}.${startDate.getDate()}`,
-        description: partyDetails.content,
-        poster: partyDetails.photo,
-    };
-
-    const detail = {
-        program: partyDetails.program,
-        djs: partyDetails.djs,
-        bands: partyDetails.bands,
-        dance: partyDetails.dance,
-        facebook: partyDetails.facebookEvent,
-    };
-
-    const media = {
-        photos: partyDetails.spot,
-        video: partyDetails.bss,
-    };
-    return (
-        <div>
-            <EventWithPoster {...main} />
-            <EventDetails {...detail} />
-            <EventMedia {...media} />
-        </div>
-    );
+        const media = {
+            photos: details.spot,
+            video: details.bss,
+        };
+        return (
+            <div>
+                <EditButton link={`/edit-events?${complexId}`} />
+                <EventWithPoster {...main} key="poster" />
+                <EventDetails {...detail} key="details" />
+                <EventMedia {...media} key="media" />
+            </div>
+        );
+    }
 }
 
 export default EventParty;

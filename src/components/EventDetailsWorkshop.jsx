@@ -6,12 +6,12 @@ import Card from './Card';
 import styles from './EventDetails.module.css';
 
 function EventDetailsWorkshop({
-    facebook, program, dance, theme = '-',
+    facebook, program, dance_id, theme = '-',
 }) {
     const links = [];
     if (facebook) {
         links.push(
-            <a className={styles.facebook} href={FacebookLogo} target="_blank" rel="noopener noreferrer">
+            <a className={styles.facebook} href={FacebookLogo} target="_blank" rel="noopener noreferrer" key="facebook">
                 <img src={FacebookLogo} alt="" />
             </a>,
         );
@@ -24,7 +24,7 @@ function EventDetailsWorkshop({
                     <div className={styles.program}>{program}</div>
                 </div>
                 <div>
-                    <DanceFigure dance={dance} />
+                    <DanceFigure id={dance_id} />
                 </div>
                 <div>
                     <div className="theme">
@@ -42,10 +42,17 @@ function EventDetailsWorkshop({
 }
 
 EventDetailsWorkshop.propTypes = {
-    theme: PropTypes.string.isRequired,
-    dance: PropTypes.instanceOf(Object).isRequired,
-    program: PropTypes.string.isRequired,
-    facebook: PropTypes.string.isRequired,
+    theme: PropTypes.string,
+    dance_id: PropTypes.number,
+    program: PropTypes.string,
+    facebook: PropTypes.string,
+};
+
+EventDetailsWorkshop.defaultProps = {
+    theme: '',
+    dance_id: null,
+    program: '',
+    facebook: '',
 };
 
 export default EventDetailsWorkshop;

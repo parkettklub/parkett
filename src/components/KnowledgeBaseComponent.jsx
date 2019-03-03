@@ -5,14 +5,13 @@ import Attention from './Attention';
 import Services from './Services';
 import Dances from './Dances';
 import EditButton from './EditButton';
-
-function editEventsPage() {
-    window.location = '/edit-dance/';
-}
+import styles from '../pages/Page.module.css';
 
 const KnowledgeBaseComponent = () => (
-    <div>
-        <EditButton onClick={editEventsPage} />
+    <div className={styles.knwoledge}>
+        <div>
+            <EditButton />
+        </div>
         <Dances />
         <LocationAccess />
         <Attention />

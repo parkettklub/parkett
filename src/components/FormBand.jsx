@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { fetchPost, fetchPut } from './FetchFunctions';
 import styles from './Form.module.css';
-import FormSimpleInput from './FormSimpleInput';
+import InputFormSimple from './InputFormSimple';
 
 class FormBand extends React.Component {
     constructor() {
@@ -9,8 +10,13 @@ class FormBand extends React.Component {
         this.state = {
             id: -1,
         };
-        this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
+    componentDidMount() {
+        const { selectedObject } = this.props;
+        this.setState({
+            ...selectedObject,
+        });
     }
 
     componentWillReceiveProps({ selectedObject }) {
@@ -19,25 +25,43 @@ class FormBand extends React.Component {
         });
     }
 
-    handleChange(event) {
-        const { name } = event.target.name;
+    handleChange = (event) => {
+        const { name } = event.target;
         this.setState({ [name]: event.target.value });
     }
 
-    handleSubmit(event) {
-        event.preventDefault();
-        this.setState({});
+    uploadChanges = () => {
+        const { id } = this.state;
+        if (id < 0) {
+            this.addBand();
+        } else {
+            this.updateBand();
+        }
+    }
+
+    addBand = () => {
+        const { fetchFunction } = this.props;
+        fetchPost('bands', this.state).then(() => {
+            fetchFunction();
+        });
+    }
+
+    updateBand = () => {
+        const { fetchFunction } = this.props;
+        fetchPut('bands', this.state).then(() => {
+            fetchFunction();
+        });
     }
 
     render() {
         const { selected, title } = this.props;
         const { id, name, url } = this.state;
-        const isNew = id === -1;
+        const isNew = id < 0;
         return (
             <div className={styles.main}>
                 <div className={styles.formgroup} hidden={selected !== title}>
                     {isNew ? 'Új Banda adatai:' : 'Banda adatai:'}
-                    <FormSimpleInput
+                    <InputFormSimple
                         selected={selected}
                         title={title}
                         handleChange={this.handleChange}
@@ -46,7 +70,7 @@ class FormBand extends React.Component {
                         example="Pedrofon"
                         label="Név"
                     />
-                    <FormSimpleInput
+                    <InputFormSimple
                         selected={selected}
                         title={title}
                         handleChange={this.handleChange}
@@ -56,24 +80,31 @@ class FormBand extends React.Component {
                         label="Weboldal"
                     />
                     <div className={styles.formgroup}>
-                        <input
+                        <button
+                            onClick={this.uploadChanges}
                             type="submit"
                             className={styles.submit}
-                            value={isNew ? 'Zenekar hozzáadása' : 'Zenekar módosítása'}
-                        />
+                        >
+                            {isNew ? 'Zenekar hozzáadása' : 'Zenekar módosítása'}
+                        </button>
                     </div>
                 </div>
-
             </div>
-
         );
     }
 }
 
 FormBand.propTypes = {
     selectedObject: PropTypes.instanceOf(Object).isRequired,
-    selected: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
+    selected: PropTypes.string,
+    title: PropTypes.string,
+    fetchFunction: PropTypes.func.isRequired,
 };
+
+FormBand.defaultProps = {
+    selected: '',
+    title: '',
+};
+
 
 export default FormBand;

@@ -14,7 +14,11 @@ const Card = (props) => {
 
 Card.propTypes = {
   children: PropTypes.instanceOf(Object).isRequired,
-  title: PropTypes.string.isRequired,
+  title: PropTypes.string,
+};
+
+Card.defaultProps = {
+  title: '',
 };
 
 export default Card;

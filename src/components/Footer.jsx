@@ -1,6 +1,6 @@
 import React from 'react';
 import './Footer.css';
-import Facebook from './facebook-logo.svg';
+import Facebook from './facebook-app-logo-white.svg';
 import Instagram from './instagram.svg';
 
 function Footer() {

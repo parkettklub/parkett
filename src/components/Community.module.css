@@ -14,14 +14,31 @@
     display: grid;
     grid-template-columns: 60% 30%;
     grid-gap: 0.5em;
-    width: min-content;
+    width: max-content;
 }
 
 .instagram {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: inherit;
-    width: min-content;
+    width: max-content;
+}
+
+.instagram > .description {
+    display: block;
+    color: white;
+    width: 100%;
+    max-width: 46em;
+    height: 15em;
+    text-align: center;
+    padding: 2em;
+    padding-top: 3em;
+    grid-column-start: 1;
+    grid-column-end: 4;
+}
+
+.instagram > .description > div {
+    font-size: 1.5em;
 }
 
 .loading {
@@ -45,15 +62,16 @@
 }
 
 .element {
-    width: 250px;
-    height: 250px;
+    text-align: center;
+    width: 15em;
+    height: 15em;
     background: black;
     overflow: hidden;
     border-radius: 4px;
     box-shadow: 4px 4px 4px rgba(0, 0, 0, .3);
 }
 
-@media only screen and (max-width: 1300px)  {
+@media only screen and (max-width: 100em)  {
     .main {
         display: block;
         width: 100%;
@@ -107,8 +125,8 @@
     color: white;
     position: relative;
     font-size: 0;
-    bottom: 10em;
-    height: 10em;
+    bottom: 12em;
+    height: 12em;
 }
 
 .element:hover .caption {
@@ -124,9 +142,49 @@
 }
 
 .instagram > .element {
-    background: green;
+    background: black;
 }
 
 .element.first {
     grid-column: 1/3;
+}
+
+@media only screen and (max-width: 50em)  {
+    .peopleOthers {
+        grid-column: 1;
+        grid-template-columns: 1fr 1fr;
+        width: 100%;
+    }
+    .people6 {
+        grid-template-columns: 1fr 1fr;
+        width: 100%;
+    }
+    .instagram {
+        grid-template-columns: 1fr 1fr;
+        width: 100%;
+    }
+
+    .instagram > .description {
+        grid-column-start: 1;
+        grid-column-end: 3;
+        color: white;
+        max-width: unset;
+        height: unset;
+        text-align: center;
+        padding: 0.5em;
+        padding-top: 0.5em;
+        width: auto;
+    }
+
+    .instagram > .description > div {
+        font-size: 1em;
+    }
+
+    .element {
+        width: 100%;
+    }
+
+    .element.small {
+        width: 100%;
+    }
 }

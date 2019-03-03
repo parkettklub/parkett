@@ -11,7 +11,7 @@ class SocialFeed extends React.Component {
   };
   handleResize = this.handleResize.bind(this);
 
-  fetchInstaPhotos() {
+  /*fetchInstaPhotos() {
     console.log('fetch');
     fetch(`https://api.instagram.com/v1/tags/${this.tag}/media/recent?access_token=${this.accessToken}`).then(response =>
       response.json()).then(data => {
@@ -19,7 +19,7 @@ class SocialFeed extends React.Component {
         console.log(this.state.photos);
       }
       )
-  };
+  };*/
 
   photoElements(photos) {
     return photos.map((datum, i) => (
@@ -43,7 +43,7 @@ class SocialFeed extends React.Component {
 
   componentDidMount() {
     window.addEventListener("resize", this.handleResize);
-    if (!this.state.photos) this.fetchInstaPhotos();
+    //if (!this.state.photos) this.fetchInstaPhotos();
   }
 
   handleResize() {

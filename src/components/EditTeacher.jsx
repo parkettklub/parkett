@@ -1,6 +1,7 @@
 import React from 'react';
 import SelectableElement from './SelectableElement';
 import FormTeacher from './FormTeacher';
+import { fetchAll } from './FetchFunctions';
 import styles from './Editor.module.css';
 import Plus from './plus.svg';
 
@@ -8,38 +9,51 @@ class EditTeacher extends React.Component {
     constructor() {
         super();
         this.state = {
-            teachers: [{
-                id: 1,
-                name: 'Kovács Béla és Heves Kornélia',
-                url: 'wwww.parkettklub.hu',
-            }, {
-                id: 2,
-                name: 'Komjáti Ede és Padányi Emese',
-                url: 'wwww.komjati.emese.hu',
-            }],
+            teachers: [],
             selectedId: 0,
             selectedObject: null,
         };
     }
 
+    componentDidMount() {
+        this.createTeacher();
+        this.fetchTeachers();
+    }
+
     createTeacher = () => {
         this.setState({
             selectedId: null,
-            selectedObject: (<FormTeacher selectedObject={{
-                id: -1,
-            }}
-            />),
+            selectedObject: (
+                <FormTeacher
+                    selectedObject={{
+                        id: -1,
+                    }}
+                    fetchFunction={this.fetchTeachers}
+                />),
         });
     }
 
 
-    editTeacher(id) {
+    editTeacher = (id) => {
         const { teachers } = this.state;
         const selected = teachers.find(teacher => teacher.id === id);
         this.setState({
             selectedId: id,
-            selectedObject: (<FormTeacher selectedObject={selected} />),
+            selectedObject: (
+                <FormTeacher
+                    selectedObject={selected}
+                    fetchFunction={this.fetchTeachers}
+                />
+            ),
         });
+    }
+
+    fetchTeachers = async () => {
+        this.setState({
+            selectedObject: null,
+        });
+        const myJson = await fetchAll('dance_teachers');
+        this.setState({ teachers: myJson });
     }
 
     render() {
@@ -60,9 +74,11 @@ class EditTeacher extends React.Component {
                         </div>
                         {teachers.map(teacher => (
                             <SelectableElement
-                                title={teacher.name}
+                                title={`${teacher.id} – ${teacher.name}`}
+                                start_date={teacher.updated_at}
                                 onClick={() => this.editTeacher(teacher.id)}
                                 selected={teacher.id === selectedId}
+                                key={teacher.id}
                             />
                         ))}
                     </div>

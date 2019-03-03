@@ -56,11 +56,19 @@ class Header extends React.Component {
 }
 
 Header.propTypes = {
-  events: PropTypes.bool.isRequired,
-  community: PropTypes.bool.isRequired,
-  media: PropTypes.bool.isRequired,
-  knowledgebase: PropTypes.bool.isRequired,
-  profile: PropTypes.bool.isRequired,
+  events: PropTypes.bool,
+  community: PropTypes.bool,
+  media: PropTypes.bool,
+  knowledgebase: PropTypes.bool,
+  profile: PropTypes.bool,
+};
+
+Header.defaultProps = {
+  events: false,
+  community: false,
+  media: false,
+  knowledgebase: false,
+  profile: false,
 };
 
 export default Header;

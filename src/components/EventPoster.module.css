@@ -4,6 +4,11 @@
     grid-template-columns: max-content 1fr;
 }
 
+.main.clickable:hover {
+    cursor: pointer;
+    filter: opacity(0.5);
+}
+
 .details {
     padding: 1em;
 }
@@ -30,4 +35,16 @@
 
 .description{
     padding-top: 1em;
+}
+
+ @media only screen and (max-width: 70em)  {
+    .poster {
+        height: 0em;
+        margin: 0;
+    }
+
+    .smallPoster {
+        height: 0em;
+        margin: 0;
+    }
 }

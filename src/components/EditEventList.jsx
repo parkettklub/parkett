@@ -1,90 +1,168 @@
 import React from 'react';
 import styles from './Editor.module.css';
 import SelectableElement from './SelectableElement';
-import EditEventArticle from './EditEventArticle';
-import EditEventParty from './EditEventParty';
-import EditEventWorkshop from './EditEventWorkshop';
+import FormEventArticle from './FormEventArticle';
+import FormEventParty from './FormEventParty';
+import FormEventWorkshop from './FormEventWorkshop';
+import { fetchAll } from './FetchFunctions';
 import Plus from './plus.svg';
 
 class EditEvents extends React.Component {
     constructor() {
         super();
         this.state = {
-            events: [
-                {
-                    id: 'P1',
-                    title: 'Élőzenés Salsa Party',
-                    startDate: '2018.01.02. 18:30',
-                    onClick: () => this.selectParty(1),
-                },
-                {
-                    id: 'P2',
-                    title: 'Élőzenés Rock N Roll Party',
-                    startDate: '2018.01.02. 18:30',
-                    onClick: () => this.selectParty(2),
-                },
-                {
-                    id: 'W1',
-                    title: 'Kizomba Workshop',
-                    startDate: '2018.01.02. 18:30',
-                    onClick: () => this.selectWorkshop(1),
-                },
-                {
-                    id: 'A1',
-                    title: 'Gólyabál',
-                    startDate: '2018.01.02. 18:30',
-                    onClick: () => this.selectArticle(1),
-                },
-            ],
+            events: [],
             selectedId: '0',
             selectedObject: null,
         };
     }
 
-    selectParty(id) {
+    componentDidMount() {
+        this.fetchEvents();
+    }
+
+    fetchEvents = () => {
+        const complexId = window.location.href.split('?')[1];
         this.setState({
-            selectedId: `P${id}`,
-            selectedObject: (<EditEventParty />),
+            events: [],
+            selectedObject: null,
+            selectedId: complexId,
+        });
+        this.fetchParties();
+        this.fetchWorkshops();
+        this.fetchArticles();
+    }
+
+    fetchParties = async () => {
+        const myJson = await fetchAll('parties');
+        this.addEvents('P', myJson, this.selectParty);
+    }
+
+    fetchWorkshops = async () => {
+        const myJson = await fetchAll('workshops');
+        this.addEvents('W', myJson, this.selectWorkshop);
+    }
+
+    fetchArticles = async () => {
+        const myJson = await fetchAll('articles');
+        this.addEvents('A', myJson, this.selectArticle, true);
+    }
+
+    addEvents = (char, newEvents, onClick, article = false) => {
+        const { events, selectedId } = this.state;
+        let filteredEvents = newEvents;
+        filteredEvents = filteredEvents.map(original => ({
+            ...original,
+            onClick: () => onClick({ ...original, complexId: `${char}${original.id}` }),
+            complexId: `${char}${original.id}`,
+            date: article ? original.published_at : original.start_date,
+        }));
+        let allEvents = [...events, ...filteredEvents];
+        allEvents = allEvents.sort((a, b) => {
+            const aValue = new Date(a.date).valueOf();
+            const bValue = new Date(b.date).valueOf();
+            return bValue - aValue;
+        });
+        let selectedObject = null;
+        allEvents.forEach((event) => {
+            if (event.complexId === selectedId) {
+                if (selectedId[0] === 'P') {
+                    selectedObject = (
+                        <FormEventParty
+                            selectedObject={event}
+                            fetchFunction={this.fetchEvents}
+                        />
+                    );
+                }
+                if (selectedId[0] === 'W') {
+                    selectedObject = (
+                        <FormEventWorkshop
+                            selectedObject={event}
+                            fetchFunction={this.fetchEvents}
+                        />
+                    );
+                }
+                if (selectedId[0] === 'A') {
+                    selectedObject = (
+                        <FormEventArticle
+                            selectedObject={event}
+                            fetchFunction={this.fetchEvents}
+                        />
+                    );
+                }
+            }
+        });
+        this.setState({ events: allEvents, selectedObject });
+    }
+
+    selectParty = (selected) => {
+        this.setState({
+            selectedId: selected.complexId,
+            selectedObject: (
+                <FormEventParty
+                    selectedObject={selected}
+                    fetchFunction={this.fetchEvents}
+                />
+            ),
         });
     }
 
-    selectArticle(id) {
+    selectArticle = (selected) => {
         this.setState({
-            selectedId: `A${id}`,
-            selectedObject: (<EditEventArticle />),
+            selectedId: selected.complexId,
+            selectedObject: (
+                <FormEventArticle
+                    selectedObject={selected}
+                    fetchFunction={this.fetchEvents}
+                />),
         });
     }
 
-    selectWorkshop(id) {
+    selectWorkshop = (selected) => {
         this.setState({
-            selectedId: `W${id}`,
-            selectedObject: (<EditEventWorkshop />),
+            selectedId: selected.complexId,
+            selectedObject: (
+                <FormEventWorkshop
+                    selectedObject={selected}
+                    fetchFunction={this.fetchEvents}
+                />),
         });
     }
 
     createParty = () => {
         this.setState({
             selectedId: '',
-            selectedObject: (<EditEventParty />),
+            selectedObject: (<FormEventParty
+                selectedObject={{ id: -1 }}
+                fetchFunction={this.fetchEvents}
+            />),
         });
     }
 
     createArticle = () => {
         this.setState({
             selectedId: '',
-            selectedObject: (<EditEventArticle />),
+            selectedObject: (<FormEventArticle
+                selectedObject={{ id: -1 }}
+                fetchFunction={this.fetchEvents}
+            />),
         });
     }
 
     createWorkshop = () => {
         this.setState({
             selectedId: '',
-            selectedObject: (<EditEventWorkshop />),
+            selectedObject: (<FormEventWorkshop
+                selectedObject={{ id: -1 }}
+                fetchFunction={this.fetchEvents}
+            />),
         });
     }
 
     render() {
-        const { events, selectedObject, selectedId } = this.state;
+        const {
+            events, selectedObject, selectedId,
+        } = this.state;
         return (
             <div className={styles.center}>
                 <div className={styles.main}>
@@ -121,7 +199,12 @@ class EditEvents extends React.Component {
                         </div>
                         {
                             events.map(event => (
-                                <SelectableElement {...event} selected={event.id === selectedId} />
+                                <SelectableElement
+                                    {...event}
+                                    selected={event.complexId === selectedId}
+                                    onClick={event.onClick}
+                                    key={event.complexId}
+                                />
                             ))
                         }
                     </div>

@@ -1,6 +1,7 @@
 import React from 'react';
 import SelectableElement from './SelectableElement';
 import FormBand from './FormBand';
+import { fetchAll } from './FetchFunctions';
 import styles from './Editor.module.css';
 import Plus from './plus.svg';
 
@@ -8,26 +9,28 @@ class EditBand extends React.Component {
     constructor() {
         super();
         this.state = {
-            bands: [{
-                id: 1,
-                name: 'Pedrofon',
-                url: 'google.com',
-            }, {
-                id: 2,
-                name: 'Török Testvérek',
-                url: 'torok.testverek.hu',
-            }],
+            bands: [],
             selectedId: 0,
             selectedObject: null,
         };
     }
 
-    editBand(id) {
+    componentDidMount() {
+        this.createBand();
+        this.fetchBands();
+    }
+
+    editBand = (id) => {
         const { bands } = this.state;
         const selected = bands.find(band => band.id === id);
         this.setState({
             selectedId: id,
-            selectedObject: (<FormBand selectedObject={selected} />),
+            selectedObject: (
+                <FormBand
+                    selectedObject={selected}
+                    fetchFunction={this.fetchBands}
+                />
+            ),
         });
     }
 
@@ -35,11 +38,22 @@ class EditBand extends React.Component {
         this.setState({
             selectedId: null,
             selectedObject: (
-                <FormBand selectedObject={{
-                    id: -1,
-                }}
+                <FormBand
+                    selectedObject={{
+                        id: -1,
+                    }}
+                    fetchFunction={this.fetchBands}
                 />),
         });
+    }
+
+    fetchBands = async () => {
+        this.setState({
+            selectedObject: null,
+            selectedId: 0,
+        });
+        const myJson = await fetchAll('bands');
+        this.setState({ bands: myJson });
     }
 
     render() {
@@ -61,9 +75,11 @@ class EditBand extends React.Component {
                         {bands.map(
                             band => (
                                 <SelectableElement
-                                    title={band.name}
+                                    title={`${band.id} – ${band.name}`}
+                                    start_date={band.updated_at}
                                     onClick={() => this.editBand(band.id)}
                                     selected={band.id === selectedId}
+                                    key={band.id}
                                 />
                             ),
                         )}

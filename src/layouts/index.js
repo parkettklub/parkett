@@ -1,10 +1,10 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import Helmet from 'react-helmet'
-import Footer from '../components/Footer.jsx'
-import './index.css'
-import 'normalize.css'
-import 'url-polyfill'
+import React from 'react';
+import PropTypes from 'prop-types';
+import Helmet from 'react-helmet';
+import Footer from '../components/Footer';
+import './index.css';
+import 'normalize.css';
+import 'url-polyfill';
 
 
 const Layout = ({ children, data }) => (
@@ -32,6 +32,7 @@ const Layout = ({ children, data }) => (
 
 Layout.propTypes = {
   children: PropTypes.func,
+  data: PropTypes.object,
 }
 
 export default ({ children }) =>

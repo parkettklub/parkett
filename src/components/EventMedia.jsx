@@ -15,8 +15,13 @@ function EventMedia({ photos, video }) {
 }
 
 EventMedia.propTypes = {
-    photos: PropTypes.string.isRequired,
-    video: PropTypes.string.isRequired,
+    photos: PropTypes.string,
+    video: PropTypes.string,
+};
+
+EventMedia.defaultProps = {
+    photos: '',
+    video: '',
 };
 
 function Photos({ photos }) {
@@ -34,7 +39,11 @@ function Photos({ photos }) {
 }
 
 Photos.propTypes = {
-    photos: PropTypes.string.isRequired,
+    photos: PropTypes.string,
+};
+
+Photos.defaultProps = {
+    photos: '',
 };
 
 function Video({ video }) {
@@ -52,7 +61,11 @@ function Video({ video }) {
 }
 
 Video.propTypes = {
-    video: PropTypes.string.isRequired,
+    video: PropTypes.string,
+};
+
+Video.defaultProps = {
+    video: '',
 };
 
 export default EventMedia;

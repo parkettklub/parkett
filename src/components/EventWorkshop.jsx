@@ -2,68 +2,56 @@ import React from 'react';
 import EventWithPoster from './EventWithPoster';
 import EventDetailsWorkshop from './EventDetailsWorkshop';
 import EventWorkshopForm from './EventWorkshopForm';
-import Plakat02 from './Plakat_vegleges.jpg';
+import { fetchAll } from './FetchFunctions';
+import EditButton from './EditButton';
 
+class EventWorkshop extends React.Component {
+    state = {}
 
-function EventWorkshop() {
-    const partyDetails = {
-        id: 1,
-        title: 'Élőzenés Salsa Party: Cuba',
-        startDate: '2018-01-20',
-    };
+    componentDidMount() {
+        this.fetchEvent();
+    }
 
-    const workshopDetails = {
-        id: 1,
-        title: 'Kizomba Workshop',
-        photo: Plakat02,
-        startDate: new Date(2018, 1, 3, 18, 33, 30, 0),
-        endDate: new Date(2018, 1, 4, 2, 0, 0, 0),
-        program: '19:30 kapunyitás\n20:00 - 21:00 kezdő rocky tánctanítás\n21:00 - 23:00 élőben zenél a Pedrofon zenekar\n23:00 - 02:00 DJ-s buli Kenyeres Tamással',
-        content: 'Még érezni az előző est hangulatát és máris itt a következő, egyben a félévi utolsó bulink. Várunk titeket egy fergeteges Rock ‘N’ Roll Partyra április 17-én.',
-        dance: {
-            id: 2,
-            name: 'kizomba',
-            content: 'Kizomba is a dance',
-        },
-        teacher: {
-            id: 1,
-            name: 'Me and Me',
-            url: 'https://www.facebook.com/events/1598719006921910/',
-        },
-        theme: 'Teljesen kezdő gyorstalpaló kizomba tánctanítás, amely egy hónapnyi tánctudást biztosít és lehetővé teszi a már elindult tánctanfolyamokba való bekapcsolódást.',
-        facebookEvent: 'https://www.facebook.com/events/1598719006921910/',
-        application_form: 'https://goo.gl/forms/EMAqXVoJDJQGNkeq1',
-        linkedParty: partyDetails,
-    };
+    fetchEvent = async () => {
+        const id = window.location.href.split('?')[1];
+        this.setState({
+            complexId: `W${id}`,
+        });
+        const myJson = await fetchAll(`workshops/${id}`);
+        this.setState({ details: myJson });
+    }
 
-    const { startDate } = workshopDetails;
+    render() {
+        const { details, complexId } = this.state;
+        if (!details) return null;
+        const main = {
+            title: details.title,
+            date: details.start_date,
+            content: details.content,
+            photo: details.photo,
+        };
 
-    const main = {
-        title: workshopDetails.title,
-        date: `${startDate.getFullYear()}.${startDate.getMonth()}.${startDate.getDate()}`,
-        description: workshopDetails.content,
-        poster: workshopDetails.photo,
-    };
+        const detail = {
+            program: details.program,
+            dance: details.dance_id,
+            facebook: details.facebook_event,
+            theme: details.theme,
+        };
 
-    const detail = {
-        program: workshopDetails.program,
-        dance: workshopDetails.dance,
-        facebook: workshopDetails.facebookEvent,
-        theme: workshopDetails.theme,
-    };
-
-    const formdetails = {
-        link: workshopDetails.application_form,
-        teachers: workshopDetails.teacher,
-        linkedParty: workshopDetails.linkedParty,
-    };
-    return (
-        <div>
-            <EventWithPoster {...main} />
-            <EventDetailsWorkshop {...detail} />
-            <EventWorkshopForm {...formdetails} />
-        </div>
-    );
+        const formdetails = {
+            link: details.application_form,
+            dance_teacher_id: details.dance_teacher_id,
+            linkedParty: details.party,
+        };
+        return (
+            <div>
+                <EditButton link={`/edit-events?${complexId}`} />
+                <EventWithPoster {...main} />
+                <EventDetailsWorkshop {...detail} />
+                <EventWorkshopForm {...formdetails} />
+            </div>
+        );
+    }
 }
 
 export default EventWorkshop;

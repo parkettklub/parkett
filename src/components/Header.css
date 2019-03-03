@@ -4,7 +4,7 @@
   margin-bottom: 1.5rem;
   padding: 1rem;
   background-color: rgba(10, 10, 10, .2);
-  background-image: url('boritokep2.png');
+  background-image: url('background.jpg');
   background-position: top;
   background-size: auto 100vh;
   color: white;
@@ -15,12 +15,12 @@
   display: grid;
   grid-template-columns: auto max-content;
   align-items: flex-end;
-  height: 7em;
+  height: 6em;
   overflow: hidden;
 }
 
 .main-header.max { 
-  height: 15rem;
+  height: 17rem;
   grid-template-columns: auto
 }
 
@@ -88,13 +88,21 @@
   height: 0rem;
 }
 
+div.more:focus {
+  outline: 0;
+}
+
+div.more:hover {
+  opacity: 0.5;
+}
+
 @media only screen and (max-width: 950px)  {
   .main-header {
     grid-template-columns: auto;
   }
 
   .main-header.max {
-    overflow: visible;
+    overflow: hidden;
   }
 
   .logo-div > div.more > img {

@@ -8,7 +8,7 @@ body {
   margin: 0;
   height: 100%;
   background-color: darkred;
-  background-image: url('../components/boritokep2.png');
+  background-image: url('../components/background.jpg');
   background-position: center;
   background-size: cover;
   background-attachment: fixed;

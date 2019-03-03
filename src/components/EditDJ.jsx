@@ -1,6 +1,7 @@
 import React from 'react';
 import SelectableElement from './SelectableElement';
 import FormDJ from './FormDJ';
+import { fetchAll } from './FetchFunctions';
 import Plus from './plus.svg';
 import styles from './Editor.module.css';
 
@@ -8,18 +9,15 @@ class EditDJ extends React.Component {
     constructor() {
         super();
         this.state = {
-            djs: [{
-                id: 1,
-                name: 'DJ Andrea',
-                url: 'google.com',
-            }, {
-                id: 2,
-                name: 'DJ Béla',
-                url: 'bela.dj.com',
-            }],
+            djs: [],
             selectedId: 0,
             selectedObject: null,
         };
+    }
+
+    componentDidMount() {
+        this.createDJ();
+        this.fetchDJs();
     }
 
     editDJ = (id) => {
@@ -27,18 +25,34 @@ class EditDJ extends React.Component {
         const selected = djs.find(dj => dj.id === id);
         this.setState({
             selectedId: id,
-            selectedObject: (<FormDJ selectedObject={selected} />),
+            selectedObject: (
+                <FormDJ
+                    selectedObject={selected}
+                    fetchFunction={this.fetchDJs}
+                />
+            ),
         });
     }
 
-    createDJ() {
+    createDJ = () => {
         this.setState({
             selectedId: null,
-            selectedObject: (<FormDJ selectedObject={{
-                id: -1,
-            }}
-            />),
+            selectedObject: (
+                <FormDJ
+                    selectedObject={{
+                        id: -1,
+                    }}
+                    fetchFunction={this.fetchDJs}
+                />),
         });
+    }
+
+    fetchDJs = async () => {
+        this.setState({
+            selectedObject: null,
+        });
+        const myJson = await fetchAll('djs');
+        this.setState({ djs: myJson });
     }
 
 
@@ -63,6 +77,8 @@ class EditDJ extends React.Component {
                                 title={dj.name}
                                 onClick={() => this.editDJ(dj.id)}
                                 selected={dj.id === selectedId}
+                                start_date={dj.updated_at}
+                                key={dj.id}
                             />
                         ))}
                     </div>
