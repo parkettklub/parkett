@@ -1,10 +1,10 @@
 export async function fetchAll(type) {
-    const response = await fetch(`http://parkett-klub.herokuapp.com/${type}`);
+    const response = await fetch(`https://parkett-klub.herokuapp.com/${type}`);
     return response.json();
 }
 
 export async function fetchPost(type, element) {
-    const response = await fetch(`http://parkett-klub.herokuapp.com/${type}`, {
+    const response = await fetch(`https://parkett-klub.herokuapp.com/${type}`, {
         method: 'POST',
         body: JSON.stringify(element),
         headers: {
@@ -16,7 +16,7 @@ export async function fetchPost(type, element) {
 }
 
 export async function fetchPut(type, element) {
-    const response = fetch(`http://parkett-klub.herokuapp.com/${type}/${element.id}`, {
+    const response = fetch(`https://parkett-klub.herokuapp.com/${type}/${element.id}`, {
         method: 'PUT',
         body: JSON.stringify(element),
         headers: {
