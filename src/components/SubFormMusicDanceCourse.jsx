@@ -26,27 +26,27 @@ class SubFormMusicDanceCourse extends React.Component {
         this.fetchDanceCourses();
     }
 
-    fetchDanceCourses = async () => {
+    fetchDanceCourses = async function name() {
         const myJson = await fetchAll('dance_courses');
         this.setState({ danceCourses: myJson });
     }
 
-    fetchDances = async () => {
+    fetchDances = async function name() {
         const myJson = await fetchAll('dances');
         this.setState({ dances: myJson });
     }
 
-    fetchBands = async () => {
+    fetchBands = async function name() {
         const myJson = await fetchAll('bands');
         this.setState({ bands: myJson });
     }
 
-    fetchDjs = async () => {
+    fetchDjs = async function name() {
         const myJson = await fetchAll('djs');
         this.setState({ djs: myJson });
     }
 
-    fetchDanceTeachers = async () => {
+    fetchDanceTeachers = async function name() {
         const myJson = await fetchAll('dance_teachers');
         this.setState({ dance_teachers: myJson });
     }

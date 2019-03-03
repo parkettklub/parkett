@@ -47,7 +47,7 @@ class EditBand extends React.Component {
         });
     }
 
-    fetchBands = async () => {
+    fetchBands = async function name() {
         this.setState({
             selectedObject: null,
             selectedId: 0,

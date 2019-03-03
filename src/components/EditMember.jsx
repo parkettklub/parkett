@@ -47,7 +47,7 @@ class EditMember extends React.Component {
         });
     }
 
-    fetchMembers = async () => {
+    fetchMembers = async function name() {
         this.setState({
             selectedObject: null,
         });
