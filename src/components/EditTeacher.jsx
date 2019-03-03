@@ -28,7 +28,7 @@ class EditTeacher extends React.Component {
                     selectedObject={{
                         id: -1,
                     }}
-                    async fetchFunction={this.fetchTeachers}
+                    fetchFunction={this.fetchTeachers}
                 />),
         });
     }
@@ -42,13 +42,13 @@ class EditTeacher extends React.Component {
             selectedObject: (
                 <FormTeacher
                     selectedObject={selected}
-                    async fetchFunction={this.fetchTeachers}
+                    fetchFunction={this.fetchTeachers}
                 />
             ),
         });
     }
 
-    async fetchTeachers() {
+    fetchTeachers = async function name() {
         this.setState({
             selectedObject: null,
         });

@@ -38,7 +38,7 @@ class EditDanceCourse extends React.Component {
             selectedObject: (
                 <FormDanceCourse
                     selectedObject={{ id: -1 }}
-                    async fetchFunction={this.fetchDanceCourses}
+                    fetchFunction={this.fetchDanceCourses}
                 />),
         });
     }
@@ -69,7 +69,7 @@ class EditDanceCourse extends React.Component {
             selectedObject: (
                 <FormDanceCourse
                     selectedObject={selected}
-                    async fetchFunction={this.fetchDanceCourses}
+                    fetchFunction={this.fetchDanceCourses}
                 />),
         });
     }

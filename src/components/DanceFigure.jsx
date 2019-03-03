@@ -15,7 +15,7 @@ class DanceFigure extends React.Component {
         if (id) this.fetchObject(id);
     }
 
-    async fetchObject(id) {
+    fetchObject = async (id) => {
         const selectedObject = await fetchAll(`dance_types/${id}`);
         this.setState({ ...selectedObject, src: selectedObject.image });
     }

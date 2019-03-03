@@ -28,7 +28,7 @@ class EditMember extends React.Component {
             selectedObject: (
                 <FormMember
                     selectedObject={selected}
-                    async fetchFunction={this.fetchMembers}
+                    fetchFunction={this.fetchMembers}
                 />
             ),
         });
@@ -42,12 +42,12 @@ class EditMember extends React.Component {
                     selectedObject={{
                         id: -1,
                     }}
-                    async fetchFunction={this.fetchMembers}
+                    fetchFunction={this.fetchMembers}
                 />),
         });
     }
 
-    async fetchMembers() {
+    fetchMembers = async function name() {
         this.setState({
             selectedObject: null,
         });
