@@ -43,24 +43,6 @@ class EditDanceCourse extends React.Component {
         });
     }
 
-    fetchDanceCourses = async () => {
-        this.setState({
-            selectedObject: null,
-        });
-        const myJson = await fetchAll('dance_courses');
-        this.setState({ dance_courses: myJson });
-    }
-
-    fetchDanceTeachers = async () => {
-        const myJson = await fetchAll('dance_teachers');
-        this.setState({ dance_teachers: myJson });
-    }
-
-    fetchDances = async () => {
-        const myJson = await fetchAll('dances');
-        this.setState({ dances: myJson });
-    }
-
     editDanceCourse = (id) => {
         const { dance_courses } = this.state;
         const selected = dance_courses.find(course => course.id === id);
@@ -72,6 +54,24 @@ class EditDanceCourse extends React.Component {
                     fetchFunction={this.fetchDanceCourses}
                 />),
         });
+    }
+
+    async fetchDanceCourses() {
+        this.setState({
+            selectedObject: null,
+        });
+        const myJson = await fetchAll('dance_courses');
+        this.setState({ dance_courses: myJson });
+    }
+
+    async fetchDanceTeachers() {
+        const myJson = await fetchAll('dance_teachers');
+        this.setState({ dance_teachers: myJson });
+    }
+
+    async fetchDances() {
+        const myJson = await fetchAll('dances');
+        this.setState({ dances: myJson });
     }
 
     render() {
