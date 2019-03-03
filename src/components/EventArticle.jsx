@@ -11,7 +11,7 @@ class EventArticle extends React.Component {
         this.fetchEvent();
     }
 
-    fetchEvent = async function name() {
+    fetchEvent = async () => {
         const id = window.location.href.split('?')[1];
         this.setState({
             complexId: `A${id}`,

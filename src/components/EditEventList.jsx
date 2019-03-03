@@ -33,17 +33,17 @@ class EditEvents extends React.Component {
         this.fetchArticles();
     }
 
-    fetchParties = async function name() {
+    fetchParties = async () => {
         const myJson = await fetchAll('parties');
         this.addEvents('P', myJson, this.selectParty);
     }
 
-    fetchWorkshops = async function name() {
+    fetchWorkshops = async () => {
         const myJson = await fetchAll('workshops');
         this.addEvents('W', myJson, this.selectWorkshop);
     }
 
-    fetchArticles = async function name() {
+    fetchArticles = async () => {
         const myJson = await fetchAll('articles');
         this.addEvents('A', myJson, this.selectArticle, true);
     }

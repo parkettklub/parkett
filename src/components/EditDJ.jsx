@@ -47,7 +47,7 @@ class EditDJ extends React.Component {
         });
     }
 
-    fetchDJs = async function name() {
+    fetchDJs = async () => {
         this.setState({
             selectedObject: null,
         });

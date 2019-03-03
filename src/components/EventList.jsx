@@ -47,7 +47,7 @@ class EventList extends React.Component {
         this.fetchArticles();
     }
 
-    fetchParties = async function name() {
+    fetchParties = async () => {
         const myJson = await fetchAll('parties');
         const { events } = this.state;
         const newEvents = events.concat(myJson.map(original => ({
@@ -58,7 +58,7 @@ class EventList extends React.Component {
         this.setState({ events: newEvents });
     }
 
-    fetchWorkshops = async function name() {
+    fetchWorkshops = async () => {
         const myJson = await fetchAll('workshops');
         const { events } = this.state;
         const newEvents = events.concat(myJson.map(original => ({
@@ -69,7 +69,7 @@ class EventList extends React.Component {
         this.setState({ events: newEvents });
     }
 
-    fetchArticles = async function name() {
+    fetchArticles = async () => {
         const myJson = await fetchAll('articles');
         const { events } = this.state;
         const newEvents = events.concat(myJson.map(original => ({

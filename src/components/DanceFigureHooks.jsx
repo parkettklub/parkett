@@ -8,7 +8,7 @@ export default ({ id }) => {
 
     const [src, setSrc] = useState("");
 
-    useEffect(async function name() {
+    useEffect(async () => {
         if (id != null) {
             const response = await fetchAll(`dance_types/${id}`);
             const json = await response.json();

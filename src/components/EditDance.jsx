@@ -44,7 +44,7 @@ class EditDance extends React.Component {
         });
     }
 
-    fetchDances = async function name() {
+    fetchDances = async () => {
         this.setState({
             selectedObject: null,
         });

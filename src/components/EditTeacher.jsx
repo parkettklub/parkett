@@ -48,7 +48,7 @@ class EditTeacher extends React.Component {
         });
     }
 
-    fetchTeachers = async function name() {
+    fetchTeachers = async () => {
         this.setState({
             selectedObject: null,
         });
