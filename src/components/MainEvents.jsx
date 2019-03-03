@@ -74,17 +74,17 @@ class MainEvents extends React.Component {
         this.fetchArticles();
     }
 
-    async fetchParties() {
+    fetchParties = async function name() {
         const myJson = await fetchAll('parties');
         this.addEvents('P', myJson, goToParty);
     }
 
-    async fetchWorkshops() {
+    fetchWorkshops = async function name() {
         const myJson = await fetchAll('workshops');
         this.addEvents('W', myJson, goToWorkshop);
     }
 
-    async fetchArticles() {
+    fetchArticles = async function name() {
         const myJson = await fetchAll('articles');
         this.addEvents('A', myJson, goToArticle, true);
     }

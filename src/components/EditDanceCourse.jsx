@@ -43,7 +43,7 @@ class EditDanceCourse extends React.Component {
         });
     }
 
-    async fetchDanceCourses() {
+    fetchDanceCourses = async function name() {
         this.setState({
             selectedObject: null,
         });
@@ -51,12 +51,12 @@ class EditDanceCourse extends React.Component {
         this.setState({ dance_courses: myJson });
     }
 
-    async fetchDanceTeachers() {
+    fetchDanceTeachers = async function name() {
         const myJson = await fetchAll('dance_teachers');
         this.setState({ dance_teachers: myJson });
     }
 
-    async fetchDances() {
+    fetchDances = async function name() {
         const myJson = await fetchAll('dances');
         this.setState({ dances: myJson });
     }
