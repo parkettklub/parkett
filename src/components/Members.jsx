@@ -17,7 +17,7 @@ class Members extends React.Component {
         this.fetchMembers();
     }
 
-    async fetchMembers() {
+    fetchMembers = async function () {
         const myJson = await fetchAll('members');
         this.setState({ members: myJson });
     }
