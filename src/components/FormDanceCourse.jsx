@@ -37,12 +37,12 @@ class FormDanceCourse extends React.Component {
         });
     }
 
-    fetchDances = async function name() {
+    async fetchDances() {
         const myJson = await fetchAll('dances');
         this.setState({ dances: myJson });
     }
 
-    fetchDanceTeachers = async function name() {
+    async fetchDanceTeachers() {
         const myJson = await fetchAll('dance_teachers');
         this.setState({ dance_teachers: myJson });
     }
@@ -132,7 +132,7 @@ class FormDanceCourse extends React.Component {
                         selectedObject={{
                             id: -1,
                         }}
-                        fetchFunction={this.fetchDances}
+                        async fetchFunction={this.fetchDances}
                     />
                     <InputFormSimple
                         selected={selected}
@@ -175,7 +175,7 @@ class FormDanceCourse extends React.Component {
                         selectedObject={{
                             id: -1,
                         }}
-                        fetchFunction={this.fetchDanceTeachers}
+                        async fetchFunction={this.fetchDanceTeachers}
                     />
                     <div className={styles.formgroup}>
                         <button

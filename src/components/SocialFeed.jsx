@@ -13,7 +13,7 @@ class SocialFeed extends React.Component {
 
   /*fetchInstaPhotos() {
     console.log('fetch');
-    fetch(`https://api.instagram.com/v1/tags/${this.tag}/media/recent?access_token=${this.accessToken}`).then(response =>
+    async fetch(`https://api.instagram.com/v1/tags/${this.tag}/media/recent?access_token=${this.accessToken}`).then(response =>
       response.json()).then(data => {
         this.setState({ photos: data.data })
         console.log(this.state.photos);

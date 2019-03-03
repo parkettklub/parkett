@@ -85,7 +85,7 @@ class FormDance extends React.Component {
         });
     }
 
-    fetchDanceTypes = async function name() {
+    async fetchDanceTypes() {
         const myJson = await fetchAll('dance_types');
         this.setState({ dance_types: myJson });
     }
@@ -139,7 +139,7 @@ class FormDance extends React.Component {
                         selectedObject={{
                             id: -1,
                         }}
-                        fetchFunction={this.fetchDanceTypes}
+                        async fetchFunction={this.fetchDanceTypes}
                     />
                     <div className={styles.formgroup}>
                         <button

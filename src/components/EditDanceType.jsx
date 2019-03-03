@@ -28,7 +28,7 @@ class EditDanceType extends React.Component {
             selectedObject: (
                 <FormDanceType
                     selectedObject={selected}
-                    fetchFunction={this.fetchDances}
+                    async fetchFunction={this.fetchDances}
                 />),
         });
     }
@@ -39,12 +39,12 @@ class EditDanceType extends React.Component {
             selectedObject: (
                 <FormDanceType
                     selectedObject={{ id: -1 }}
-                    fetchFunction={this.fetchDances}
+                    async fetchFunction={this.fetchDances}
                 />),
         });
     }
 
-    fetchDances = async function name() {
+    async fetchDances() {
         this.setState({
             selectedObject: null,
         });

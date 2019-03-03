@@ -23,17 +23,17 @@ class SubFormWorkshop extends React.Component {
         this.fetchParties();
     }
 
-    fetchDanceTeachers = async function name() {
+    async fetchDanceTeachers() {
         const myJson = await fetchAll('dance_teachers');
         this.setState({ teachers: myJson });
     }
 
-    fetchDances = async function name() {
+    async fetchDances() {
         const myJson = await fetchAll('dances');
         this.setState({ dances: myJson });
     }
 
-    fetchParties = async function name() {
+    async fetchParties() {
         const myJson = await fetchAll('parties');
         this.setState({ parties: myJson });
     }
@@ -80,7 +80,7 @@ class SubFormWorkshop extends React.Component {
                     selectedObject={{
                         id: -1,
                     }}
-                    fetchFunction={this.fetchDances}
+                    async fetchFunction={this.fetchDances}
                 />
                 <InputFormSelect
                     selectedForm={selectedForm}
@@ -105,7 +105,7 @@ class SubFormWorkshop extends React.Component {
                     selectedObject={{
                         id: -1,
                     }}
-                    fetchFunction={this.fetchDanceTeachers}
+                    async fetchFunction={this.fetchDanceTeachers}
                 />
                 <InputFormSelect
                     selectedForm={selectedForm}

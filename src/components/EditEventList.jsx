@@ -33,17 +33,17 @@ class EditEvents extends React.Component {
         this.fetchArticles();
     }
 
-    fetchParties = async function name() {
+    async fetchParties() {
         const myJson = await fetchAll('parties');
         this.addEvents('P', myJson, this.selectParty);
     }
 
-    fetchWorkshops = async function name() {
+    async fetchWorkshops() {
         const myJson = await fetchAll('workshops');
         this.addEvents('W', myJson, this.selectWorkshop);
     }
 
-    fetchArticles = async function name() {
+    async fetchArticles() {
         const myJson = await fetchAll('articles');
         this.addEvents('A', myJson, this.selectArticle, true);
     }
@@ -70,7 +70,7 @@ class EditEvents extends React.Component {
                     selectedObject = (
                         <FormEventParty
                             selectedObject={event}
-                            fetchFunction={this.fetchEvents}
+                            async fetchFunction={this.fetchEvents}
                         />
                     );
                 }
@@ -78,7 +78,7 @@ class EditEvents extends React.Component {
                     selectedObject = (
                         <FormEventWorkshop
                             selectedObject={event}
-                            fetchFunction={this.fetchEvents}
+                            async fetchFunction={this.fetchEvents}
                         />
                     );
                 }
@@ -86,7 +86,7 @@ class EditEvents extends React.Component {
                     selectedObject = (
                         <FormEventArticle
                             selectedObject={event}
-                            fetchFunction={this.fetchEvents}
+                            async fetchFunction={this.fetchEvents}
                         />
                     );
                 }
@@ -101,7 +101,7 @@ class EditEvents extends React.Component {
             selectedObject: (
                 <FormEventParty
                     selectedObject={selected}
-                    fetchFunction={this.fetchEvents}
+                    async fetchFunction={this.fetchEvents}
                 />
             ),
         });
@@ -113,7 +113,7 @@ class EditEvents extends React.Component {
             selectedObject: (
                 <FormEventArticle
                     selectedObject={selected}
-                    fetchFunction={this.fetchEvents}
+                    async fetchFunction={this.fetchEvents}
                 />),
         });
     }
@@ -124,7 +124,7 @@ class EditEvents extends React.Component {
             selectedObject: (
                 <FormEventWorkshop
                     selectedObject={selected}
-                    fetchFunction={this.fetchEvents}
+                    async fetchFunction={this.fetchEvents}
                 />),
         });
     }
@@ -134,7 +134,7 @@ class EditEvents extends React.Component {
             selectedId: '',
             selectedObject: (<FormEventParty
                 selectedObject={{ id: -1 }}
-                fetchFunction={this.fetchEvents}
+                async fetchFunction={this.fetchEvents}
             />),
         });
     }
@@ -144,7 +144,7 @@ class EditEvents extends React.Component {
             selectedId: '',
             selectedObject: (<FormEventArticle
                 selectedObject={{ id: -1 }}
-                fetchFunction={this.fetchEvents}
+                async fetchFunction={this.fetchEvents}
             />),
         });
     }
@@ -154,7 +154,7 @@ class EditEvents extends React.Component {
             selectedId: '',
             selectedObject: (<FormEventWorkshop
                 selectedObject={{ id: -1 }}
-                fetchFunction={this.fetchEvents}
+                async fetchFunction={this.fetchEvents}
             />),
         });
     }

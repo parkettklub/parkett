@@ -26,27 +26,27 @@ class SubFormMusicDanceCourse extends React.Component {
         this.fetchDanceCourses();
     }
 
-    fetchDanceCourses = async function name() {
+    async fetchDanceCourses() {
         const myJson = await fetchAll('dance_courses');
         this.setState({ danceCourses: myJson });
     }
 
-    fetchDances = async function name() {
+    async fetchDances() {
         const myJson = await fetchAll('dances');
         this.setState({ dances: myJson });
     }
 
-    fetchBands = async function name() {
+    async fetchBands() {
         const myJson = await fetchAll('bands');
         this.setState({ bands: myJson });
     }
 
-    fetchDjs = async function name() {
+    async fetchDjs() {
         const myJson = await fetchAll('djs');
         this.setState({ djs: myJson });
     }
 
-    fetchDanceTeachers = async function name() {
+    async fetchDanceTeachers() {
         const myJson = await fetchAll('dance_teachers');
         this.setState({ dance_teachers: myJson });
     }
@@ -98,7 +98,7 @@ class SubFormMusicDanceCourse extends React.Component {
                 <FormDanceCourse
                     selected={addSelected}
                     title="danceCourse"
-                    fetchFunction={this.fetchDanceCourses}
+                    async fetchFunction={this.fetchDanceCourses}
                     selectedObject={{
                         id: -1,
                     }}
@@ -127,7 +127,7 @@ class SubFormMusicDanceCourse extends React.Component {
                     selectedObject={{
                         id: -1,
                     }}
-                    fetchFunction={this.fetchBands}
+                    async fetchFunction={this.fetchBands}
                 />
                 <InputFormMultipleSelect
                     selectedForm={selectedForm}
@@ -153,7 +153,7 @@ class SubFormMusicDanceCourse extends React.Component {
                     selectedObject={{
                         id: -1,
                     }}
-                    fetchFunction={this.fetchDjs}
+                    async fetchFunction={this.fetchDjs}
                 />
             </div>
         );

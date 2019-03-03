@@ -28,7 +28,7 @@ class EditBand extends React.Component {
             selectedObject: (
                 <FormBand
                     selectedObject={selected}
-                    fetchFunction={this.fetchBands}
+                    async fetchFunction={this.fetchBands}
                 />
             ),
         });
@@ -42,12 +42,12 @@ class EditBand extends React.Component {
                     selectedObject={{
                         id: -1,
                     }}
-                    fetchFunction={this.fetchBands}
+                    async fetchFunction={this.fetchBands}
                 />),
         });
     }
 
-    fetchBands = async function name() {
+    async fetchBands() {
         this.setState({
             selectedObject: null,
             selectedId: 0,

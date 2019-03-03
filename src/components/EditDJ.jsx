@@ -28,7 +28,7 @@ class EditDJ extends React.Component {
             selectedObject: (
                 <FormDJ
                     selectedObject={selected}
-                    fetchFunction={this.fetchDJs}
+                    async fetchFunction={this.fetchDJs}
                 />
             ),
         });
@@ -42,12 +42,12 @@ class EditDJ extends React.Component {
                     selectedObject={{
                         id: -1,
                     }}
-                    fetchFunction={this.fetchDJs}
+                    async fetchFunction={this.fetchDJs}
                 />),
         });
     }
 
-    fetchDJs = async function name() {
+    async fetchDJs() {
         this.setState({
             selectedObject: null,
         });

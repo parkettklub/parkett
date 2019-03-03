@@ -12,7 +12,7 @@ class EventParty extends React.Component {
         this.fetchEvent();
     }
 
-    fetchEvent = async function name() {
+    async fetchEvent() {
         const id = window.location.href.split('?')[1];
         this.setState({
             complexId: `P${id}`,
@@ -23,7 +23,7 @@ class EventParty extends React.Component {
         this.fetchDanceCourse(dance_course_id);
     }
 
-    fetchDanceCourse = async (id) => {
+    async fetchDanceCourse(id) {
         const myJson = await fetchAll(`dance_courses/${id}`);
         this.setState({ dance_course: myJson });
         const { dance_id, dance_teacher_id } = myJson;
@@ -31,12 +31,12 @@ class EventParty extends React.Component {
         this.fetchTeacher(dance_teacher_id);
     }
 
-    fetchDance = async (id) => {
+    async fetchDance(id) {
         const myJson = await fetchAll(`dances/${id}`);
         this.setState({ dance: myJson });
     }
 
-    fetchTeacher = async (id) => {
+    async fetchTeacher(id) {
         const myJson = await fetchAll(`dance_teachers/${id}`);
         this.setState({ teacher: myJson });
     }

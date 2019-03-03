@@ -12,7 +12,7 @@ class EventWorkshop extends React.Component {
         this.fetchEvent();
     }
 
-    fetchEvent = async function name() {
+    async fetchEvent() {
         const id = window.location.href.split('?')[1];
         this.setState({
             complexId: `W${id}`,
