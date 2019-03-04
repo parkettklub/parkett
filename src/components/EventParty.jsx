@@ -12,33 +12,37 @@ class EventParty extends React.Component {
         this.fetchEvent();
     }
 
-    fetchEvent = async () => {
+    fetchEvent = () => {
         const id = window.location.href.split('?')[1];
         this.setState({
             complexId: `P${id}`,
         });
-        const myJson = await fetchAll(`parties/${id}`);
-        this.setState({ details: myJson });
-        const { dance_course_id } = myJson;
-        this.fetchDanceCourse(dance_course_id);
+        fetchAll(`parties/${id}`).then((myJson) => {
+            this.setState({ details: myJson });
+            const { dance_course_id } = myJson;
+            this.fetchDanceCourse(dance_course_id);
+        });
     }
 
-    fetchDanceCourse = async (id) => {
-        const myJson = await fetchAll(`dance_courses/${id}`);
-        this.setState({ dance_course: myJson });
-        const { dance_id, dance_teacher_id } = myJson;
-        this.fetchDance(dance_id);
-        this.fetchTeacher(dance_teacher_id);
+    fetchDanceCourse = (id) => {
+        fetchAll(`dance_courses/${id}`).then((myJson) => {
+            this.setState({ dance_course: myJson });
+            const { dance_id, dance_teacher_id } = myJson;
+            this.fetchDance(dance_id);
+            this.fetchTeacher(dance_teacher_id);
+        });
     }
 
-    fetchDance = async (id) => {
-        const myJson = await fetchAll(`dances/${id}`);
-        this.setState({ dance: myJson });
+    fetchDance = (id) => {
+        fetchAll(`dances/${id}`).then((myJson) => {
+            this.setState({ dance: myJson });
+        });
     }
 
-    fetchTeacher = async (id) => {
-        const myJson = await fetchAll(`dance_teachers/${id}`);
-        this.setState({ teacher: myJson });
+    fetchTeacher = (id) => {
+        fetchAll(`dance_teachers/${id}`).then((myJson) => {
+            this.setState({ teacher: myJson });
+        });
     }
 
     render() {

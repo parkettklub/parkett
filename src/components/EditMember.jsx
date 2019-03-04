@@ -47,12 +47,13 @@ class EditMember extends React.Component {
         });
     }
 
-    fetchMembers = async () => {
+    fetchMembers = () => {
         this.setState({
             selectedObject: null,
         });
-        const myJson = await fetchAll('members');
-        this.setState({ members: myJson });
+        fetchAll('members').then((myJson) => {
+            this.setState({ members: myJson });
+        });
     }
 
 

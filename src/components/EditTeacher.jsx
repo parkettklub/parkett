@@ -48,12 +48,13 @@ class EditTeacher extends React.Component {
         });
     }
 
-    fetchTeachers = async () => {
+    fetchTeachers = () => {
         this.setState({
             selectedObject: null,
         });
-        const myJson = await fetchAll('dance_teachers');
-        this.setState({ teachers: myJson });
+        fetchAll('dance_teachers').then((myJson) => {
+            this.setState({ teachers: myJson });
+        });
     }
 
     render() {
