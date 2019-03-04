@@ -23,8 +23,8 @@ function HeaderMax() {
             <div className="links">
                 <ListLink to="/events/">Események</ListLink>
                 <ListLink to="/community/">Közösség</ListLink>
-                <ListLink to="/media/">Média</ListLink>
-                <ListLink to="/knowledge-base/">Tudásbázis</ListLink>
+                <ListLink to="/media/">Galéria</ListLink>
+                <ListLink to="/knowledge-base/">Tudnivalók</ListLink>
                 <ListLink to="/profile/">Profilom</ListLink>
             </div>
         </header>
