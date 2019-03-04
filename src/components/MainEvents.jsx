@@ -74,19 +74,22 @@ class MainEvents extends React.Component {
         this.fetchArticles();
     }
 
-    fetchParties = async () => {
-        const myJson = await fetchAll('parties');
-        this.addEvents('P', myJson, goToParty);
+    fetchParties = () => {
+        fetchAll('parties').then((myJson) => {
+            this.addEvents('P', myJson, goToParty);
+        });
     }
 
-    fetchWorkshops = async () => {
-        const myJson = await fetchAll('workshops');
-        this.addEvents('W', myJson, goToWorkshop);
+    fetchWorkshops = () => {
+        fetchAll('workshops').then((myJson) => {
+            this.addEvents('W', myJson, goToWorkshop);
+        });
     }
 
-    fetchArticles = async () => {
-        const myJson = await fetchAll('articles');
-        this.addEvents('A', myJson, goToArticle, true);
+    fetchArticles = () => {
+        fetchAll('articles').then((myJson) => {
+            this.addEvents('A', myJson, goToArticle, true);
+        });
     }
 
     addEvents = (char, newEvents, onClick, article = false) => {

@@ -12,9 +12,10 @@ class EventWorkshopForm extends React.Component {
         if (dance_teacher_id) this.fetchObject(dance_teacher_id);
     }
 
-    fetchObject = async (id) => {
-        const selectedObject = await fetchAll(`dance_teachers/${id}`);
-        this.setState({ ...selectedObject });
+    fetchObject = (id) => {
+        fetchAll(`dance_teachers/${id}`).then((selectedObject) => {
+            this.setState({ ...selectedObject });
+        });
     }
 
     render() {
