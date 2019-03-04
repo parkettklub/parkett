@@ -23,19 +23,22 @@ class SubFormWorkshop extends React.Component {
         this.fetchParties();
     }
 
-    fetchDanceTeachers = async () => {
-        const myJson = await fetchAll('dance_teachers');
+    fetchDanceTeachers = () => {
+        fetchAll('dance_teachers').then((myJson) => {
         this.setState({ teachers: myJson });
+        });
     }
 
-    fetchDances = async () => {
-        const myJson = await fetchAll('dances');
+    fetchDances = () => {
+        fetchAll('dances').then((myJson) => {
         this.setState({ dances: myJson });
+        });
     }
 
-    fetchParties = async () => {
-        const myJson = await fetchAll('parties');
-        this.setState({ parties: myJson });
+    fetchParties = () => {
+        fetchAll('parties').then((myJson) => {
+            this.setState({ parties: myJson });
+        });
     }
 
     addNewElement(name) {

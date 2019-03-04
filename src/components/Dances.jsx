@@ -22,8 +22,9 @@ class Dances extends React.Component {
     }
 
     fetchDances = async () => {
-        const selectedObject = await fetchAll('dances');
-        this.setState({ dances: selectedObject });
+        fetchAll('dances').then((selectedObject) => {
+            this.setState({ dances: selectedObject });
+        });
     }
 
     select = (id) => {

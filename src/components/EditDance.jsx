@@ -44,12 +44,13 @@ class EditDance extends React.Component {
         });
     }
 
-    fetchDances = async () => {
+    fetchDances = () => {
         this.setState({
             selectedObject: null,
         });
-        const myJson = await fetchAll('dances');
+        fetchAll('dances').then((myJson) => {
         this.setState({ dances: myJson });
+        });
     }
 
     render() {

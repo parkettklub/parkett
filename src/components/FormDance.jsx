@@ -85,9 +85,10 @@ class FormDance extends React.Component {
         });
     }
 
-    fetchDanceTypes = async () => {
-        const myJson = await fetchAll('dance_types');
-        this.setState({ dance_types: myJson });
+    fetchDanceTypes = () => {
+        fetchAll('dance_types').then((myJson) => {
+            this.setState({ dance_types: myJson });
+        });
     }
 
     render() {
