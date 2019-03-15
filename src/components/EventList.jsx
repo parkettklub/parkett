@@ -152,9 +152,7 @@ class EventList extends React.Component {
                     </div>
                 </div>
                 <div className={styles.types}>
-                    <div className={styles.title}>
-                        Válaszd ki milyen eseményeket keresel:
-                    </div>
+                    <div className={styles.title}>Válaszd ki milyen eseményeket keresel:</div>
                     <button
                         type="button"
                         onClick={this.invertParty}
