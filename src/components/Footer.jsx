@@ -13,34 +13,30 @@ function Footer() {
                 <div className="footer-left">
                     <div><strong>Köszönet </strong></div>
                     <div>
+                        <strong>A backend-ért: </strong>
+                        <a href="http://kir-dev.sch.bme.hu/">Kir-Dev</a>
+                    </div>
+                    <div>
+                        <strong>A design-ért és frontend-ért: </strong>
+                        <a href="http://schdesign.hu/">Schönherz Design Stúdió</a>
+                    </div>
+                    <div>
                         <strong>A fotókért: </strong>
-                        {'SPOT fotókör'}
+                        <a href="https://spot.sch.bme.hu/events/parkett-klub/">SPOT fotókör</a>
                     </div>
                     <div>
                         <strong>A hangosításért: </strong>
-                        {'AC Studio és Live'}
+                        <a href="https://acstudio.sch.bme.hu/">AC Studio és Live</a>
                     </div>
                     <div>
                         <strong>A videókért: </strong>
-                        {'Budavári Schönherz Stúdió'}
-                    </div>
-                    <div>
-                        <strong>Otthonunkért: </strong>
-                        {'Schönherz Kollégium'}
+                        <a href="https://bsstudio.hu/">Budavári Schönherz Stúdió</a>
                     </div>
                 </div>
                 <div className="footer-center">
                     <div><strong>Helyszín </strong></div>
                     <div>Schönherz Zoltán Kollégium,</div>
                     <div>1117 Budapest, Irinyi József utca 42. </div>
-                    <div>
-                        <strong>Designed by: </strong>
-                        {'Schönherz Design Stúdió'}
-                    </div>
-                    <div>
-                        <strong>Backend by: </strong>
-                        {'Kir-Dev'}
-                    </div>
                 </div>
                 <div className="footer-right">
                     <div><strong>Emailcím: </strong></div>

@@ -46,6 +46,10 @@
   color: white;
 }
 
+.main-footer a {
+    color: white;
+}
+
 .main-footer div {
   filter: none;
 }
