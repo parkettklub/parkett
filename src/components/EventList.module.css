@@ -130,3 +130,35 @@
     filter: brightness(2);
 }
 
+.types {
+    padding: 2rem;
+}
+
+.types > .title {
+    font-size: 1rem;
+    padding-bottom: 1rem;
+}
+
+.type, .selectedType {
+    border: 0;
+    display: inline;
+    padding: 0.5rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    background: #00000000;
+    color: white;
+}
+
+.types > .type:hover, .selectedType:hover {
+    color: black;
+    background: rgba(255, 200, 0, 0.5);
+}
+
+.type:focus, .selectedType:focus {
+    outline: 0;
+}
+
+.selectedType {
+    color: black;
+    background: white;
+}
