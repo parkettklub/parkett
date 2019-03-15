@@ -1,10 +1,11 @@
 .main {
-    margin-bottom: 6rem;
+    margin-bottom: 10rem;
     margin-top: 7em;
+    color: white;
 }
 
 .pageCenter {
-    margin-bottom: 6rem;
+    margin-bottom: 10rem;
     margin-top: 7em;
     color: white;
 }
@@ -12,13 +13,13 @@
 .pageCenter > div {
     display: block;
     margin: 0 auto;
-    width: max-content;
+    width: fit-content;
 }
 
 .home {
     display: block;
     margin: 0 auto;
-    margin-bottom: 0rem;
+    margin-bottom: 10rem;
     margin-top: 17rem;
     max-width: 900px;
     width: 100%;

@@ -34,7 +34,7 @@ class Members extends React.Component {
                             return (<Member {...member} key={member.id} />);
                         }
                         return null;
-                    }).slice(1, 7)}
+                    }).slice(0, 6)}
                 </div>
                 <div className={styles.peopleOthers}>
                     {members.map((member) => {
@@ -42,7 +42,7 @@ class Members extends React.Component {
                             return (<Member {...member} key={member.id} />);
                         }
                         return null;
-                    }).slice(7)}
+                    }).slice(6)}
                 </div>
                 <div className={styles.peopleOthers}>
                     {members.map((member) => {

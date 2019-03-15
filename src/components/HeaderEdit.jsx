@@ -50,7 +50,7 @@ class HeaderEdit extends React.Component {
                     <ListLink to="/edit-dance-course/" active={danceCourse}>Tanítások</ListLink>
                     <ListLink to="/edit-teacher/" active={teacher}>Tanárok</ListLink>
                     <ListLink to="/edit-dance/" active={dance}>Táncok</ListLink>
-                    <ListLink to="/edit-dance-type/" active={dancetype}>Táncok</ListLink>
+                    <ListLink to="/edit-dance-type/" active={dancetype}>Tánctípusok</ListLink>
                     <ListLink to="/edit-member/" active={member}>Tagok</ListLink>
                 </div>
             </header>
