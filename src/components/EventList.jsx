@@ -131,7 +131,7 @@ class EventList extends React.Component {
                         />
                     </div>
                 </div>
-                <form autoComplete="off" className={styles.eventListCardForm}>
+                <form autoComplete="off" className={styles.eventListCardForm} onSubmit={this.handleSubmit}>
                     <div>
                         <input
                             type="text"
