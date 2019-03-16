@@ -1,8 +1,8 @@
 .main {
-    margin: 2rem;
+    margin: 1rem;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-gap: 2rem;
+    grid-gap: 1rem;
     height:70vh;
     align-content: center;
 }
@@ -15,4 +15,11 @@
 }
 
 .events {
+}
+
+@media only screen and (max-width: 700px)  {
+
+    .main {
+        grid-template-columns: 1fr;
+    }
 }
