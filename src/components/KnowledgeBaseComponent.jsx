@@ -6,12 +6,14 @@ import Services from './Services';
 import Dances from './Dances';
 import EditButton from './EditButton';
 import styles from '../pages/Page.module.css';
+import NewsFeed from './NewsFeed';
 
 const KnowledgeBaseComponent = () => (
     <div className={styles.knwoledge}>
         <div>
             <EditButton />
         </div>
+        <NewsFeed />
         <Dances />
         <LocationAccess />
         <Attention />

@@ -3,13 +3,13 @@ import Card from './Card';
 import styles from './JoinUs.module.css';
 
 function editEventsPage() {
-    window.location.href = 'https://docs.google.com/forms/d/e/1FAIpQLScdcE5Ha6hBGbEQzvXT3Fq1bOBxMppOMg5TUrh0YahBwovvsw/viewform';
+    window.location.href = 'http://eepurl.com/veA7v';
 }
 
-const JoinUsSimple = () => (
+const NewsFeed = () => (
     <Card>
         <div className={styles.main}>
-            <div className={styles.title}>Jelentkezz Parkett Klub rendezőnek!</div>
+            <div className={styles.title}>Iratkozz fel Hírlevelünkre!</div>
             <div
                 className={styles.submit}
                 onClick={editEventsPage}
@@ -17,10 +17,10 @@ const JoinUsSimple = () => (
                 role="button"
                 tabIndex={0}
             >
-                {'Jelentkezem'}
+                {'Feliratkozom!'}
             </div>
         </div>
     </Card>
 );
 
-export default JoinUsSimple;
+export default NewsFeed;
