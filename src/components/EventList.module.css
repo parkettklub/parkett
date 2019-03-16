@@ -215,4 +215,8 @@
     .grid {
         grid-template-columns: 0 auto 0;
     }
+
+    .main {
+        padding: 0;
+    }
 }

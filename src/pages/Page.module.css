@@ -59,4 +59,13 @@
         width: 100%;
     }
 
+    .pageCenter {
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+
+    .main {
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
 }
