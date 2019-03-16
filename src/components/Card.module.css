@@ -16,6 +16,7 @@
     font-size: 20px;
     margin-bottom: 1em;
     height: min-content;
+    overflow: hidden;
 }
 
 @media only screen and (min-width: 900px)  {

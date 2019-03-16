@@ -51,9 +51,10 @@
 }
 
 .grid {
+    background: #FFFFFF;
     display: grid;
     grid-gap: 10px;
-    grid-template-columns: 150px auto 100px;
+    grid-template-columns: 150px auto 6rem;
     padding: 0;
     align-items: center;
     cursor: pointer;
@@ -127,6 +128,14 @@
     line-height: normal;
 }
 
+.facebook {
+    height: 3rem;
+}
+
+.facebook img {
+    height: 3rem;
+}
+
 .facebook:hover {
     filter: brightness(2);
 }
@@ -183,4 +192,21 @@
 .selectedType {
     color: black;
     background: white;
+}
+
+@media only screen and (max-width: 950px)  {
+    .posterCropper {
+        width: 0;
+    }
+
+    .grid {
+        background: unset;
+        color: white;
+        grid-template-columns: 0px auto 5rem;
+    }
+
+    .facebook img {
+        color: white;
+        filter: brightness(10);
+    }
 }
