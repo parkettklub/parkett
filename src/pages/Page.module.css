@@ -17,21 +17,6 @@
     width: fit-content;
 }
 
-.event span > div {
-    display: block;
-    position: relative;
-}
-
-.event span > div > article {
-    display: block;
-    margin-top: 0;
-    position: absolute;
-    margin-left: auto;
-    margin-right: auto;
-    left: 0;
-    right: 0;
-}
-
 
 @media only screen and (max-width: 700px)  {
     .pageCenter > div.knwoledge {

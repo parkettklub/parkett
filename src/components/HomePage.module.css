@@ -1,25 +1,44 @@
 .main {
-    margin: 1rem;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 1rem;
-    height:70vh;
-    align-content: center;
-}
-
-.join , .events {
-    height: 100%;
+    margin: 0 auto;
+    display: block;
+    max-width: 1200px;
 }
 
 .join {
+    font-family: 'Roboto', sans-serif;
+    height: 20rem;
+    margin-bottom: 2rem;
+    overflow: hidden;
+    background: linear-gradient( rgba(0, 0, 0, 0.7), rgba(100, 0, 0, 0.7) ), url('./community.jpg');
+    background-size: cover;
+    background-position: center;
 }
 
-.events {
+.join .text {
+    padding: 1rem;
+    max-width: 700px;
+    align-content: center;
+    display: block;
+    margin: 0 auto;
+}
+
+.join .image {
+    filter: brightness(0.4);
+}
+
+.join .text .title {
+    font-size: 2rem;
+    padding: 1rem;
+}
+
+.join .text .description {
+    padding: 1rem;
+}
+
+.join .text .actions {
+    padding: 1rem;
 }
 
 @media only screen and (max-width: 700px)  {
 
-    .main {
-        grid-template-columns: 1fr;
-    }
 }

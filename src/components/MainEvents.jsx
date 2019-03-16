@@ -1,8 +1,9 @@
 import React from 'react';
 import ReactCssTransitionGroup from 'react-addons-css-transition-group';
 import { fetchAll } from './FetchFunctions';
-import EventWithPoster from './EventWithPoster';
-import styles from '../pages/Page.module.css';
+import MainPoster from './MainPoster';
+import styles from './MainEvent.module.css';
+import Event from './Event';
 
 
 function goToParty(id) {
@@ -110,8 +111,8 @@ class MainEvents extends React.Component {
                     transitionEnterTimeout={500}
                     transitionLeaveTimeout={500}
                 >
-                    <div key={events[i].complexId}>
-                        <EventWithPoster {...(events[i])} key={i} onClick={events[i].onClick} />
+                    <div className={styles.events}>
+                        {events.map(event => <Event {...event} />)}
                     </div>
                 </ReactCssTransitionGroup>
             </div>
