@@ -1,0 +1,18 @@
+.main {
+    margin: 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 2rem;
+    height:70vh;
+    align-content: center;
+}
+
+.join , .events {
+    height: 100%;
+}
+
+.join {
+}
+
+.events {
+}
