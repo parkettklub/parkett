@@ -1,7 +1,6 @@
 import React from 'react';
 import MainEvents from './MainEvents';
 import styles from './HomePage.module.css';
-import Community from './community.jpg';
 
 function JoinUsPage() {
     window.location.href = 'https://docs.google.com/forms/d/e/1FAIpQLScdcE5Ha6hBGbEQzvXT3Fq1bOBxMppOMg5TUrh0YahBwovvsw/viewform';
@@ -14,8 +13,6 @@ function NewsFeedSubscription() {
 const HomePage = () => (
     <div className={styles.main}>
         <div className={styles.join}>
-            <div className={styles.image}>
-            </div>
             <div className={styles.text}>
                 <div className={styles.title}>Csatlakozz hozzánk!</div>
                 <div className={styles.description}>
@@ -28,15 +25,15 @@ const HomePage = () => (
                 </div>
                 <div className={styles.actions}>
                     <button type="button" onClick={JoinUsPage}>
-                        {'Csatlakozz'}
+                        {'Csatlakozom a rendezőkhöz'}
                     </button>
                     <button type="button" onClick={NewsFeedSubscription}>
-                        {'Feliratkozom'}
+                        {'Feliratkozom a hírlevélre'}
                     </button>
                 </div>
             </div>
-
         </div>
+        <div className={styles.title}>Közelgő eseményeink:</div>
         <div className={styles.events}>
             <MainEvents />
         </div>

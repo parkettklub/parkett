@@ -26,7 +26,9 @@
     filter: brightness(0.4);
 }
 
-.join .text .title {
+.title {
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
     font-size: 2rem;
     padding: 1rem;
 }
@@ -37,6 +39,19 @@
 
 .join .text .actions {
     padding: 1rem;
+}
+
+.join .text .actions button {
+    background: rgba(255, 255, 255, 0.932);
+    color: black;
+    padding: 1rem;
+    margin: 1rem;
+    border: 0;
+    outline: 0;
+}
+
+.join .text .actions button:hover {
+    background: rgba(64, 202, 76, 0.932);
 }
 
 @media only screen and (max-width: 700px)  {
