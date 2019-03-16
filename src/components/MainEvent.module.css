@@ -16,3 +16,11 @@
     margin-left: auto;
     margin-right: auto;
 }
+
+@media only screen and (max-width: 500px)  {
+
+.event .events {
+    display: grid;
+    grid-template-columns: 1fr;
+}
+}
