@@ -1,9 +1,10 @@
 import ReactCssTransitionGroup from 'react-addons-css-transition-group';
 import React from 'react';
-import HeaderMax from '../components/HeaderMax';
+import Header from '../components/Header';
 import JoinUsSimple from '../components/JoinUsSimple';
 import MainEvents from '../components/MainEvents';
 import styles from './Page.module.css';
+import HomePage from '../components/HomePage';
 import './Animation.css';
 
 const IndexPage = () => (
@@ -14,12 +15,11 @@ const IndexPage = () => (
     transitionAppear
     transitionLeaveTimeout={500}
   >
-    <HeaderMax />
+    <Header />
     <div
-      className={styles.home}
+      className={styles.main}
     >
-      <JoinUsSimple />
-      <MainEvents />
+      <HomePage />
     </div>
   </ReactCssTransitionGroup>
 );
