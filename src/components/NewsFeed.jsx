@@ -2,7 +2,7 @@ import React from 'react';
 import Card from './Card';
 import styles from './JoinUs.module.css';
 
-function editEventsPage() {
+function newsFeedSubscription() {
     window.location.href = 'http://eepurl.com/veA7v';
 }
 
@@ -12,7 +12,7 @@ const NewsFeed = () => (
             <div className={styles.title}>Iratkozz fel Hírlevelünkre!</div>
             <div
                 className={styles.submit}
-                onClick={editEventsPage}
+                onClick={newsFeedSubscription}
                 onKeyDown={() => { }}
                 role="button"
                 tabIndex={0}
