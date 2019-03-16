@@ -5,7 +5,7 @@ import Card from './Card';
 import styles from './EventForm.module.css';
 
 class EventWorkshopForm extends React.Component {
-     state = {};
+    state = {};
 
     componentDidMount() {
         const { dance_teacher_id } = this.props;
@@ -20,7 +20,7 @@ class EventWorkshopForm extends React.Component {
 
     render() {
         const { party_id, link, dance_teacher_id } = this.props;
-        const { name } = this.state;
+        const { name, url } = this.state;
         const rows = [];
         if (party_id) {
             rows.push(
@@ -46,7 +46,7 @@ class EventWorkshopForm extends React.Component {
                     </div>
                     <div className={styles.paragraph} hidden={dance_teacher_id == null}>
                         {'A tánccal '}
-                        {name}
+                        <a href={url}>{name}</a>
                         {' fognak megismertetni'}
                     </div>
                     {rows}

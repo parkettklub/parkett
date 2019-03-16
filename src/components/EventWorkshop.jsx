@@ -34,7 +34,7 @@ class EventWorkshop extends React.Component {
 
         const detail = {
             program: details.program,
-            dance: details.dance_id,
+            dance_id: details.dance_id,
             facebook: details.facebook_event,
             theme: details.theme,
         };

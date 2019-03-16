@@ -6,7 +6,7 @@ import Card from './Card';
 import styles from './EventDetails.module.css';
 
 function EventDetails({
-    bands, djs, facebook, program, dance_id, dance_course,
+    bands, djs, facebook, program, dance_id, dance_course, teacher_link, teacher_name,
 }) {
     const links = [];
     if (facebook) {
@@ -33,7 +33,9 @@ function EventDetails({
                     <DanceFigure id={dance_id} />
                 </div>
                 <div>
-                    {dance_course}
+                    {'Tánctanítás: '}
+                    <a href={teacher_link}>{teacher_name}</a>
+                    {` : ${dance_course}`}
                 </div>
                 <div>
                     {links}
@@ -67,7 +69,9 @@ EventDetails.propTypes = {
     dance_id: PropTypes.number,
     program: PropTypes.string,
     dance_course: PropTypes.string,
+    teacher_link: PropTypes.string,
     facebook: PropTypes.string.isRequired,
+    teacher_name: PropTypes.string,
 };
 
 EventDetails.defaultProps = {
@@ -76,6 +80,8 @@ EventDetails.defaultProps = {
     dance_id: null,
     program: '',
     dance_course: '',
+    teacher_link: '',
+    teacher_name: '',
 };
 
 export default EventDetails;

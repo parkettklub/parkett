@@ -58,8 +58,10 @@ class EventParty extends React.Component {
         };
 
         let danceCourseString = '';
+        let teacherName = '';
         if (dance_course && dance && teacher) {
-            danceCourseString = `Tánctanítás: ${teacher.name} : ${dance.name} (${dance_course.level}) ${dance_course.length}`;
+            danceCourseString = `${dance.name} (${dance_course.level}) ${dance_course.length}`;
+            teacherName = teacher.name;
         }
 
 
@@ -70,6 +72,8 @@ class EventParty extends React.Component {
             dance: details.dance,
             facebook: details.facebook_event,
             dance_course: danceCourseString,
+            teacher_name: teacherName,
+            teacher_link: teacher ? teacher.url : '',
             dance_id: dance ? dance.dance_type.id : null,
         };
 

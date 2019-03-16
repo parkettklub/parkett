@@ -7,18 +7,26 @@ class DanceFigure extends React.Component {
     state = {};
 
     componentDidMount() {
-        const { id } = this.props;
+        const { id, danceId } = this.props;
         if (id) this.fetchObject(id);
+        if (danceId) this.fetchDance(danceId);
     }
 
-    componentWillReceiveProps({ id }) {
+    componentWillReceiveProps({ id, danceId }) {
         if (id) this.fetchObject(id);
+        if (danceId) this.fetchDance(danceId);
     }
 
     fetchObject = (id) => {
         fetchAll(`dance_types/${id}`).then((selectedObject) => {
-                this.setState({ ...selectedObject, src: selectedObject.image });
-            });
+            this.setState({ ...selectedObject, src: selectedObject.image });
+        });
+    }
+
+    fetchDance = (id) => {
+        fetchAll(`dances/${id}`).then((selectedObject) => {
+            this.setState({ ...selectedObject, src: selectedObject.dance_type.image });
+        });
     }
 
     render() {
@@ -33,10 +41,12 @@ class DanceFigure extends React.Component {
 
 DanceFigure.propTypes = {
     id: PropTypes.number,
+    danceId: PropTypes.number,
 };
 
 DanceFigure.defaultProps = {
     id: null,
+    danceId: null,
 };
 
 
