@@ -39,14 +39,14 @@ class EventWorkshopForm extends React.Component {
                 <div className={styles.main}>
                     <div className={styles.paragraph}>
                         <strong>JELENTKEZNI az alábbi linken lehet:  </strong>
-                        <a href={link}>Link a formhoz</a>
+                        <a href={link} target="_blank" rel="noopener noreferrer">Link a formhoz</a>
                     </div>
                     <div className={styles.paragraph}>
                         {'Siess, a helyek limitáltak! Amennyiben párban jöttök a kérdőívet mindketten töltsétek ki. A workshop csak elegendő számú jelentkező esetén indul.'}
                     </div>
                     <div className={styles.paragraph} hidden={dance_teacher_id == null}>
                         {'A tánccal '}
-                        <a href={url}>{name}</a>
+                        <a href={url} target="_blank" rel="noopener noreferrer">{name}</a>
                         {' fognak megismertetni'}
                     </div>
                     {rows}

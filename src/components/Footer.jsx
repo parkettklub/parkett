@@ -14,23 +14,23 @@ function Footer() {
                     <div><strong>Köszönet </strong></div>
                     <div>
                         <strong>A backend-ért: </strong>
-                        <a href="http://kir-dev.sch.bme.hu/">Kir-Dev</a>
+                        <a href="http://kir-dev.sch.bme.hu/" target="_blank" rel="noopener noreferrer">Kir-Dev</a>
                     </div>
                     <div>
                         <strong>A design-ért és frontend-ért: </strong>
-                        <a href="http://schdesign.hu/">Schönherz Design Stúdió</a>
+                        <a href="http://schdesign.hu/" target="_blank" rel="noopener noreferrer">Schönherz Design Stúdió</a>
                     </div>
                     <div>
                         <strong>A fotókért: </strong>
-                        <a href="https://spot.sch.bme.hu/events/parkett-klub/">SPOT fotókör</a>
+                        <a href="https://spot.sch.bme.hu/events/parkett-klub/" target="_blank" rel="noopener noreferrer">SPOT fotókör</a>
                     </div>
                     <div>
                         <strong>A hangosításért: </strong>
-                        <a href="https://acstudio.sch.bme.hu/">AC Studio és Live</a>
+                        <a href="https://acstudio.sch.bme.hu/" target="_blank" rel="noopener noreferrer">AC Studio és Live</a>
                     </div>
                     <div>
                         <strong>A videókért: </strong>
-                        <a href="https://bsstudio.hu/">Budavári Schönherz Stúdió</a>
+                        <a href="https://bsstudio.hu/" target="_blank" rel="noopener noreferrer">Budavári Schönherz Stúdió</a>
                     </div>
                 </div>
                 <div className="footer-center">

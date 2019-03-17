@@ -23,7 +23,7 @@ class SocialFeed extends React.Component {
 
   photoElements(photos) {
     return photos.map((datum, i) => (
-      <a key={this.state.resizeImages.toString() + datum.id} href={datum.link}>
+      <a key={this.state.resizeImages.toString() + datum.id} href={datum.link} target="_blank" rel="noopener noreferrer">
         <div className={styles.element}>
           <SquareImage resize={this.state.resizeImages} location={datum.images.standard_resolution.url} />
           <div className={styles.caption}>{photos[i].caption.text}</div>
