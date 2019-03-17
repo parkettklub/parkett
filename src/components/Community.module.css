@@ -129,16 +129,18 @@
     height: 12em;
 }
 
-.element:hover .caption {
-    font-size: inherit;
-}
+@media (hover: hover) {
+    .element:hover .caption {
+        font-size: inherit;
+    }
 
-.element:hover .desc {
-    font-size: inherit;
-}
+    .element:hover .desc {
+        font-size: inherit;
+    }
 
-.element:hover img {
-    filter: opacity(0.5);
+    .element:hover img {
+        filter: opacity(0.5);
+    }
 }
 
 .instagram > .element {
@@ -152,15 +154,15 @@
 @media only screen and (max-width: 50em)  {
     .peopleOthers {
         grid-column: 1;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr;
         width: 100%;
     }
     .people6 {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr;
         width: 100%;
     }
     .instagram {
-        grid-template-columns: 1fr 1fr;
+        display: block;
         width: 100%;
     }
 
@@ -186,5 +188,21 @@
 
     .element.small {
         width: 100%;
+    }
+
+    .element .title {
+        bottom: 16em;
+    }
+    
+    .element .caption {
+        font-size: inherit;
+    }
+
+    .element .desc {
+        font-size: inherit;
+    }
+
+    .element img {
+        filter: opacity(0.5);
     }
 }
