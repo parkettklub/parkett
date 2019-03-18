@@ -13,7 +13,7 @@ function MediaAlbum({
         <Card>
             <div className={styles.spot}>
                 <div className={styles.link}>
-                    <a href={link}>
+                    <a href={link} target="_blank" rel="noopener noreferrer">
                         <img src={icon} alt="" />
                     </a>
                 </div>
