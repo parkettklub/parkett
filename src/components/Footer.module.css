@@ -30,17 +30,13 @@
     color: #ffffff;
 }
 
-
 .main {
   display: block;
-  height: 2rem;
-  background-color: rgba(10, 10, 10, .2);
-  background-image: url('./background.jpg');
-  background-position: bottom;
-  background-size: auto 100vh;
-  position: fixed;
-  width: 100%;
+  position: absolute;
+  right: 0;
   bottom: 0;
+  left: 0;
+  width: 100%;
   text-align: center;
   opacity: 0.9;
   color: white;
@@ -59,22 +55,11 @@
     font-size: 20px;
     padding: 0.2rem;
 }
-.main:hover {
-    height: auto;
-}
-
-.main:hover .dotDotDot {
-    font-size: 0;
-}
 
 @media only screen and (max-width: 820px)  {
 
    .content {
        grid-template-columns: auto;
-   }
-
-   .main:hover {
-       height: auto;
    }
 
    .left {

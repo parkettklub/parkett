@@ -6,9 +6,6 @@ import Instagram from './instagram.svg';
 function Footer() {
     return (
         <footer className={styles.main}>
-            <div className={styles.dotDotDot}>
-                <strong>... </strong>
-            </div>
             <div className={styles.content}>
                 <div className={styles.left}>
                     <div><strong>Köszönet </strong></div>

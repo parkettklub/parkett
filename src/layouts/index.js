@@ -36,7 +36,7 @@ Layout.propTypes = {
 }
 
 export default ({ children }) =>
-  <div style={{ position: `relative`, height: `100%` }}>
+  <div style={{ position: `relative`, minHeight: `100%`, paddingBottom: '10em' }}>
     <main style={{ margin: `0 auto`, marginBottom: '1rem' }}>
       {children()}
     </main>
