@@ -183,7 +183,9 @@
     }
 
     .element {
+        position: relative;
         width: 100%;
+        margin-bottom: 1em;
     }
 
     .element.small {
@@ -191,18 +193,29 @@
     }
 
     .element .title {
+        position: absolute;
+        top:0em;
         bottom: 16em;
+        width: 100%;
+        padding-top: 1em;
     }
     
     .element .caption {
+        position: absolute;
+        top: 3em;
+        width: 100%;
         font-size: inherit;
     }
 
     .element .desc {
+        position: absolute;
+        top: 4em;
+        width: 100%;
         font-size: inherit;
     }
 
     .element img {
+        position: static;
         filter: opacity(0.5);
     }
 }
