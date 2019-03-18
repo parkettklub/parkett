@@ -1,16 +1,16 @@
 import React from 'react';
-import './Footer.css';
+import styles from './Footer.module.css';
 import Facebook from './facebook-app-logo-white.svg';
 import Instagram from './instagram.svg';
 
 function Footer() {
     return (
-        <footer className="main-footer">
-            <div className="dotDotDot">
+        <footer className={styles.main}>
+            <div className={styles.dotDotDot}>
                 <strong>... </strong>
             </div>
-            <div className="main-footer-content">
-                <div className="footer-left">
+            <div className={styles.content}>
+                <div className={styles.left}>
                     <div><strong>Köszönet </strong></div>
                     <div>
                         <strong>A backend-ért: </strong>
@@ -33,20 +33,20 @@ function Footer() {
                         <a href="https://bsstudio.hu/" target="_blank" rel="noopener noreferrer">Budavári Schönherz Stúdió</a>
                     </div>
                 </div>
-                <div className="footer-center">
+                <div className={styles.center}>
                     <div><strong>Helyszín </strong></div>
                     <div>Schönherz Zoltán Kollégium,</div>
                     <div>1117 Budapest, Irinyi József utca 42. </div>
                 </div>
-                <div className="footer-right">
+                <div className={styles.right}>
                     <div><strong>Emailcím: </strong></div>
                     <div>parkettklub@sch.bme.hu</div>
                     <div>
                         <a href="https://www.instagram.com/parkettklub/" target="_blank" rel="noopener noreferrer">
-                            <img alt="" className="footer-image" src={Instagram} />
+                            <img alt="" className={styles.image} src={Instagram} />
                         </a>
                         <a href="https://www.facebook.com/ParkettKlub/" target="_blank" rel="noopener noreferrer">
-                            <img alt="" className="footer-image" src={Facebook} />
+                            <img alt="" className={styles.image} src={Facebook} />
                         </a>
                     </div>
                 </div>

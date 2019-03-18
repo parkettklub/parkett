@@ -1,4 +1,4 @@
-.main-footer-content {
+.content {
     font-family: 'Roboto', sans-serif;
     padding: 10px;
     display: grid;
@@ -10,32 +10,32 @@
     font-size: 14px;
 }
 
-.footer-left {
+.left {
     text-align: left;
 }
 
-.footer-center {
+.center {
     text-align: center;
 
 }
 
-.footer-right {
+.right {
     text-align: right;
 
 }
 
-.footer-image {
+.image {
     height: 25px;
     margin: 10px;
     color: #ffffff;
 }
 
 
-.main-footer {
+.main {
   display: block;
   height: 2rem;
   background-color: rgba(10, 10, 10, .2);
-  background-image: url('background.jpg');
+  background-image: url('./background.jpg');
   background-position: bottom;
   background-size: auto 100vh;
   position: fixed;
@@ -46,11 +46,11 @@
   color: white;
 }
 
-.main-footer a {
+.main a {
     color: white;
 }
 
-.main-footer div {
+.main div {
   filter: none;
 }
 
@@ -59,33 +59,33 @@
     font-size: 20px;
     padding: 0.2rem;
 }
-.main-footer:hover {
+.main:hover {
     height: auto;
 }
 
-.main-footer:hover .dotDotDot {
+.main:hover .dotDotDot {
     font-size: 0;
 }
 
 @media only screen and (max-width: 820px)  {
 
-   .main-footer-content {
+   .content {
        grid-template-columns: auto;
    }
 
-   .main-footer:hover {
+   .main:hover {
        height: auto;
    }
 
-   .footer-left {
+   .left {
        text-align: center;
    }
 
-   .footer-right {
+   .right {
        text-align: center;
    }
 
-   .footer-right a {
+   .right a {
        margin-right: 50px;
        margin-left: 50px;
    }
