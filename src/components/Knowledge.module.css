@@ -1,0 +1,29 @@
+.main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    max-width: 1400px;
+    margin: 0 auto;
+    grid-gap: 1rem;
+    padding: 1rem;
+}
+
+.header {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    margin: 0 auto;
+}
+
+.tips {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    margin: 0 auto;
+}
+
+.general {
+    padding: 1rem;
+}
+
+.general .title {
+    padding: 1rem;
+    font-size: 2rem;
+}
