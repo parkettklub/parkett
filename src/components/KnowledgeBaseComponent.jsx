@@ -26,12 +26,12 @@ const KnowledgeBaseComponent = () => (
             megtalálod a Hozzád illő táncstílust és bulit.`}
             </div>
         </div>
+        <div className={styles.attention}>
+            <Attention />
+        </div>
         <div className={styles.drinksAndPlace}>
             <LocationAccess />
             <Services />
-        </div>
-        <div className={styles.attention}>
-            <Attention />
         </div>
         <div className={styles.tips}>
             <TipsAndTricks />

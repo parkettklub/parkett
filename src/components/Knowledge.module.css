@@ -3,11 +3,18 @@
     grid-template-columns: 1fr 1fr;
     max-width: 1400px;
     margin: 0 auto;
-    grid-gap: 1rem;
     padding: 1rem;
 }
 
-.header {
+.main > div {
+    padding: 1rem;
+}
+
+.general, .attention {
+    background: #00000030;
+}
+
+.main > .header {
     grid-column-start: 1;
     grid-column-end: 3;
     margin: 0 auto;
@@ -24,11 +31,21 @@
     padding-top: 0;
 }
 
-.general .title {
+.title {
     font-size: 2rem;
 }
 
 .general > div {
     padding: 1rem;
     text-align: left;
+}
+
+.drinksAndPlace  div {
+    padding: 0.5rem;
+}
+
+@media only screen and (max-width: 1400px)  {
+    .main {
+        display: block;
+    }
 }

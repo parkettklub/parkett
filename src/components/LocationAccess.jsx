@@ -1,9 +1,8 @@
 import React from 'react';
-import OpenCloseComponent from './OpenCloseComponent';
 import texts from './Descriptions';
 
 const LocationAccess = () => (
-    <OpenCloseComponent title="Kollégiumba való bejutás">
+    <div>
         <div key="megkozelites">
             <strong>Megközelítés: </strong>
             {texts.path}
@@ -12,7 +11,7 @@ const LocationAccess = () => (
             <strong>Bejutás: </strong>
             {texts.wayIn}
         </div>
-    </OpenCloseComponent>
+    </div>
 );
 
 export default LocationAccess;
