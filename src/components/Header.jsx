@@ -5,6 +5,7 @@ import Logo from './lines.svg';
 import styles from './Header.module.css';
 import ParkettLogo from './ParkettLogoWhite02.svg';
 import ListLink from './ListLink';
+import EditButton from './EditButton';
 
 class Header extends React.Component {
   constructor() {
@@ -43,12 +44,18 @@ class Header extends React.Component {
             <img src={Logo} alt="" />
           </div>
         </div>
-        <div className={styles.links}>
-          <ListLink to="/events/" active={events}>Események</ListLink>
-          <ListLink to="/community/" active={community}>Közösség</ListLink>
-          <ListLink to="/media/" active={media}>Galéria</ListLink>
-          <ListLink to="/knowledge-base/" active={knowledgebase}>Tudnivalók</ListLink>
-          <ListLink to="/profile/" active={profile}>Profilom</ListLink>
+        <div className={styles.right}>
+          <div className={styles.login}>
+            <ListLink to="/edit-band/">Szerkesztés</ListLink>
+            <ListLink to="/login/">Belépés</ListLink>
+          </div>
+          <div className={styles.links}>
+            <ListLink to="/events/" active={events}>Események</ListLink>
+            <ListLink to="/community/" active={community}>Közösség</ListLink>
+            <ListLink to="/media/" active={media}>Galéria</ListLink>
+            <ListLink to="/knowledge-base/" active={knowledgebase}>Tudnivalók</ListLink>
+            <ListLink to="/profile/" active={profile}>Profilom</ListLink>
+          </div>
         </div>
       </header>
     );
