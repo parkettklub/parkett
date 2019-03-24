@@ -21,9 +21,14 @@
 
 .general {
     padding: 1rem;
+    padding-top: 0;
 }
 
 .general .title {
-    padding: 1rem;
     font-size: 2rem;
+}
+
+.general > div {
+    padding: 1rem;
+    text-align: left;
 }
