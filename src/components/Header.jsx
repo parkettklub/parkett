@@ -2,9 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Link from 'gatsby-link';
 import Logo from './lines.svg';
-import './Header.css';
+import styles from './Header.module.css';
 import ParkettLogo from './ParkettLogoWhite02.svg';
 import ListLink from './ListLink';
+import EditButton from './EditButton';
 
 class Header extends React.Component {
   constructor() {
@@ -28,14 +29,14 @@ class Header extends React.Component {
       events, community, media, knowledgebase, profile,
     } = this.props;
     return (
-      <header className={`main-header min ${(open ? ' open' : '')}`}>
-        <div className="logo-div">
+      <header className={`${styles.main} ${styles.min} ${(open ? styles.open : '')}`}>
+        <div className={styles.logo}>
           <Link to="/" style={{ textShadow: 'none', backgroundImage: 'none' }}>
-            <img className="mainLogo" src={ParkettLogo} alt="" />
+            <img className={styles.mainLogo} src={ParkettLogo} alt="" />
           </Link>
           <div
             onClick={this.changeOpen}
-            className="more"
+            className={styles.more}
             role="button"
             onKeyDown={() => { }}
             tabIndex={0}
@@ -43,12 +44,18 @@ class Header extends React.Component {
             <img src={Logo} alt="" />
           </div>
         </div>
-        <div className="links">
-          <ListLink to="/events/" active={events}>Események</ListLink>
-          <ListLink to="/community/" active={community}>Közösség</ListLink>
-          <ListLink to="/media/" active={media}>Galéria</ListLink>
-          <ListLink to="/knowledge-base/" active={knowledgebase}>Tudnivalók</ListLink>
-          <ListLink to="/profile/" active={profile}>Profilom</ListLink>
+        <div className={styles.right}>
+          <div className={styles.login}>
+            <ListLink to="/edit-band/">Szerkesztés</ListLink>
+            <ListLink to="/login/">Belépés</ListLink>
+          </div>
+          <div className={styles.links}>
+            <ListLink to="/events/" active={events}>Események</ListLink>
+            <ListLink to="/community/" active={community}>Közösség</ListLink>
+            <ListLink to="/media/" active={media}>Galéria</ListLink>
+            <ListLink to="/knowledge-base/" active={knowledgebase}>Tudnivalók</ListLink>
+            <ListLink to="/profile/" active={profile}>Profilom</ListLink>
+          </div>
         </div>
       </header>
     );

@@ -1,10 +1,10 @@
 
-.main-header {
+.main {
   z-index: 2;
   margin-bottom: 1.5rem;
   padding: 1rem;
   background-color: rgba(10, 10, 10, .2);
-  background-image: url('background.jpg');
+  background-image: url('./background.jpg');
   background-position: top;
   background-size: auto 100vh;
   color: white;
@@ -19,12 +19,12 @@
   overflow: hidden;
 }
 
-.main-header.max { 
+.main.max { 
   height: 17rem;
   grid-template-columns: auto
 }
 
-.main-header .link {
+.main .link {
   color: white;
   font-family: 'Roboto', sans-serif
 }
@@ -33,58 +33,72 @@
   height: 4em;
 }
 
-.main-header.max .mainLogo {
+.main.max .mainLogo {
   height: 10rem;
 }
 
-.main-header.max .sideLogo {
+.main.max .sideLogo {
   height: 7.5rem;
 }
-.main-header.max .sideLogo2 {
+.main.max .sideLogo2 {
   height: 7.5rem;
   margin-bottom: 40px;
 }
 
-.main-header.max > div {
+.main.max > div {
   width: max-content;
   margin: 0 auto;
   margin-bottom: 20px;
 }
 
-.main-header > div > div a {
+.main > div > div a {
   text-decoration: none;
 }
 
-.main-header > div.links > div {
+.main .right .login {
+  padding: 1rem;
+  width: max-content;
+  margin-left:auto; 
+  margin-right:0;
+}
+
+.login > div {
+  display: inline-block;
+  width: min-content;
+  margin: 0;
+  margin-left: 2rem ;
+}
+
+.main .links > div {
   display: inline-block;
   margin-right: 1rem ;
   margin-left: 1rem ;
   margin-bottom: 20px;
 }
 
-.main-header > div.links > div:hover {
+.main .links > div:hover {
   border-bottom: 2px solid #ffffff;
   padding-bottom: 5px;
   margin-bottom: 13px;
 }
 
-.main-header > div.links > div.active {
+.main .links > div.active {
 
   border-bottom: 2px solid #ffffff;
   padding-bottom: 5px;
   margin-bottom: 13px;
 }
 
-.main-header > div.links > div.hide {
+.main .links > div.hide {
   display: none;
 }
 
-.logo-div {
+.logo {
   display: grid;
   grid-template-columns: auto max-content;
 }
 
-.logo-div > div.more > img {
+.logo > div.more > img {
   height: 0rem;
 }
 
@@ -97,42 +111,42 @@ div.more:hover {
 }
 
 @media only screen and (max-width: 950px)  {
-  .main-header {
+  .main {
     grid-template-columns: auto;
   }
 
-  .main-header.max {
+  .main.max {
     overflow: hidden;
   }
 
-  .logo-div > div.more > img {
+  .logo > div.more > img {
     height: 2rem;
     margin: 0.5rem;
   }
 
-  .main-header.max .mainLogo {
+  .main.max .mainLogo {
     height: 6em;
   }
 
-  .main-header.max .sideLogo {
+  .main.max .sideLogo {
     height: 0px;
   }
 
-  .main-header.max .sideLogo2 {
+  .main.max .sideLogo2 {
     height: 0px;
   }
-  .main-header.min > div.links {
+  .main.min .links {
     display: grid;
     grid-template-columns: auto;
   }
 
-  .main-header.max > div.links {
+  .main.max .links {
     display: grid;
     text-align: center;
     grid-template-columns: 1fr 1fr;
   }
 
-  .main-header.open {
+  .main.open {
     height: 20rem;
   }
 }
