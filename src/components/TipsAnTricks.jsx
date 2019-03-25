@@ -40,31 +40,55 @@ class TipsAndTricks extends React.Component {
             <div>
                 <div className={styles.title}>Tippek és tanácsok</div>
                 <div className={styles.long}>{texts.tips.main}</div>
-                <div>
-                    <button onClick={() => this.changeTab('shoes')} type="button">shoes</button>
-                    <button onClick={() => this.changeTab('cloth')} type="button">cloth</button>
-                    <button onClick={() => this.changeTab('hygine')} type="button">hygine</button>
-                    <button onClick={() => this.changeTab('drink')} type="button">drink</button>
+                <div className={styles.tabs}>
+                    <button
+                        onClick={() => this.changeTab('shoes')}
+                        type="button"
+                        className={shoes ? styles.active : ''}
+                    >
+                        {'Cipők'}
+                    </button>
+                    <button
+                        onClick={() => this.changeTab('cloth')}
+                        type="button"
+                        className={cloth ? styles.active : ''}
+                    >
+                        {'Ruha'}
+                    </button>
+                    <button
+                        onClick={() => this.changeTab('hygine')}
+                        type="button"
+                        className={hygine ? styles.active : ''}
+                    >
+                        {'Higénia'}
+                    </button>
+                    <button
+                        onClick={() => this.changeTab('drink')}
+                        type="button"
+                        className={drink ? styles.active : ''}
+                    >
+                        {'Italok'}
+                    </button>
                 </div>
-                <div hidden={!cloth}>
-                    <div><strong>Mit vegyek fel? </strong></div>
-                    <div className={styles.list}>
-                        {texts.tips.cloths.map((text, index) => (<li key={index}>{text}</li>))}
-                    </div>
-                </div>
-                <div hidden={!shoes}>
+                <div hidden={!shoes} className={styles.tab}>
                     <div key="7"><strong>Milyen cipőben menjek? </strong></div>
                     <div className={styles.list}>
                         {texts.tips.shoes.map((text, index) => (<li key={index}>{text}</li>))}
                     </div>
                 </div>
-                <div hidden={!hygine}>
+                <div hidden={!cloth} className={styles.tab}>
+                    <div><strong>Mit vegyek fel? </strong></div>
+                    <div className={styles.list}>
+                        {texts.tips.cloths.map((text, index) => (<li key={index}>{text}</li>))}
+                    </div>
+                </div>
+                <div hidden={!hygine} className={styles.tab}>
                     <div key="17"><strong>Figyelj a higéniára! </strong></div>
                     <div className={styles.list}>
                         {texts.tips.hygine.map((text, index) => (<li key={index}>{text}</li>))}
                     </div>
                 </div>
-                <div hidden={!drink}>
+                <div hidden={!drink} className={styles.tab}>
                     <div key="20"><strong>Evés-ivés, dohányzás </strong></div>
                     <div className={styles.list}>
                         {texts.tips.eat.map((text, index) => (<li key={index}>{text}</li>))}

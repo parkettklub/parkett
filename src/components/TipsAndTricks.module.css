@@ -14,3 +14,31 @@
     font-size: 2rem;
     text-align: center;
 }
+
+.tabs {
+    padding: 0.5rem;
+    width: max-content;
+    margin: 0 auto;
+}
+
+.tabs button {
+    padding: 1rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    background: #00000050;
+    color: white;
+    border: 0;
+}
+
+.tabs button.active {
+    background: #A0A0A050;
+}
+
+.tabs button:focus {
+    outline: 0;
+}
+.tabs button:hover {
+    background: firebrick;
+}
