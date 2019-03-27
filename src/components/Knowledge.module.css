@@ -28,7 +28,7 @@
     margin: 0 auto;
 }
 
-.general {
+.general, .attention {
     padding: 1rem;
     padding-top: 0;
 }
@@ -37,7 +37,7 @@
     font-size: 2rem;
 }
 
-.general > div {
+.general > div > div, .attention > div >  div {
     padding: 1rem;
     text-align: left;
 }
@@ -48,6 +48,27 @@
 
 @media only screen and (max-width: 1400px)  {
     .main {
-        display: block;
+        grid-template-columns: 1fr;
+    }
+
+    .main > .header {
+        grid-column-start: 1;
+        grid-column-end: 2;
+    }
+
+    .tips {
+        grid-column-start: 1;
+        grid-column-end: 2;
+        max-width: unset;
+        width: 100%;
+    }
+
+    .attention {
+        grid-row: 5;
+        background: #00000030;
+    }   
+
+    .main > div {
+        width: 100%;
     }
 }

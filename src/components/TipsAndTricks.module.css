@@ -27,6 +27,7 @@
     padding-right: 2rem;
     margin-left: 1rem;
     margin-right: 1rem;
+    margin-bottom: 1rem;
     background: #00000050;
     color: white;
     border: 0;
@@ -41,4 +42,13 @@
 }
 .tabs button:hover {
     background: firebrick;
+}
+
+@media only screen and (max-width: 1400px)  {
+    
+.tabs {
+    padding: 0.5rem;
+    width: 100%;
+    margin: 0 auto;
+}
 }

@@ -18,12 +18,14 @@ const KnowledgeBaseComponent = () => (
             <Dances />
         </div>
         <div className={styles.general}>
-            <div className={styles.title}>Álltalánosan a bulikról</div>
             <div>
-                {`Kéthetente megtelik a kollégium nagyterme a város tánckedvelő fiataljaival, 
+                <div className={styles.title}>Álltalánosan a bulikról</div>
+                <div>
+                    {`Kéthetente megtelik a kollégium nagyterme a város tánckedvelő fiataljaival, 
             és a hangfalakból salsa, rock & roll, boogie-woogie vagy modern társastáncok zenéi szólnak, 
             esetleg éppen egy zenekar húzza élőben a talpalávalót. Nagy a kínálat, így nálunk biztosan 
             megtalálod a Hozzád illő táncstílust és bulit.`}
+                </div>
             </div>
         </div>
         <div className={styles.attention}>
