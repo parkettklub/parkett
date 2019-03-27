@@ -18,6 +18,7 @@ class FormMember extends React.Component {
         const { selectedObject } = this.props;
         this.setState({
             ...selectedObject,
+            photo: selectedObject.image,
         });
     }
 

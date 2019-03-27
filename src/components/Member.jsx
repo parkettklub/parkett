@@ -4,11 +4,11 @@ import profDefault from './defaultProfile.jpg';
 import styles from './Community.module.css';
 
 function Member({
-    src, position, description, name,
+    image, position, description, name,
 }) {
     return (
         <div className={styles.element}>
-            <img src={src} alt="" />
+            <img src={image ? image : profDefault} alt="" />
             <div className={styles.desc}>
                 <div>{position}</div>
                 <br />
@@ -22,14 +22,14 @@ function Member({
 }
 
 Member.propTypes = {
-    src: PropTypes.string,
+    image: PropTypes.string,
     name: PropTypes.string,
     position: PropTypes.string,
     description: PropTypes.string,
 };
 
 Member.defaultProps = {
-    src: profDefault,
+    image: profDefault,
     name: '',
     position: '',
     description: '',
