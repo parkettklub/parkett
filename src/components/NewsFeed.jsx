@@ -1,5 +1,4 @@
 import React from 'react';
-import Card from './Card';
 import styles from './JoinUs.module.css';
 
 function newsFeedSubscription() {
@@ -7,20 +6,24 @@ function newsFeedSubscription() {
 }
 
 const NewsFeed = () => (
-    <Card>
-        <div className={styles.main}>
-            <div className={styles.title}>Iratkozz fel Hírlevelünkre!</div>
-            <div
-                className={styles.submit}
-                onClick={newsFeedSubscription}
-                onKeyDown={() => { }}
-                role="button"
-                tabIndex={0}
-            >
-                {'Feliratkozom!'}
-            </div>
+    <div className={styles.main}>
+        <div className={styles.title}>Iratkozz fel Hírlevelünkre!</div>
+        <div className={styles.desc}>
+            {`Ha szeretnél értesülni a bulikról és a tanfolyamokról iratkozz fel!
+            Álltalában hetente maximum 1 emailt fogsz kapni bulikról, worksopokról
+            és egyéb hírekről.
+            A hírlevélről bármikor leiratkozhatsz az emailben kapott linken keresztül.`}
         </div>
-    </Card>
+        <div
+            className={styles.submit}
+            onClick={newsFeedSubscription}
+            onKeyDown={() => { }}
+            role="button"
+            tabIndex={0}
+        >
+            {'Feliratkozom'}
+        </div>
+    </div>
 );
 
 export default NewsFeed;
