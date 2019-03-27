@@ -1,5 +1,4 @@
 import React from 'react';
-import Card from './Card';
 import styles from './JoinUs.module.css';
 
 function JoinUsPage() {
@@ -7,20 +6,18 @@ function JoinUsPage() {
 }
 
 const JoinUsSimple = () => (
-    <Card>
-        <div className={styles.main}>
-            <div className={styles.title}>Jelentkezz Parkett Klub rendezőnek!</div>
-            <div
-                className={styles.submit}
-                onClick={JoinUsPage}
-                onKeyDown={() => { }}
-                role="button"
-                tabIndex={0}
-            >
-                {'Jelentkezem'}
-            </div>
+    <div className={styles.main}>
+        <div className={styles.title}>Jelentkezz Parkett Klub rendezőnek!</div>
+        <div
+            className={styles.submit}
+            onClick={JoinUsPage}
+            onKeyDown={() => { }}
+            role="button"
+            tabIndex={0}
+        >
+            {'Jelentkezem'}
         </div>
-    </Card>
+    </div>
 );
 
 export default JoinUsSimple;

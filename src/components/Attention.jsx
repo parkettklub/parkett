@@ -1,14 +1,14 @@
 import React from 'react';
-import './Knowledge-Base.css';
-import OpenCloseComponent from './OpenCloseComponent';
 import texts from './Descriptions';
+import styles from './Knowledge.module.css';
 
 const Attention = () => (
-    <OpenCloseComponent title="Figyelem!">
+    <div>
+        <div className={styles.title}>Figyelem!</div>
         <div>
             {texts.attention}
         </div>
-    </OpenCloseComponent>
+    </div>
 );
 
 export default Attention;

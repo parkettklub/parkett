@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './Knowledge-Base.css';
 import Card from './Card';
 import styles from './Card.module.css';
 

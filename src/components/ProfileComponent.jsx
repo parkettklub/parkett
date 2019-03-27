@@ -1,5 +1,4 @@
 import React from 'react';
-import './Knowledge-Base.css';
 
 const ProfileComponent = () => (
     <div>

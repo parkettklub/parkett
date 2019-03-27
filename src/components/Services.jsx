@@ -1,11 +1,11 @@
 import React from 'react';
-import OpenCloseComponent from './OpenCloseComponent';
 
 const Services = () => (
-    <OpenCloseComponent title="Bulin lévő szolgáltatások">
+    <div>
+        <div>Bulin lévő szolgáltatások</div>
         <li key="ruhatar"><strong>Ingyenes ruhatár </strong></li>
         <li key="italpult"><strong>Italpult kedvezményes árakkal </strong></li>
-    </OpenCloseComponent>
+    </div>
 );
 
 export default Services;
