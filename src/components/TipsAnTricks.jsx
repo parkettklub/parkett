@@ -46,28 +46,28 @@ class TipsAndTricks extends React.Component {
                         type="button"
                         className={shoes ? styles.active : ''}
                     >
-                        {'Cipők'}
+                        {'Milyen cipőben menjek?'}
                     </button>
                     <button
                         onClick={() => this.changeTab('cloth')}
                         type="button"
                         className={cloth ? styles.active : ''}
                     >
-                        {'Ruha'}
+                        {'Mit vegyek fel?'}
                     </button>
                     <button
                         onClick={() => this.changeTab('hygine')}
                         type="button"
                         className={hygine ? styles.active : ''}
                     >
-                        {'Higénia'}
+                        {'Figyelj a higéniára!'}
                     </button>
                     <button
                         onClick={() => this.changeTab('drink')}
                         type="button"
                         className={drink ? styles.active : ''}
                     >
-                        {'Italok'}
+                        {'Evés-ivés, dohányzás'}
                     </button>
                 </div>
                 <div hidden={!shoes} className={styles.tab}>
