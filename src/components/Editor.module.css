@@ -7,6 +7,28 @@
 .list {
     text-align: left;
     padding-right: 2em;
+    overflow-y: auto;
+    max-height: 40rem;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #00000030; 
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(255, 255, 255); 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(138, 138, 138); 
 }
 
 .main {
@@ -15,6 +37,7 @@
     color: white;
     font-family: 'Roboto', sans-serif;
     padding: 1rem;
+    grid-gap: 1rem;
 }
 
 .selectable {
