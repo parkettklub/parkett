@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { fetchPost, fetchPut } from './FetchFunctions';
+import { fetchPost, fetchPut, fetchDelete } from './FetchFunctions';
 import styles from './Form.module.css';
 import InputFormSimple from './InputFormSimple';
 import InputFormTextArea from './InputFormTextarea';
@@ -60,6 +60,12 @@ class FormMember extends React.Component {
         });
     }
 
+    deleteThis = () => {
+        fetchDelete('members', this.state).then(() => {
+            console.log("DELETED");
+        });
+    }
+
 
     render() {
         const { selected, title } = this.props;
@@ -69,6 +75,9 @@ class FormMember extends React.Component {
         const isNew = id < 0;
         return (
             <div className={styles.main}>
+                <div onClick={() => this.deleteThis()}>
+                    DELETE
+                </div>
                 <div className={styles.formgroup} hidden={selected !== title}>
                     {isNew ? 'Új Tag adatai:' : 'Tag adatai:'}
                     <InputFormSimple
