@@ -36,8 +36,8 @@ function Footer() {
                     <div>1117 Budapest, Irinyi József utca 42. </div>
                 </div>
                 <div className={styles.right}>
-                    <div><strong>Emailcím: </strong></div>
-                    <div>parkettklub@sch.bme.hu</div>
+                    <div><strong>Email cím: </strong></div>
+                    <div>parkettklub AT sch.bme.hu</div>
                     <div>
                         <a href="https://www.instagram.com/parkettklub/" target="_blank" rel="noopener noreferrer">
                             <img alt="" className={styles.image} src={Instagram} />
