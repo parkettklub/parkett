@@ -23,7 +23,7 @@ class SubFormPoster extends React.Component {
         const { selectedFile } = this.state;
         const reader = new FileReader();
         if (selectedFile.size > 500000) {
-            console.error('Too Bog File!' + selectedFile.size);
+            alert(`Tulságosan nagy fájlt töltöttél fel! ${selectedFile.size}`);
             return;
         }
         reader.readAsDataURL(selectedFile);
@@ -31,7 +31,7 @@ class SubFormPoster extends React.Component {
             this.setState({
                 src: reader.result,
             });
-            console.log('loaded');
+            alert('Feltöltve');
             const {
                 handleChange,
             } = this.props;
@@ -43,7 +43,7 @@ class SubFormPoster extends React.Component {
             });
         };
         reader.onerror = function (error) {
-            console.log('Error: ', error);
+            alert(`Hiba: ${error}`);
         };
     }
 
@@ -51,14 +51,23 @@ class SubFormPoster extends React.Component {
         const {
             selectedForm, form,
         } = this.props;
+        const {
+            src,
+        } = this.state;
         return (
             <div>
                 <div className={styles.formgroup} hidden={selectedForm !== form}>
-                    <strong>Plakát </strong>
-                    {'Size must be around 350x400 px'}
-                    <input type="file" onChange={this.fileSelectedHandler} />
-                    <button onClick={this.fileUploadHandler}>Uppload</button>
-                    <img src={this.state.src} />
+                    <strong>Kép:</strong>
+                    <div className={styles.formgroup}>
+                        <input type="file" onChange={this.fileSelectedHandler} />
+                        <button onClick={this.fileUploadHandler} type="button">Feltöltés</button>
+                        <div className={styles.helper}>
+                            {'A kép felbontása legyen körülbelül 350x400 px'}
+                        </div>
+                        <div className={styles.picture}>
+                            <img src={src} alt="" />
+                        </div>
+                    </div>
                 </div>
             </div>
         );

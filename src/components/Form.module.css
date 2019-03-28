@@ -93,3 +93,15 @@ textarea.input {
 .plus:hover {
     filter: opacity(0.5);
 }
+
+.picture {
+    margin: 1rem;
+    width: max-content;
+    padding: 0.5rem;
+    background: #FFFFFF30;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, .3);
+}
+
+.picture img {
+    margin: 0;
+}
