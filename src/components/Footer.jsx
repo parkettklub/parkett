@@ -1,45 +1,55 @@
 import React from 'react';
-import './Footer.css';
-import Facebook from './facebook-logo.svg';
+import styles from './Footer.module.css';
+import Facebook from './facebook-app-logo-white.svg';
 import Instagram from './instagram.svg';
 
-function Footer(props) {
-
+function Footer() {
     return (
-        <footer className='main-footer'>
-            <div className="dotDotDot">
-                <b>...</b>
-            </div>
-            <div className="main-footer-content">
-                <div className="footer-left">
-                    <div><b>Köszönet</b></div>
-                    <div><b>A fotókért:</b> SPOT fotókör</div>
-                    <div><b>A hangosításért:</b> AC Studio és Live</div>
-                    <div><b>A videókért:</b> Budavári Schönherz Stúdió</div>
-                    <div><b>Otthonunkért:</b> Schönherz Kollégium</div>
+        <footer className={styles.main}>
+            <div className={styles.content}>
+                <div className={styles.left}>
+                    <div><strong>Köszönet </strong></div>
+                    <div>
+                        <strong>A backend-ért: </strong>
+                        <a href="http://kir-dev.sch.bme.hu/" target="_blank" rel="noopener noreferrer">Kir-Dev</a>
+                    </div>
+                    <div>
+                        <strong>A design-ért és frontend-ért: </strong>
+                        <a href="http://schdesign.hu/" target="_blank" rel="noopener noreferrer">Schönherz Design Stúdió</a>
+                    </div>
+                    <div>
+                        <strong>A fotókért: </strong>
+                        <a href="https://spot.sch.bme.hu/events/parkett-klub/" target="_blank" rel="noopener noreferrer">SPOT fotókör</a>
+                    </div>
+                    <div>
+                        <strong>A hangosításért: </strong>
+                        <a href="https://acstudio.sch.bme.hu/" target="_blank" rel="noopener noreferrer">AC Studio és Live</a>
+                    </div>
+                    <div>
+                        <strong>A videókért: </strong>
+                        <a href="https://bsstudio.hu/" target="_blank" rel="noopener noreferrer">Budavári Schönherz Stúdió</a>
+                    </div>
                 </div>
-                <div className="footer-center">
-                    <div><b>Helyszín</b></div>
+                <div className={styles.center}>
+                    <div><strong>Helyszín </strong></div>
                     <div>Schönherz Zoltán Kollégium,</div>
                     <div>1117 Budapest, Irinyi József utca 42. </div>
-                    <div><b>Designed by:</b> Schönherz Design Stúdió</div>
-                    <div><b>Backend by:</b> Kir-Dev</div>
                 </div>
-                <div className="footer-right">
-                    <div><b>Emailcím:</b></div>
-                    <div>parkettklub@sch.bme.hu</div>
+                <div className={styles.right}>
+                    <div><strong>Email cím: </strong></div>
+                    <div>parkettklub AT sch.bme.hu</div>
                     <div>
-                        <a href="https://www.instagram.com/parkettklub/" target="_blank">
-                            <img className="footer-image" src={Instagram} />
+                        <a href="https://www.instagram.com/parkettklub/" target="_blank" rel="noopener noreferrer">
+                            <img alt="" className={styles.image} src={Instagram} />
                         </a>
-                        <a href="https://www.facebook.com/ParkettKlub/" target="_blank">
-                            <img className="footer-image" src={Facebook} />
+                        <a href="https://www.facebook.com/ParkettKlub/" target="_blank" rel="noopener noreferrer">
+                            <img alt="" className={styles.image} src={Facebook} />
                         </a>
                     </div>
                 </div>
             </div>
         </footer>
-    )
+    );
 }
 
 export default Footer;

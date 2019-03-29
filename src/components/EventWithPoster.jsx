@@ -1,29 +1,64 @@
 import React from 'react';
-import './Card.css';
-import './EventDetail.css';
+import PropTypes from 'prop-types';
+import Card from './Card';
+import styles from './EventPoster.module.css';
+import { dateToString } from './DateFunctions';
 
-function EventWithPoster(props) {
-    if (!props.details.description) {
+function EventWithPoster({
+    content, photo, title, date, onClick,
+}) {
+    if (!content) {
         return (
-            <div className="card withpadding eventdetail-wrapper">
-                <img className={"eventdetail-poster small"} src={props.details.poster} alt="" />
-                <div className="eventdetail-title">
-                    <div className="title">{props.details.title}</div>
-                    <div className="eventdetail-date">{props.details.date}</div>
+            <Card>
+                <div
+                    className={`${styles.main} ${onClick ? styles.clickable : ''}`}
+                    onClick={onClick}
+                    role="button"
+                    onKeyDown={() => { }}
+                    tabIndex={0}
+                >
+                    <img className={styles.smallPoster} src={photo} alt="" />
+                    <div className={styles.details}>
+                        <div className={styles.title}>{title}</div>
+                        <div className={styles.date}>{dateToString(date)}</div>
+                    </div>
                 </div>
-            </div>
+            </Card>
         );
     }
     return (
-        <div className="card withpadding eventdetail-wrapper">
-            <img className={"eventdetail-poster"} src={props.details.poster} alt="" />
-            <div className="eventdetail-title">
-                <div className="title">{props.details.title}</div>
-                <div className="eventdetail-date">{props.details.date}</div>
-                <div className="eventdetail-description">{props.details.description}</div>
+        <Card>
+            <div
+                className={`${styles.main} ${onClick ? styles.clickable : ''}`}
+                onClick={onClick}
+                role="button"
+                onKeyDown={() => { }}
+                tabIndex={0}
+            >
+                <img className={styles.poster} src={photo} alt="" />
+                <div className={styles.details}>
+                    <div className={styles.title}>{title}</div>
+                    <div className={styles.date}>{dateToString(date)}</div>
+                    <div className={styles.description}>{content}</div>
+                </div>
             </div>
-        </div>
+        </Card>
     );
 }
+
+EventWithPoster.propTypes = {
+    content: PropTypes.string,
+    photo: PropTypes.string,
+    title: PropTypes.string,
+    date: PropTypes.string.isRequired,
+    onClick: PropTypes.func,
+};
+
+EventWithPoster.defaultProps = {
+    content: '',
+    photo: '',
+    title: '',
+    onClick: null,
+};
 
 export default EventWithPoster;

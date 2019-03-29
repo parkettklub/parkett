@@ -34,6 +34,19 @@
 .pagecenter .card {
     margin: 0 auto;
     margin-bottom: 20px;
+    width: 100%;
+}
+
+.pagecenter {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    margin-bottom: 6rem;
+    margin-top: 5rem;
+    padding: 1rem;
 }
 
 .card-grid {

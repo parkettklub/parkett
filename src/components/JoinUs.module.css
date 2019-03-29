@@ -1,0 +1,44 @@
+.main {
+    display: block;
+    margin: 0 auto;
+    padding: 2rem;
+    background: #00000030;
+    margin-bottom: 1rem;
+}
+
+.title {
+    font-size: 2rem;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.desc {
+    margin: 0 auto;
+    padding: 1rem;
+    text-align: center;
+    max-width: 700px;
+}
+
+.formgroup {
+    padding: 0.5rem;
+}
+
+.formgroup label {
+    display: grid;
+}
+
+.submit {
+    background: green;
+    border: 0;
+    padding: 0.5rem;
+    color: white;
+    display: block;
+    margin: 0 auto;
+    width: max-content;
+    cursor: pointer;
+}
+
+.submit:hover {
+    background: darkgreen;
+}

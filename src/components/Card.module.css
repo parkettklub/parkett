@@ -1,0 +1,57 @@
+.card {
+    display: block;
+    font-family: Roboto, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    line-height: normal;
+    text-align: left;
+    color: #000000;
+    background: #ffffff; /* Old browsers */
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, .3);
+    max-width: 700px;
+    width: 100%;
+    white-space: pre-line;
+    border: none;
+    border-radius: 4px;
+    font-size: 20px;
+    margin-bottom: 1em;
+    height: min-content;
+    overflow: hidden;
+}
+
+@media only screen and (min-width: 900px)  {
+    .card {
+        max-width: 900px;
+    }
+}
+
+.header {
+    font-size: 2.7em;
+    text-align: left;
+    color: black;
+    padding: 0 0 0.52em;
+}
+
+.open {
+    padding: 0.5em;
+    cursor: pointer;
+}
+
+.open:hover {
+    filter: opacity(0.5);
+}
+
+.close {
+    padding: 0.5em;
+    cursor: pointer;
+}
+
+.close:hover {
+    filter: opacity(0.5);
+}
+
+.title {
+    font-size: 2em;
+    font-weight: bold;
+}
+

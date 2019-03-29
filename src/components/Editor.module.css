@@ -1,0 +1,77 @@
+.center {
+    display: block;
+    margin: 0 auto;
+    max-width: 70em;
+}
+
+.list {
+    text-align: left;
+    padding-right: 2em;
+    overflow-y: auto;
+    max-height: 40rem;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #00000030; 
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(255, 255, 255); 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(138, 138, 138); 
+}
+
+.main {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    padding: 1rem;
+    grid-gap: 1rem;
+}
+
+.selectable {
+    color: white;
+    display: block;
+    background: rgba(0, 0, 0, 0);
+    border: 0;
+    padding: 10px;
+}
+
+.selectable:hover {
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.selected {
+    width: 100%;
+}
+
+.selectedline {
+    border: 0;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.selectedline:hover {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.addElement {
+    height: 1em;
+    padding-right: 1em;
+    margin: 0;
+}
+
+.addElement:hover {
+    filter: opacity(0.5);
+}

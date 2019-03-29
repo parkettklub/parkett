@@ -8,11 +8,16 @@ body {
   margin: 0;
   height: 100%;
   background-color: darkred;
-  background-image: url('../components/boritokep2.png');
+  background-image: url('../components/background.jpg');
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
 }
+
+body > div {
+  height: 100%;
+}
+
 article,
 aside,
 details,
@@ -198,7 +203,20 @@ textarea {
 *:after {
   box-sizing: inherit;
 }
-
+body {
+  color: hsla(0, 0%, 0%, 0.8);
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    line-height: normal;
+    text-align: left;
+  word-wrap: break-word;
+  font-kerning: normal;
+  -moz-font-feature-settings: "kern", "liga", "clig", "calt";
+  -ms-font-feature-settings: "kern", "liga", "clig", "calt";
+  -webkit-font-feature-settings: "kern", "liga", "clig", "calt";
+  font-feature-settings: "kern", "liga", "clig", "calt";
+}
 img {
   max-width: 100%;
   margin-left: 0;

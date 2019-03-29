@@ -2,7 +2,8 @@ import React from 'react';
 import '../components/Card.css';
 import Header from '../components/Header.jsx';
 import ReactCssTransitionGroup from 'react-addons-css-transition-group';
-import Members from '../components/Members.jsx';
+import CommunityComponent from '../components/CommunityComponent';
+import styles from './Page.module.css';
 
 const Community = () => (
     <div>
@@ -14,11 +15,11 @@ const Community = () => (
             transitionEnterTimeout={300}
             transitionAppear={true}
             transitionLeaveTimeout={300}>
-            <div className="pagecenter">
-                <Members />
+            <div className={styles.main}>
+                <CommunityComponent />
             </div>
         </ReactCssTransitionGroup>
     </div>
-)
+);
 
 export default Community;

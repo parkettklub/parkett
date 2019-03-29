@@ -1,0 +1,38 @@
+.header {
+    color: white;
+    z-index: 2;
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background-color: rgba(10, 10, 10, .2);
+    background-image: url('./boritokep2.png');
+    background-position: top;
+    background-size: auto 100vh;
+    color: white;
+    position: fixed;
+    opacity: 0.9;
+    top: 0;
+    width: 100%;
+    display: grid;
+    grid-template-columns: auto max-content;
+    grid-gap: 10px;
+    align-items: flex-end;
+    overflow: hidden;
+}
+
+.link {
+    font-size: 24px;
+    color: inherit;
+    display: inline-block;
+    margin: 0 1rem;
+    padding-bottom: 5px;
+    border-bottom: 2px solid transparent;
+}
+
+.link:hover {
+    text-decoration: none;
+    border-bottom: 2px solid white;
+}
+
+.logo {
+    height: 90px;
+}

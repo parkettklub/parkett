@@ -1,25 +1,26 @@
 import React from 'react';
-import EditEvents from '../components/EditEvents';
-import '../components/Card.css';
-import Header from '../components/Header.jsx';
 import ReactCssTransitionGroup from 'react-addons-css-transition-group';
+import EditEventList from '../components/EditEventList';
+import '../components/Card.css';
+import Header from '../components/HeaderEdit';
+import styles from './Page.module.css';
 
-const Editevents = () => (
+const Edit = () => (
 
     <div>
-        <Header editevents />
-
+        <Header event />
         <ReactCssTransitionGroup
             transitionName="fade"
             transitionAppearTimeout={1000}
             transitionEnterTimeout={300}
-            transitionAppear={true}
-            transitionLeaveTimeout={300}>
-            <div className="pagecenter">
-                <EditEvents />
+            transitionAppear
+            transitionLeaveTimeout={300}
+        >
+            <div className={styles.main}>
+                <EditEventList />
             </div>
         </ReactCssTransitionGroup>
     </div>
-)
+);
 
-export default Editevents;
+export default Edit;

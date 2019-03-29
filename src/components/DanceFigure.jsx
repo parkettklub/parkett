@@ -1,42 +1,53 @@
 import React from 'react';
-import Salsa from './dancing-figures/Salsa.svg';
-import Folk from './dancing-figures/FolkDance.svg';
-import Kizomba from './dancing-figures/Kizomba.svg';
-import Swing from './dancing-figures/Swing.svg';
-import './EventDetail.css';
+import PropTypes from 'prop-types';
+import { fetchAll } from './FetchFunctions';
+import styles from './EventDetails.module.css';
 
-function DanceFigure(props) {
-    if (props.dance.name === "salsa") {
-        return (
-            <div className="eventdetail-dance-figure">
-                <img src={Salsa} alt="" />
-            </div>
-        )
-    } else if (props.dance.name === "folk") {
-        return (
-            <div className="eventdetail-dance-figure">
-                <img src={Folk} alt="" />
-            </div>
-        )
-    } else if (props.dance.name === "swing") {
-        return (
-            <div className="eventdetail-dance-figure">
-                <img src={Swing} alt="" />
-            </div>
-        )
-    } else if (props.dance.name === "kizomba") {
-        return (
-            <div className="eventdetail-dance-figure">
-                <img src={Kizomba} alt="" />
-            </div>
-        )
-    } else {
-        return (
-            <div className="eventdetail-dance-figure">
-            </div>
-        )
+class DanceFigure extends React.Component {
+    state = {};
+
+    componentDidMount() {
+        const { id, danceId } = this.props;
+        if (id) this.fetchObject(id);
+        if (danceId) this.fetchDance(danceId);
     }
 
+    componentWillReceiveProps({ id, danceId }) {
+        if (id) this.fetchObject(id);
+        if (danceId) this.fetchDance(danceId);
+    }
+
+    fetchObject = (id) => {
+        fetchAll(`dance_types/${id}`).then((selectedObject) => {
+            this.setState({ ...selectedObject, src: selectedObject.image });
+        });
+    }
+
+    fetchDance = (id) => {
+        fetchAll(`dances/${id}`).then((selectedObject) => {
+            this.setState({ ...selectedObject, src: selectedObject.dance_type.image });
+        });
+    }
+
+    render() {
+        const { src } = this.state;
+        return (
+            <div className={styles.danceFigure}>
+                <img src={src} alt="" />
+            </div>
+        );
+    }
 }
+
+DanceFigure.propTypes = {
+    id: PropTypes.number,
+    danceId: PropTypes.number,
+};
+
+DanceFigure.defaultProps = {
+    id: null,
+    danceId: null,
+};
+
 
 export default DanceFigure;

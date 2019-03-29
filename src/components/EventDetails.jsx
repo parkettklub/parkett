@@ -1,46 +1,87 @@
 import React from 'react';
-import './Card.css';
-import './EventDetail.css';
+import PropTypes from 'prop-types';
 import DanceFigure from './DanceFigure';
 import FacebookLogo from './facebook-app-logo.svg';
+import Card from './Card';
+import styles from './EventDetails.module.css';
 
-
-function EventDetails(props) {
-    let music = [];
-    if (props.details.band) {
-        music.push(
-            <div className="eventdetail-dj-and-band eventdetail-paragraph">
-                <b>Zenekar: </b><a href={props.details.band.url}>{props.details.band.name}</a>
-            </div>);
-    }
-    if (props.details.dj) {
-        music.push(
-            <div className="eventdetail-dj-and-band eventdetail-paragraph">
-                <b>DJ: </b><a href={props.details.dj.url}>{props.details.dj.name}</a>
-            </div>);
-    }
-
-    let links = [];
-    if (props.details.facebook) {
+function EventDetails({
+    bands, djs, facebook, program, dance_id, dance_course, teacher_link, teacher_name,
+}) {
+    const links = [];
+    if (facebook) {
         links.push(
-            <a className="eventdetail-facebook-link" href={props.details.facebook} target="_blank">
-                <img className="eventdetail-facebook-logo"
-                    src={FacebookLogo} alt="" />
-            </a>)
+            <div key="facebook">
+                <a className={styles.facebook} href={facebook} target="_blank" rel="noopener noreferrer">
+                    <img
+                        className="eventdetail-facebook-logo"
+                        src={FacebookLogo}
+                        alt=""
+                    />
+                </a>
+            </div>,
+        );
     }
     return (
-        <div className="card withpadding eventdetail-wrapper right">
-            <div className="eventdetail-title-and-program">
-                <div className="eventdetail-title-secondery title">Program</div>
-                <div className="eventdetail-program">{props.details.program}</div>
+        <Card>
+            <div className={styles.main}>
+                <div className={styles.fullProgram}>
+                    <div className={styles.title}>Program</div>
+                    <div className={styles.program}>{program}</div>
+                </div>
+                <div className={styles.links}>
+                    <DanceFigure id={dance_id} />
+                </div>
+                <div>
+                    {'Tánctanítás: '}
+                    <a href={teacher_link} target="_blank" rel="noopener noreferrer">{teacher_name}</a>
+                    {` : ${dance_course}`}
+                </div>
+                <div>
+                    {links}
+                </div>
+                <div className={styles.music}>
+                    <strong>{(bands.length > 0 || djs.length > 0) ? 'Zenét szongáltatja: ' : ''}</strong>
+                    {bands
+                        ? bands.map(band => (
+                            <div>
+                                <a href={band.url} target="_blank" rel="noopener noreferrer">{band.name}</a>
+                            </div>
+                        ))
+                        : null
+                    }
+                    {djs
+                        ? djs.map(dj => (
+                            <div>
+                                <a href={dj.url} target="_blank" rel="noopener noreferrer">{dj.name}</a>
+                            </div>
+                        ))
+                        : null}
+                </div>
             </div>
-            <DanceFigure dance={props.details.dance} />
-            <div className="eventdetail-dj-and-band">
-                {music}
-            </div>
-            {links}
-        </div>
+        </Card>
     );
 }
+
+EventDetails.propTypes = {
+    bands: PropTypes.instanceOf(Array),
+    djs: PropTypes.instanceOf(Array),
+    dance_id: PropTypes.number,
+    program: PropTypes.string,
+    dance_course: PropTypes.string,
+    teacher_link: PropTypes.string,
+    facebook: PropTypes.string.isRequired,
+    teacher_name: PropTypes.string,
+};
+
+EventDetails.defaultProps = {
+    bands: [],
+    djs: [],
+    dance_id: null,
+    program: '',
+    dance_course: '',
+    teacher_link: '',
+    teacher_name: '',
+};
 
 export default EventDetails;

@@ -1,125 +1,60 @@
-import React from 'react'
-import './Members.css'
+import React from 'react';
 import Member from './Member';
+import AboutUs from './AboutUs';
 import LittleMember from './LittleMember';
-import Emese from './Emese.jpg'
-import profDefault from './gergoProfile.jpg'
+import { fetchAll } from './FetchFunctions';
+import styles from './Community.module.css';
 
 class Members extends React.Component {
     constructor() {
         super();
         this.state = {
-            members: [{
-                id: 0,
-                name: "Padányi Emese",
-                email: "dorogix@gmail.com",
-                position: "tag",
-                src: Emese,
-                description: "Ez egy hosszú description mert ez itt hosszú Minden rendben van és a parkett klub is a legjobb",
+            members: [],
+        };
+    }
 
-            }, {
-                id: 1,
-                name: "Dorogi-Kovács Gábor",
-                email: "dorogix@gmail.com",
-                position: "tag",
-                description: "Mizu.. nem tudom mit írjak ide",
+    componentDidMount() {
+        this.fetchMembers();
+    }
 
-            }, {
-                id: 2,
-                name: "Kovács Gergő",
-                email: "dorogix@gmail.com",
-                src: profDefault,
-                position: "pr felelős",
-
-            }, {
-                id: 3,
-                name: "Dorogi-Kovács Gábor",
-                email: "dorogix@gmail.com",
-                position: "tag",
-                description: "Minden rendben van és a parkett klub is a legjobb",
-
-            }, {
-                id: 4,
-                name: "Dorogi-Kovács Gábor",
-                email: "dorogix@gmail.com",
-                position: "tag",
-                description: "Minden rendben van és a parkett klub is a legjobb",
-
-            }, {
-                id: 5,
-                name: "Dorogi-Kovács Gábor",
-                email: "dorogix@gmail.com",
-                position: "tag",
-                description: "Minden rendben van és a parkett klub is a legjobb",
-
-            }, {
-                id: 6,
-                name: "Dorogi-Kovács Gábor",
-                email: "dorogix@gmail.com",
-                position: "öregtag",
-                description: "Minden rendben van és a parkett klub is a legjobb",
-
-            }, {
-                id: 7,
-                name: "Dorogi-Kovács Gábor",
-                email: "dorogix@gmail.com",
-                position: "öregtag",
-                description: "Minden rendben van és a parkett klub is a legjobb",
-
-            }, {
-                id: 8,
-                name: "Dorogi-Kovács Gábor",
-                email: "dorogix@gmail.com",
-                position: "öregtag",
-                description: "Minden rendben van és a parkett klub is a legjobb",
-
-            }, {
-                id: 9,
-                name: "Dorogi-Kovács Gábor",
-                email: "dorogix@gmail.com",
-                position: "öregtag",
-                description: "Minden rendben van és a parkett klub is a legjobb",
-
-            }, {
-                id: 10,
-                name: "Dorogi-Kovács Gábor",
-                email: "dorogix@gmail.com",
-                position: "öregtag",
-                description: "Minden rendben van és a parkett klub is a legjobb",
-
-            }]
-        }
+    fetchMembers = () => {
+        fetchAll('members').then((myJson) => {
+            this.setState({ members: myJson });
+        });
     }
 
     render() {
-        let memberRows = [];
-        this.state.members.forEach((member) => {
-            if (member.position != "öregtag")
-                memberRows.push(<Member details={member} key={member.id} />)
-        });
-
-
-        let oldMemberRows = [];
-        this.state.members.forEach((member) => {
-            if (member.position == "öregtag")
-                oldMemberRows.push(<LittleMember details={member} key={member.id} />)
-        })
-
-
+        const { members } = this.state;
         return (
-            <div className="memberMain">
-                <div className="simple">
-                    {memberRows}
+            <div className={styles.main}>
+                <AboutUs />
+                <div className={styles.people6}>
+                    {members.map((member) => {
+                        if (member.position !== 'öregtag') {
+                            return (<Member {...member} key={member.id} />);
+                        }
+                        return null;
+                    }).slice(0, 6)}
                 </div>
-                <div className="olderMembers">
-                    Régebbi tagok
+                <div className={styles.peopleOthers}>
+                    {members.map((member) => {
+                        if (member.position !== 'öregtag') {
+                            return (<Member {...member} key={member.id} />);
+                        }
+                        return null;
+                    }).slice(6)}
                 </div>
-                <div className="more">
-                    {oldMemberRows}
+                <div className={styles.peopleOthers}>
+                    {members.map((member) => {
+                        if (member.position === 'öregtag') {
+                            return (<LittleMember {...member} key={member.id} />);
+                        }
+                        return null;
+                    })}
                 </div>
             </div>
-        )
+        );
     }
 }
 
-export default Members
+export default Members;

@@ -1,7 +1,9 @@
 import React from 'react';
-import '../components/Card.css';
-import Header from '../components/Header.jsx';
 import ReactCssTransitionGroup from 'react-addons-css-transition-group';
+import '../components/Card.css';
+import Header from '../components/Header';
+import styles from './Page.module.css';
+import MediaComponent from '../components/MediaComponent';
 
 const Media = () => (
 
@@ -11,13 +13,14 @@ const Media = () => (
             transitionName="fade"
             transitionAppearTimeout={1000}
             transitionEnterTimeout={300}
-            transitionAppear={true}
-            transitionLeaveTimeout={300}>
-            <div className="pagecenter">
-                Média
-        </div>
+            transitionAppear
+            transitionLeaveTimeout={300}
+        >
+            <div className={styles.main}>
+                <MediaComponent />
+            </div>
         </ReactCssTransitionGroup>
     </div>
-)
+);
 
 export default Media;

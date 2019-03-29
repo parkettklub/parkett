@@ -1,15 +1,11 @@
-import React from 'react'
-import './Knowledge-Base.css';
-import OpenCloseComponent from './OpenCloseComponent';
+import React from 'react';
 
-function Services() {
-    const content = [];
-    content.push(<li><b>Ingyenes ruhatár</b></li>);
-    content.push(<li><b>Italpult kedvezményes árakkal</b></li>);
-    return (
-        <OpenCloseComponent title="Bulin lévő szolgáltatások" content={content} />
-    )
-}
+const Services = () => (
+    <div>
+        <div>Bulin lévő szolgáltatások</div>
+        <li key="ruhatar"><strong>Ingyenes ruhatár </strong></li>
+        <li key="italpult"><strong>Italpult kedvezményes árakkal </strong></li>
+    </div>
+);
 
-
-export default Services
+export default Services;

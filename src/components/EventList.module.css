@@ -1,0 +1,222 @@
+.main {
+    display: block;
+    margin: 0 auto;
+    max-width: 900px;
+    text-align: center;
+    align-items: center;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    padding: 1rem;
+}
+
+.editButton {
+    padding: 1em;
+}
+
+.editButton > div {
+    width: 2em;
+}
+
+.editButton > div:hover {
+    filter: opacity(0.5);
+    cursor: pointer;
+}
+
+.editButton > div:focus {
+    outline: none;
+}
+
+.editButton img {
+    height: 2em;
+    margin: 0;
+}
+
+.old {
+    filter: opacity(0.5);
+}
+
+.event {
+    display: block;
+    margin: 0 auto;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+.event.clickable:hover {
+    filter: opacity(0.6);
+}
+
+.old.clickable:hover {
+    filter: opacity(0.3);
+}
+
+.grid {
+    background: #FFFFFF;
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: 150px auto 6rem;
+    padding: 0;
+    align-items: center;
+    cursor: pointer;
+}
+
+.posterCropper {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+}
+
+.posterCropper img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    max-width: initial;
+    margin-bottom: inherit;
+    object-position: top;
+}
+
+.details div {
+    padding: 0.2em;
+}
+
+.title {
+    font-weight: bolder;
+    font-size: 1.5em;
+}
+
+.eventListCardForm {
+    position: relative;
+}
+
+.eventListCardForm input {
+    padding: 8px 15px 8px 40px;
+    box-shadow: inset 0 2px 3px rgba(0, 0, 0, .1);
+    color: #000000;
+    background: white;
+    border: none;
+    border-radius: 4px;
+    width: 100%;
+}
+
+.eventListCardForm input:focus {
+    outline: none;
+}
+
+.eventListCardForm svg {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    margin-top: -8px;
+    pointer-events: none;
+    opacity: .4;
+    transition: opacity .2s;
+    display: inline-block;
+    vertical-align: middle;
+    box-sizing: border-box;
+    width: 17;
+    height: 17;
+    overflow: hidden;
+}
+
+.eventListOldEvents{
+    padding: 10px;
+    color: #e7caca;
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    line-height: normal;
+}
+
+.facebook {
+    height: 3rem;
+}
+
+.facebook img {
+    height: 3rem;
+}
+
+.facebook:hover {
+    filter: brightness(2);
+}
+
+.types {
+    padding: 2rem;
+}
+
+.types > .title {
+    font-size: 1rem;
+    padding-bottom: 1rem;
+}
+
+.type, .selectedType {
+    border-radius: 4px;
+    border: 0;
+    display: inline;
+    padding: 0.5rem;
+    margin: 0.5rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    background: #00000000;
+    color: white;
+}
+
+.type > div , .selectedType > div {
+    display: inline;
+    margin-right: 1rem;
+}
+
+.type > div {
+    margin-right: 0;
+}
+
+.type > div > img {
+    height: 0;
+    margin: 0;
+}
+
+.selectedType > div > img {
+    height: 1rem;
+    margin: 0;
+}
+
+.types > .type:hover, .selectedType:hover {
+    color: black;
+    background: rgba(255, 200, 0, 0.5);
+}
+
+.type:focus, .selectedType:focus {
+    outline: 0;
+}
+
+.selectedType {
+    color: black;
+    background: white;
+}
+
+@media only screen and (max-width: 950px)  {
+    .posterCropper {
+        width: 0;
+    }
+
+    .grid {
+        background: unset;
+        color: white;
+        grid-template-columns: 0 auto 5rem;
+    }
+
+    .facebook img {
+        color: white;
+        filter: brightness(10);
+    }
+}
+
+@media only screen and (max-width: 500px)  {
+    .grid {
+        grid-template-columns: 0 auto 0;
+    }
+
+    .main {
+        padding: 0;
+    }
+}

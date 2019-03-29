@@ -1,44 +1,71 @@
 import React from 'react';
-import './Card.css';
-import './EventDetail.css';
+import PropTypes from 'prop-types';
+import Card from './Card';
+import styles from './EventMedia.module.css';
 
-function EventMedia(props) {
+function EventMedia({ photos, video }) {
     return (
-        <div className="card withpadding eventdetail-media">
-            <Photos photos={props.details.photos} />
-            <Video video={props.details.video} />
-        </div>
-    )
+        <Card>
+            <div className={styles.main}>
+                <Photos photos={photos} />
+                <Video video={video} />
+            </div>
+        </Card>
+    );
 }
 
-function Photos(props) {
-    if (props.photos) {
+EventMedia.propTypes = {
+    photos: PropTypes.string,
+    video: PropTypes.string,
+};
+
+EventMedia.defaultProps = {
+    photos: '',
+    video: '',
+};
+
+function Photos({ photos }) {
+    if (photos) {
         return (
             <div>
-                <b>Képek a buliról: </b>
-                <a href={props.photos}>Link a SPOT oldalára</a>
+                <strong>Képek a buliról:  </strong>
+                <a href={photos} target="_blank" rel="noopener noreferrer">Link a SPOT oldalára</a>
             </div>
-        )
-    } else {
-        return (
-            <div></div>
-        )
+        );
     }
+    return (
+        null
+    );
 }
 
-function Video(props) {
-    if (props.video) {
+Photos.propTypes = {
+    photos: PropTypes.string,
+};
+
+Photos.defaultProps = {
+    photos: '',
+};
+
+function Video({ video }) {
+    if (video) {
         return (
             <div>
-                <b>Videó a buliról: </b>
-                <a href={props.video}>Link a BSS oldalára</a>
+                <strong>Videó a buliról:  </strong>
+                <a href={video} target="_blank" rel="noopener noreferrer">Link a BSS oldalára</a>
             </div>
-        )
-    } else {
-        return (
-            <div></div>
-        )
+        );
     }
+    return (
+        null
+    );
 }
+
+Video.propTypes = {
+    video: PropTypes.string,
+};
+
+Video.defaultProps = {
+    video: '',
+};
 
 export default EventMedia;

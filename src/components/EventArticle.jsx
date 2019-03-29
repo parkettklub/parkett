@@ -1,37 +1,40 @@
 import React from 'react';
 import EventWithPoster from './EventWithPoster';
-import Plakat01 from './Plakat.png';
+import { fetchAll } from './FetchFunctions';
+import styles from './Article.module.css';
+import EditButton from './EditButton';
 
-function EventParty(props) {
+class EventArticle extends React.Component {
+    state = {}
 
-    let partyDetails = {
-        id: 1,
-        title: "Élőzenés Salsa Party: Cuba",
-        photo: Plakat01,
-        start_date: "2018-01-12T18:00",
-        end_date: "2018-01-12T18:00",
-        content: "Még érezni az előző est hangulatát és máris itt a következő, egyben a félévi utolsó bulink. Várunk titeket egy fergeteges Rock ‘N’ Roll Partyra április 17-én.",
-        facebook_event: "https://www.facebook.com/events/1598719006921910/"
+    componentDidMount() {
+        this.fetchEvent();
     }
 
-    if (props.details) {
-        partyDetails = props.details;
+    fetchEvent = () => {
+        const id = window.location.href.split('?')[1];
+        this.setState({
+            complexId: `A${id}`,
+        });
+        fetchAll(`articles/${id}`).then((myJson) => {
+            this.setState({ details: myJson });
+        });
     }
 
-    const date = partyDetails.start_date;
-    const dateString = date.split('T')[0] + " " + date.split('T')[1];
-    let main = {
-        title: partyDetails.title,
-        date: dateString,
-        description: partyDetails.content,
-        poster: partyDetails.photo
+    render() {
+        const { details, complexId } = this.state;
+        if (details) {
+            return (
+                <div className={styles.main}>
+                    <EditButton link={`/edit-events?${complexId}`} />
+                    <EventWithPoster {...details} date={details ? details.published_at : null} />
+                </div>
+            );
+        }
+        return (
+            <div className={styles.main} />
+        );
     }
-
-    return (
-        <div>
-            <EventWithPoster details={main} />
-        </div>
-    )
-
 }
-export default EventParty;
+
+export default EventArticle;

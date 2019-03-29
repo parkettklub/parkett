@@ -1,0 +1,11 @@
+.instafeed {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 10px;
+}
+
+.photo {
+    object-fit: cover;
+    width: 100%;
+    display: block;
+}
