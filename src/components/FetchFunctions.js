@@ -15,15 +15,14 @@ export async function fetchPost(type, element) {
     return response;
 }
 
-export async function fetchDelete(type, element) {
-    const response = await fetch(`https://parkett-klub.herokuapp.com/${type}/${element.id}`, {
+export async function fetchDelete(type, id) {
+    const response = await fetch(`https://parkett-klub.herokuapp.com/${type}/${id}`, {
         method: 'DELETE',
-        body: JSON.stringify(element),
         headers: {
             'Content-Type': 'application/json',
         },
     });
-    alert(`(${element.id ? element.id : ''}. ${type}) ${element.name ? element.name : ''} ${element.title ? element.title : ''} is Deleted`);
+    alert(`(${id}. ${type} is Deleted`);
     return response;
 }
 

@@ -1,10 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { fetchPost, fetchPut, fetchDelete } from './FetchFunctions';
+import { fetchPost, fetchPut } from './FetchFunctions';
 import styles from './Form.module.css';
 import InputFormSimple from './InputFormSimple';
 import InputFormTextArea from './InputFormTextarea';
 import SubFormPoster from './SubFormPoster';
+import DeleteButton from './DeleteButton';
 
 class FormMember extends React.Component {
     constructor() {
@@ -60,24 +61,18 @@ class FormMember extends React.Component {
         });
     }
 
-    deleteThis = () => {
-        fetchDelete('members', this.state).then(() => {
-            console.log("DELETED");
-        });
-    }
-
 
     render() {
-        const { selected, title } = this.props;
+        const {
+            selected, title, fetchFunction,
+        } = this.props;
         const {
             id, name, email, position, description,
         } = this.state;
         const isNew = id < 0;
         return (
             <div className={styles.main}>
-                <div onClick={() => this.deleteThis()}>
-                    DELETE
-                </div>
+                <DeleteButton id={id} type="members" fetchFunction={fetchFunction} />
                 <div className={styles.formgroup} hidden={selected !== title}>
                     {isNew ? 'Új Tag adatai:' : 'Tag adatai:'}
                     <InputFormSimple
