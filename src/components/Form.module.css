@@ -105,3 +105,22 @@ textarea.input {
 .picture img {
     margin: 0;
 }
+
+.delete {
+    background: 0;
+    border: 0;
+}
+
+.delete:hover {
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+.delete:focus {
+    outline: 0;
+}
+
+.delete img {
+    height: 2rem;
+    margin: 0;
+}

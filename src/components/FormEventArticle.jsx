@@ -6,6 +6,7 @@ import styles from './Form.module.css';
 import SubFormSelect from './SubFormSelect';
 import SubFormArticle from './SubFormArticle';
 import SubFormPoster from './SubFormPoster';
+import DeleteButton from './DeleteButton';
 
 class FormEventArticle extends React.Component {
     constructor() {
@@ -77,10 +78,14 @@ class FormEventArticle extends React.Component {
 
     render() {
         const {
-            selectedForm,
+            selectedForm, id,
         } = this.state;
+        const {
+            fetchFunction,
+        } = this.props;
         return (
             <div className={styles.main} key="FormEventParty">
+                <DeleteButton id={id} type="articles" fetchFunction={fetchFunction} />
                 <div className={styles.steps}>
                     <SubFormSelect
                         title="title"

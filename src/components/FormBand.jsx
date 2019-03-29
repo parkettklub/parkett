@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { fetchPost, fetchPut } from './FetchFunctions';
 import styles from './Form.module.css';
 import InputFormSimple from './InputFormSimple';
+import DeleteButton from './DeleteButton';
 
 class FormBand extends React.Component {
     constructor() {
@@ -54,11 +55,12 @@ class FormBand extends React.Component {
     }
 
     render() {
-        const { selected, title } = this.props;
+        const { selected, title, fetchFunction } = this.props;
         const { id, name, url } = this.state;
         const isNew = id < 0;
         return (
             <div className={styles.main}>
+                <DeleteButton id={id} type="bands" fetchFunction={fetchFunction} />
                 <div className={styles.formgroup} hidden={selected !== title}>
                     {isNew ? 'Új Banda adatai:' : 'Banda adatai:'}
                     <InputFormSimple

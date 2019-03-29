@@ -9,6 +9,7 @@ import SubFormDetails from './SubFormDetails';
 import SubFormPoster from './SubFormPoster';
 import SubFormWorkshop from './SubFormWorkshop';
 import InputFormTextarea from './InputFormTextarea';
+import DeleteButton from './DeleteButton';
 
 class FormEventWorkshop extends React.Component {
     constructor() {
@@ -104,9 +105,14 @@ class FormEventWorkshop extends React.Component {
         const {
             selectedForm,
             theme,
+            id,
         } = this.state;
+        const {
+            fetchFunction,
+        } = this.props;
         return (
             <div className={styles.main} key="FormEventParty">
+                <DeleteButton id={id} type="workshops" fetchFunction={fetchFunction} />
                 <div className={styles.steps}>
                     <SubFormSelect
                         title="title"
