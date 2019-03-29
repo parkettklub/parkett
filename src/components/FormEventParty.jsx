@@ -101,7 +101,7 @@ class FormEventParty extends React.Component {
     }
 
     updateParty = () => {
-        fetchPut('parties', this.state).then(() => {
+        fetchPut('parties', { ...this.state, dance_course_id: null }).then(() => {
             const { fetchFunction } = this.props;
             fetchFunction();
         });

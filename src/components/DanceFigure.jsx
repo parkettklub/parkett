@@ -18,15 +18,19 @@ class DanceFigure extends React.Component {
     }
 
     fetchObject = (id) => {
-        fetchAll(`dance_types/${id}`).then((selectedObject) => {
-            this.setState({ ...selectedObject, src: selectedObject.image });
-        });
+        if (id) {
+            fetchAll(`dance_types/${id}`).then((selectedObject) => {
+                this.setState({ ...selectedObject, src: selectedObject.image });
+            });
+        }
     }
 
     fetchDance = (id) => {
-        fetchAll(`dances/${id}`).then((selectedObject) => {
-            this.setState({ ...selectedObject, src: selectedObject.dance_type.image });
-        });
+        if (id) {
+            fetchAll(`dances/${id}`).then((selectedObject) => {
+                this.setState({ ...selectedObject, src: selectedObject.dance_type.image });
+            });
+        }
     }
 
     render() {

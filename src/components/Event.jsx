@@ -17,16 +17,20 @@ class EventSummary extends React.Component {
     }
 
     fetchDanceCourse = (id) => {
-        fetchAll(`dance_courses/${id}`).then((myJson) => {
-            const { dance_id } = myJson;
-            this.fetchDance(dance_id);
-        });
+        if (id) {
+            fetchAll(`dance_courses/${id}`).then((myJson) => {
+                const { dance_id } = myJson;
+                this.fetchDance(dance_id);
+            });
+        }
     }
 
     fetchDance = (id) => {
-        fetchAll(`dances/${id}`).then((myJson) => {
-            this.setState({ dance: myJson });
-        });
+        if (id) {
+            fetchAll(`dances/${id}`).then((myJson) => {
+                this.setState({ dance: myJson });
+            });
+        }
     }
 
     render() {
