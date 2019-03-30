@@ -12,8 +12,12 @@ class Header extends React.Component {
     super();
     this.state = {
       open: false,
-      isLoggedIn: isLoggedIn()
+      isLoggedIn: false,
     };
+  }
+
+  componentDidMount() {
+    this.setState({ isLoggedIn: isLoggedIn() })
   }
 
   toggleOpen = () => {
