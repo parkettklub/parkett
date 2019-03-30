@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import DanceFigure from './DanceFigure';
 import FacebookLogo from './facebook-app-logo.svg';
-import Card from './Card';
 import styles from './EventDetails.module.css';
 
 function EventDetails({
@@ -22,44 +21,50 @@ function EventDetails({
             </div>,
         );
     }
+    const danceCourse = [];
+    if (dance_course) {
+        danceCourse.push(
+            <div>
+                {'Tánctanítás: '}
+                <a href={teacher_link} target="_blank" rel="noopener noreferrer">{teacher_name}</a>
+                {` : ${dance_course}`}
+            </div>,
+        );
+    }
     return (
-        <Card>
-            <div className={styles.main}>
-                <div className={styles.fullProgram}>
-                    <div className={styles.title}>Program</div>
-                    <div className={styles.program}>{program}</div>
-                </div>
-                <div className={styles.links}>
-                    <DanceFigure id={dance_id} />
-                </div>
-                <div>
-                    {'Tánctanítás: '}
-                    <a href={teacher_link} target="_blank" rel="noopener noreferrer">{teacher_name}</a>
-                    {` : ${dance_course}`}
-                </div>
-                <div>
-                    {links}
-                </div>
-                <div className={styles.music}>
-                    <strong>{(bands.length > 0 || djs.length > 0) ? 'Zenét szongáltatja: ' : ''}</strong>
-                    {bands
-                        ? bands.map(band => (
-                            <div>
-                                <a href={band.url} target="_blank" rel="noopener noreferrer">{band.name}</a>
-                            </div>
-                        ))
-                        : null
-                    }
-                    {djs
-                        ? djs.map(dj => (
-                            <div>
-                                <a href={dj.url} target="_blank" rel="noopener noreferrer">{dj.name}</a>
-                            </div>
-                        ))
-                        : null}
-                </div>
+        <div className={styles.main}>
+            <div className={styles.fullProgram}>
+                <div className={styles.title}>Program</div>
+                <div className={styles.program}>{program}</div>
             </div>
-        </Card>
+            <div className={styles.links}>
+                <DanceFigure id={dance_id} />
+            </div>
+            <div>
+                {danceCourse}
+            </div>
+            <div>
+                {links}
+            </div>
+            <div className={styles.music}>
+                <strong>{(bands.length > 0 || djs.length > 0) ? 'Zenét szongáltatja: ' : ''}</strong>
+                {bands
+                    ? bands.map(band => (
+                        <div>
+                            <a href={band.url} target="_blank" rel="noopener noreferrer">{band.name}</a>
+                        </div>
+                    ))
+                    : null
+                }
+                {djs
+                    ? djs.map(dj => (
+                        <div>
+                            <a href={dj.url} target="_blank" rel="noopener noreferrer">{dj.name}</a>
+                        </div>
+                    ))
+                    : null}
+            </div>
+        </div>
     );
 }
 

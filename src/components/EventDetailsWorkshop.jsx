@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import FacebookLogo from './facebook-app-logo.svg';
 import DanceFigure from './DanceFigure';
-import Card from './Card';
 import styles from './EventDetails.module.css';
 
 function EventDetailsWorkshop({
@@ -17,26 +16,24 @@ function EventDetailsWorkshop({
         );
     }
     return (
-        <Card>
-            <div className={styles.main}>
-                <div className={styles.fullProgram}>
-                    <div className={styles.title}>Program</div>
-                    <div className={styles.program}>{program}</div>
-                </div>
-                <div>
-                    <DanceFigure danceId={dance_id} />
-                </div>
-                <div>
-                    <div className="theme">
-                        <strong>Tematika:  </strong>
-                        {theme}
-                    </div>
-                </div>
-                <div>
-                    {links}
+        <div className={styles.main}>
+            <div className={styles.fullProgram}>
+                <div className={styles.title}>Program</div>
+                <div className={styles.program}>{program}</div>
+            </div>
+            <div>
+                <DanceFigure danceId={dance_id} />
+            </div>
+            <div>
+                <div className="theme">
+                    <strong>Tematika:  </strong>
+                    {theme}
                 </div>
             </div>
-        </Card>
+            <div>
+                {links}
+            </div>
+        </div>
 
     );
 }
