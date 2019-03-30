@@ -2,24 +2,37 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Link from 'gatsby-link';
 import Logo from './lines.svg';
-import styles from './Header.module.css';
-import ParkettLogo from './ParkettLogoWhite02.svg';
+import ParkettLogo from '../components/ParkettLogoWhite02.svg';
+import styles from './Header.module.css'
 import ListLink from './ListLink';
+import { getLoginUrl, isLoggedIn, logOut } from '../utils/login'
 
 class Header extends React.Component {
   constructor() {
     super();
     this.state = {
       open: false,
+      isLoggedIn: false,
     };
-    this.changeOpen = this.changeOpen.bind(this);
   }
 
-  changeOpen() {
-    const { open } = this.state;
-    this.setState({
-      open: !(open),
-    });
+  componentDidMount() {
+    this.setState({ isLoggedIn: isLoggedIn() })
+  }
+
+  toggleOpen = () => {
+    this.setState((prevState) => ({
+      open: !prevState.open
+    }));
+  }
+
+  logIn = () => {
+    this.setState({ isLoggedIn: true })
+  }
+
+  logOut = () => {
+    logOut();
+    this.setState({ isLoggedIn: false })
   }
 
   render() {
@@ -34,7 +47,7 @@ class Header extends React.Component {
             <img className={styles.mainLogo} src={ParkettLogo} alt="" />
           </Link>
           <div
-            onClick={this.changeOpen}
+            onClick={this.toggleOpen}
             className={styles.more}
             role="button"
             onKeyDown={() => { }}
@@ -46,7 +59,10 @@ class Header extends React.Component {
         <div className={styles.right}>
           <div className={styles.login}>
             <ListLink to="/edit-band/">Szerkesztés</ListLink>
-            <ListLink to="/login/">Belépés</ListLink>
+            {this.state.isLoggedIn ?
+              <span className={styles.link} onClick={this.logOut}>Kijelentkezés</span> :
+              <a className={styles.link} href={getLoginUrl()}>Belépés</a>
+            }
           </div>
           <div className={styles.links}>
             <ListLink to="/events/" active={events}>Események</ListLink>
