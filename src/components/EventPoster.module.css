@@ -1,7 +1,7 @@
 .main {
-    padding: 0.5em;
     display: grid;
     grid-template-columns: max-content 1fr;
+    width: 100%;
 }
 
 .main.clickable:hover {
@@ -10,7 +10,8 @@
 }
 
 .details {
-    padding: 1em;
+    padding: 2em;
+    padding-top: 1rem;
 }
 
 .title {
@@ -19,7 +20,7 @@
 }
 
 .poster {
-    height: 15em;
+    height: 20em;
     margin: 0;
 }
 
@@ -34,7 +35,7 @@
 }
 
 .description{
-    padding-top: 1em;
+    padding-top: 2em;
 }
 
  @media only screen and (max-width: 70em)  {

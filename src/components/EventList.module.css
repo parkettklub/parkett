@@ -146,10 +146,6 @@
     height: 5rem;
 }
 
-.dance:hover {
-    filter: brightness(2);
-}
-
 .types {
     padding: 2rem;
 }

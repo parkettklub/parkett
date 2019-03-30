@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import FacebookLogo from './facebook-app-logo.svg';
 import Card from './Card';
 import styles from './EventList.module.css';
 import { fetchAll } from './FetchFunctions';

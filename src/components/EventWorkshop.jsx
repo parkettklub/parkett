@@ -4,6 +4,7 @@ import EventDetailsWorkshop from './EventDetailsWorkshop';
 import EventWorkshopForm from './EventWorkshopForm';
 import { fetchAll } from './FetchFunctions';
 import EditButton from './EditButton';
+import styles from './Event.module.css';
 
 class EventWorkshop extends React.Component {
     state = {}
@@ -47,9 +48,11 @@ class EventWorkshop extends React.Component {
         return (
             <div>
                 <EditButton link={`/edit-events?${complexId}`} />
-                <EventWithPoster {...main} />
-                <EventDetailsWorkshop {...detail} />
-                <EventWorkshopForm {...formdetails} />
+                <div className={styles.main}>
+                    <EventWithPoster {...main} />
+                    <EventDetailsWorkshop {...detail} />
+                    <EventWorkshopForm {...formdetails} />
+                </div>
             </div>
         );
     }

@@ -14,7 +14,7 @@ const EventPartyPage = () => (
       transitionAppear
       transitionLeaveTimeout={300}
     >
-      <div className={styles.pageCenter}>
+      <div className={styles.main}>
         <EventParty />
       </div>
     </ReactCssTransitionGroup>
