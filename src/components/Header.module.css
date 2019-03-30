@@ -112,6 +112,7 @@ div.more:hover {
 @media only screen and (max-width: 950px)  {
   .main {
     grid-template-columns: auto;
+    height: 6rem;
   }
 
   .main.max {
