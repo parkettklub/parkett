@@ -12,7 +12,6 @@
     text-align: left;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: 60% 30%;
     grid-gap: 0.5em;
     width: max-content;
 }
@@ -51,6 +50,17 @@
     grid-template-columns: 1fr 1fr;
     grid-gap: inherit;
     width: min-content;
+}
+
+.oldMembers {
+    margin: 0 auto;
+    padding-left: 3rem;
+    font-size: 2rem;
+    margin-top:2rem;
+    margin-bottom:2rem;
+    width: min-content;
+    grid-column-start: 1;
+    grid-column-end: 3;
 }
 
 .peopleOthers {
@@ -93,7 +103,8 @@
 }
 
 .element.small {
-    height: 100px;
+    height: 10rem;
+    filter: saturate(0.5);
 }
 
 .element img {

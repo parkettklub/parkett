@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 import profDefault from './defaultProfile.jpg';
 import styles from './Community.module.css';
 
-function LittleMember({ src, name }) {
+function LittleMember({ image, name }) {
     return (
         <div className={`${styles.element} ${styles.small}`}>
-            <img src={src} alt="" />
+            <img src={image ? image : profDefault} alt="" />
             <div className={styles.title}>
                 <strong>{name}</strong>
             </div>
@@ -16,12 +16,12 @@ function LittleMember({ src, name }) {
 
 LittleMember.propTypes = {
     name: PropTypes.string,
-    src: PropTypes.string,
+    image: PropTypes.string,
 };
 
 LittleMember.defaultProps = {
     name: '',
-    src: profDefault,
+    image: profDefault,
 };
 
 export default LittleMember;
