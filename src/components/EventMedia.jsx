@@ -1,16 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Card from './Card';
 import styles from './EventMedia.module.css';
 
 function EventMedia({ photos, video }) {
     return (
-        <Card>
-            <div className={styles.main}>
-                <Photos photos={photos} />
-                <Video video={video} />
-            </div>
-        </Card>
+        <div className={styles.main}>
+            <Photos photos={photos} />
+            <Video video={video} />
+        </div>
     );
 }
 

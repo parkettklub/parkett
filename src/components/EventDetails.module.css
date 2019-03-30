@@ -2,6 +2,8 @@
     display: grid;
     grid-template-columns: 1fr max-content;
     padding: 1em;
+    margin: 0 auto;
+    background: #00000030;
 }
 
 .danceFigure {
@@ -19,6 +21,10 @@
     margin: 0 auto;
 }
 
+.main a {
+    color: rgb(254, 255, 198);
+}
+
 .title {
     font-weight: bolder;
 }
@@ -26,6 +32,7 @@
 .program {
     padding: 0.5em;
     padding-left: 1em;
+    white-space: pre-line;
 }
 
 .music {
@@ -50,6 +57,7 @@
 .facebook img {
     width: 2em;
     margin-bottom: 0;
+    filter: brightness(100);
 }
 
 @media only screen and (min-width: 700px)  {

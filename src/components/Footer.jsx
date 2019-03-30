@@ -17,18 +17,6 @@ function Footer() {
                         <strong>A design-ért és frontend-ért: </strong>
                         <a href="http://schdesign.hu/" target="_blank" rel="noopener noreferrer">Schönherz Design Stúdió</a>
                     </div>
-                    <div>
-                        <strong>A fotókért: </strong>
-                        <a href="https://spot.sch.bme.hu/events/parkett-klub/" target="_blank" rel="noopener noreferrer">SPOT fotókör</a>
-                    </div>
-                    <div>
-                        <strong>A hangosításért: </strong>
-                        <a href="https://acstudio.sch.bme.hu/" target="_blank" rel="noopener noreferrer">AC Studio és Live</a>
-                    </div>
-                    <div>
-                        <strong>A videókért: </strong>
-                        <a href="https://bsstudio.hu/" target="_blank" rel="noopener noreferrer">Budavári Schönherz Stúdió</a>
-                    </div>
                 </div>
                 <div className={styles.center}>
                     <div><strong>Helyszín </strong></div>

@@ -22,25 +22,11 @@ class MediaComponent extends React.Component {
             events: [],
         });
         this.fetchParties();
-        this.fetchWorkshops();
-        this.fetchArticles();
     }
 
     fetchParties = () => {
         fetchAll('parties').then((myJson) => {
             this.addEvents('P', myJson, this.selectParty);
-        });
-    }
-
-    fetchWorkshops = () => {
-        fetchAll('workshops').then((myJson) => {
-            this.addEvents('W', myJson, this.selectWorkshop);
-        });
-    }
-
-    fetchArticles = () => {
-        fetchAll('articles').then((myJson) => {
-            this.addEvents('A', myJson, this.selectArticle, true);
         });
     }
 
@@ -74,6 +60,7 @@ class MediaComponent extends React.Component {
                         events.map(event => (
                             <MediaAlbum
                                 link={event.spot}
+                                src={event.spot_cover}
                                 name={event.title}
                                 date={event.date}
                                 icon={SpotIcon}
@@ -87,6 +74,7 @@ class MediaComponent extends React.Component {
                         events.map(event => (
                             <MediaAlbum
                                 link={event.bss}
+                                src={event.bss_cover}
                                 name={event.title}
                                 date={event.date}
                                 icon={BssIcon}

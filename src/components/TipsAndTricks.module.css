@@ -40,6 +40,7 @@
 .tabs button:focus {
     outline: 0;
 }
+
 .tabs button:hover {
     background: firebrick;
 }

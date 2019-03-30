@@ -13,6 +13,12 @@ export function setToken() {
     }
 }
 
+export function logOut() {
+    if (isLoggedIn()) {
+        localStorage.removeItem('token');
+    }
+}
+
 export const getAuthHeader = (token) => ['Authorization', 'Bearer ' + token]
 
 const AUTH_URL = 'http://auth.sch.bme.hu/site/login/';

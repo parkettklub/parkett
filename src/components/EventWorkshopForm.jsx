@@ -13,9 +13,11 @@ class EventWorkshopForm extends React.Component {
     }
 
     fetchObject = (id) => {
-        fetchAll(`dance_teachers/${id}`).then((selectedObject) => {
-            this.setState({ ...selectedObject });
-        });
+        if (id) {
+            fetchAll(`dance_teachers/${id}`).then((selectedObject) => {
+                this.setState({ ...selectedObject });
+            });
+        }
     }
 
     render() {
@@ -35,23 +37,21 @@ class EventWorkshopForm extends React.Component {
         }
 
         return (
-            <Card>
-                <div className={styles.main}>
-                    <div className={styles.paragraph}>
-                        <strong>JELENTKEZNI az alábbi linken lehet:  </strong>
-                        <a href={link} target="_blank" rel="noopener noreferrer">Link a formhoz</a>
-                    </div>
-                    <div className={styles.paragraph}>
-                        {'Siess, a helyek limitáltak! Amennyiben párban jöttök a kérdőívet mindketten töltsétek ki. A workshop csak elegendő számú jelentkező esetén indul.'}
-                    </div>
-                    <div className={styles.paragraph} hidden={dance_teacher_id == null}>
-                        {'A tánccal '}
-                        <a href={url} target="_blank" rel="noopener noreferrer">{name}</a>
-                        {' fognak megismertetni'}
-                    </div>
-                    {rows}
+            <div className={styles.main}>
+                <div className={styles.paragraph}>
+                    <strong>JELENTKEZNI az alábbi linken lehet:  </strong>
+                    <a href={link} target="_blank" rel="noopener noreferrer">Link a formhoz</a>
                 </div>
-            </Card>
+                <div className={styles.paragraph}>
+                    {'Siess, a helyek limitáltak! Amennyiben párban jöttök a kérdőívet mindketten töltsétek ki. A workshop csak elegendő számú jelentkező esetén indul.'}
+                </div>
+                <div className={styles.paragraph} hidden={dance_teacher_id == null}>
+                    {'A tánccal '}
+                    <a href={url} target="_blank" rel="noopener noreferrer">{name}</a>
+                    {' fognak megismertetni'}
+                </div>
+                {rows}
+            </div>
         );
     }
 }

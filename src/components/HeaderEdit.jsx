@@ -43,15 +43,21 @@ class HeaderEdit extends React.Component {
                         <img src={Logo} alt="" />
                     </div>
                 </div>
-                <div className={styles.links}>
-                    <ListLink to="/edit-events/" active={event}>Események</ListLink>
-                    <ListLink to="/edit-dj/" active={dj}>DJ-k</ListLink>
-                    <ListLink to="/edit-band/" active={band}>Zenekarok</ListLink>
-                    <ListLink to="/edit-dance-course/" active={danceCourse}>Tanítások</ListLink>
-                    <ListLink to="/edit-teacher/" active={teacher}>Tanárok</ListLink>
-                    <ListLink to="/edit-dance/" active={dance}>Táncok</ListLink>
-                    <ListLink to="/edit-dance-type/" active={dancetype}>Tánctípusok</ListLink>
-                    <ListLink to="/edit-member/" active={member}>Tagok</ListLink>
+                <div className={styles.right}>
+                    <div className={styles.login}>
+                        <ListLink to="/">Kezdőlap</ListLink>
+                        <ListLink to="/login/">Kilépés</ListLink>
+                    </div>
+                    <div className={styles.links}>
+                        <ListLink to="/edit-events/" active={event}>Események</ListLink>
+                        <ListLink to="/edit-dj/" active={dj}>DJ-k</ListLink>
+                        <ListLink to="/edit-band/" active={band}>Zenekarok</ListLink>
+                        <ListLink to="/edit-dance-course/" active={danceCourse}>Tanítások</ListLink>
+                        <ListLink to="/edit-teacher/" active={teacher}>Tanárok</ListLink>
+                        <ListLink to="/edit-dance/" active={dance}>Táncok</ListLink>
+                        <ListLink to="/edit-dance-type/" active={dancetype}>Tánctípusok</ListLink>
+                        <ListLink to="/edit-member/" active={member}>Tagok</ListLink>
+                    </div>
                 </div>
             </header>
         );

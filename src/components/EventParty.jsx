@@ -4,6 +4,7 @@ import EventDetails from './EventDetails';
 import EventMedia from './EventMedia';
 import { fetchAll } from './FetchFunctions';
 import EditButton from './EditButton';
+import styles from './Event.module.css';
 
 class EventParty extends React.Component {
     state = {}
@@ -25,24 +26,30 @@ class EventParty extends React.Component {
     }
 
     fetchDanceCourse = (id) => {
-        fetchAll(`dance_courses/${id}`).then((myJson) => {
-            this.setState({ dance_course: myJson });
-            const { dance_id, dance_teacher_id } = myJson;
-            this.fetchDance(dance_id);
-            this.fetchTeacher(dance_teacher_id);
-        });
+        if (id) {
+            fetchAll(`dance_courses/${id}`).then((myJson) => {
+                this.setState({ dance_course: myJson });
+                const { dance_id, dance_teacher_id } = myJson;
+                this.fetchDance(dance_id);
+                this.fetchTeacher(dance_teacher_id);
+            });
+        }
     }
 
     fetchDance = (id) => {
-        fetchAll(`dances/${id}`).then((myJson) => {
-            this.setState({ dance: myJson });
-        });
+        if (id) {
+            fetchAll(`dances/${id}`).then((myJson) => {
+                this.setState({ dance: myJson });
+            });
+        }
     }
 
     fetchTeacher = (id) => {
-        fetchAll(`dance_teachers/${id}`).then((myJson) => {
-            this.setState({ teacher: myJson });
-        });
+        if (id) {
+            fetchAll(`dance_teachers/${id}`).then((myJson) => {
+                this.setState({ teacher: myJson });
+            });
+        }
     }
 
     render() {
@@ -84,9 +91,11 @@ class EventParty extends React.Component {
         return (
             <div>
                 <EditButton link={`/edit-events?${complexId}`} />
-                <EventWithPoster {...main} key="poster" />
-                <EventDetails {...detail} key="details" />
-                <EventMedia {...media} key="media" />
+                <div className={styles.main}>
+                    <EventWithPoster {...main} key="poster" />
+                    <EventDetails {...detail} key="details" />
+                    <EventMedia {...media} key="media" />
+                </div>
             </div>
         );
     }

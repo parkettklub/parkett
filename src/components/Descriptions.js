@@ -74,28 +74,28 @@ export default {
         },
         {
             photo: Gourp02,
-            title: '2018 őszi félév',
+            title: 'Csoportképek',
             descripiton: 'Minden félév végén egy közös csoportképpel örökítjük meg az adott félév rendezőinek csapatát',
         },
         {
             photo: Gourp01,
-            title: '2017 tavaszi félév',
-            descripiton: 'A csapatunk tagjai különböző egyéniségek kiegészítve egymást egy összekovácsolódott csapatként',
+            title: 'Körtagok',
+            descripiton: 'A kör tagjai különböző egyéniségek. Akik kiegészítve egymást egy összekovácsolódott csapatot alkotnak.',
         },
         {
             photo: Girls,
-            title: 'Erdély 2016',
-            descripiton: 'Táborok során mindig más és más helyeket látogatunk meg',
+            title: 'Táborok',
+            descripiton: 'Táborok során mindig más és más helyeket látogatunk meg.',
         },
         {
             photo: Hands,
             title: 'Csapatmunka',
-            descripiton: 'A bulik nem jöhetnének létre a Parkett Klub összetartó és egymást segítő csapata nélkül',
+            descripiton: 'A bulik nem jöhetnének létre a Parkett Klub összetartó és egymást segítő csapata nélkül.',
         },
         {
             photo: Weintaste,
-            title: 'Borkóstoló 2018',
-            descripiton: 'Minden táborban elmegyünk borkóstólni, hogy a tánctudásunk mellett az ízlésünk is fejlődjön',
+            title: 'Borkóstoló',
+            descripiton: 'Minden táborban elmegyünk borkóstólni, hogy a tánctudásunk mellett az ízlésünk is fejlődhessen.',
         },
     ],
 };

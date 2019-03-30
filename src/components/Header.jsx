@@ -5,13 +5,14 @@ import Logo from './lines.svg';
 import ParkettLogo from '../components/ParkettLogoWhite02.svg';
 import styles from './Header.module.css'
 import ListLink from './ListLink';
-import { getLoginUrl } from '../utils/login'
+import { getLoginUrl, isLoggedIn, logOut } from '../utils/login'
 
 class Header extends React.Component {
   constructor() {
     super();
     this.state = {
       open: false,
+      isLoggedIn: isLoggedIn()
     };
   }
 
@@ -19,6 +20,15 @@ class Header extends React.Component {
     this.setState((prevState) => ({
       open: !prevState.open
     }));
+  }
+
+  logIn = () => {
+    this.setState({ isLoggedIn: true })
+  }
+
+  logOut = () => {
+    logOut();
+    this.setState({ isLoggedIn: false })
   }
 
   render() {
@@ -45,7 +55,10 @@ class Header extends React.Component {
         <div className={styles.right}>
           <div className={styles.login}>
             <ListLink to="/edit-band/">Szerkesztés</ListLink>
-            <a className={styles.link} href={getLoginUrl()}>Belépés</a>
+            {this.state.isLoggedIn ?
+              <span className={styles.link} onClick={this.logOut}>Kijelentkezés</span> :
+              <a className={styles.link} href={getLoginUrl()}>Belépés</a>
+            }
           </div>
           <div className={styles.links}>
             <ListLink to="/events/" active={events}>Események</ListLink>

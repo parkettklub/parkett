@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import FacebookLogo from './facebook-app-logo.svg';
 import Card from './Card';
 import styles from './EventList.module.css';
 import { fetchAll } from './FetchFunctions';
@@ -17,21 +16,25 @@ class EventSummary extends React.Component {
     }
 
     fetchDanceCourse = (id) => {
-        fetchAll(`dance_courses/${id}`).then((myJson) => {
-            const { dance_id } = myJson;
-            this.fetchDance(dance_id);
-        });
+        if (id) {
+            fetchAll(`dance_courses/${id}`).then((myJson) => {
+                const { dance_id } = myJson;
+                this.fetchDance(dance_id);
+            });
+        }
     }
 
     fetchDance = (id) => {
-        fetchAll(`dances/${id}`).then((myJson) => {
-            this.setState({ dance: myJson });
-        });
+        if (id) {
+            fetchAll(`dances/${id}`).then((myJson) => {
+                this.setState({ dance: myJson });
+            });
+        }
     }
 
     render() {
         const {
-            formlink, music, start_date, facebook_event, id, onClick, photo, title, old,
+            formlink, music, start_date, id, onClick, photo, title, old,
         } = this.props;
         const { dance } = this.state;
         const detailsrows = [];
@@ -57,23 +60,11 @@ class EventSummary extends React.Component {
             );
         }
 
-        const facebookLink = [];
-        if (facebook_event) {
-            facebookLink.push(
-                <a
-                    href={facebook_event}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    key="FacebookLink"
-                    onClick={(event) => { event.stopPropagation(); }}
-                >
-                    <img src={FacebookLogo} alt="" />
-                </a>,
-            );
-        }
-        let color = '#505050';
+        let realColor = '#505050';
+        let icon = '';
         if (dance) {
-            color = dance.dance_type.color;
+            realColor = dance.dance_type.color;
+            icon = dance.dance_type.image;
         }
 
         return (
@@ -85,7 +76,7 @@ class EventSummary extends React.Component {
                 onKeyDown={() => { }}
                 tabIndex={0}
             >
-                <Card color={color}>
+                <Card color={realColor}>
                     <div className={styles.grid}>
                         <div className={styles.posterCropper}>
                             <img alt="" src={photo} />
@@ -95,8 +86,8 @@ class EventSummary extends React.Component {
                             <div>{dateToString(start_date)}</div>
                             {detailsrows}
                         </div>
-                        <div className={styles.facebook}>
-                            {facebookLink}
+                        <div className={styles.dance}>
+                            <img src={icon} alt="" />
                         </div>
                     </div>
                 </Card>

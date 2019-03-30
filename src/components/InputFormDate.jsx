@@ -1,10 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './Form.module.css';
+import { dateToInput } from './DateFunctions';
 
+
+const today = dateToInput(new Date());
 function InputFormDate({
     selectedForm, form, label, name, handleChange, value, example,
 }) {
+    if (!value) {
+        value = today;
+        handleChange({ target: { name, value } });
+    }
     return (
         <div className={styles.formgroup} hidden={selectedForm !== form}>
             <label htmlFor={label}>
@@ -38,7 +45,7 @@ InputFormDate.defaultProps = {
     form: '',
     label: '',
     name: '',
-    value: '',
+    value: today,
     example: '',
 };
 
