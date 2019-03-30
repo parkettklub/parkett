@@ -5,7 +5,6 @@ import Logo from './lines.svg';
 import styles from './Header.module.css';
 import ParkettLogo from './ParkettLogoWhite02.svg';
 import ListLink from './ListLink';
-import EditButton from './EditButton';
 
 class Header extends React.Component {
   constructor() {

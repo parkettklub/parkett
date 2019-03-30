@@ -14,9 +14,8 @@
   width: 100%;
   display: grid;
   grid-template-columns: auto max-content;
-  align-items: flex-end;
-  height: 6em;
   overflow: hidden;
+  height: 7rem;
 }
 
 .main.max { 
