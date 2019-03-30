@@ -29,10 +29,13 @@
 }
 
 .submit {
-    background: green;
+    background: white;
     border: 0;
+    border-radius: 5px;
     padding: 0.5rem;
-    color: white;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    color: black;
     display: block;
     margin: 0 auto;
     width: max-content;
@@ -40,5 +43,5 @@
 }
 
 .submit:hover {
-    background: darkgreen;
+    background: green;
 }
