@@ -26,7 +26,8 @@
 
 .main .link {
   color: white;
-  font-family: 'Roboto', sans-serif
+  font-family: 'Roboto', sans-serif;
+  font-weight: bolder
 }
 
 .mainLogo {
@@ -62,7 +63,7 @@
   margin-right:0;
 }
 
-.login > div {
+.login > * {
   display: inline-block;
   width: min-content;
   margin: 0;

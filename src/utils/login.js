@@ -13,6 +13,8 @@ export function setToken() {
     }
 }
 
+export const getAuthHeader = (token) => ['Authorization', 'Bearer ' + token]
+
 const AUTH_URL = 'http://auth.sch.bme.hu/site/login/';
 
 const PARAMS = {
@@ -23,9 +25,6 @@ const PARAMS = {
 }
 
 export function getLoginUrl() {
-    const searchParams = new URLSearchParams();
-    for (const prop in PARAMS) {
-        searchParams.set(prop, PARAMS[prop]);
-    }
+    const searchParams = new URLSearchParams(PARAMS);
     return AUTH_URL + '?' + searchParams.toString();
 }

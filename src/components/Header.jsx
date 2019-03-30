@@ -5,6 +5,7 @@ import Logo from './lines.svg';
 import ParkettLogo from '../components/ParkettLogoWhite02.svg';
 import styles from './Header.module.css'
 import ListLink from './ListLink';
+import { getLoginUrl } from '../utils/login'
 
 class Header extends React.Component {
   constructor() {
@@ -12,14 +13,12 @@ class Header extends React.Component {
     this.state = {
       open: false,
     };
-    this.changeOpen = this.changeOpen.bind(this);
   }
 
-  changeOpen() {
-    const { open } = this.state;
-    this.setState({
-      open: !(open),
-    });
+  toggleOpen = () => {
+    this.setState((prevState) => ({
+      open: !prevState.open
+    }));
   }
 
   render() {
@@ -34,7 +33,7 @@ class Header extends React.Component {
             <img className={styles.mainLogo} src={ParkettLogo} alt="" />
           </Link>
           <div
-            onClick={this.changeOpen}
+            onClick={this.toggleOpen}
             className={styles.more}
             role="button"
             onKeyDown={() => { }}
@@ -46,7 +45,7 @@ class Header extends React.Component {
         <div className={styles.right}>
           <div className={styles.login}>
             <ListLink to="/edit-band/">Szerkesztés</ListLink>
-            <ListLink to="/login/">Belépés</ListLink>
+            <a className={styles.link} href={getLoginUrl()}>Belépés</a>
           </div>
           <div className={styles.links}>
             <ListLink to="/events/" active={events}>Események</ListLink>
