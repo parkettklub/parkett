@@ -28,10 +28,18 @@
 
 .link {
     height: 5em;
+    width: 5em;
+    overflow: hidden;
+    margin: 0 auto;
 }
 
 .link img {
     height: 5em;
+    width: 5em;
+    object-fit: cover;
+    max-width: initial;
+    margin-bottom: inherit;
+    object-position: top;
 }
 
 .link img:hover {

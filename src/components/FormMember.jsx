@@ -5,6 +5,7 @@ import styles from './Form.module.css';
 import InputFormSimple from './InputFormSimple';
 import InputFormTextArea from './InputFormTextarea';
 import SubFormPoster from './SubFormPoster';
+import DeleteButton from './DeleteButton';
 
 class FormMember extends React.Component {
     constructor() {
@@ -18,6 +19,7 @@ class FormMember extends React.Component {
         const { selectedObject } = this.props;
         this.setState({
             ...selectedObject,
+            photo: selectedObject.image,
         });
     }
 
@@ -61,13 +63,16 @@ class FormMember extends React.Component {
 
 
     render() {
-        const { selected, title } = this.props;
+        const {
+            selected, title, fetchFunction,
+        } = this.props;
         const {
             id, name, email, position, description,
         } = this.state;
         const isNew = id < 0;
         return (
             <div className={styles.main}>
+                <DeleteButton id={id} type="members" fetchFunction={fetchFunction} />
                 <div className={styles.formgroup} hidden={selected !== title}>
                     {isNew ? 'Új Tag adatai:' : 'Tag adatai:'}
                     <InputFormSimple

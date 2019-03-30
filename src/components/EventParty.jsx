@@ -25,24 +25,30 @@ class EventParty extends React.Component {
     }
 
     fetchDanceCourse = (id) => {
-        fetchAll(`dance_courses/${id}`).then((myJson) => {
-            this.setState({ dance_course: myJson });
-            const { dance_id, dance_teacher_id } = myJson;
-            this.fetchDance(dance_id);
-            this.fetchTeacher(dance_teacher_id);
-        });
+        if (id) {
+            fetchAll(`dance_courses/${id}`).then((myJson) => {
+                this.setState({ dance_course: myJson });
+                const { dance_id, dance_teacher_id } = myJson;
+                this.fetchDance(dance_id);
+                this.fetchTeacher(dance_teacher_id);
+            });
+        }
     }
 
     fetchDance = (id) => {
-        fetchAll(`dances/${id}`).then((myJson) => {
-            this.setState({ dance: myJson });
-        });
+        if (id) {
+            fetchAll(`dances/${id}`).then((myJson) => {
+                this.setState({ dance: myJson });
+            });
+        }
     }
 
     fetchTeacher = (id) => {
-        fetchAll(`dance_teachers/${id}`).then((myJson) => {
-            this.setState({ teacher: myJson });
-        });
+        if (id) {
+            fetchAll(`dance_teachers/${id}`).then((myJson) => {
+                this.setState({ teacher: myJson });
+            });
+        }
     }
 
     render() {
@@ -58,8 +64,10 @@ class EventParty extends React.Component {
         };
 
         let danceCourseString = '';
+        let teacherName = '';
         if (dance_course && dance && teacher) {
-            danceCourseString = `Tánctanítás: ${teacher.name} : ${dance.name} (${dance_course.level}) ${dance_course.length}`;
+            danceCourseString = `${dance.name} (${dance_course.level}) ${dance_course.length}`;
+            teacherName = teacher.name;
         }
 
 
@@ -70,6 +78,8 @@ class EventParty extends React.Component {
             dance: details.dance,
             facebook: details.facebook_event,
             dance_course: danceCourseString,
+            teacher_name: teacherName,
+            teacher_link: teacher ? teacher.url : '',
             dance_id: dance ? dance.dance_type.id : null,
         };
 

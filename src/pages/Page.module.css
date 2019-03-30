@@ -1,11 +1,14 @@
+body {
+    opacity: 1;
+}
+
 .main {
-    margin-bottom: 10rem;
     margin-top: 7em;
     color: white;
+    height: 100%;
 }
 
 .pageCenter {
-    margin-bottom: 10rem;
     margin-top: 7em;
     color: white;
 }
@@ -16,47 +19,19 @@
     width: fit-content;
 }
 
-.home {
-    display: block;
-    margin: 0 auto;
-    margin-bottom: 10rem;
-    margin-top: 17rem;
-    max-width: 900px;
-    width: 100%;
-    padding: 0.5em;
-}
-
-.home > article {
-    display: block;
-    margin: 0 auto;
-    margin-bottom: 1rem;
-}
-
-.event span > div {
-    display: block;
-    position: relative;
-}
-
-.event span > div > article {
-    display: block;
-    margin-top: 0;
-    position: absolute;
-    margin-left: auto;
-    margin-right: auto;
-    left: 0;
-    right: 0;
-}
-
-@media only screen and (min-width: 900px)  {
-    .home span > article {
-        max-width: 900px;
-    }
-}
-
 
 @media only screen and (max-width: 700px)  {
     .pageCenter > div.knwoledge {
         width: 100%;
     }
 
+    .pageCenter {
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+
+    .main {
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
 }

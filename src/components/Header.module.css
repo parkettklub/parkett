@@ -1,0 +1,151 @@
+
+.main {
+  z-index: 2;
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background-color: rgba(10, 10, 10, .2);
+  background-image: url('./background.jpg');
+  background-position: top;
+  background-size: auto 100vh;
+  color: white;
+  position: fixed;
+  opacity: 0.9;
+  top: 0;
+  width: 100%;
+  display: grid;
+  grid-template-columns: auto max-content;
+  overflow: hidden;
+  height: 7rem;
+}
+
+.main.max { 
+  height: 17rem;
+  grid-template-columns: auto
+}
+
+.main .link {
+  color: white;
+  font-family: 'Roboto', sans-serif
+}
+
+.mainLogo {
+  height: 4em;
+}
+
+.main.max .mainLogo {
+  height: 10rem;
+}
+
+.main.max .sideLogo {
+  height: 7.5rem;
+}
+.main.max .sideLogo2 {
+  height: 7.5rem;
+  margin-bottom: 40px;
+}
+
+.main.max > div {
+  width: max-content;
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
+
+.main > div > div a {
+  text-decoration: none;
+}
+
+.main .right .login {
+  padding: 1rem;
+  width: max-content;
+  margin-left:auto; 
+  margin-right:0;
+}
+
+.login > div {
+  display: inline-block;
+  width: min-content;
+  margin: 0;
+  margin-left: 2rem ;
+}
+
+.main .links > div {
+  display: inline-block;
+  margin-right: 1rem ;
+  margin-left: 1rem ;
+  margin-bottom: 20px;
+}
+
+.main .links > div:hover {
+  border-bottom: 2px solid #ffffff;
+  padding-bottom: 5px;
+  margin-bottom: 13px;
+}
+
+.main .links > div.active {
+
+  border-bottom: 2px solid #ffffff;
+  padding-bottom: 5px;
+  margin-bottom: 13px;
+}
+
+.main .links > div.hide {
+  display: none;
+}
+
+.logo {
+  display: grid;
+  grid-template-columns: auto max-content;
+}
+
+.logo > div.more > img {
+  height: 0rem;
+}
+
+div.more:focus {
+  outline: 0;
+}
+
+div.more:hover {
+  opacity: 0.5;
+}
+
+@media only screen and (max-width: 950px)  {
+  .main {
+    grid-template-columns: auto;
+  }
+
+  .main.max {
+    overflow: hidden;
+  }
+
+  .logo > div.more > img {
+    height: 2rem;
+    margin: 0.5rem;
+  }
+
+  .main.max .mainLogo {
+    height: 6em;
+  }
+
+  .main.max .sideLogo {
+    height: 0px;
+  }
+
+  .main.max .sideLogo2 {
+    height: 0px;
+  }
+  .main.min .links {
+    display: grid;
+    grid-template-columns: auto;
+  }
+
+  .main.max .links {
+    display: grid;
+    text-align: center;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .main.open {
+    height: 24rem;
+  }
+}

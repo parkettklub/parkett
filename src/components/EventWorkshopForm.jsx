@@ -5,7 +5,7 @@ import Card from './Card';
 import styles from './EventForm.module.css';
 
 class EventWorkshopForm extends React.Component {
-     state = {};
+    state = {};
 
     componentDidMount() {
         const { dance_teacher_id } = this.props;
@@ -13,14 +13,16 @@ class EventWorkshopForm extends React.Component {
     }
 
     fetchObject = (id) => {
-        fetchAll(`dance_teachers/${id}`).then((selectedObject) => {
-            this.setState({ ...selectedObject });
-        });
+        if (id) {
+            fetchAll(`dance_teachers/${id}`).then((selectedObject) => {
+                this.setState({ ...selectedObject });
+            });
+        }
     }
 
     render() {
         const { party_id, link, dance_teacher_id } = this.props;
-        const { name } = this.state;
+        const { name, url } = this.state;
         const rows = [];
         if (party_id) {
             rows.push(
@@ -39,14 +41,14 @@ class EventWorkshopForm extends React.Component {
                 <div className={styles.main}>
                     <div className={styles.paragraph}>
                         <strong>JELENTKEZNI az alábbi linken lehet:  </strong>
-                        <a href={link}>Link a formhoz</a>
+                        <a href={link} target="_blank" rel="noopener noreferrer">Link a formhoz</a>
                     </div>
                     <div className={styles.paragraph}>
                         {'Siess, a helyek limitáltak! Amennyiben párban jöttök a kérdőívet mindketten töltsétek ki. A workshop csak elegendő számú jelentkező esetén indul.'}
                     </div>
                     <div className={styles.paragraph} hidden={dance_teacher_id == null}>
                         {'A tánccal '}
-                        {name}
+                        <a href={url} target="_blank" rel="noopener noreferrer">{name}</a>
                         {' fognak megismertetni'}
                     </div>
                     {rows}

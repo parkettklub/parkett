@@ -6,7 +6,7 @@ import Card from './Card';
 import styles from './EventDetails.module.css';
 
 function EventDetails({
-    bands, djs, facebook, program, dance_id, dance_course,
+    bands, djs, facebook, program, dance_id, dance_course, teacher_link, teacher_name,
 }) {
     const links = [];
     if (facebook) {
@@ -33,7 +33,9 @@ function EventDetails({
                     <DanceFigure id={dance_id} />
                 </div>
                 <div>
-                    {dance_course}
+                    {'Tánctanítás: '}
+                    <a href={teacher_link} target="_blank" rel="noopener noreferrer">{teacher_name}</a>
+                    {` : ${dance_course}`}
                 </div>
                 <div>
                     {links}
@@ -43,7 +45,7 @@ function EventDetails({
                     {bands
                         ? bands.map(band => (
                             <div>
-                                <a href={band.url}>{band.name}</a>
+                                <a href={band.url} target="_blank" rel="noopener noreferrer">{band.name}</a>
                             </div>
                         ))
                         : null
@@ -51,7 +53,7 @@ function EventDetails({
                     {djs
                         ? djs.map(dj => (
                             <div>
-                                <a href={dj.url}>{dj.name}</a>
+                                <a href={dj.url} target="_blank" rel="noopener noreferrer">{dj.name}</a>
                             </div>
                         ))
                         : null}
@@ -67,7 +69,9 @@ EventDetails.propTypes = {
     dance_id: PropTypes.number,
     program: PropTypes.string,
     dance_course: PropTypes.string,
+    teacher_link: PropTypes.string,
     facebook: PropTypes.string.isRequired,
+    teacher_name: PropTypes.string,
 };
 
 EventDetails.defaultProps = {
@@ -76,6 +80,8 @@ EventDetails.defaultProps = {
     dance_id: null,
     program: '',
     dance_course: '',
+    teacher_link: '',
+    teacher_name: '',
 };
 
 export default EventDetails;

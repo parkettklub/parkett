@@ -6,6 +6,7 @@ import InputFormSimple from './InputFormSimple';
 import InputFormSelect from './InputFormSelect';
 import InputFormTextarea from './InputFormTextarea';
 import FormDanceType from './FormDanceType';
+import DeleteButton from './DeleteButton';
 
 class FormDance extends React.Component {
     constructor() {
@@ -92,13 +93,14 @@ class FormDance extends React.Component {
     }
 
     render() {
-        const { selected, title } = this.props;
+        const { selected, title, fetchFunction } = this.props;
         const {
             id, name, content, dance_type_id, dance_types, addSelected,
         } = this.state;
         const isNew = id < 0;
         return (
             <div className={styles.main}>
+                <DeleteButton id={id} type="dance_types" fetchFunction={fetchFunction} />
                 <div className={styles.formgroup} hidden={selected !== title}>
                     {isNew ? 'Új Tánc adatai:' : 'Tánc adatai:'}
                     <InputFormSimple

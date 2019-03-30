@@ -80,7 +80,7 @@ export default {
         {
             photo: Gourp01,
             title: '2017 tavaszi félév',
-            descripiton: 'A csapatunk tagjai különböző egyéniségek kiegészítve egymást egy összekovácsolt csapatként',
+            descripiton: 'A csapatunk tagjai különböző egyéniségek kiegészítve egymást egy összekovácsolódott csapatként',
         },
         {
             photo: Girls,
@@ -94,8 +94,8 @@ export default {
         },
         {
             photo: Weintaste,
-            title: 'Borkostoló 2018',
-            descripiton: 'Minden táborban elmegyünk borkostólni, hogy a tánctudásunk meleltt az ízlésünk is fejlődjön',
+            title: 'Borkóstoló 2018',
+            descripiton: 'Minden táborban elmegyünk borkóstólni, hogy a tánctudásunk mellett az ízlésünk is fejlődjön',
         },
     ],
 };

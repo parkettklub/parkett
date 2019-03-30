@@ -27,12 +27,12 @@
 }
 
 .steps > .selected {
-    background: rgba(255, 200, 0, 0.5);
+    background: rgba(161, 161, 161, 0.5);
     cursor: pointer;
 }
 
 .steps > .selected:hover {
-    background: rgba(255, 200, 0, 0.5);
+    background: rgba(161, 161, 161, 0.5);
 }
 
 .form {
@@ -92,4 +92,35 @@ textarea.input {
 
 .plus:hover {
     filter: opacity(0.5);
+}
+
+.picture {
+    margin: 1rem;
+    width: max-content;
+    padding: 0.5rem;
+    background: #FFFFFF30;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, .3);
+}
+
+.picture img {
+    margin: 0;
+}
+
+.delete {
+    background: 0;
+    border: 0;
+}
+
+.delete:hover {
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+.delete:focus {
+    outline: 0;
+}
+
+.delete img {
+    height: 2rem;
+    margin: 0;
 }

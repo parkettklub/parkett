@@ -23,8 +23,8 @@ function goToArticle(id) {
 function filterEvent(search, event) {
     const date = event.start_date;
     const dateString = dateToString(date);
-    return (event.title.toUpperCase().indexOf(search.toUpperCase()) >= 0)
-        || (dateString.indexOf(search.toUpperCase()) >= 0);
+    return event.title.toUpperCase().includes(search.toUpperCase())
+        || dateString.includes(search.toUpperCase());
 }
 
 class EventList extends React.Component {
@@ -33,18 +33,19 @@ class EventList extends React.Component {
         this.state = {
             search: '',
             events: [],
+            party: true,
         };
     }
 
     componentDidMount() {
-        this.fetchEvents();
+        this.fetchEvents(this.state);
     }
 
-    fetchEvents = () => {
+    fetchEvents = ({ party, workshop, article }) => {
         this.setState({ events: [] });
-        this.fetchParties();
-        this.fetchWorkshops();
-        this.fetchArticles();
+        if (party) this.fetchParties();
+        if (workshop) this.fetchWorkshops();
+        if (article) this.fetchArticles();
     }
 
     fetchParties = () => {
@@ -86,7 +87,6 @@ class EventList extends React.Component {
 
     handleSubmit = (event) => {
         event.preventDefault();
-        this.setState({});
     }
 
     handleChange = ({ target }) => {
@@ -95,9 +95,29 @@ class EventList extends React.Component {
         });
     }
 
+    invertParty = () => {
+        this.setState(prevState => ({
+            party: !prevState.party,
+        }), () => this.fetchEvents(this.state));
+    }
+
+    invertWorkshop = () => {
+        this.setState(prevState => ({
+            workshop: !prevState.workshop,
+        }), () => this.fetchEvents(this.state));
+    }
+
+    invertArticle = () => {
+        this.setState(prevState => ({
+            article: !prevState.article,
+        }), () => this.fetchEvents(this.state));
+    }
+
     render() {
         const today = new Date();
-        const { events, search } = this.state;
+        const {
+            events, search, party, workshop, article,
+        } = this.state;
         events.sort((a, b) => {
             const aValue = new Date(a.start_date).valueOf();
             const bValue = new Date(b.start_date).valueOf();
@@ -130,6 +150,30 @@ class EventList extends React.Component {
                             src={Edit}
                         />
                     </div>
+                </div>
+                <div className={styles.types}>
+                    <div className={styles.title}>Válaszd ki milyen eseményeket keresel:</div>
+                    <button
+                        type="button"
+                        onClick={this.invertParty}
+                        className={party ? styles.selectedType : styles.type}
+                    >
+                        {'Bulik'}
+                    </button>
+                    <button
+                        type="button"
+                        onClick={this.invertWorkshop}
+                        className={workshop ? styles.selectedType : styles.type}
+                    >
+                        {'Workshopok'}
+                    </button>
+                    <button
+                        type="button"
+                        onClick={this.invertArticle}
+                        className={article ? styles.selectedType : styles.type}
+                    >
+                        {'Hírek'}
+                    </button>
                 </div>
                 <form autoComplete="off" className={styles.eventListCardForm} onSubmit={this.handleSubmit}>
                     <div>

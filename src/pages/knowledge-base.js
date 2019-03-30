@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactCssTransitionGroup from 'react-addons-css-transition-group';
-import '../components/Card.css';
 import Header from '../components/Header';
 import KnowledgeBaseComponent from '../components/KnowledgeBaseComponent';
 import styles from './Page.module.css';
@@ -16,7 +15,7 @@ const KnowledgeBase = () => (
             transitionAppear
             transitionLeaveTimeout={300}
         >
-            <div className={styles.pageCenter}>
+            <div className={styles.main}>
                 <KnowledgeBaseComponent />
             </div>
         </ReactCssTransitionGroup>

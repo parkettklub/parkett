@@ -29,7 +29,7 @@ function Photos({ photos }) {
         return (
             <div>
                 <strong>Képek a buliról:  </strong>
-                <a href={photos}>Link a SPOT oldalára</a>
+                <a href={photos} target="_blank" rel="noopener noreferrer">Link a SPOT oldalára</a>
             </div>
         );
     }
@@ -51,7 +51,7 @@ function Video({ video }) {
         return (
             <div>
                 <strong>Videó a buliról:  </strong>
-                <a href={video}>Link a BSS oldalára</a>
+                <a href={video} target="_blank" rel="noopener noreferrer">Link a BSS oldalára</a>
             </div>
         );
     }

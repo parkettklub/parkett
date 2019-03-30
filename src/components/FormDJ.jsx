@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { fetchPost, fetchPut } from './FetchFunctions';
 import styles from './Form.module.css';
 import InputFormSimple from './InputFormSimple';
+import DeleteButton from './DeleteButton';
 
 class FormDJ extends React.Component {
     constructor() {
@@ -55,11 +56,12 @@ class FormDJ extends React.Component {
 
 
     render() {
-        const { selected, title } = this.props;
+        const { selected, title, fetchFunction } = this.props;
         const { id, name, content } = this.state;
         const isNew = id < 0;
         return (
             <div className={styles.main}>
+                <DeleteButton id={id} type="djs" fetchFunction={fetchFunction} />
                 <div className={styles.formgroup} hidden={selected !== title}>
                     {isNew ? 'Új DJ adatai:' : 'DJ adatai:'}
                     <InputFormSimple

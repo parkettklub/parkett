@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Link from 'gatsby-link';
 import Logo from './lines.svg';
-import './Header.css';
+import styles from './Header.module.css';
 import ParkettLogo from './ParkettLogoWhite02.svg';
 import ListLink from './ListLink';
 
@@ -28,14 +28,14 @@ class HeaderEdit extends React.Component {
             event, dj, band, danceCourse, teacher, dance, dancetype, member,
         } = this.props;
         return (
-            <header className={`main-header min ${(open ? ' open' : '')}`}>
-                <div className="logo-div">
+            <header className={`${styles.main} ${styles.min} ${(open ? styles.open : '')}`}>
+                <div className={styles.logo}>
                     <Link to="/" style={{ textShadow: 'none', backgroundImage: 'none' }}>
-                        <img className="mainLogo" src={ParkettLogo} alt="" />
+                        <img className={styles.mainLogo} src={ParkettLogo} alt="" />
                     </Link>
                     <div
                         onClick={this.changeOpen}
-                        className="more"
+                        className={styles.more}
                         role="button"
                         onKeyDown={() => { }}
                         tabIndex={0}
@@ -43,7 +43,7 @@ class HeaderEdit extends React.Component {
                         <img src={Logo} alt="" />
                     </div>
                 </div>
-                <div className="links">
+                <div className={styles.links}>
                     <ListLink to="/edit-events/" active={event}>Események</ListLink>
                     <ListLink to="/edit-dj/" active={dj}>DJ-k</ListLink>
                     <ListLink to="/edit-band/" active={band}>Zenekarok</ListLink>

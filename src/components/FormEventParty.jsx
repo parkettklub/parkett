@@ -9,6 +9,7 @@ import SubFormPoster from './SubFormPoster';
 import SubFormDetails from './SubFormDetails';
 import SubFormMedia from './SubFormMedia';
 import SubFormMusicDanceCourse from './SubFormMusicDanceCourse';
+import DeleteButton from './DeleteButton';
 
 class FormEventParty extends React.Component {
     constructor() {
@@ -100,7 +101,7 @@ class FormEventParty extends React.Component {
     }
 
     updateParty = () => {
-        fetchPut('parties', this.state).then(() => {
+        fetchPut('parties', { ...this.state, dance_course_id: null }).then(() => {
             const { fetchFunction } = this.props;
             fetchFunction();
         });
@@ -108,10 +109,14 @@ class FormEventParty extends React.Component {
 
     render() {
         const {
-            selectedForm,
+            selectedForm, id,
         } = this.state;
+        const {
+            fetchFunction,
+        } = this.props;
         return (
             <div className={styles.main} key="FormEventParty">
+                <DeleteButton id={id} type="parties" fetchFunction={fetchFunction} />
                 <div className={styles.steps}>
                     <SubFormSelect
                         title="title"
