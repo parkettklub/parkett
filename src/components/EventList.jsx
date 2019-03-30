@@ -5,7 +5,6 @@ import { dateToString } from './DateFunctions';
 import styles from './EventList.module.css';
 import EventSummary from './Event';
 import Edit from './pencil_white.svg';
-import Check from './checked.svg';
 
 function editEventsPage() {
     window.location = '/edit-events/';
@@ -159,9 +158,6 @@ class EventList extends React.Component {
                         onClick={this.invertParty}
                         className={party ? styles.selectedType : styles.type}
                     >
-                        <div>
-                            <img src={Check} alt="" />
-                        </div>
                         {'Bulik'}
                     </button>
                     <button
@@ -169,9 +165,6 @@ class EventList extends React.Component {
                         onClick={this.invertWorkshop}
                         className={workshop ? styles.selectedType : styles.type}
                     >
-                        <div>
-                            <img src={Check} alt="" />
-                        </div>
                         {'Workshopok'}
                     </button>
                     <button
@@ -179,9 +172,6 @@ class EventList extends React.Component {
                         onClick={this.invertArticle}
                         className={article ? styles.selectedType : styles.type}
                     >
-                        <div>
-                            <img src={Check} alt="" />
-                        </div>
                         {'Hírek'}
                     </button>
                 </div>

@@ -180,9 +180,15 @@
     margin: 0;
 }
 
-.types > .type:hover, .selectedType:hover {
-    color: black;
-    background: rgba(255, 200, 0, 0.5);
+@media (hover: hover) {
+    .types > .type:hover {
+        color: black;
+        background: rgb(196, 196, 196);
+    }
+
+    .selectedType:hover {
+        background: rgb(197, 51, 51);
+    }
 }
 
 .type:focus, .selectedType:focus {
