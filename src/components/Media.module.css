@@ -16,7 +16,7 @@
 
 .grid {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     grid-gap: 1em;
 }
 
@@ -27,29 +27,43 @@
 }
 
 .link {
-    height: 5em;
-    width: 5em;
+    width: 12rem;
+    height: 12rem;
     overflow: hidden;
     margin: 0 auto;
 }
 
 .link img {
-    height: 5em;
-    width: 5em;
+    height: 100%;
+    width: 100%;
     object-fit: cover;
     max-width: initial;
-    margin-bottom: inherit;
     object-position: top;
 }
 
 .link img:hover {
     opacity: 0.5;
 }
+
 @media only screen and (max-width: 70em)  {
+    .center {
+        max-width: 50em;
+    }
+    .grid {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+
+@media only screen and (max-width: 50em)  {
     .center {
         max-width: unset;
     }
     .grid {
         grid-template-columns: 1fr 1fr;
+    }
+    
+    .link {
+        width: 100%;
     }
 }
