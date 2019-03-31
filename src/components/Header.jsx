@@ -2,41 +2,39 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Link from 'gatsby-link';
 import Logo from './lines.svg';
-import ParkettLogo from '../components/ParkettLogoWhite02.svg';
-import styles from './Header.module.css'
+import ParkettLogo from './ParkettLogoWhite02.svg';
+import styles from './Header.module.css';
 import ListLink from './ListLink';
-import { getLoginUrl, isLoggedIn, logOut } from '../utils/login'
+import { getLoginUrl, isLoggedIn, logOut } from '../utils/login';
 
 class Header extends React.Component {
   constructor() {
     super();
     this.state = {
       open: false,
-      isLoggedIn: false,
+      loggedIn: false,
     };
   }
 
   componentDidMount() {
-    this.setState({ isLoggedIn: isLoggedIn() })
+    this.setState({ loggedIn: isLoggedIn() });
   }
 
   toggleOpen = () => {
-    this.setState((prevState) => ({
-      open: !prevState.open
-    }));
+    this.setState(prevState => ({ open: !prevState.open }));
   }
 
   logIn = () => {
-    this.setState({ isLoggedIn: true })
+    this.setState({ loggedIn: true });
   }
 
   logOut = () => {
     logOut();
-    this.setState({ isLoggedIn: false })
+    this.setState({ loggedIn: false });
   }
 
   render() {
-    const { open } = this.state;
+    const { open, loggedIn } = this.state;
     const {
       events, community, media, knowledgebase, profile,
     } = this.props;
@@ -59,9 +57,19 @@ class Header extends React.Component {
         <div className={styles.right}>
           <div className={styles.login}>
             <ListLink to="/edit-band/">Szerkesztés</ListLink>
-            {this.state.isLoggedIn ?
-              <span className={styles.link} onClick={this.logOut}>Kijelentkezés</span> :
-              <a className={styles.link} href={getLoginUrl()}>Belépés</a>
+            {loggedIn
+              ? (
+                <span
+                  className={styles.link}
+                  onClick={this.logOut}
+                  role="button"
+                  onKeyDown={() => { }}
+                  tabIndex={0}
+                >
+                  {'Kijelentkezés'}
+                </span>
+              )
+              : <a className={styles.link} href={getLoginUrl()}>Belépés</a>
             }
           </div>
           <div className={styles.links}>
