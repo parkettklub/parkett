@@ -47,6 +47,23 @@ class InputPicure extends React.Component {
         };
     }
 
+    deletePicture = () => {
+        const { name } = this.state;
+        const {
+            handleChange,
+        } = this.props;
+        handleChange({
+            target: {
+                name,
+                value: '',
+            },
+        });
+        this.setState({
+            selectedFile: null,
+            src: null,
+        });
+    }
+
     render() {
         const {
             selectedForm, form,
@@ -59,6 +76,7 @@ class InputPicure extends React.Component {
                 <div className={styles.formgroup} hidden={selectedForm !== form}>
                     <strong>Kép:</strong>
                     <div className={styles.formgroup}>
+                        <button onClick={this.deletePicture} type="button">Törlés</button>
                         <input type="file" onChange={this.fileSelectedHandler} />
                         <button onClick={this.fileUploadHandler} type="button">Feltöltés</button>
                         <div className={styles.helper}>
