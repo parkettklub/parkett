@@ -19,6 +19,8 @@
     background: #000000A0;
     padding: 1em;
     font-size: 0.8em;
+    width: 14rem;
+    margin: 0 auto;
 }
 
 .grid {
@@ -74,6 +76,10 @@
     }
     
     .link {
+        width: 100%;
+    }
+    
+    .albumName {
         width: 100%;
     }
 }

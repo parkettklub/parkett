@@ -87,6 +87,8 @@ class EventParty extends React.Component {
         const media = {
             photos: details.spot,
             video: details.bss,
+            spot_cover: details.spot_cover,
+            bss_cover: details.bss_cover,
         };
         return (
             <div>
