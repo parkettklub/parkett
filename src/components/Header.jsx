@@ -5,7 +5,9 @@ import Logo from './lines.svg';
 import ParkettLogo from './ParkettLogoWhite02.svg';
 import styles from './Header.module.css';
 import ListLink from './ListLink';
-import { getLoginUrl, isLoggedIn, logOut } from '../utils/login';
+import {
+  getLoginUrl, isLoggedIn, logOut, isEditor,
+ } from '../utils/login';
 
 class Header extends React.Component {
   constructor() {
@@ -56,7 +58,7 @@ class Header extends React.Component {
         </div>
         <div className={styles.right}>
           <div className={styles.login}>
-            {loggedIn
+            {isEditor()
               ? <ListLink to="/edit-band/">Szerkesztés</ListLink>
               : null
             }

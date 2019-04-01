@@ -1,5 +1,6 @@
 import React from 'react';
 import { fetchMe } from './FetchFunctions';
+import { getRole } from '../utils/login';
 
 
 class ProfileComponent extends React.Component {
@@ -17,11 +18,11 @@ class ProfileComponent extends React.Component {
     }
 
     render() {
-        const { name, role, email } = this.state;
+        const { name, email } = this.state;
         return (
             <div>
                 <h2>{`név: ${name}`}</h2>
-                <h4>{`szerep: ${role}`}</h4>
+                <h4>{`szerep: ${getRole()}`}</h4>
                 <div>{`email: ${email}`}</div>
             </div>
         );

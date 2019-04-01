@@ -3,11 +3,11 @@ import ReactCssTransitionGroup from 'react-addons-css-transition-group';
 import EditUsers from '../components/EditUsers';
 import HeaderEdit from '../components/HeaderEdit';
 import styles from './Page.module.css';
-import { isLoggedIn } from '../utils/login';
+import { isAdmin } from '../utils/login';
 import './Animation.css';
 
 const Edit = () => {
-    if (isLoggedIn()) {
+    if (isAdmin()) {
         return (
             <div>
                 <HeaderEdit users />

@@ -12,20 +12,51 @@ export function getToken() {
     return null;
 }
 
+async function fetchMe() {
+    if (isLoggedIn()) {
+        const response = await fetch('https://parkett-klub.herokuapp.com/users/me?token=' + getToken());
+        return response.json();
+    }
+    return { name: 'Példa Béla', role: 'főszerep', email: 'barb@ra.com' };
+}
+
 export function setToken() {
     if (!getToken()) {
         const token = new URL(window.location.href).searchParams.get('token');
         if (token) {
             if (typeof window !== 'undefined') {
                 localStorage.setItem('token', token);
+                fetchMe().then(response => localStorage.setItem('role', response.role));
             }
         }
     }
 }
 
+export function getRole() {
+    if (typeof window !== 'undefined') {
+        return localStorage.getItem('role');
+    }
+    return null;
+}
+
+export function isAdmin() {
+    if (typeof window !== 'undefined') {
+        return getRole() === 'admin';
+    }
+    return true;
+}
+
+export function isEditor() {
+    if (typeof window !== 'undefined') {
+        return getRole() === 'admin' || getRole() === 'editor';
+    }
+    return true;
+}
+
 export function logOut() {
     if (isLoggedIn() && typeof window !== 'undefined') {
         localStorage.removeItem('token');
+        localStorage.removeItem('role');
     }
 }
 

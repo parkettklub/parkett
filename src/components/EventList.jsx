@@ -1,14 +1,11 @@
 import React from 'react';
 import ReactCssTransitionGroup from 'react-addons-css-transition-group';
+import EditButton from './EditButton';
 import { fetchAll } from './FetchFunctions';
 import { dateToString } from './DateFunctions';
 import styles from './EventList.module.css';
 import EventSummary from './Event';
 import Edit from './pencil_white.svg';
-
-function editEventsPage() {
-    window.location = '/edit-events/';
-}
 
 function goToParty(id) {
     window.location = `/event-party?${id}`;
@@ -138,19 +135,7 @@ class EventList extends React.Component {
         }
         return (
             <div className={styles.main}>
-                <div className={styles.editButton}>
-                    <div
-                        onClick={editEventsPage}
-                        role="button"
-                        onKeyDown={() => { }}
-                        tabIndex={0}
-                    >
-                        <img
-                            alt=""
-                            src={Edit}
-                        />
-                    </div>
-                </div>
+                <EditButton link="/edit-events/" />
                 <div className={styles.types}>
                     <div className={styles.title}>Válaszd ki milyen eseményeket keresel:</div>
                     <button
@@ -223,7 +208,7 @@ class EventList extends React.Component {
                         />
                     ))}
                 </ReactCssTransitionGroup>
-            </div>
+            </div >
         );
     }
 }
