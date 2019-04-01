@@ -56,7 +56,10 @@ class Header extends React.Component {
         </div>
         <div className={styles.right}>
           <div className={styles.login}>
-            <ListLink to="/edit-band/">Szerkesztés</ListLink>
+            {loggedIn
+              ? <ListLink to="/edit-band/">Szerkesztés</ListLink>
+              : null
+            }
             {loggedIn
               ? (
                 <span
