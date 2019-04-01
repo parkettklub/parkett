@@ -38,6 +38,8 @@
 
 .join .text .actions {
     padding: 1rem;
+    width: max-content;
+    margin: 0 auto;
 }
 
 .join .text .actions button {
