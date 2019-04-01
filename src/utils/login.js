@@ -1,20 +1,30 @@
 export function isLoggedIn() {
-    return !!localStorage.getItem('token');
+    if (typeof window !== 'undefined') {
+        return !!localStorage.getItem('token');
+    }
+    return false;
 }
 
 export function getToken() {
-    return localStorage.getItem('token');
+    if (typeof window !== 'undefined') {
+        return localStorage.getItem('token');
+    }
+    return null;
 }
 
 export function setToken() {
     if (!getToken()) {
         const token = new URL(window.location.href).searchParams.get('token');
-        if (token) localStorage.setItem('token', token);
+        if (token) {
+            if (typeof window !== 'undefined') {
+                localStorage.setItem('token', token);
+            }
+        }
     }
 }
 
 export function logOut() {
-    if (isLoggedIn()) {
+    if (isLoggedIn() && typeof window !== 'undefined') {
         localStorage.removeItem('token');
     }
 }
