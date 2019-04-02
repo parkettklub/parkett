@@ -66,7 +66,7 @@ function Dance({ dance, selected, click }) {
     let { color } = dance_type;
     const { image } = dance_type;
     if (selected) {
-        color += 'A0';
+        color += 'F0';
     }
     return (
         <Card>
