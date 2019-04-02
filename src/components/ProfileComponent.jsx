@@ -1,7 +1,7 @@
 import React from 'react';
 import { fetchMe } from './FetchFunctions';
 import { getRole } from '../utils/login';
-
+import styles from './Profile.module.css';
 
 class ProfileComponent extends React.Component {
     state = {};
@@ -20,7 +20,7 @@ class ProfileComponent extends React.Component {
     render() {
         const { name, email } = this.state;
         return (
-            <div>
+            <div className={styles.main}>
                 <h2>{`név: ${name}`}</h2>
                 <h4>{`szerep: ${getRole()}`}</h4>
                 <div>{`email: ${email}`}</div>
