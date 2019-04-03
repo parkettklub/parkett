@@ -9,13 +9,14 @@
   background-size: auto 100vh;
   color: white;
   position: fixed;
-  opacity: 0.9;
+  opacity: 1;
   top: 0;
   width: 100%;
   display: grid;
   grid-template-columns: auto max-content;
   overflow: hidden;
   height: 7rem;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, .1);
 }
 
 .main.max { 
@@ -25,7 +26,9 @@
 
 .main .link {
   color: white;
-  font-family: 'Roboto', sans-serif
+  font-family: 'Roboto', sans-serif;
+  font-weight: bolder;
+  cursor: pointer
 }
 
 .mainLogo {
@@ -61,7 +64,7 @@
   margin-right:0;
 }
 
-.login > div {
+.login > * {
   display: inline-block;
   width: min-content;
   margin: 0;
@@ -95,6 +98,9 @@
 .logo {
   display: grid;
   grid-template-columns: auto max-content;
+}
+.logo a {
+  width: max-content;
 }
 
 .logo > div.more > img {

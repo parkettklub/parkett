@@ -1,12 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './EventMedia.module.css';
+import MediaAlbum from './MediaAlbum';
 
-function EventMedia({ photos, video }) {
+function EventMedia({ photos, video, spot_cover, bss_cover }) {
     return (
         <div className={styles.main}>
-            <Photos photos={photos} />
-            <Video video={video} />
+            <MediaAlbum
+                link={photos}
+                src={spot_cover}
+                name="Képek"
+            />
+            <MediaAlbum
+                link={video}
+                src={bss_cover}
+                name="Videó"
+            />
         </div>
     );
 }
@@ -14,11 +23,15 @@ function EventMedia({ photos, video }) {
 EventMedia.propTypes = {
     photos: PropTypes.string,
     video: PropTypes.string,
+    spot_cover: PropTypes.string,
+    bss_cover: PropTypes.string,
 };
 
 EventMedia.defaultProps = {
     photos: '',
     video: '',
+    spot_cover: '',
+    bss_cover: '',
 };
 
 function Photos({ photos }) {

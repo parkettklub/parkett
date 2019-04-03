@@ -5,10 +5,10 @@
  */
 
 import 'babel-polyfill'
+import { setToken } from './src/utils/login'
 
 exports.onClientEntry = () => {
-    // Don't need to do anything here, but if you don't 
-    // export something, the import won't work.
+    setToken();
 }
 
  // You can delete this file if you're not using it

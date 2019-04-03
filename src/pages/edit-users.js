@@ -1,17 +1,16 @@
 import React from 'react';
 import ReactCssTransitionGroup from 'react-addons-css-transition-group';
+import EditUsers from '../components/EditUsers';
+import HeaderEdit from '../components/HeaderEdit';
 import styles from './Page.module.css';
-import Header from '../components/Header';
-import ProfileComponent from '../components/ProfileComponent';
-import { isLoggedIn } from '../utils/login';
+import { isAdmin } from '../utils/login';
 import './Animation.css';
 
-
-const KnowledgeBase = () => {
-    if (isLoggedIn()) {
+const Edit = () => {
+    if (isAdmin()) {
         return (
             <div>
-                <Header profile />
+                <HeaderEdit users />
                 <ReactCssTransitionGroup
                     transitionName="fade"
                     transitionAppearTimeout={1000}
@@ -19,8 +18,8 @@ const KnowledgeBase = () => {
                     transitionAppear
                     transitionLeaveTimeout={300}
                 >
-                    <div className={styles.pageCenter}>
-                        <ProfileComponent />
+                    <div className={styles.main}>
+                        <EditUsers />
                     </div>
                 </ReactCssTransitionGroup>
             </div>
@@ -33,4 +32,4 @@ const KnowledgeBase = () => {
     );
 };
 
-export default KnowledgeBase;
+export default Edit;

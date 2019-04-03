@@ -1,7 +1,7 @@
 .center {
     display: block;
     margin: 0 auto;
-    max-width: 70em;
+    max-width: 80em;
     padding: 1em;
 }
 
@@ -9,47 +9,77 @@
     text-align: center;
     color: white;
     font-family: 'Roboto', sans-serif;
-    font-size: 25px;
+    font-size: 2em;
     padding: 1em;
+}
 
+.albumName {
+    position: relative;
+    top: -5rem;
+    background: #000000A0;
+    padding: 1em;
+    font-size: 0.8em;
+    width: 14rem;
+    margin: 0 auto;
 }
 
 .grid {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-gap: 1em;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-gap: 0.5em;
 }
 
 .spot {
     padding: 0.5em;
     align-content: center;
     text-align: center;
+    overflow: hidden;
 }
 
 .link {
-    height: 5em;
-    width: 5em;
+    width: 14rem;
+    height: 14rem;
     overflow: hidden;
     margin: 0 auto;
+    border-radius: 15px;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, .3);
 }
 
 .link img {
-    height: 5em;
-    width: 5em;
+    height: 100%;
+    width: 100%;
     object-fit: cover;
     max-width: initial;
-    margin-bottom: inherit;
     object-position: top;
 }
 
 .link img:hover {
     opacity: 0.5;
 }
-@media only screen and (max-width: 70em)  {
+
+@media only screen and (max-width: 80em)  {
+    .center {
+        max-width: 50em;
+    }
+    .grid {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+
+@media only screen and (max-width: 50em)  {
     .center {
         max-width: unset;
     }
     .grid {
         grid-template-columns: 1fr 1fr;
+    }
+    
+    .link {
+        width: 100%;
+    }
+    
+    .albumName {
+        width: 100%;
     }
 }

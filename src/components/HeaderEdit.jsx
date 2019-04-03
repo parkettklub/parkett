@@ -5,6 +5,7 @@ import Logo from './lines.svg';
 import styles from './Header.module.css';
 import ParkettLogo from './ParkettLogoWhite02.svg';
 import ListLink from './ListLink';
+import { isAdmin, isEditor } from '../utils/login';
 
 class HeaderEdit extends React.Component {
     constructor() {
@@ -25,8 +26,11 @@ class HeaderEdit extends React.Component {
     render() {
         const { open } = this.state;
         const {
-            event, dj, band, danceCourse, teacher, dance, dancetype, member,
+            event, dj, band, danceCourse, teacher, dance, dancetype, member, users,
         } = this.props;
+        if (!isEditor()) {
+            return (<div>Nincs Szerkesztői jogod</div>);
+        }
         return (
             <header className={`${styles.main} ${styles.min} ${(open ? styles.open : '')}`}>
                 <div className={styles.logo}>
@@ -46,7 +50,6 @@ class HeaderEdit extends React.Component {
                 <div className={styles.right}>
                     <div className={styles.login}>
                         <ListLink to="/">Kezdőlap</ListLink>
-                        <ListLink to="/login/">Kilépés</ListLink>
                     </div>
                     <div className={styles.links}>
                         <ListLink to="/edit-events/" active={event}>Események</ListLink>
@@ -57,6 +60,7 @@ class HeaderEdit extends React.Component {
                         <ListLink to="/edit-dance/" active={dance}>Táncok</ListLink>
                         <ListLink to="/edit-dance-type/" active={dancetype}>Tánctípusok</ListLink>
                         <ListLink to="/edit-member/" active={member}>Tagok</ListLink>
+                        {isAdmin() ? <ListLink to="/edit-users/" active={users}>Felhasználók</ListLink> : null}
                     </div>
                 </div>
             </header>
@@ -74,6 +78,7 @@ HeaderEdit.propTypes = {
     dance: PropTypes.bool,
     dancetype: PropTypes.bool,
     member: PropTypes.bool,
+    users: PropTypes.bool,
 };
 
 HeaderEdit.defaultProps = {
@@ -85,6 +90,7 @@ HeaderEdit.defaultProps = {
     dance: false,
     dancetype: false,
     member: false,
+    users: false,
 };
 
 export default HeaderEdit;

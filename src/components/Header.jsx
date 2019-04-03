@@ -2,28 +2,41 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Link from 'gatsby-link';
 import Logo from './lines.svg';
-import styles from './Header.module.css';
 import ParkettLogo from './ParkettLogoWhite02.svg';
+import styles from './Header.module.css';
 import ListLink from './ListLink';
+import {
+  getLoginUrl, isLoggedIn, logOut, isEditor,
+ } from '../utils/login';
 
 class Header extends React.Component {
   constructor() {
     super();
     this.state = {
       open: false,
+      loggedIn: false,
     };
-    this.changeOpen = this.changeOpen.bind(this);
   }
 
-  changeOpen() {
-    const { open } = this.state;
-    this.setState({
-      open: !(open),
-    });
+  componentDidMount() {
+    this.setState({ loggedIn: isLoggedIn() });
+  }
+
+  toggleOpen = () => {
+    this.setState(prevState => ({ open: !prevState.open }));
+  }
+
+  logIn = () => {
+    this.setState({ loggedIn: true });
+  }
+
+  logOut = () => {
+    logOut();
+    this.setState({ loggedIn: false });
   }
 
   render() {
-    const { open } = this.state;
+    const { open, loggedIn } = this.state;
     const {
       events, community, media, knowledgebase, profile,
     } = this.props;
@@ -34,7 +47,7 @@ class Header extends React.Component {
             <img className={styles.mainLogo} src={ParkettLogo} alt="" />
           </Link>
           <div
-            onClick={this.changeOpen}
+            onClick={this.toggleOpen}
             className={styles.more}
             role="button"
             onKeyDown={() => { }}
@@ -45,15 +58,31 @@ class Header extends React.Component {
         </div>
         <div className={styles.right}>
           <div className={styles.login}>
-            <ListLink to="/edit-band/">Szerkesztés</ListLink>
-            <ListLink to="/login/">Belépés</ListLink>
+            {isEditor()
+              ? <ListLink to="/edit-band/">Szerkesztés</ListLink>
+              : null
+            }
+            {loggedIn
+              ? (
+                <span
+                  className={styles.link}
+                  onClick={this.logOut}
+                  role="button"
+                  onKeyDown={() => { }}
+                  tabIndex={0}
+                >
+                  {'Kijelentkezés'}
+                </span>
+              )
+              : <a className={styles.link} href={getLoginUrl()}>Belépés</a>
+            }
           </div>
           <div className={styles.links}>
             <ListLink to="/events/" active={events}>Események</ListLink>
             <ListLink to="/community/" active={community}>Közösség</ListLink>
             <ListLink to="/media/" active={media}>Galéria</ListLink>
             <ListLink to="/knowledge-base/" active={knowledgebase}>Tudnivalók</ListLink>
-            <ListLink to="/profile/" active={profile}>Profilom</ListLink>
+            <ListLink to="/profile/" active={profile} hidden={!loggedIn}>Profilom</ListLink>
           </div>
         </div>
       </header>

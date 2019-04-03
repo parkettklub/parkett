@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './Media.module.css';
-import Card from './Card';
 import { dateToString } from './DateFunctions';
 
 function MediaAlbum({
@@ -10,17 +9,17 @@ function MediaAlbum({
     if (!link) return null;
     const dateStr = dateToString(date);
     return (
-        <Card>
-            <div className={styles.spot}>
-                <div className={styles.link}>
-                    <a href={link} target="_blank" rel="noopener noreferrer">
-                        <img src={src ? src : icon} alt="" />
-                    </a>
-                </div>
+        <div className={styles.spot}>
+            <div className={styles.link}>
+                <a href={link} target="_blank" rel="noopener noreferrer">
+                    <img src={src ? src : icon} alt="" />
+                </a>
+            </div>
+            <div className={styles.albumName}>
                 <div className={styles.name}>{name}</div>
                 <div className={styles.date}>{dateStr}</div>
             </div>
-        </Card>
+        </div>
     );
 }
 
