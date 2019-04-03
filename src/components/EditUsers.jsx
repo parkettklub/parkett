@@ -4,6 +4,39 @@ import FormUser from './FormUser';
 import { fetchAll } from './FetchFunctions';
 import styles from './Editor.module.css';
 
+const compare = (a, b) => {
+    if (a.role === 'admin') {
+        return -1;
+    }
+    if (b.role === 'admin') {
+        return 1;
+    }
+    if (a.role === 'editor') {
+        return -1;
+    }
+    if (b.role === 'editor') {
+        return 1;
+    }
+    if (a.role === 'tag') {
+        return -1;
+    }
+    if (b.role === 'tag') {
+        return 1;
+    }
+    return 0;
+};
+
+const abc = (a, b) => {
+    if (a.name === null) {
+        return 1;
+    }
+    if (b.name === null) {
+        return -1;
+    }
+    return a.name.localeCompare(b.name);
+};
+
+
 class EditUsers extends React.Component {
     constructor() {
         super();
@@ -51,7 +84,8 @@ class EditUsers extends React.Component {
             selectedObject: null,
         });
         fetchAll('users').then((myJson) => {
-            this.setState({ users: myJson });
+            const sortedUsers = myJson.sort(abc).sort(compare);
+            this.setState({ users: sortedUsers });
         });
     }
 
