@@ -6,8 +6,8 @@ html {
 body {
   font-family: 'Roboto', sans-serif;
   margin: 0;
-  height: calc(100vh + 100px);
-  background-color: darkred;
+  height: 200vh;
+  background-color: black;
   background-image: url('../components/background.jpg');
   background-position: center;
   background-size: cover;
