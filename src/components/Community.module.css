@@ -53,6 +53,7 @@
 }
 
 .oldMembers {
+    padding-top: 2rem;
     margin: 0 auto;
     padding-left: 3rem;
     font-size: 2rem;
@@ -81,10 +82,21 @@
     box-shadow: 4px 4px 4px rgba(0, 0, 0, .3);
 }
 
+.memberTitle {
+    font-size: 0;
+    grid-row: 2;
+}
+
 @media only screen and (max-width: 100em)  {
     .main {
         display: block;
         width: 100%;
+    }
+
+    .memberTitle {
+        padding-top: 2rem;
+        font-size: 2rem;
+        text-align: center;
     }
 
     .main > div {   

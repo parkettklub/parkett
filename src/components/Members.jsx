@@ -29,6 +29,7 @@ class Members extends React.Component {
         return (
             <div className={styles.main}>
                 <AboutUs />
+                <div className={styles.memberTitle}>Tagok:</div>
                 <div className={styles.people6}>
                     {members.filter(member => member.position !== 'öregtag').map(
                         member => <Member {...member} key={member.id} />,
