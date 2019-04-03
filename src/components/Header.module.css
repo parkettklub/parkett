@@ -115,6 +115,29 @@ div.more:hover {
   opacity: 0.5;
 }
 
+.button {
+  background: #be0a0a;
+  color: white;
+  padding: 0.5rem;
+  padding-right: 1rem;
+  padding-left: 1rem;
+  font-family: 'Roboto', sans-serif;
+  font-weight: bolder;
+  cursor: pointer;
+  border-radius: 5px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, .1);
+}
+
+.button.loggedOut {
+  background: #007c13;
+}
+
+@media (hover: hover) {
+  .button:hover {
+    opacity: 0.8;
+  }
+}
+
 @media only screen and (max-width: 950px)  {
   .main {
     grid-template-columns: auto;
