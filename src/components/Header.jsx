@@ -7,7 +7,7 @@ import styles from './Header.module.css';
 import ListLink from './ListLink';
 import {
   getLoginUrl, isLoggedIn, logOut, isEditor,
- } from '../utils/login';
+} from '../utils/login';
 
 class Header extends React.Component {
   constructor() {
@@ -65,7 +65,7 @@ class Header extends React.Component {
             {loggedIn
               ? (
                 <span
-                  className={styles.link}
+                  className={styles.button}
                   onClick={this.logOut}
                   role="button"
                   onKeyDown={() => { }}
@@ -74,7 +74,7 @@ class Header extends React.Component {
                   {'Kijelentkezés'}
                 </span>
               )
-              : <a className={styles.link} href={getLoginUrl()}>Belépés</a>
+              : <a className={`${styles.button} ${styles.loggedOut}`} href={getLoginUrl()}>Belépés</a>
             }
           </div>
           <div className={styles.links}>
