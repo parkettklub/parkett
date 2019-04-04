@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Link from 'gatsby-link';
 import Logo from './lines.svg';
-import ParkettLogo from './ParkettLogoWhite02.svg';
+import ParkettLogo from './ParkettWithText.svg';
 import styles from './Header.module.css';
 import ListLink from './ListLink';
 import {

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import profDefault from './defaultProfile.jpg';
-import styles from './Community.module.css';
+import styles from './Member.module.css';
 
 function Member({
     image, position, description, name,

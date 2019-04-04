@@ -1,8 +1,30 @@
 export function isLoggedIn() {
     if (typeof window !== 'undefined') {
+        const last = localStorage.getItem('date');
+        if (!last) {
+            localStorage.removeItem('token');
+            localStorage.removeItem('role');
+            localStorage.removeItem('date');
+            localStorage.removeItem('id');
+            return false;
+        }
+        if ((new Date()).getTime() - (new Date(last)).getTime() > 10000000) {
+            localStorage.removeItem('token');
+            localStorage.removeItem('role');
+            localStorage.removeItem('date');
+            localStorage.removeItem('id');
+            return false;
+        }
         return !!localStorage.getItem('token');
     }
     return false;
+}
+
+export function getID() {
+    if (typeof window !== 'undefined') {
+        return localStorage.getItem('id');
+    }
+    return null;
 }
 
 export function getToken() {
@@ -26,7 +48,11 @@ export function setToken() {
         if (token) {
             if (typeof window !== 'undefined') {
                 localStorage.setItem('token', token);
-                fetchMe().then(response => localStorage.setItem('role', response.role));
+                localStorage.setItem('date', new Date());
+                fetchMe().then((response) => {
+                    localStorage.setItem('role', response.role);
+                    localStorage.setItem('id', response.id);
+                });
             }
         }
     }
@@ -57,6 +83,8 @@ export function logOut() {
     if (isLoggedIn() && typeof window !== 'undefined') {
         localStorage.removeItem('token');
         localStorage.removeItem('role');
+        localStorage.removeItem('date');
+        localStorage.removeItem('id');
     }
 }
 

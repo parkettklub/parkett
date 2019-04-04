@@ -17,10 +17,10 @@ const compare = (a, b) => {
     if (b.role === 'editor') {
         return 1;
     }
-    if (a.role === 'tag') {
+    if (a.role === 'member') {
         return -1;
     }
-    if (b.role === 'tag') {
+    if (b.role === 'member') {
         return 1;
     }
     return 0;
@@ -48,7 +48,6 @@ class EditUsers extends React.Component {
     }
 
     componentDidMount() {
-        this.createMember();
         this.fetchUsers();
     }
 
@@ -63,19 +62,6 @@ class EditUsers extends React.Component {
                     fetchFunction={this.fetchUsers}
                 />
             ),
-        });
-    }
-
-    createMember = () => {
-        this.setState({
-            selectedId: null,
-            selectedObject: (
-                <FormUser
-                    selectedObject={{
-                        id: -1,
-                    }}
-                    fetchFunction={this.fetchUsers}
-                />),
         });
     }
 
