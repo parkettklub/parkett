@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { fetchPost, fetchPut } from './FetchFunctions';
+import { getID } from '../utils/login';
 import styles from './Form.module.css';
-import InputFormSimple from './InputFormSimple';
+import InputFormSelect from './InputFormSelect';
 import DeleteButton from './DeleteButton';
 
 class FormUser extends React.Component {
@@ -63,38 +64,37 @@ class FormUser extends React.Component {
             id, name, email, role,
         } = this.state;
         const isNew = id < 0;
+        const options = [];
+        options.push(<option value="admin">Admin</option>);
+        options.push(<option value="editor">Szerkesztő</option>);
+        options.push(<option value="member">Tag</option>);
         return (
             <div className={styles.main}>
                 <DeleteButton id={id} type="members" fetchFunction={fetchFunction} />
                 <div className={styles.formgroup} hidden={selected !== title}>
                     {isNew ? 'Új Tag adatai:' : 'Tag adatai:'}
-                    <InputFormSimple
-                        selected={selected}
-                        title={title}
-                        handleChange={this.handleChange}
-                        value={name}
-                        name="name"
-                        example="DJ Eddy"
-                        label="Név"
-                    />
-                    <InputFormSimple
-                        selected={selected}
-                        title={title}
-                        handleChange={this.handleChange}
-                        value={email}
-                        name="email"
-                        example="www.example.com"
-                        label="Email"
-                    />
-                    <InputFormSimple
-                        selected={selected}
-                        title={title}
-                        handleChange={this.handleChange}
-                        value={role}
-                        name="role"
-                        example="tag"
-                        label="Pozíció"
-                    />
+                    <div className={styles.formgroup}>
+                        {`${id} : ${name}`}
+                    </div>
+                    <div className={styles.formgroup}>
+                        {email}
+                    </div>
+                    <div className={styles.formgroup}>
+                        {(getID() != id)
+                            ? (
+                                <InputFormSelect
+                                    selected={selected}
+                                    title={title}
+                                    handleChange={this.handleChange}
+                                    value={role}
+                                    name="role"
+                                    example="tag"
+                                    label="Pozíció"
+                                    options={options}
+                                />
+                            )
+                            : role}
+                    </div>
                     <div className={styles.formgroup}>
                         <button
                             onClick={this.uploadChanges}

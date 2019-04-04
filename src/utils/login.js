@@ -5,17 +5,26 @@ export function isLoggedIn() {
             localStorage.removeItem('token');
             localStorage.removeItem('role');
             localStorage.removeItem('date');
+            localStorage.removeItem('id');
             return false;
         }
         if ((new Date()).getTime() - (new Date(last)).getTime() > 10000000) {
             localStorage.removeItem('token');
             localStorage.removeItem('role');
             localStorage.removeItem('date');
+            localStorage.removeItem('id');
             return false;
         }
         return !!localStorage.getItem('token');
     }
     return false;
+}
+
+export function getID() {
+    if (typeof window !== 'undefined') {
+        return localStorage.getItem('id');
+    }
+    return null;
 }
 
 export function getToken() {
@@ -40,7 +49,10 @@ export function setToken() {
             if (typeof window !== 'undefined') {
                 localStorage.setItem('token', token);
                 localStorage.setItem('date', new Date());
-                fetchMe().then(response => localStorage.setItem('role', response.role));
+                fetchMe().then((response) => {
+                    localStorage.setItem('role', response.role);
+                    localStorage.setItem('id', response.id);
+                });
             }
         }
     }
@@ -72,6 +84,7 @@ export function logOut() {
         localStorage.removeItem('token');
         localStorage.removeItem('role');
         localStorage.removeItem('date');
+        localStorage.removeItem('id');
     }
 }
 

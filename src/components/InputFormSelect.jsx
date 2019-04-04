@@ -38,7 +38,7 @@ class InputFormSelect extends React.Component {
                     onChange={handleChange}
                     className={styles.input}
                 >
-                    <option default value="null" >NULL</option>
+                    <option default value="null" />
                     {options}
                 </select>
                 <div
