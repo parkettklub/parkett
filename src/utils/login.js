@@ -1,5 +1,18 @@
 export function isLoggedIn() {
     if (typeof window !== 'undefined') {
+        const last = localStorage.getItem('date');
+        if (!last) {
+            localStorage.removeItem('token');
+            localStorage.removeItem('role');
+            localStorage.removeItem('date');
+            return false;
+        }
+        if ((new Date()).getTime() - (new Date(last)).getTime() > 10000000) {
+            localStorage.removeItem('token');
+            localStorage.removeItem('role');
+            localStorage.removeItem('date');
+            return false;
+        }
         return !!localStorage.getItem('token');
     }
     return false;
@@ -26,6 +39,7 @@ export function setToken() {
         if (token) {
             if (typeof window !== 'undefined') {
                 localStorage.setItem('token', token);
+                localStorage.setItem('date', new Date());
                 fetchMe().then(response => localStorage.setItem('role', response.role));
             }
         }
@@ -57,6 +71,7 @@ export function logOut() {
     if (isLoggedIn() && typeof window !== 'undefined') {
         localStorage.removeItem('token');
         localStorage.removeItem('role');
+        localStorage.removeItem('date');
     }
 }
 
