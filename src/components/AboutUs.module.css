@@ -1,13 +1,11 @@
-
-
-.instagram {
+.main {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: inherit;
     width: max-content;
 }
 
-.instagram > .description {
+.main > .description {
     display: block;
     color: white;
     width: 100%;
@@ -20,31 +18,8 @@
     grid-column-end: 4;
 }
 
-.instagram > .description > div {
+.main > .description > div {
     font-size: 1.5em;
-}
-
-@media only screen and (max-width: 50em)  {
-    .instagram {
-        grid-template-columns: 1fr 1fr;
-        width: 100%;
-    }
-
-    .instagram > .description {
-        grid-column-start: 1;
-        grid-column-end: 3;
-        color: white;
-        max-width: unset;
-        height: unset;
-        text-align: center;
-        padding: 0.5em;
-        padding-top: 0.5em;
-        width: auto;
-    }
-
-    .instagram > .description > div {
-        font-size: 1em;
-    }
 }
 
 .element {
@@ -55,6 +30,7 @@
     overflow: hidden;
     border-radius: 4px;
     box-shadow: 4px 4px 4px rgba(0, 0, 0, .3);
+  word-break:  break-word;
 }
 
 .element.small {
@@ -104,7 +80,7 @@
 }
 
 .element:hover img {
-    filter: opacity(0.5);
+    filter: opacity(0.3);
 }
 
 .element.first {
@@ -115,9 +91,45 @@
 
     .element {
         width: 100%;
+        font-size: 0.8rem;
     }
 
     .element.small {
         width: 100%;
     }
+
+    
+    .main {
+        grid-template-columns: 1fr 1fr;
+        width: 100%;
+    }
+
+    .main > .description {
+        grid-column-start: 1;
+        grid-column-end: 3;
+        color: white;
+        max-width: unset;
+        height: unset;
+        text-align: center;
+        padding: 0.5em;
+        padding-top: 0.5em;
+        width: auto;
+    }
+
+    .main > .description > div {
+        font-size: 1em;
+    }
+}
+
+
+
+@media only screen and (max-width: 20em)  {
+    .main {
+        grid-template-columns: 1fr;
+    }
+
+    .main > .description {
+    grid-column-start: 1;
+    grid-column-end: 2;
+}
 }

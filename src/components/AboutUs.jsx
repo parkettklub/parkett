@@ -3,7 +3,7 @@ import styles from './AboutUs.module.css';
 import texts from './Descriptions';
 
 const AboutUs = () => (
-    <div className={styles.instagram}>
+    <div className={styles.main}>
         <div className={styles.description}>
             <div>
                 {texts.community}

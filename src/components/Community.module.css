@@ -89,4 +89,20 @@
         grid-template-columns: 1fr 1fr;
         width: 100%;
     }
+
+    .main {
+        padding-bottom: 10rem;
+    }
+}
+
+
+
+@media only screen and (max-width: 20em)  {
+    .peopleOthers {
+        grid-column: 1;
+        grid-template-columns: 1fr;
+    }
+    .people6 {
+        grid-template-columns: 1fr;
+    }
 }

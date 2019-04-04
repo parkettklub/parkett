@@ -23,8 +23,8 @@
     padding: 0.25em;
     color: white;
     position: relative;
-    bottom: 4em;
-    height: 3em;
+    bottom: 5em;
+    height: 4em;
     background: black;
 }
 
@@ -42,7 +42,7 @@
     color: white;
     position: relative;
     font-size: 0;
-    bottom: 12em;
+    bottom: 15em;
     height: 12em;
 }
 
@@ -66,6 +66,7 @@
 
     .element {
         width: 100%;
+        font-size: 0.8rem;
     }
 
     .element.small {
