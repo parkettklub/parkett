@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './Community.module.css';
+import styles from './AboutUs.module.css';
 import texts from './Descriptions';
 
 const AboutUs = () => (
