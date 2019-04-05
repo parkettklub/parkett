@@ -32,7 +32,7 @@ export default {
         ],
         shoes: [
             `Amikor csak lehet - esős időben és télen csizma helyett különösen - hozz váltócipőt, 
-            ezzel az utcai cipődet kíméled az izzadástól, büdösödéstől és az elhasználódástól (ne erre találták ki), 
+            ezzel az utcai cipődet kíméled az izzadástól, büdösödéstől és az elhasználódástól (nem erre találták ki), 
             emellett a terem padlóját sem koszolod össze azok kárára, akik bőrtalpú tánccipőben táncolnak, mely könnyen összeszedi a koszt.`,
             'Olyan cipőt válassz, ami órákon át is kényelmes, és stabilan tartja a lábadat!',
             'Egy-két váltás zokni, hölgyeknek harisnya is jól jöhet. Sokkal kényelmesebb friss zokniban hazamenni a táncóra vagy buli után.',
