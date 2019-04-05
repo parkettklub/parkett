@@ -66,6 +66,29 @@ export default {
             'Jusson eszedbe megfelelő mennyiségű vizet inni, hogy pótold, amit tánc közben elveszítesz!',
         ],
     },
+    etikett: {
+        main: `Minden társaságnak, helynek megvannak a maga normái, "szabályai", 
+        így a társastáncos közösségekben is vannak bizonyos illemszabályok, amelyeket érdemes betartani. 
+        Ezeket szedtük csokorba az alábbiakban.`,
+        tabs: [
+            {
+                head: 'Tab01',
+                body: 'Tab szovege',
+            },
+            {
+                head: 'Tab02',
+                body: 'Tab szovege',
+            },
+            {
+                head: 'Tab03',
+                body: 'Tab szovege',
+            },
+            {
+                head: 'Tab04',
+                body: 'Tab szovege',
+            },
+        ],
+    },
     smallThings: [
         {
             photo: Dinner,

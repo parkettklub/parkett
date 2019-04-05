@@ -1,5 +1,6 @@
 import React from 'react';
 import TipsAndTricks from './TipsAnTricks';
+import DanceEtikett from './DanceEtikett';
 import LocationAccess from './LocationAccess';
 import Attention from './Attention';
 import Services from './Services';
@@ -14,6 +15,7 @@ class KnowledgeBaseComponent extends React.Component {
         super(props);
         this.state = {};
         this.divTips = React.createRef();
+        this.dicEtikett = React.createRef();
         this.divDances = React.createRef();
         this.divGeneral = React.createRef();
         this.divApproach = React.createRef();
@@ -55,6 +57,15 @@ class KnowledgeBaseComponent extends React.Component {
         }
     }
 
+    goEtikett = () => {
+        if (this.dicEtikett.current) {
+            this.dicEtikett.current.scrollIntoView({
+                behavior: 'smooth',
+                block: 'nearest',
+            });
+        }
+    }
+
     render() {
         return (
             <div className={styles.main}>
@@ -63,6 +74,7 @@ class KnowledgeBaseComponent extends React.Component {
                     <button onClick={this.goGeneral} type="button">Álltalános</button>
                     <button onClick={this.goApproach} type="button">Megközelítés</button>
                     <button onClick={this.goTips} type="button">Tippek</button>
+                    <button onClick={this.goEtikett} type="button">Etikett</button>
                 </div>
                 <div className={styles.header}>
                     <EditButton />
@@ -114,6 +126,9 @@ class KnowledgeBaseComponent extends React.Component {
                 </div>
                 <div className={styles.tips} ref={this.divTips}>
                     <TipsAndTricks />
+                </div>
+                <div className={styles.tips} ref={this.dicEtikett}>
+                    <DanceEtikett />
                 </div>
             </div>
         );

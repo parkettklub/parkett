@@ -48,7 +48,7 @@ class TipsAndTricks extends React.Component {
             cloth, shoes, hygine, drink,
         } = this.state;
         return (
-            <div>
+            <div className={styles.tips}>
                 <div className={styles.title}>Tippek és tanácsok</div>
                 <div className={styles.long}>{texts.tips.main}</div>
                 <div className={styles.tabs}>
