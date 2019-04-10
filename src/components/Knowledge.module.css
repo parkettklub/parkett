@@ -11,6 +11,28 @@
     padding: 1rem;
 }
 
+.main > .buttons {
+    margin: 0 auto;
+    max-width: max-content;
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+
+.buttons button {
+    border: 0;
+    padding: 0;
+    margin: 0;
+    font-size: 0;
+}
+
+.buttons button:hover {
+    background: #FFFFFF30;
+}
+
+.buttons button:focus {
+    outline: 0;
+}
+
 .general, .attention {
     background: #00000030;
 }
@@ -63,13 +85,34 @@
 }
 
 @media only screen and (max-width: 1400px)  {
+
     .main {
         grid-template-columns: 1fr;
+        padding: 0;
     }
 
     .main > .header {
         grid-column-start: 1;
         grid-column-end: 2;
+    }
+    
+    .main > .buttons {
+        grid-column-start: 1;
+        grid-column-end: 2;
+    }
+
+    .buttons button {
+        background: #FFFFFF50;
+        color: white;
+        border: 0;
+        padding: 0.5rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        margin-right: 1rem;
+        margin-bottom: 1rem;
+        border-radius: 5px;
+        box-shadow: 5px 5px 5px #00000030;
+        font-size: 1rem;
     }
 
     .tips {
@@ -80,7 +123,7 @@
     }
 
     .attention {
-        grid-row: 5;
+        grid-row: 6;
         background: #00000030;
     }   
 

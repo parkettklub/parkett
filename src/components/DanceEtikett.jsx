@@ -2,7 +2,7 @@ import React from 'react';
 import texts from './Descriptions';
 import styles from './TipsAndTricks.module.css';
 
-class TipsAndTricks extends React.Component {
+class DanceEtikett extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -29,11 +29,11 @@ class TipsAndTricks extends React.Component {
 
     render() {
         return (
-            <div className={styles.tips}>
-                <div className={styles.title}>Tippek és tanácsok</div>
-                <div className={styles.long}>{texts.tips.main}</div>
+            <div className={styles.etikett}>
+                <div className={styles.title}>Tánc Etikett</div>
+                <div className={styles.long}>{texts.etikett.main}</div>
                 <div className={styles.tabs}>
-                    {texts.tips.tabs.map(tab => (
+                    {texts.etikett.tabs.map(tab => (
                         <button
                             onClick={() => this.changeTab(tab.head)}
                             type="button"
@@ -44,11 +44,11 @@ class TipsAndTricks extends React.Component {
                     ))}
                 </div>
                 <div ref={this.myDivToFocus}>
-                    {texts.tips.tabs.map(tab => (
+                    {texts.etikett.tabs.map(tab => (
                         <div hidden={!this.isActive(tab.head)} className={styles.tab}>
                             <div key="7"><strong>{tab.head}</strong></div>
                             <div className={styles.list}>
-                                {tab.body.map((text, index) => (<li key={index}>{text}</li>))}
+                                {tab.body}
                             </div>
                         </div>
                     ))}
@@ -58,4 +58,4 @@ class TipsAndTricks extends React.Component {
     }
 }
 
-export default TipsAndTricks;
+export default DanceEtikett;
