@@ -8,7 +8,6 @@ class DanceEtikett extends React.Component {
         this.state = {
             selected: '',
         };
-        this.baseState = this.state;
         this.myDivToFocus = React.createRef();
     }
 
