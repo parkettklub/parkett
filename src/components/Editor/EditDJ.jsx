@@ -1,7 +1,7 @@
 import React from 'react';
 import SelectableElement from './SelectableElement';
 import FormDJ from './FormDJ';
-import { fetchAll } from '../FetchFunctions';
+import { fetchAll } from '../../utils/FetchFunctions';
 import Plus from './plus.svg';
 import styles from './Editor.module.css';
 

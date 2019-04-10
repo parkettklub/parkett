@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './Form.module.css';
-import { dateToInput } from '../DateFunctions';
+import { dateToInput } from '../../utils/DateFunctions';
 
 
 const today = dateToInput(new Date());

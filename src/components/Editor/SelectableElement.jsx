@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './Editor.module.css';
-import { dateToShortString } from '../DateFunctions';
+import { dateToShortString } from '../../utils/DateFunctions';
 
 function SelectableElement({
     title, start_date, onClick, selected, published_at,

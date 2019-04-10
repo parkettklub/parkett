@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './Media.module.css';
-import { dateToString } from './DateFunctions';
+import { dateToString } from '../utils/DateFunctions';
 
 function MediaAlbum({
     link, name, date, icon, src,

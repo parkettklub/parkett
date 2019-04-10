@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { fetchPost, fetchPut } from '../FetchFunctions';
-import { fetchDateToInput } from '../DateFunctions';
+import { fetchPost, fetchPut } from '../../utils/FetchFunctions';
+import { fetchDateToInput } from '../../utils/DateFunctions';
 import styles from './Form.module.css';
 import SubFormSelect from './SubFormSelect';
 import SubFormArticle from './SubFormArticle';

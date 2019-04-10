@@ -1,4 +1,4 @@
-import { getToken, isLoggedIn } from '../utils/login';
+import { getToken, isLoggedIn } from './login';
 
 export async function fetchAll(type) {
     try {
@@ -13,7 +13,7 @@ export async function fetchAll(type) {
 export async function fetchMe() {
     try {
         if (isLoggedIn()) {
-            const response = await fetch('https://parkett-klub.herokuapp.com/users/me?token=' + getToken());
+            const response = await fetch(`https://parkett-klub.herokuapp.com/users/me?token=${getToken()}`);
             return response.json();
         }
         return {};

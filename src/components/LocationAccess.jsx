@@ -1,5 +1,5 @@
 import React from 'react';
-import texts from './Descriptions';
+import texts from '../utils/Descriptions';
 
 const LocationAccess = () => (
     <div>

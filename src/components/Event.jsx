@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Card from './Card';
 import styles from './EventList.module.css';
-import { fetchAll } from './FetchFunctions';
-import { dateToString } from './DateFunctions';
+import { fetchAll } from '../utils/FetchFunctions';
+import { dateToString } from '../utils/DateFunctions';
 
 class EventSummary extends React.Component {
     state = {};

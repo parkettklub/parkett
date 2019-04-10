@@ -1,5 +1,5 @@
 import React from 'react';
-import texts from './Descriptions';
+import texts from '../utils/Descriptions';
 import styles from './TipsAndTricks.module.css';
 
 class TipsAndTricks extends React.Component {

@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactCssTransitionGroup from 'react-addons-css-transition-group';
 import EditButton from './EditButton';
-import { fetchAll } from './FetchFunctions';
-import { dateToString } from './DateFunctions';
+import { fetchAll } from '../utils/FetchFunctions';
+import { dateToString } from '../utils/DateFunctions';
 import styles from './EventList.module.css';
 import EventSummary from './Event';
 import Edit from './pencil_white.svg';

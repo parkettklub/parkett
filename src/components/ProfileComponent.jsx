@@ -1,5 +1,5 @@
 import React from 'react';
-import { fetchMe } from './FetchFunctions';
+import { fetchMe } from '../utils/FetchFunctions';
 import { getRole } from '../utils/login';
 import styles from './Profile.module.css';
 

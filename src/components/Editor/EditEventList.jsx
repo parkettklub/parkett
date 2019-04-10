@@ -4,7 +4,7 @@ import SelectableElement from './SelectableElement';
 import FormEventArticle from './FormEventArticle';
 import FormEventParty from './FormEventParty';
 import FormEventWorkshop from './FormEventWorkshop';
-import { fetchAll } from '../FetchFunctions';
+import { fetchAll } from '../../utils/FetchFunctions';
 import Plus from './plus.svg';
 
 class EditEvents extends React.Component {

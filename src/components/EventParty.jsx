@@ -2,7 +2,7 @@ import React from 'react';
 import EventWithPoster from './EventWithPoster';
 import EventDetails from './EventDetails';
 import EventMedia from './EventMedia';
-import { fetchAll } from './FetchFunctions';
+import { fetchAll } from '../utils/FetchFunctions';
 import EditButton from './EditButton';
 import styles from './Event.module.css';
 

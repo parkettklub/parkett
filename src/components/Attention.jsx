@@ -1,5 +1,5 @@
 import React from 'react';
-import texts from './Descriptions';
+import texts from '../utils/Descriptions';
 import styles from './Knowledge.module.css';
 
 const Attention = () => (

@@ -1,6 +1,6 @@
 import React from 'react';
 import EventWithPoster from './EventWithPoster';
-import { fetchAll } from './FetchFunctions';
+import { fetchAll } from '../utils/FetchFunctions';
 import styles from './Article.module.css';
 import EditButton from './EditButton';
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { fetchAll } from '../FetchFunctions';
+import { fetchAll } from '../../utils/FetchFunctions';
 import FormDJ from './FormDJ';
 import FormBand from './FormBand';
 import FormDanceCourse from './FormDanceCourse';
