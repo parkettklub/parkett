@@ -67,7 +67,7 @@ export default {
         ],
     },
     etikett: {
-        main: `Minden társaságnak, helynek megvannak a maga normái, "szabályai", 
+        main: `FIGYELEM! EZEK A SZÖVEGEK MÉG NINCSENEK VÉGLEGESÍTVE! Minden társaságnak, helynek megvannak a maga normái, "szabályai", 
         így a társastáncos közösségekben is vannak bizonyos illemszabályok, amelyeket érdemes betartani. 
         Ezeket szedtük csokorba az alábbiakban.`,
         tabs: [
