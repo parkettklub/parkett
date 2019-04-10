@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactCssTransitionGroup from 'react-addons-css-transition-group';
-import EditUsers from '../components/EditUsers';
+import EditUsers from '../components/Editor/EditUsers';
 import HeaderEdit from '../components/HeaderEdit';
 import styles from './Page.module.css';
 import { isAdmin } from '../utils/login';

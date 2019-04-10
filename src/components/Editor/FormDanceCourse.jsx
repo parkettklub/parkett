@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { fetchAll, fetchPost, fetchPut } from './FetchFunctions';
+import { fetchAll, fetchPost, fetchPut } from '../FetchFunctions';
 import styles from './Form.module.css';
 import InputFormSimple from './InputFormSimple';
 import InputFormSelect from './InputFormSelect';

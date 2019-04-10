@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactCssTransitionGroup from 'react-addons-css-transition-group';
-import EditTeacher from '../components/EditTeacher';
+import EditTeacher from '../components/Editor/EditTeacher';
 import Header from '../components/HeaderEdit';
 import styles from './Page.module.css';
 import { isEditor } from '../utils/login';

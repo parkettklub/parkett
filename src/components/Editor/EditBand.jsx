@@ -1,86 +1,89 @@
 import React from 'react';
 import SelectableElement from './SelectableElement';
-import FormMember from './FormMember';
-import { fetchAll } from './FetchFunctions';
-import Plus from './plus.svg';
+import FormBand from './FormBand';
+import { fetchAll } from '../FetchFunctions';
 import styles from './Editor.module.css';
+import Plus from './plus.svg';
 
-class EditMember extends React.Component {
+class EditBand extends React.Component {
     constructor() {
         super();
         this.state = {
-            members: [],
+            bands: [],
             selectedId: 0,
             selectedObject: null,
         };
     }
 
     componentDidMount() {
-        this.createMember();
-        this.fetchMembers();
+        this.createBand();
+        this.fetchBands();
     }
 
-    editDJ = (id) => {
-        const { members } = this.state;
-        const selected = members.find(memeber => memeber.id === id);
+    editBand = (id) => {
+        const { bands } = this.state;
+        const selected = bands.find(band => band.id === id);
         this.setState({
             selectedId: id,
             selectedObject: (
-                <FormMember
+                <FormBand
                     selectedObject={selected}
-                    fetchFunction={this.fetchMembers}
+                    fetchFunction={this.fetchBands}
                 />
             ),
         });
     }
 
-    createMember = () => {
+    createBand = () => {
         this.setState({
             selectedId: null,
             selectedObject: (
-                <FormMember
+                <FormBand
                     selectedObject={{
                         id: -1,
                     }}
-                    fetchFunction={this.fetchMembers}
+                    fetchFunction={this.fetchBands}
                 />),
         });
     }
 
-    fetchMembers = () => {
+    fetchBands = () => {
         this.setState({
             selectedObject: null,
+            selectedId: 0,
         });
-        fetchAll('members').then((myJson) => {
-            this.setState({ members: myJson });
+        fetchAll('bands').then((myJson) => {
+            this.setState({ bands: myJson });
         });
     }
 
-
     render() {
-        const { members, selectedId, selectedObject } = this.state;
+        const { bands, selectedObject, selectedId } = this.state;
         return (
             <div className={styles.center}>
                 <div className={styles.main}>
                     <div className={styles.list}>
                         <div
                             className={styles.selectable}
-                            onClick={this.createMember}
+                            onClick={this.createBand}
                             onKeyDown={() => { }}
                             role="button"
                             tabIndex={0}
                         >
                             <img src={Plus} className={styles.addElement} alt="" />
-                            {'Új Tag'}
+                            {'Új Zenekar'}
                         </div>
-                        {members.map(member => (
-                            <SelectableElement
-                                title={member.name}
-                                onClick={() => this.editDJ(member.id)}
-                                selected={member.id === selectedId}
-                                key={member.id}
-                            />
-                        ))}
+                        {bands.map(
+                            band => (
+                                <SelectableElement
+                                    title={`${band.id} – ${band.name}`}
+                                    start_date={band.updated_at}
+                                    onClick={() => this.editBand(band.id)}
+                                    selected={band.id === selectedId}
+                                    key={band.id}
+                                />
+                            ),
+                        )}
                     </div>
                     <div className={styles.selected}>
                         {selectedObject}
@@ -91,4 +94,4 @@ class EditMember extends React.Component {
     }
 }
 
-export default EditMember;
+export default EditBand;

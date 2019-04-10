@@ -1,7 +1,7 @@
 import React from 'react';
 import SelectableElement from './SelectableElement';
 import FormDanceType from './FormDanceType';
-import { fetchAll } from './FetchFunctions';
+import { fetchAll } from '../FetchFunctions';
 import styles from './Editor.module.css';
 import Plus from './plus.svg';
 

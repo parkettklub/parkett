@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { fetchDelete } from './FetchFunctions';
+import { fetchDelete } from '../FetchFunctions';
 import styles from './Form.module.css';
 import Delete from './remove.svg';
 

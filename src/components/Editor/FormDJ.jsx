@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { fetchPost, fetchPut } from './FetchFunctions';
+import { fetchPost, fetchPut } from '../FetchFunctions';
 import styles from './Form.module.css';
 import InputFormSimple from './InputFormSimple';
 import DeleteButton from './DeleteButton';
 
-class FormTeacher extends React.Component {
+class FormDJ extends React.Component {
     constructor() {
         super();
         this.state = {
@@ -34,50 +34,51 @@ class FormTeacher extends React.Component {
     uploadChanges = () => {
         const { id } = this.state;
         if (id < 0) {
-            this.addTeacher();
+            this.addDJ();
         } else {
-            this.updateTeacher();
+            this.updateDJ();
         }
     }
 
-    addTeacher = () => {
-        fetchPost('dance_teachers', this.state).then(() => {
+    addDJ = () => {
+        fetchPost('djs', this.state).then(() => {
             const { fetchFunction } = this.props;
             fetchFunction();
         });
     }
 
-    updateTeacher = () => {
-        fetchPut('dance_teachers', this.state).then(() => {
+    updateDJ = () => {
+        fetchPut('djs', this.state).then(() => {
             const { fetchFunction } = this.props;
             fetchFunction();
         });
     }
+
 
     render() {
         const { selected, title, fetchFunction } = this.props;
-        const { id, name, url } = this.state;
+        const { id, name, content } = this.state;
         const isNew = id < 0;
         return (
             <div className={styles.main}>
-                <DeleteButton id={id} type="dance_teachers" fetchFunction={fetchFunction} />
+                <DeleteButton id={id} type="djs" fetchFunction={fetchFunction} />
                 <div className={styles.formgroup} hidden={selected !== title}>
-                    {isNew ? 'Új Tanár adatai:' : 'Tanár adatai:'}
+                    {isNew ? 'Új DJ adatai:' : 'DJ adatai:'}
                     <InputFormSimple
                         selected={selected}
                         title={title}
                         handleChange={this.handleChange}
                         value={name}
                         name="name"
-                        example="Pedrofon"
+                        example="DJ Eddy"
                         label="Név"
                     />
                     <InputFormSimple
                         selected={selected}
                         title={title}
                         handleChange={this.handleChange}
-                        value={url}
-                        name="url"
+                        value={content}
+                        name="content"
                         example="www.example.com"
                         label="Weboldal"
                     />
@@ -87,7 +88,7 @@ class FormTeacher extends React.Component {
                             type="submit"
                             className={styles.submit}
                         >
-                            {isNew ? 'Tanár hozzáadása' : 'Tanár módosítása'}
+                            {isNew ? 'DJ hozzáadása' : 'DJ módosítása'}
                         </button>
                     </div>
                 </div>
@@ -96,17 +97,16 @@ class FormTeacher extends React.Component {
     }
 }
 
-FormTeacher.propTypes = {
+FormDJ.propTypes = {
     selectedObject: PropTypes.instanceOf(Object).isRequired,
     selected: PropTypes.string,
     title: PropTypes.string,
     fetchFunction: PropTypes.func.isRequired,
 };
 
-FormTeacher.defaultProps = {
+FormDJ.defaultProps = {
     selected: '',
     title: '',
 };
 
-
-export default FormTeacher;
+export default FormDJ;

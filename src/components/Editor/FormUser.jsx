@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { fetchPost, fetchPut } from './FetchFunctions';
-import { getID } from '../utils/login';
+import { fetchPost, fetchPut } from '../FetchFunctions';
+import { getID } from '../../utils/login';
 import styles from './Form.module.css';
 import InputFormSelect from './InputFormSelect';
 import DeleteButton from './DeleteButton';

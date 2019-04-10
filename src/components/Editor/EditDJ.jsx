@@ -1,89 +1,87 @@
 import React from 'react';
 import SelectableElement from './SelectableElement';
-import FormBand from './FormBand';
-import { fetchAll } from './FetchFunctions';
-import styles from './Editor.module.css';
+import FormDJ from './FormDJ';
+import { fetchAll } from '../FetchFunctions';
 import Plus from './plus.svg';
+import styles from './Editor.module.css';
 
-class EditBand extends React.Component {
+class EditDJ extends React.Component {
     constructor() {
         super();
         this.state = {
-            bands: [],
+            djs: [],
             selectedId: 0,
             selectedObject: null,
         };
     }
 
     componentDidMount() {
-        this.createBand();
-        this.fetchBands();
+        this.createDJ();
+        this.fetchDJs();
     }
 
-    editBand = (id) => {
-        const { bands } = this.state;
-        const selected = bands.find(band => band.id === id);
+    editDJ = (id) => {
+        const { djs } = this.state;
+        const selected = djs.find(dj => dj.id === id);
         this.setState({
             selectedId: id,
             selectedObject: (
-                <FormBand
+                <FormDJ
                     selectedObject={selected}
-                    fetchFunction={this.fetchBands}
+                    fetchFunction={this.fetchDJs}
                 />
             ),
         });
     }
 
-    createBand = () => {
+    createDJ = () => {
         this.setState({
             selectedId: null,
             selectedObject: (
-                <FormBand
+                <FormDJ
                     selectedObject={{
                         id: -1,
                     }}
-                    fetchFunction={this.fetchBands}
+                    fetchFunction={this.fetchDJs}
                 />),
         });
     }
 
-    fetchBands = () => {
+    fetchDJs = () => {
         this.setState({
             selectedObject: null,
-            selectedId: 0,
         });
-        fetchAll('bands').then((myJson) => {
-            this.setState({ bands: myJson });
+        fetchAll('djs').then((myJson) => {
+            this.setState({ djs: myJson });
         });
     }
 
+
     render() {
-        const { bands, selectedObject, selectedId } = this.state;
+        const { djs, selectedId, selectedObject } = this.state;
         return (
             <div className={styles.center}>
                 <div className={styles.main}>
                     <div className={styles.list}>
                         <div
                             className={styles.selectable}
-                            onClick={this.createBand}
+                            onClick={this.createDJ}
                             onKeyDown={() => { }}
                             role="button"
                             tabIndex={0}
                         >
                             <img src={Plus} className={styles.addElement} alt="" />
-                            {'Új Zenekar'}
+                            {'Új DJ'}
                         </div>
-                        {bands.map(
-                            band => (
-                                <SelectableElement
-                                    title={`${band.id} – ${band.name}`}
-                                    start_date={band.updated_at}
-                                    onClick={() => this.editBand(band.id)}
-                                    selected={band.id === selectedId}
-                                    key={band.id}
-                                />
-                            ),
-                        )}
+                        {djs.map(dj => (
+                            <SelectableElement
+                                title={dj.name}
+                                onClick={() => this.editDJ(dj.id)}
+                                selected={dj.id === selectedId}
+                                start_date={dj.updated_at}
+                                key={dj.id}
+                            />
+                        ))}
                     </div>
                     <div className={styles.selected}>
                         {selectedObject}
@@ -94,4 +92,4 @@ class EditBand extends React.Component {
     }
 }
 
-export default EditBand;
+export default EditDJ;

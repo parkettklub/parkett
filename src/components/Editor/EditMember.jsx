@@ -1,85 +1,84 @@
 import React from 'react';
 import SelectableElement from './SelectableElement';
-import FormDJ from './FormDJ';
-import { fetchAll } from './FetchFunctions';
+import FormMember from './FormMember';
+import { fetchAll } from '../FetchFunctions';
 import Plus from './plus.svg';
 import styles from './Editor.module.css';
 
-class EditDJ extends React.Component {
+class EditMember extends React.Component {
     constructor() {
         super();
         this.state = {
-            djs: [],
+            members: [],
             selectedId: 0,
             selectedObject: null,
         };
     }
 
     componentDidMount() {
-        this.createDJ();
-        this.fetchDJs();
+        this.createMember();
+        this.fetchMembers();
     }
 
     editDJ = (id) => {
-        const { djs } = this.state;
-        const selected = djs.find(dj => dj.id === id);
+        const { members } = this.state;
+        const selected = members.find(memeber => memeber.id === id);
         this.setState({
             selectedId: id,
             selectedObject: (
-                <FormDJ
+                <FormMember
                     selectedObject={selected}
-                    fetchFunction={this.fetchDJs}
+                    fetchFunction={this.fetchMembers}
                 />
             ),
         });
     }
 
-    createDJ = () => {
+    createMember = () => {
         this.setState({
             selectedId: null,
             selectedObject: (
-                <FormDJ
+                <FormMember
                     selectedObject={{
                         id: -1,
                     }}
-                    fetchFunction={this.fetchDJs}
+                    fetchFunction={this.fetchMembers}
                 />),
         });
     }
 
-    fetchDJs = () => {
+    fetchMembers = () => {
         this.setState({
             selectedObject: null,
         });
-        fetchAll('djs').then((myJson) => {
-            this.setState({ djs: myJson });
+        fetchAll('members').then((myJson) => {
+            this.setState({ members: myJson });
         });
     }
 
 
     render() {
-        const { djs, selectedId, selectedObject } = this.state;
+        const { members, selectedId, selectedObject } = this.state;
         return (
             <div className={styles.center}>
                 <div className={styles.main}>
                     <div className={styles.list}>
                         <div
                             className={styles.selectable}
-                            onClick={this.createDJ}
+                            onClick={this.createMember}
                             onKeyDown={() => { }}
                             role="button"
                             tabIndex={0}
                         >
                             <img src={Plus} className={styles.addElement} alt="" />
-                            {'Új DJ'}
+                            {'Új Tag'}
                         </div>
-                        {djs.map(dj => (
+                        {members.map(member => (
                             <SelectableElement
-                                title={dj.name}
-                                onClick={() => this.editDJ(dj.id)}
-                                selected={dj.id === selectedId}
-                                start_date={dj.updated_at}
-                                key={dj.id}
+                                title={member.name}
+                                onClick={() => this.editDJ(member.id)}
+                                selected={member.id === selectedId}
+                                key={member.id}
                             />
                         ))}
                     </div>
@@ -92,4 +91,4 @@ class EditDJ extends React.Component {
     }
 }
 
-export default EditDJ;
+export default EditMember;

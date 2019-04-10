@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactCssTransitionGroup from 'react-addons-css-transition-group';
-import EditBand from '../components/EditBand';
+import EditBand from '../components/Editor/EditBand';
 import HeaderEdit from '../components/HeaderEdit';
 import styles from './Page.module.css';
 import { isLoggedIn } from '../utils/login';

@@ -1,7 +1,7 @@
 import React from 'react';
 import SelectableElement from './SelectableElement';
 import FormUser from './FormUser';
-import { fetchAll } from './FetchFunctions';
+import { fetchAll } from '../FetchFunctions';
 import styles from './Editor.module.css';
 
 const compare = (a, b) => {
