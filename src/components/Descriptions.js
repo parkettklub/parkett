@@ -72,20 +72,49 @@ export default {
         Ezeket szedtük csokorba az alábbiakban.`,
         tabs: [
             {
-                head: 'Tab01',
-                body: 'Tab szovege',
+                head: 'Kérés az urakhoz',
+                body: `A táncos közösségek akkor maradnak egészségesek, akkor fognak bővülni, színesedni, 
+                ha az odajárók mindegyike tud fejlődni, és jól tudja érzi magát az eseményeken. 
+                A parkett szélén "petrezselymet áruló" hölgyeket is ide kell érteni. 
+                (Valljuk be, nekünk is hamar elmenne a kedvünk, ha egy fárasztó hét végén táncolni indultunk, 
+                    és három-négy bulit végigácsorgunk, miközben látjuk, hogy mások végigtáncolják az estét.) 
+                    Ennek elkerülése végett szeretnénk megkérni Bennteket, Urakat, hogy fordítsatok figyelmet arra, 
+                    hogy egy este nem több, mint két-három számot olyan lánnyal táncoljatok, akivel még nem táncoltatok egyáltalán, 
+                    vagy régen táncoltatok. Ezzel örömet okoztok nekik, jobbá teszitek a lányok estéjét, így legközelebb is eljönnek, 
+                    és jobban fejlődnek, és bele tudnak kerülni a bulik vérkeringésébe a későbbiek folyamán. Előre is köszönjük a lányok nevében! ;)`,
             },
             {
-                head: 'Tab02',
-                body: 'Tab szovege',
+                head: 'Felkérés',
+                body: `Általában a férfiak kérik táncra a nőket, de egyes táncoknál, mint a west coast swing és ceroc, ez fordítva is elfogadott. 
+                Felkéréskor odamész a kiválasztott partnerhez, és felfelé fordított tenyérrel és 
+                egy rövid "Szabad (egy táncra)?" vagy "Táncolunk?" kérdéssel jelzed szándékodat.          
+                A felkérést nem szokás visszautasítani. Általában két válasz közül választhatsz: Igen. vagy Igen, de csak egyre. Persze itt is akad kivétel`,
             },
             {
-                head: 'Tab03',
-                body: 'Tab szovege',
+                head: 'Vezetés',
+                body: `A táncban a férfi vezeti a hölgyet, a nő reagál a vezetésre. Erre ne vállalkozzon a hölgy, mert az roppant kellemetlen. 
+                Normális esetben a párod jól vezet, ekkor neked "csak" követned kell, és kihasználni azokat a lehetőségeket, 
+                amiket ő nyit meg neked, hogy a tánctudásod megcsillanthasd. Sok úr viszont nem megfelelő minőségben vezet, 
+                amiből a türelmetlenebb és erőteljesebb hölgyek azt a következtetést vonták le, hogy akkor ezt majd ők intézik. 
+                Ne tegyétek, Lányok! Ha hosszabb távon akartok együtt táncolni, akkor hagyjátok a férfira a vezetést, 
+                mert egy: meg kell tanulnia valamikor, kettő: a férfiak nem szeretnek olyan nővel táncolni, aki nem hagyja magát vezetni.`,
             },
             {
-                head: 'Tab04',
-                body: 'Tab szovege',
+                head: 'Tánctudás és figurák',
+                body: `Nem tud mindenki tökéletesen táncolni. Ha kiderül, hogy partnerünk néha téveszt, 
+                nem szabad erre felhívni a figyelmét gúnyos vagy bántó megjegyzésekkel. Tegyünk úgy, mintha észre sem vettük volna, 
+                vagy mosolyogjunk rajta együtt. :) A lányoknak is időbe telik megtanulni a követést, az alkalmazkodást. 
+                Ráadásul minden egyes partnert meg kell szokni a tánc elején, mert minden úr máshogy vezet. 
+                Ezért érdemes minden tánc kezdetén alkalmazkodni mindkét félnek, egyszerűbb figurákkal egymásra hangolódni. 
+                Ha úgy érzed, hogy nem oldódott fel eléggé a partnered, akkor dicsérd meg, biztosan segíteni fog. ;)`,
+            },
+            {
+                head: 'Tánc után',
+                body: `Ha vége a számnak, akkor köszönjük meg egymásnak a táncot, majd az úr visszakíséri a hölgyet a társaságba, 
+                ahol „találta” vagy a parkett szélére. :) Előfordulhat, hogy nem sikerült úgy egy tánc, ahogy azt szerettétek volna, 
+                de mindannyian szórakozni jöttetek ezért őrizzétek meg jó kedveteket, és semmiféleképp se bíráljátok a partnert! 
+                Ha jót akarsz magadnak, akkor szükség esetén csak udvariasan kritizáld, és ne cikizd. De mindenképpen tanácsos a mértékletesség, 
+                mert ha meg "túldicséred" az igen könnyen a fejébe szállhat.`,
             },
         ],
     },
