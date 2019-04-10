@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactCssTransitionGroup from 'react-addons-css-transition-group';
 import { fetchAll } from './FetchFunctions';
-import MainPoster from './MainPoster';
 import styles from './MainEvent.module.css';
 import Event from './Event';
 
@@ -49,6 +48,7 @@ class MainEvents extends React.Component {
         this.state = {
             events: [],
             i: 0,
+            fetched: false,
         };
     }
 
@@ -97,14 +97,28 @@ class MainEvents extends React.Component {
         const { events } = this.state;
         const filteredEvents = filterEvents(newEvents, article);
         const allEvents = [...events, ...mapEvents(filteredEvents, char, onClick, article)];
-        this.setState({ events: sortEvents(allEvents) });
+        this.setState({ events: sortEvents(allEvents), fetched: true });
     }
 
     render() {
-        const { events, i } = this.state;
-        if (events.length < 1) return null;
+        const { events, fetched } = this.state;
+        if (!fetched) {
+            return (
+                <div className={styles.event}>
+                    <div className={styles.title}>Események betöltése...</div>
+                </div>
+            );
+        }
+        if (events.length < 1) {
+            return (
+                <div className={styles.event}>
+                    <div className={styles.title}>Ebben a félévben nem lesz több esemény</div>
+                </div>
+            );
+        }
         return (
             <div className={styles.event}>
+                <div className={styles.title}>Közelgő eseményeink:</div>
                 <ReactCssTransitionGroup
                     transitionName="fade"
                     transitionAppearTimeout={1000}

@@ -33,10 +33,7 @@ const HomePage = () => (
                 </div>
             </div>
         </div>
-        <div className={styles.title}>Közelgő eseményeink:</div>
-        <div className={styles.events}>
-            <MainEvents />
-        </div>
+        <MainEvents />
     </div>
 );
 
