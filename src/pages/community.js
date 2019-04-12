@@ -1,5 +1,4 @@
 import React from 'react';
-import '../components/Card.css';
 import Header from '../components/Header.jsx';
 import ReactCssTransitionGroup from 'react-addons-css-transition-group';
 import CommunityComponent from '../components/CommunityComponent';
