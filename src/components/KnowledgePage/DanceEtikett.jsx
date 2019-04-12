@@ -1,5 +1,5 @@
 import React from 'react';
-import texts from '../utils/Descriptions';
+import texts from '../../utils/Descriptions';
 import styles from './TipsAndTricks.module.css';
 
 class DanceEtikett extends React.Component {

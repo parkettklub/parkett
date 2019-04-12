@@ -5,7 +5,7 @@ import LocationAccess from './LocationAccess';
 import Attention from './Attention';
 import Services from './Services';
 import Dances from './Dances';
-import EditButton from './EditButton';
+import EditButton from '../EditButton';
 import styles from './Knowledge.module.css';
 import NewsFeed from './NewsFeed';
 

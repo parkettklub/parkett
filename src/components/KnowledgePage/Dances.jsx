@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { fetchAll } from '../utils/FetchFunctions';
+import { fetchAll } from '../../utils/FetchFunctions';
 import styles from './Dances.module.css';
-import Card from './Card';
+import Card from '../Card';
 
 const animationStyle = {
     transition: 'all 0.5s ease-out',
@@ -104,6 +104,6 @@ Dance.propTypes = {
 
 Dance.defaultProps = {
     selected: false,
-}
+};
 
 export default Dances;

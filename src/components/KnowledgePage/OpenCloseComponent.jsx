@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Card from './Card';
-import styles from './Card.module.css';
+import Card from '../Card';
+import styles from '../Card.module.css';
 
 class OpenCloseComponent extends React.Component {
     constructor() {
