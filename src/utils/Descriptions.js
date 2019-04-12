@@ -1,9 +1,9 @@
-import Dinner from '../components/communityPictures/Dinner.jpg';
-import Gourp02 from '../components/communityPictures/Group02.jpg';
-import Gourp01 from '../components/communityPictures/Group01.jpg';
-import Girls from '../components/communityPictures/Girls.jpg';
-import Hands from '../components/communityPictures/Hands.jpg';
-import Weintaste from '../components/communityPictures/Weintaste.jpg';
+import Dinner from './communityPictures/Dinner.jpg';
+import Gourp02 from './communityPictures/Group02.jpg';
+import Gourp01 from './communityPictures/Group01.jpg';
+import Girls from './communityPictures/Girls.jpg';
+import Hands from './communityPictures/Hands.jpg';
+import Weintaste from './communityPictures/Weintaste.jpg';
 
 export default {
     one: 'ONE',
