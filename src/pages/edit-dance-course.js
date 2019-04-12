@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactCssTransitionGroup from 'react-addons-css-transition-group';
-import EditDanceCourse from '../components/EditDanceCourse';
-import Header from '../components/HeaderEdit';
+import EditDanceCourse from '../components/Editor/EditDanceCourse';
+import Header from '../components/Header-Footer/HeaderEdit';
 import styles from './Page.module.css';
 import { isEditor } from '../utils/login';
 import './Animation.css';

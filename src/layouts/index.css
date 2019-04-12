@@ -8,7 +8,7 @@ body {
   margin: 0;
   height: 100vh;
   background-color: darkred;
-  background-image: url('../components/background.jpg');
+  background-image: url('../components/Header-Footer/background.jpg');
   background-position: center;
   background-size: cover;
   background-attachment: fixed;

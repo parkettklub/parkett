@@ -12,16 +12,16 @@ function editPage(location) {
 const EditButton = ({ link }) => {
     if (isEditor()) {
         return (
-        <button
-            className={styles.button}
-            onClick={() => editPage(link)}
-            onKeyDown={() => { }}
-            tabIndex={0}
-            type="button"
-        >
-            <img src={Edit} alt="" />
-        </button>
-    );
+            <button
+                className={styles.button}
+                onClick={() => editPage(link)}
+                onKeyDown={() => { }}
+                tabIndex={0}
+                type="button"
+            >
+                <img src={Edit} alt="" />
+            </button>
+        );
     }
     return null;
 };

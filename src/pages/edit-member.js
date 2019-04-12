@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactCssTransitionGroup from 'react-addons-css-transition-group';
-import EditMember from '../components/EditMember';
-import HeaderEdit from '../components/HeaderEdit';
+import EditMember from '../components/Editor/EditMember';
+import HeaderEdit from '../components/Header-Footer/HeaderEdit';
 import styles from './Page.module.css';
 import { isEditor } from '../utils/login';
 import './Animation.css';

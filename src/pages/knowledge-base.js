@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactCssTransitionGroup from 'react-addons-css-transition-group';
-import Header from '../components/Header';
-import KnowledgeBaseComponent from '../components/KnowledgeBaseComponent';
+import Header from '../components/Header-Footer/Header';
+import KnowledgeBaseComponent from '../components/KnowledgePage/KnowledgeBaseComponent';
 import styles from './Page.module.css';
 
 const KnowledgeBase = () => (
