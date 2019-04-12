@@ -4,10 +4,16 @@ import profDefault from './defaultProfile.jpg';
 import styles from './Member.module.css';
 
 function Member({
-    image, position, description, name,
+    image, position, description, name, onClick,
 }) {
     return (
-        <div className={styles.element}>
+        <div
+            className={styles.element}
+            onClick={onClick}
+            onKeyDown={() => { }}
+            tabIndex={0}
+            role="button"
+        >
             <img src={image ? image : profDefault} alt="" />
             <div className={styles.desc}>
                 <div>{position}</div>
@@ -26,6 +32,7 @@ Member.propTypes = {
     name: PropTypes.string,
     position: PropTypes.string,
     description: PropTypes.string,
+    onClick: PropTypes.func.isRequired,
 };
 
 Member.defaultProps = {
