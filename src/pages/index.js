@@ -1,6 +1,6 @@
 import ReactCssTransitionGroup from 'react-addons-css-transition-group';
 import React from 'react';
-import Header from '../components/Header';
+import Header from '../components/Header-Footer/Header';
 import styles from './Page.module.css';
 import HomePage from '../components/HomePage';
 import './Animation.css';

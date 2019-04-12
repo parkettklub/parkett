@@ -5,7 +5,7 @@ import Logo from './lines.svg';
 import styles from './Header.module.css';
 import ParkettLogo from './ParkettWithText.svg';
 import ListLink from './ListLink';
-import { isAdmin, isEditor } from '../utils/login';
+import { isAdmin, isEditor } from '../../utils/login';
 
 class HeaderEdit extends React.Component {
     constructor() {

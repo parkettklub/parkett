@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './Media.module.css';
-import { fetchAll } from '../utils/FetchFunctions';
+import { fetchAll } from '../../utils/FetchFunctions';
 import MediaAlbum from './MediaAlbum';
 import SpotIcon from './spotIcon.svg';
 import BssIcon from './video-camera.svg';

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './EventMedia.module.css';
-import MediaAlbum from '../MediaAlbum';
+import MediaAlbum from '../MediaPage/MediaAlbum';
 
 function EventMedia({
     photos, video, spot_cover, bss_cover,

@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactCssTransitionGroup from 'react-addons-css-transition-group';
 import EventList from '../components/Events/EventList';
-import Header from '../components/Header';
+import Header from '../components/Header-Footer/Header';
 import styles from './Page.module.css';
 
 const EventsPage = () => (

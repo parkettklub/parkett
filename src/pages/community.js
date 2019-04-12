@@ -1,5 +1,5 @@
 import React from 'react';
-import Header from '../components/Header.jsx';
+import Header from '../components/Header-Footer/Header';
 import ReactCssTransitionGroup from 'react-addons-css-transition-group';
 import CommunityComponent from '../components/CommunityPage/CommunityComponent';
 import styles from './Page.module.css';

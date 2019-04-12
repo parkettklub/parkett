@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactCssTransitionGroup from 'react-addons-css-transition-group';
 import styles from './Page.module.css';
-import Header from '../components/Header';
+import Header from '../components/Header-Footer/Header';
 import ProfileComponent from '../components/ProfileComponent';
 import { isLoggedIn } from '../utils/login';
 import './Animation.css';

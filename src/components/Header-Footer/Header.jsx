@@ -7,7 +7,7 @@ import styles from './Header.module.css';
 import ListLink from './ListLink';
 import {
   getLoginUrl, isLoggedIn, logOut, isEditor,
-} from '../utils/login';
+} from '../../utils/login';
 
 class Header extends React.Component {
   constructor() {
