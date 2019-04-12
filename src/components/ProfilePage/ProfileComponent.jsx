@@ -1,6 +1,6 @@
 import React from 'react';
-import { fetchMe } from '../utils/FetchFunctions';
-import { getRole } from '../utils/login';
+import { fetchMe } from '../../utils/FetchFunctions';
+import { getRole } from '../../utils/login';
 import styles from './Profile.module.css';
 
 class ProfileComponent extends React.Component {
