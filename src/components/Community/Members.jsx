@@ -2,7 +2,7 @@ import React from 'react';
 import Member from './Member';
 import AboutUs from './AboutUs';
 import LittleMember from './LittleMember';
-import { fetchAll } from '../utils/FetchFunctions';
+import { fetchAll } from '../../utils/FetchFunctions';
 import styles from './Community.module.css';
 
 class Members extends React.Component {

@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '../JoinUs.module.css';
+import styles from '../Community/JoinUs.module.css';
 
 function newsFeedSubscription() {
     window.location.href = 'http://eepurl.com/veA7v';

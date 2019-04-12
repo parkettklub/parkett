@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from '../components/Header.jsx';
 import ReactCssTransitionGroup from 'react-addons-css-transition-group';
-import CommunityComponent from '../components/CommunityComponent';
+import CommunityComponent from '../components/Community/CommunityComponent';
 import styles from './Page.module.css';
 
 const Community = () => (

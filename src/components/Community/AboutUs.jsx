@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './AboutUs.module.css';
-import texts from '../utils/Descriptions';
+import texts from '../../utils/Descriptions';
 
 const AboutUs = () => (
     <div className={styles.main}>
