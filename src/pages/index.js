@@ -2,7 +2,7 @@ import ReactCssTransitionGroup from 'react-addons-css-transition-group';
 import React from 'react';
 import Header from '../components/Header-Footer/Header';
 import styles from './Page.module.css';
-import HomePage from '../components/HomePage';
+import HomePage from '../components/HomePage/HomePage';
 import './Animation.css';
 
 const IndexPage = () => (

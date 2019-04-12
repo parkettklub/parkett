@@ -8,7 +8,7 @@
     font-family: 'Roboto', sans-serif;
     margin-bottom: 2rem;
     overflow: hidden;
-    background: linear-gradient( rgba(0, 0, 0, 0.7), rgba(100, 0, 0, 0.7) ), url('./community.jpg');
+    background: linear-gradient( rgba(0, 0, 0, 0.7), rgba(100, 0, 0, 0.7) ), url('../community.jpg');
     background-size: cover;
     background-position: center;
 }
