@@ -1,9 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './EventMedia.module.css';
-import MediaAlbum from './MediaAlbum';
+import MediaAlbum from '../MediaAlbum';
 
-function EventMedia({ photos, video, spot_cover, bss_cover }) {
+function EventMedia({
+    photos, video, spot_cover, bss_cover,
+}) {
     return (
         <div className={styles.main}>
             <MediaAlbum

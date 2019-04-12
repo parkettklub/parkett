@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { fetchAll } from '../utils/FetchFunctions';
+import { fetchAll } from '../../utils/FetchFunctions';
 import styles from './EventDetails.module.css';
 
 class DanceFigure extends React.Component {

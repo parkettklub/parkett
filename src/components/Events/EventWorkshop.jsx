@@ -2,8 +2,8 @@ import React from 'react';
 import EventWithPoster from './EventWithPoster';
 import EventDetailsWorkshop from './EventDetailsWorkshop';
 import EventWorkshopForm from './EventWorkshopForm';
-import { fetchAll } from '../utils/FetchFunctions';
-import EditButton from './EditButton';
+import { fetchAll } from '../../utils/FetchFunctions';
+import EditButton from '../EditButton';
 import styles from './Event.module.css';
 
 class EventWorkshop extends React.Component {

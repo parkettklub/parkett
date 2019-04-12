@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { fetchAll } from '../utils/FetchFunctions';
-import Card from './Card';
+import { fetchAll } from '../../utils/FetchFunctions';
 import styles from './EventForm.module.css';
 
 class EventWorkshopForm extends React.Component {

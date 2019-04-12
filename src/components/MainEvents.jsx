@@ -2,7 +2,7 @@ import React from 'react';
 import ReactCssTransitionGroup from 'react-addons-css-transition-group';
 import { fetchAll } from '../utils/FetchFunctions';
 import styles from './MainEvent.module.css';
-import Event from './Event';
+import Event from './Events/Event';
 
 
 function goToParty(id) {

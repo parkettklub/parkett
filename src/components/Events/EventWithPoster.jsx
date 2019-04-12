@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './EventPoster.module.css';
-import { dateToString } from '../utils/DateFunctions';
+import { dateToString } from '../../utils/DateFunctions';
 
 function EventWithPoster({
     content, photo, title, date,

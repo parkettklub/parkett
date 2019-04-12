@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactCssTransitionGroup from 'react-addons-css-transition-group';
-import EventArticle from '../components/EventArticle';
+import EventArticle from '../components/Events/EventArticle';
 import Header from '../components/Header';
 import styles from './Page.module.css';
 

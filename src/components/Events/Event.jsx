@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Card from './Card';
+import Card from '../Card';
 import styles from './EventList.module.css';
-import { fetchAll } from '../utils/FetchFunctions';
-import { dateToString } from '../utils/DateFunctions';
+import { fetchAll } from '../../utils/FetchFunctions';
+import { dateToString } from '../../utils/DateFunctions';
 
 class EventSummary extends React.Component {
     state = {};
@@ -12,7 +12,6 @@ class EventSummary extends React.Component {
         const { dance_course_id, dance_id } = this.props;
         if (dance_course_id) this.fetchDanceCourse(dance_course_id);
         if (dance_id) this.fetchDance(dance_id);
-
     }
 
     fetchDanceCourse = (id) => {
@@ -100,7 +99,6 @@ EventSummary.propTypes = {
     formlink: PropTypes.string,
     music: PropTypes.string,
     start_date: PropTypes.string.isRequired,
-    facebook_event: PropTypes.string,
     id: PropTypes.number.isRequired,
     onClick: PropTypes.func.isRequired,
     photo: PropTypes.string,
@@ -113,7 +111,6 @@ EventSummary.propTypes = {
 EventSummary.defaultProps = {
     formlink: '',
     music: '',
-    facebook_event: '',
     photo: '',
     title: '',
     old: false,

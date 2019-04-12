@@ -1,8 +1,8 @@
 import React from 'react';
 import EventWithPoster from './EventWithPoster';
-import { fetchAll } from '../utils/FetchFunctions';
+import { fetchAll } from '../../utils/FetchFunctions';
 import styles from './Article.module.css';
-import EditButton from './EditButton';
+import EditButton from '../EditButton';
 
 class EventArticle extends React.Component {
     state = {}

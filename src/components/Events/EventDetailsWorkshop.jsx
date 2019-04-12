@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import FacebookLogo from './facebook-app-logo.svg';
+import FacebookLogo from '../facebook-app-logo.svg';
 import DanceFigure from './DanceFigure';
 import styles from './EventDetails.module.css';
 

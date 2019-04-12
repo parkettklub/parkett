@@ -1,11 +1,10 @@
 import React from 'react';
 import ReactCssTransitionGroup from 'react-addons-css-transition-group';
-import EditButton from './EditButton';
-import { fetchAll } from '../utils/FetchFunctions';
-import { dateToString } from '../utils/DateFunctions';
+import EditButton from '../EditButton';
+import { fetchAll } from '../../utils/FetchFunctions';
+import { dateToString } from '../../utils/DateFunctions';
 import styles from './EventList.module.css';
 import EventSummary from './Event';
-import Edit from './pencil_white.svg';
 
 function goToParty(id) {
     window.location = `/event-party?${id}`;
@@ -208,7 +207,7 @@ class EventList extends React.Component {
                         />
                     ))}
                 </ReactCssTransitionGroup>
-            </div >
+            </div>
         );
     }
 }
