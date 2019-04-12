@@ -8,12 +8,14 @@
   bottom: 0;
   margin: auto;
   background-color: rgba(90, 19, 19, 0.795);
+  z-index: 4;
 }
 
 .popup_inner {
   width: max-content;
   margin: 0 auto;
-  margin-top: 13rem;
+  padding-top: 13rem;
+  padding-bottom: 5rem;
   display: grid;
   grid-template-columns: min-content max-content 1fr min-content;
   height: min-content;
@@ -50,13 +52,13 @@
 }
 
 button.step {
-  margin-top: 10rem;
+  margin-top: 8rem;
 }
 
 .details {
     padding: 1rem;
     width: 25rem;
-    background: #00000060;
+    background: #00000080;
 }
 
 .image {
@@ -94,11 +96,12 @@ button.step {
 @media only screen and (max-width: 60em)  {
     .popup {
         overflow: scroll;
+        margin: 0;
     }
 
     .popup_inner {
         grid-template-columns: 4rem auto 4rem;
-        margin-top: 8rem;
+        padding-top: 8rem;
         width: 100%;
         max-width: 25rem;
     }
@@ -115,18 +118,19 @@ button.step {
 
     .details {
         grid-row-start: 2;
-        grid-column-start: 1;
-        grid-column-end: 4;
+        grid-column-start: 2;
+        grid-column-end: 3;
         width: 100%;
     }
-
-    button.step {
-        margin-top:  0;
-    }
-    
 }
 
-@media only screen and (max-width: 25em)  {
+@media only screen and (max-width: 30em)  {
+
+    .image {
+        width: 0;
+        grid-row-start: 2;
+        height: 0;
+    }
 
     .name {
         font-size: 1rem;
@@ -138,5 +142,14 @@ button.step {
 
     .description {
         font-size: 0.8rem;
+    }
+
+    .details {
+        grid-row-start: 1;
+        grid-column-start: 2;
+        grid-column-end: 3;
+        width: 100%;
+        background: #040029;
+        border-radius: 5px;
     }
 }
