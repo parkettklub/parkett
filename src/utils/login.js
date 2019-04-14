@@ -105,7 +105,7 @@ export function logOut() {
 export const getAuthHeader = token => ['Authorization', `Bearer ${token}`];
 
 export function getLoginUrl() {
-    if (typeof window !== 'undefined' || window.location.href.includes('netlify')) {
+    if (typeof window === 'undefined' || (typeof window !== 'undefined') && (window.location.href.includes('netlify'))) {
         PARAMS = {
             client_id: '13936315458712517828',
             response_type: 'code',
