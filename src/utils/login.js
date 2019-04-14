@@ -115,5 +115,6 @@ export const getAuthHeader = token => ['Authorization', `Bearer ${token}`];
 
 export function getLoginUrl() {
     const searchParams = new URLSearchParams(PARAMS);
+    console.log(PARAMS.client_id);
     return `${AUTH_URL}?${searchParams.toString()}+displayName+sn+givenName+mail+eduPersonEntitlement+linkedAccounts`;
 }
