@@ -1,7 +1,7 @@
 const linkNetlify = 'https://parkett-klub-netlify.herokuapp.com/';
 const linkLocalhost = 'https://parkett-klub.herokuapp.com/';
 let link = linkLocalhost;
-if (window.location.href.includes('netlify')) link = linkNetlify;
+if (typeof window !== 'undefined' && window.location.href.includes('netlify')) link = linkNetlify;
 
 export function isLoggedIn() {
     if (typeof window !== 'undefined') {
