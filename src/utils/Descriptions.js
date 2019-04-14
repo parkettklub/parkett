@@ -22,7 +22,7 @@ const strings = new LocalizedStrings({
         path: '4-es villamos › Budafoki út 33, 86, 212-es busz › Október huszonharmadika utca',
         wayIn: 'A lépcsőn fel a porta mellett elhaladva bal oldalt (nem a forgó villákon keresztül)',
         tips: {
-            main: `Összegyűjtöttünk pár jótanácsot, melyeknek hasznát veheted, ha táncórára vagy táncos buliba készülsz. 
+            main: `ENG, melyeknek hasznát veheted, ha táncórára vagy táncos buliba készülsz. 
         Többek között leírtunk olyan tippeket, melyekkel elkerülheted, 
         hogy cikis helyzetbe kerülj, vagy hogy kényelmetlenül érezd magad és tönkremenjen az estéd egy táncos eseményen.`,
             tabs: [
@@ -83,7 +83,7 @@ const strings = new LocalizedStrings({
             ],
         },
         etikett: {
-            main: `FIGYELEM! EZEK A SZÖVEGEK MÉG NINCSENEK VÉGLEGESÍTVE! Minden társaságnak, helynek megvannak a maga normái, "szabályai", 
+            main: `ENG FIGYELEM! EZEK A SZÖVEGEK MÉG NINCSENEK VÉGLEGESÍTVE! Minden társaságnak, helynek megvannak a maga normái, "szabályai", 
         így a társastáncos közösségekben is vannak bizonyos illemszabályok, amelyeket érdemes betartani. 
         Ezeket szedtük csokorba az alábbiakban.`,
             tabs: [
@@ -137,17 +137,17 @@ const strings = new LocalizedStrings({
         smallThings: [
             {
                 photo: Dinner,
-                title: 'Vacsorák',
+                title: 'ENG',
                 descripiton: 'Bevonó vacsorákat is rendezünk, hogy az érdeklődők megismerkedhessenek a rendezőgárdával',
             },
             {
                 photo: Gourp02,
-                title: 'Csoportképek',
+                title: 'ENG',
                 descripiton: 'Minden félév végén egy közös csoportképpel örökítjük meg az adott félév rendezőinek csapatát',
             },
             {
                 photo: Gourp01,
-                title: 'Körtagok',
+                title: 'ENG',
                 descripiton: 'A kör tagjai különböző egyéniségek. Akik kiegészítve egymást egy összekovácsolódott csapatot alkotnak.',
             },
             {
