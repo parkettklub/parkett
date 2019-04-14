@@ -12,15 +12,6 @@ let PARAMS = {
     scope: 'basic',
 };
 
-if (typeof window !== 'undefined' && window.location.href.includes('netlify')) {
-    PARAMS = {
-        client_id: '13936315458712517828',
-        response_type: 'code',
-        grant_type: 'authorization_code',
-        scope: 'basic',
-    };
-}
-
 export function isLoggedIn() {
     if (typeof window !== 'undefined') {
         const last = localStorage.getItem('date');
@@ -114,7 +105,14 @@ export function logOut() {
 export const getAuthHeader = token => ['Authorization', `Bearer ${token}`];
 
 export function getLoginUrl() {
+    if (typeof window !== 'undefined' && window.location.href.includes('netlify')) {
+        PARAMS = {
+            client_id: '13936315458712517828',
+            response_type: 'code',
+            grant_type: 'authorization_code',
+            scope: 'basic',
+        };
+    }
     const searchParams = new URLSearchParams(PARAMS);
-    console.log(PARAMS.client_id);
     return `${AUTH_URL}?${searchParams.toString()}+displayName+sn+givenName+mail+eduPersonEntitlement+linkedAccounts`;
 }
