@@ -1,3 +1,8 @@
+const linkNetlify = 'https://parkett-klub-netlify.herokuapp.com/';
+const linkLocalhost = 'https://parkett-klub.herokuapp.com/';
+let link = linkLocalhost;
+if (window.location.href.includes('netlify')) link = linkNetlify;
+
 export function isLoggedIn() {
     if (typeof window !== 'undefined') {
         const last = localStorage.getItem('date');
@@ -36,7 +41,7 @@ export function getToken() {
 
 async function fetchMe() {
     if (isLoggedIn()) {
-        const response = await fetch('https://parkett-klub.herokuapp.com/users/me?token=' + getToken());
+        const response = await fetch(`${link}users/me?token=${getToken()}`);
         return response.json();
     }
     return { name: 'Példa Béla', role: 'főszerep', email: 'barb@ra.com' };
