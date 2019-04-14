@@ -3,6 +3,24 @@ const linkLocalhost = 'https://parkett-klub.herokuapp.com/';
 let link = linkLocalhost;
 if (typeof window !== 'undefined' && window.location.href.includes('netlify')) link = linkNetlify;
 
+const AUTH_URL = 'http://auth.sch.bme.hu/site/login/';
+
+let PARAMS = {
+    client_id: '74854237956044948092',
+    response_type: 'code',
+    grant_type: 'authorization_code',
+    scope: 'basic',
+};
+
+if (typeof window !== 'undefined' && window.location.href.includes('netlify')) {
+    PARAMS = {
+        client_id: '13936315458712517828',
+        response_type: 'code',
+        grant_type: 'authorization_code',
+        scope: 'basic',
+    };
+}
+
 export function isLoggedIn() {
     if (typeof window !== 'undefined') {
         const last = localStorage.getItem('date');
@@ -94,15 +112,6 @@ export function logOut() {
 }
 
 export const getAuthHeader = token => ['Authorization', `Bearer ${token}`];
-
-const AUTH_URL = 'http://auth.sch.bme.hu/site/login/';
-
-const PARAMS = {
-    client_id: '74854237956044948092',
-    response_type: 'code',
-    grant_type: 'authorization_code',
-    scope: 'basic',
-};
 
 export function getLoginUrl() {
     const searchParams = new URLSearchParams(PARAMS);
