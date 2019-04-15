@@ -1,12 +1,15 @@
 import strings from './Descriptions';
 
 export function getLanguage() {
-    let lang = localStorage.getItem('lang');
-    if (!lang) {
-        lang = strings.getInterfaceLanguage();
-        localStorage.setItem('lang', lang);
+    if (typeof window !== 'undefined') {
+        let lang = localStorage.getItem('lang');
+        if (!lang) {
+            lang = strings.getInterfaceLanguage();
+            localStorage.setItem('lang', lang);
+        }
+        return lang;
     }
-    return lang;
+    return strings.getInterfaceLanguage();
 }
 
 export function getLanguageName() {
@@ -21,16 +24,16 @@ export function getLanguageName() {
 }
 
 export function changeLanguage() {
-    let lang = localStorage.getItem('lang');
-    if (!lang) {
-        lang = strings.getInterfaceLanguage();
-    } else if (lang === 'en') {
-        lang = 'hu';
-    } else {
-        lang = 'en';
-    }
-    localStorage.setItem('lang', lang);
-    if (typeof location !== 'undefined') {
+    if (typeof window !== 'undefined') {
+        let lang = localStorage.getItem('lang');
+        if (!lang) {
+            lang = strings.getInterfaceLanguage();
+        } else if (lang === 'en') {
+            lang = 'hu';
+        } else {
+            lang = 'en';
+        }
+        localStorage.setItem('lang', lang);
         location.reload();
     }
 }
