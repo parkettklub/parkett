@@ -8,6 +8,8 @@ import ListLink from './ListLink';
 import {
   getLoginUrl, isLoggedIn, logOut, isEditor,
 } from '../../utils/login';
+import { getLanguage, changeLanguage, getLanguageName } from '../../utils/language';
+import strings from '../../utils/Descriptions';
 
 class Header extends React.Component {
   constructor() {
@@ -40,6 +42,7 @@ class Header extends React.Component {
     const {
       events, community, media, knowledgebase, profile,
     } = this.props;
+    strings.setLanguage(getLanguage());
     return (
       <header className={`${styles.main} ${styles.min} ${(open ? styles.open : '')}`}>
         <div className={styles.logo}>
@@ -76,6 +79,15 @@ class Header extends React.Component {
               )
               : <a className={`${styles.button} ${styles.loggedOut}`} href={getLoginUrl()}>Belépés</a>
             }
+            <span
+              className={`${styles.button} ${styles.lang}`}
+              onClick={changeLanguage}
+              role="button"
+              onKeyDown={() => { }}
+              tabIndex={0}
+            >
+              {getLanguageName()}
+            </span>
           </div>
           <div className={styles.links}>
             <ListLink to="/events/" active={events}>Események</ListLink>
