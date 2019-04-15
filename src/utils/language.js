@@ -9,6 +9,17 @@ export function getLanguage() {
     return lang;
 }
 
+export function getLanguageName() {
+    switch (getLanguage()) {
+        case 'en':
+            return 'English';
+        case 'hu':
+            return 'Magyar';
+        default:
+            return 'Nem definiálható';
+    }
+}
+
 export function changeLanguage() {
     let lang = localStorage.getItem('lang');
     if (!lang) {
@@ -19,5 +30,7 @@ export function changeLanguage() {
         lang = 'en';
     }
     localStorage.setItem('lang', lang);
-    location.reload();
+    if (typeof location !== 'undefined') {
+        location.reload();
+    }
 }
