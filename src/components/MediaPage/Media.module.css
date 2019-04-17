@@ -15,7 +15,7 @@
 
 .albumName {
     position: relative;
-    top: -5rem;
+    top: -6rem;
     background: #000000A0;
     padding: 1em;
     font-size: 0.8em;
@@ -52,6 +52,16 @@
     border-radius: 15px;
     box-shadow: 4px 4px 4px rgba(0, 0, 0, .3);
 }
+@media only screen and (min-width: 70em)  {
+    .link {
+        width: 17rem;
+        height: 12rem;
+    }
+
+    .albumName {
+        width: 17rem;
+    }
+}
 
 .link img {
     height: 100%;
@@ -69,7 +79,8 @@
     
     .link {
         width: 100%;
-        max-width: 14rem;
+        max-width: 17rem;
+        max-height: 12rem;
     }
     
     .albumName {
