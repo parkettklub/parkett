@@ -32,9 +32,9 @@
 }
 
 .grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    grid-gap: 0.5em;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
 }
 
 .spot {
@@ -61,26 +61,15 @@
     object-position: top;
 }
 
-@media only screen and (max-width: 80em)  {
-    .center {
-        max-width: 50em;
-    }
-    .grid {
-        grid-template-columns: 1fr 1fr 1fr;
-    }
-}
-
 
 @media only screen and (max-width: 50em)  {
     .center {
         max-width: unset;
     }
-    .grid {
-        grid-template-columns: 1fr 1fr;
-    }
     
     .link {
         width: 100%;
+        max-width: 14rem;
     }
     
     .albumName {
