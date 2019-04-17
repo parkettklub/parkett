@@ -50,11 +50,11 @@
     display: inline;
 }
 
-.formgroup > label {
+.formgroup > label, .formgroup > .label {
     padding: 0.5em;
 }
 
-.input {
+.formgroup .input {
     width: 100%;
     padding: 0.5em;
     box-shadow: 4px 4px 4px rgba(0, 0, 0, .3);

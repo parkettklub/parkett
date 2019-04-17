@@ -74,7 +74,7 @@ class InputPicure extends React.Component {
         return (
             <div>
                 <div className={styles.formgroup} hidden={selectedForm !== form}>
-                    <strong>Kép:</strong>
+                    <div className={styles.label}><strong>Kép:</strong></div>
                     <div className={styles.formgroup}>
                         <button onClick={this.deletePicture} type="button">Törlés</button>
                         <input type="file" onChange={this.fileSelectedHandler} />
