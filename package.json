@@ -19,6 +19,7 @@
     "react-addons-css-transition-group": "^15.6.2",
     "react-dom": "^16.6.3",
     "react-helmet": "^5.2.0",
+    "react-localization": "^1.0.13",
     "react-typography": "^0.16.13",
     "typography": "^0.16.17",
     "typography-theme-fairy-gates": "^0.15.11",

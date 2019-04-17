@@ -1,3 +1,17 @@
+const linkNetlify = 'https://parkett-klub-netlify.herokuapp.com/';
+const linkLocalhost = 'https://parkett-klub.herokuapp.com/';
+let link = linkLocalhost;
+if (typeof window !== 'undefined' && window.location.href.includes('netlify')) link = linkNetlify;
+
+const AUTH_URL = 'http://auth.sch.bme.hu/site/login/';
+
+let PARAMS = {
+    client_id: '74854237956044948092',
+    response_type: 'code',
+    grant_type: 'authorization_code',
+    scope: 'basic',
+};
+
 export function isLoggedIn() {
     if (typeof window !== 'undefined') {
         const last = localStorage.getItem('date');
@@ -36,7 +50,7 @@ export function getToken() {
 
 async function fetchMe() {
     if (isLoggedIn()) {
-        const response = await fetch('https://parkett-klub.herokuapp.com/users/me?token=' + getToken());
+        const response = await fetch(`${link}users/me?token=${getToken()}`);
         return response.json();
     }
     return { name: 'Példa Béla', role: 'főszerep', email: 'barb@ra.com' };
@@ -90,16 +104,15 @@ export function logOut() {
 
 export const getAuthHeader = token => ['Authorization', `Bearer ${token}`];
 
-const AUTH_URL = 'http://auth.sch.bme.hu/site/login/';
-
-const PARAMS = {
-    client_id: '74854237956044948092',
-    response_type: 'code',
-    grant_type: 'authorization_code',
-    scope: 'basic',
-};
-
 export function getLoginUrl() {
+    if (typeof window === 'undefined' || (typeof window !== 'undefined') && (window.location.href.includes('netlify'))) {
+        PARAMS = {
+            client_id: '13936315458712517828',
+            response_type: 'code',
+            grant_type: 'authorization_code',
+            scope: 'basic',
+        };
+    }
     const searchParams = new URLSearchParams(PARAMS);
     return `${AUTH_URL}?${searchParams.toString()}+displayName+sn+givenName+mail+eduPersonEntitlement+linkedAccounts`;
 }

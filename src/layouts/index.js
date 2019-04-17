@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
-import Footer from '../components/Footer';
+import Footer from '../components/Header-Footer/Footer';
 import './index.css';
 import 'normalize.css';
 import 'url-polyfill';
