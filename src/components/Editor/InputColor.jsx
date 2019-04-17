@@ -1,4 +1,5 @@
 import React from 'react';
+import { SketchPicker } from 'react-color';
 import PropTypes from 'prop-types';
 import styles from './Form.module.css';
 
@@ -7,18 +8,15 @@ function InputColor({
 }) {
     return (
         <div className={styles.formgroup} hidden={selectedForm !== form}>
-            <label htmlFor={name}>
+            <div>
                 <strong>{label}</strong>
-                <input
+                <SketchPicker
                     id={name}
-                    name={name}
-                    type="color"
-                    className={styles.input}
-                    value={value}
-                    onChange={handleChange}
+                    color={value}
+                    onChangeComplete={color => handleChange({ target: { name, value: color.hex } })}
                 />
                 <div className={styles.helper}>{example}</div>
-            </label>
+            </div>
         </div>
     );
 }
