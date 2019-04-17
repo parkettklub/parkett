@@ -69,30 +69,32 @@ function Dance({ dance, selected, click }) {
         color += 'F0';
     }
     return (
-        <Card>
-            <div
-                className={`${styles.dance} ${selected ? styles.open : ''}`}
-                style={
-                    {
-                        backgroundColor: color,
-                        ...animationStyle,
+        <div className={styles.danceContainer}>
+            <Card>
+                <div
+                    className={`${styles.dance} ${selected ? styles.open : ''}`}
+                    style={
+                        {
+                            backgroundColor: color,
+                            ...animationStyle,
+                        }
                     }
-                }
-                onClick={() => click(id)}
-                key="card"
-                role="button"
-                onKeyDown={() => { }}
-                tabIndex={0}
-            >
-                <div><img src={image} alt="" /></div>
-                <div className={styles.title}>
-                    <strong>
-                        {name.charAt(0).toUpperCase() + name.slice(1)}
-                    </strong>
+                    onClick={() => click(id)}
+                    key="card"
+                    role="button"
+                    onKeyDown={() => { }}
+                    tabIndex={0}
+                >
+                    <div><img src={image} alt="" /></div>
+                    <div className={styles.title}>
+                        <strong>
+                            {name.charAt(0).toUpperCase() + name.slice(1)}
+                        </strong>
+                    </div>
+                    <div className={styles.descritpion}>{content}</div>
                 </div>
-                <div className={styles.descritpion}>{content}</div>
-            </div>
-        </Card>
+            </Card>
+        </div>
     );
 }
 
