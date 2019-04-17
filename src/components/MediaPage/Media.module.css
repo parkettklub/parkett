@@ -23,6 +23,14 @@
     margin: 0 auto;
 }
 
+.albumName a {
+    color: white;
+}
+
+.albumName:hover {
+    opacity: 0.6;
+}
+
 .grid {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
@@ -51,10 +59,6 @@
     object-fit: cover;
     max-width: initial;
     object-position: top;
-}
-
-.link img:hover {
-    opacity: 0.5;
 }
 
 @media only screen and (max-width: 80em)  {
