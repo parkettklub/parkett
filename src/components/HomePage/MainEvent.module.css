@@ -6,14 +6,17 @@
 }
 
 .event .events {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 1rem;
+    display: flex;
+    justify-content: space-around;
 }
 
 .event span > .events > div {
     width: 100%;
+    max-width: 550px;
     margin: 0;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
 }
 
 .event span > div > article {
@@ -23,10 +26,15 @@
     margin-right: auto;
 }
 
-@media only screen and (max-width: 500px)  {
+@media only screen and (max-width: 650px)  {
 
-.event .events {
-    display: grid;
-    grid-template-columns: 1fr;
-}
+    .event .events {
+        display: block;
+    }
+
+    .event span > .events > div {
+        margin: 0;
+        margin-bottom: 1rem;
+        max-width: unset;
+    }
 }
