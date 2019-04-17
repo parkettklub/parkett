@@ -5,6 +5,41 @@ import { fetchAll } from '../../utils/FetchFunctions';
 import Plus from './plus.svg';
 import styles from './Editor.module.css';
 
+const abc = (a, b) => a.name.localeCompare(b.name);
+
+const roles = (a, b) => {
+    let aPoint = 10;
+    switch (a.position) {
+        case 'öregtag':
+            aPoint = 0;
+            break;
+        case 'újonc':
+            aPoint = 1;
+            break;
+        case 'tag':
+            aPoint = 2;
+            break;
+        default:
+            aPoint = 10; // vezetoseg
+    }
+    let bPoint = 10;
+    switch (b.position) {
+        case 'öregtag':
+            bPoint = 0;
+            break;
+        case 'újonc':
+            bPoint = 1;
+            break;
+        case 'tag':
+            bPoint = 2;
+            break;
+        default:
+            bPoint = 10; // vezetoseg
+    }
+    if (aPoint < bPoint) return 1;
+    return aPoint > bPoint ? -1 : 0;
+};
+
 class EditMember extends React.Component {
     constructor() {
         super();
@@ -59,6 +94,7 @@ class EditMember extends React.Component {
 
     render() {
         const { members, selectedId, selectedObject } = this.state;
+        members.sort(abc).sort(roles);
         return (
             <div className={styles.center}>
                 <div className={styles.main}>
