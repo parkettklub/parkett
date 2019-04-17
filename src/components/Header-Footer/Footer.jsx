@@ -8,7 +8,7 @@ function Footer() {
         <footer className={styles.main}>
             <div className={styles.content}>
                 <div className={styles.left}>
-                    <div><strong>A honlapot készítette: </strong></div>
+                    <div className={styles.title}><strong>A honlapot készítette </strong></div>
                     <div>
                         <strong>backend: </strong>
                         <a href="http://kir-dev.sch.bme.hu/" target="_blank" rel="noopener noreferrer">Kir-Dev</a>
@@ -19,12 +19,12 @@ function Footer() {
                     </div>
                 </div>
                 <div className={styles.center}>
-                    <div><strong>Helyszín </strong></div>
+                    <div className={styles.title}><strong>Helyszín </strong></div>
                     <div>Schönherz Kollégium,</div>
                     <div>1117 Budapest, Irinyi József utca 42. </div>
                 </div>
                 <div className={styles.right}>
-                    <div><strong>Email cím: </strong></div>
+                    <div className={styles.title}><strong>Email cím </strong></div>
                     <div>parkettklub AT sch.bme.hu</div>
                     <div>
                         <a href="https://www.instagram.com/parkettklub/" target="_blank" rel="noopener noreferrer">
