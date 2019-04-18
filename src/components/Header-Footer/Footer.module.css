@@ -12,21 +12,27 @@
 
 .left {
     text-align: left;
+    line-height: 1.5rem;
 }
 
 .center {
     text-align: center;
+    line-height: 1.5rem;
+}
 
+.title {
+    font-size: 1.2rem;
 }
 
 .right {
     text-align: right;
-
+    line-height: 1.5rem;
 }
 
 .image {
-    height: 25px;
-    margin: 10px;
+    height: 1rem;
+    margin: 0;
+    margin-left: 10px;
     color: #ffffff;
 }
 
@@ -64,14 +70,29 @@
 
    .left {
        text-align: center;
+       line-height: 1.2rem;
    }
 
    .right {
        text-align: center;
+       line-height: 1.2rem;
    }
 
    .right a {
        margin-right: 50px;
        margin-left: 50px;
+   }
+
+   .center {
+       line-height: 1.2rem;
+   }
+
+   .title {
+       font-size: 1.1rem;
+   }
+
+   .image {
+       padding-top: 1rem;
+        height: 3rem;
    }
 }

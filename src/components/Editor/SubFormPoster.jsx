@@ -6,10 +6,15 @@ import InputPicture from './InputPicture';
 const SubFormPoster = ({
     selectedForm, form, photo, handleChange,
 }) => (
-        <div>
-            <div className={styles.formgroup} hidden={selectedForm !== form}>
-                <InputPicture name="photo" inputObj={{ photo }} selectedForm={selectedForm} form={form} handleChange={handleChange} />
-            </div>
+        <div className={styles.formgroup} hidden={selectedForm !== form}>
+            <InputPicture
+                name="photo"
+                inputObj={{ photo }}
+                selectedForm={selectedForm}
+                form={form}
+                handleChange={handleChange}
+                label="Poszter"
+            />
         </div>
     );
 

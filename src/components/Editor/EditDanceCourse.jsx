@@ -26,10 +26,10 @@ class EditDanceCourse extends React.Component {
 
     getDanceCourseName = (id, dance_id) => {
         const { dance_teachers, dances } = this.state;
-        if (!dance_teachers || !dances) return 'loading...';
+        if (!dance_teachers || !dances) return 'betöltés...';
         const dance_teacher = dance_teachers.find(teacher => teacher.id === id);
         const danceObj = dances.find(dance => dance.id === dance_id);
-        return (dance_teacher && danceObj) ? `${dance_teacher.name} ${danceObj.name}` : 'undefined';
+        return (dance_teacher && danceObj) ? `${dance_teacher.name} ${danceObj.name}` : 'nem definiált';
     }
 
     createDanceCourse = () => {
@@ -43,7 +43,7 @@ class EditDanceCourse extends React.Component {
         });
     }
 
-    fetchDanceCourses =() => {
+    fetchDanceCourses = () => {
         this.setState({
             selectedObject: null,
         });

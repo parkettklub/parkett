@@ -46,19 +46,23 @@ export async function fetchPost(type, element) {
 }
 
 export async function fetchDelete(type, id) {
-    try {
-        const response = await fetch(`${link}${type}/${id}`, {
-            method: 'DELETE',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-        });
-        alert(`(${id}. ${type} is Deleted`);
-        return response;
-    } catch (error) {
-        alert('Probléma lépett fel az adatbázissal való kommunikációval');
-        return {};
+    const r = confirm(`Do you want to delete : (${id}. ${type} ?`);
+    if (r) {
+        try {
+            const response = await fetch(`${link}${type}/${id}`, {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            });
+            alert(`(${id}. ${type} is Deleted`);
+            return response;
+        } catch (error) {
+            alert('Probléma lépett fel az adatbázissal való kommunikációval');
+            return {};
+        }
     }
+    return {};
 }
 
 export async function fetchPut(type, element) {

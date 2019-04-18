@@ -44,8 +44,8 @@ class Header extends React.Component {
     } = this.props;
     strings.setLanguage(getLanguage());
     return (
-      <header className={`${styles.main} ${styles.min} ${(open ? styles.open : '')}`}>
-        <div className={styles.logo}>
+      <header className={`${styles.main} ${(open ? styles.open : '')}`}>
+        <div className={styles.logoAndStrikes}>
           <Link to="/" style={{ textShadow: 'none', backgroundImage: 'none' }}>
             <img className={styles.mainLogo} src={ParkettLogo} alt="" />
           </Link>
@@ -61,10 +61,15 @@ class Header extends React.Component {
         </div>
         <div className={styles.right}>
           <div className={styles.login}>
-            {isEditor()
-              ? <ListLink to="/edit-band/">Szerkesztés</ListLink>
-              : null
-            }
+            <span
+              className={`${styles.button} ${styles.lang}`}
+              onClick={changeLanguage}
+              role="button"
+              onKeyDown={() => { }}
+              tabIndex={0}
+            >
+              {getLanguageName()}
+            </span>
             {loggedIn
               ? (
                 <span
@@ -79,15 +84,6 @@ class Header extends React.Component {
               )
               : <a className={`${styles.button} ${styles.loggedOut}`} href={getLoginUrl()}>Belépés</a>
             }
-            <span
-              className={`${styles.button} ${styles.lang}`}
-              onClick={changeLanguage}
-              role="button"
-              onKeyDown={() => { }}
-              tabIndex={0}
-            >
-              {getLanguageName()}
-            </span>
           </div>
           <div className={styles.links}>
             <ListLink to="/events/" active={events}>Események</ListLink>
@@ -95,6 +91,10 @@ class Header extends React.Component {
             <ListLink to="/media/" active={media}>Galéria</ListLink>
             <ListLink to="/knowledge-base/" active={knowledgebase}>Tudnivalók</ListLink>
             <ListLink to="/profile/" active={profile} hidden={!loggedIn}>Profilom</ListLink>
+            {isEditor()
+              ? <ListLink to="/edit-band/">Szerkesztés</ListLink>
+              : null
+            }
           </div>
         </div>
       </header>

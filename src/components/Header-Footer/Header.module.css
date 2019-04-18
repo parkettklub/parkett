@@ -15,53 +15,31 @@
   display: grid;
   grid-template-columns: auto max-content;
   overflow: hidden;
-  height: 7rem;
+  height: 7em;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, .1);
 }
 
-.main.max { 
-  height: 17rem;
-  grid-template-columns: auto
+img.mainLogo {
+  height: 5em;
+  margin : 0;
 }
 
-.main .link {
-  color: white;
-  font-family: 'Roboto', sans-serif;
-  font-weight: bolder;
-  cursor: pointer
-}
-
-.mainLogo {
-  height: 4em;
-}
-
-.main.max .mainLogo {
-  height: 10rem;
-}
-
-.main.max .sideLogo {
-  height: 7.5rem;
-}
-.main.max .sideLogo2 {
-  height: 7.5rem;
-  margin-bottom: 40px;
-}
-
-.main.max > div {
-  width: max-content;
-  margin: 0 auto;
-  margin-bottom: 20px;
-}
-
-.main > div > div a {
+.main a {
   text-decoration: none;
+  color: white;
 }
 
 .main .right .login {
-  padding: 1rem;
   width: max-content;
   margin-left:auto; 
   margin-right:0;
+  margin-bottom: 1em;
+}
+
+
+.main.editor .right .login {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
 .login > * {
@@ -71,47 +49,46 @@
   margin-left: 2rem ;
 }
 
-.main .links > div {
+.main .right .links > div {
   display: inline-block;
-  margin-right: 1rem ;
-  margin-left: 1rem ;
-  margin-bottom: 20px;
+  margin-left: 2rem ;
+  margin-bottom: 10px;
 }
 
-.main .links > div:hover {
+.main .right .links > div:hover {
   border-bottom: 2px solid #ffffff;
   padding-bottom: 5px;
-  margin-bottom: 13px;
+  margin-bottom: 3px;
 }
 
-.main .links > div.active {
-
+.main .right .links > div.active {
   border-bottom: 2px solid #ffffff;
   padding-bottom: 5px;
-  margin-bottom: 13px;
+  margin-bottom: 3px;
 }
 
-.main .links > div.hide {
+.main .right .links > div.hide {
   display: none;
 }
 
-.logo {
+.logoAndStrikes {
   display: grid;
   grid-template-columns: auto max-content;
 }
-.logo a {
+
+.logoAndStrikes a {
   width: max-content;
 }
 
-.logo > div.more > img {
+.logoAndStrikes > div.more > img {
   height: 0rem;
 }
 
-div.more:focus {
+.logoAndStrikes > div.more:focus {
   outline: 0;
 }
 
-div.more:hover {
+.logoAndStrikes > div.more:hover {
   opacity: 0.5;
 }
 
@@ -128,10 +105,6 @@ div.more:hover {
   box-shadow: 0px 4px 4px rgba(0, 0, 0, .1);
 }
 
-.button.lang {
-  background: cadetblue;
-}
-
 .button.loggedOut {
   background: #007c13;
 }
@@ -143,43 +116,41 @@ div.more:hover {
 }
 
 @media only screen and (max-width: 950px)  {
+  img.mainLogo {
+    height: 3.5rem;
+    padding-bottom: 0.5rem;
+  }
+
   .main {
-    grid-template-columns: auto;
-    height: 6rem;
+    display: block;
+    height: 4.5rem;
   }
 
   .main.max {
     overflow: hidden;
   }
 
-  .logo > div.more > img {
+  .logoAndStrikes > div.more > img {
     height: 2rem;
     margin: 0.5rem;
   }
 
-  .main.max .mainLogo {
-    height: 6em;
-  }
-
-  .main.max .sideLogo {
-    height: 0px;
-  }
-
-  .main.max .sideLogo2 {
-    height: 0px;
-  }
-  .main.min .links {
+  .main .links {
     display: grid;
     grid-template-columns: auto;
-  }
-
-  .main.max .links {
-    display: grid;
-    text-align: center;
-    grid-template-columns: 1fr 1fr;
+    grid-gap: 1rem;
   }
 
   .main.open {
-    height: 24rem;
+    height: 25rem;
+  }
+
+  .main.editor.open {
+    font-size: 0.9rem;
+    height: 32rem;
+  }
+
+  .main .right .links > div {
+    margin: 5px;
   }
 }

@@ -11,13 +11,13 @@ function MediaAlbum({
     return (
         <div className={styles.spot}>
             <div className={styles.link}>
-                <a href={link} target="_blank" rel="noopener noreferrer">
-                    <img src={src ? src : icon} alt="" />
-                </a>
+                <img src={src ? src : icon} alt="" />
             </div>
             <div className={styles.albumName}>
-                <div className={styles.name}>{name}</div>
-                <div className={styles.date}>{dateStr}</div>
+                <a href={link} target="_blank" rel="noopener noreferrer">
+                    <div className={styles.name}>{name}</div>
+                    <div className={styles.date}>{dateStr}</div>
+                </a>
             </div>
         </div>
     );
