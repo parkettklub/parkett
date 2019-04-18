@@ -69,7 +69,7 @@ class FormDanceType extends React.Component {
             <div className={styles.main}>
                 <DeleteButton id={id} type="dance_types" fetchFunction={fetchFunction} />
                 <div className={styles.formgroup} hidden={selected !== title}>
-                    {isNew ? 'Új Dance type adatai:' : 'Dance type adatai:'}
+                    {isNew ? 'Új Tánc típus adatai:' : 'Tánc típus adatai:'}
                     <InputFormSimple
                         selected={selected}
                         title={title}
@@ -86,6 +86,7 @@ class FormDanceType extends React.Component {
                             inputObj={{ image }}
                             handleChange={this.handleChange}
                             inLine
+                            label="Ikon"
                         />
                         <InputColor
                             selected={selected}
@@ -94,23 +95,21 @@ class FormDanceType extends React.Component {
                             value={color}
                             name="color"
                             example="#FFFFFF"
-                            label="Szín"
+                            label="Háttérszín"
                             inLine
                         />
                     </div>
                     <div className={styles.formgroup}>
-                        <label>
-                            <strong>Preview</strong>
-                            <div
-                                className={styles.preview}
-                                style={{
-                                    background: color,
-                                }}
-                            >
-                                <img src={image} alt="" />
-                                <div>This is an example text</div>
-                            </div>
-                        </label>
+                        <div className={styles.label}><strong>Előnézet</strong></div>
+                        <div
+                            className={styles.preview}
+                            style={{
+                                background: color,
+                            }}
+                        >
+                            <img src={image} alt="" />
+                            <div>Ez egy példa szöveg</div>
+                        </div>
                     </div>
                     <div className={styles.formgroup}>
                         <button
@@ -118,7 +117,7 @@ class FormDanceType extends React.Component {
                             type="submit"
                             className={styles.submit}
                         >
-                            {isNew ? 'Dance type hozzáadása' : 'Dance type módosítása'}
+                            {isNew ? 'Tánc típus hozzáadása' : 'Tánc típus módosítása'}
                         </button>
                     </div>
                 </div>

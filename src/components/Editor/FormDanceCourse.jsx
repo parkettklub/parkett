@@ -117,9 +117,34 @@ class FormDanceCourse extends React.Component {
                         selected={selected}
                         title={title}
                         handleChange={this.handleChange}
+                        value={dance_teacher_id}
+                        name="dance_teacher_id"
+                        label="Tanár"
+                        options={dance_teachers.map(teacher => (
+                            <option value={teacher.id} key={teacher.id}>
+                                {teacher.id}
+                                {' – '}
+                                {teacher.name}
+                            </option>
+                        ))}
+                        addNew={() => this.addNewElement('teacher')}
+                        close={() => this.close()}
+                    />
+                    <FormTeacher
+                        selected={addSelected}
+                        title="teacher"
+                        selectedObject={{
+                            id: -1,
+                        }}
+                        fetchFunction={this.fetchDanceTeachers}
+                    />
+                    <InputFormSelect
+                        selected={selected}
+                        title={title}
+                        handleChange={this.handleChange}
                         value={dance_id}
                         name="dance_id"
-                        label="Dance"
+                        label="Tánc"
                         options={dances.map(dance => (
                             <option value={dance.id} key={dance.id}>
                                 {dance.id}
@@ -145,7 +170,7 @@ class FormDanceCourse extends React.Component {
                         value={level}
                         name="level"
                         example="kezdő"
-                        label="Level"
+                        label="Szint"
                     />
                     <InputFormSimple
                         selected={selected}
@@ -154,32 +179,7 @@ class FormDanceCourse extends React.Component {
                         value={length}
                         name="length"
                         example="1 óra"
-                        label="Length"
-                    />
-                    <InputFormSelect
-                        selected={selected}
-                        title={title}
-                        handleChange={this.handleChange}
-                        value={dance_teacher_id}
-                        name="dance_teacher_id"
-                        label="Teacher"
-                        options={dance_teachers.map(teacher => (
-                            <option value={teacher.id} key={teacher.id}>
-                                {teacher.id}
-                                {' – '}
-                                {teacher.name}
-                            </option>
-                        ))}
-                        addNew={() => this.addNewElement('teacher')}
-                        close={() => this.close()}
-                    />
-                    <FormTeacher
-                        selected={addSelected}
-                        title="teacher"
-                        selectedObject={{
-                            id: -1,
-                        }}
-                        fetchFunction={this.fetchDanceTeachers}
+                        label="Hossz"
                     />
                     <div className={styles.formgroup}>
                         <button

@@ -25,13 +25,13 @@ class SubFormWorkshop extends React.Component {
 
     fetchDanceTeachers = () => {
         fetchAll('dance_teachers').then((myJson) => {
-        this.setState({ teachers: myJson });
+            this.setState({ teachers: myJson });
         });
     }
 
     fetchDances = () => {
         fetchAll('dances').then((myJson) => {
-        this.setState({ dances: myJson });
+            this.setState({ dances: myJson });
         });
     }
 
@@ -116,7 +116,7 @@ class SubFormWorkshop extends React.Component {
                     handleChange={handleChange}
                     value={party_id}
                     name="party_id"
-                    label="Party"
+                    label="Kapcsolódó Party"
                     options={parties.map(party => (
                         <option value={party.id} key={party.id}>
                             {party.id}
