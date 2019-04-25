@@ -1,0 +1,46 @@
+.main {
+    width: max-content;
+    margin: 0 auto;
+}
+
+.main > div {
+  padding: 0.5rem;
+}
+
+.main table {
+    display: block;
+    margin: 0 auto;
+    width: max-content;
+}
+
+.main table, .main th, .main td {
+  border: 5px solid #00000000;
+}
+
+.main th {
+}
+
+.main table th {
+    padding: 0;
+}
+
+.main table th div {
+    padding: 1.5rem;
+    border: 0;
+}
+
+.main .angel {
+    background: rgb(251, 255, 4);
+    border-radius: 5px;
+  box-shadow: 4px 4px 4px #00000060;
+}
+
+.main .clean {
+    background: rgba(0, 0, 0, 0.11);
+}
+
+.main .devil {
+    background: rgb(255, 255, 255);
+    border-radius: 5px;
+  box-shadow: 4px 4px 4px #00000060;
+}
