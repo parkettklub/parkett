@@ -17,7 +17,7 @@
   padding-top: 13rem;
   padding-bottom: 5rem;
   display: grid;
-  grid-template-columns: min-content max-content 1fr min-content;
+  grid-template-columns: max-content max-content 1fr max-content;
   height: min-content;
   overflow: hidden;
   border-radius: 10px;
@@ -39,20 +39,38 @@
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
   border: 0;
-  background: #606060;
+  background: #ac0000;
   color: white;
   box-shadow: 4px 4px 4px #00000060;
   margin-left: 1rem;
   margin-right: 1rem;
   border-radius: 5px;
+  cursor: pointer;
+}
+
+button.close {
+    float: right;
+    margin-right: 0;
+}
+
+.popup_inner button:hover {
+    opacity: 0.6;
 }
 
 .popup_inner button:focus {
   outline: 0;
 }
 
-button.step {
+.popup_inner button.step {
   margin-top: 8rem;
+  background: #00000000;
+  box-shadow: unset;
+}
+
+button.step > img {
+    height: 2rem;
+    width: 2rem;
+    margin: 0;
 }
 
 .details {
@@ -91,6 +109,7 @@ button.step {
 
 .description {
     padding: 1rem;
+    text-align: justify;
 }
 
 @media only screen and (max-width: 60em)  {
@@ -104,6 +123,12 @@ button.step {
         padding-top: 8rem;
         width: 100%;
         max-width: 25rem;
+    }
+
+    .popup_inner button.step {
+        margin-left: 0;
+        margin-right: 0;
+        width: 4rem;
     }
 
     .image {
@@ -122,6 +147,8 @@ button.step {
         grid-column-end: 3;
         width: 100%;
     }
+
+    
 }
 
 @media only screen and (max-width: 30em)  {
@@ -151,5 +178,19 @@ button.step {
         width: 100%;
         background: #040029;
         border-radius: 5px;
+    }
+
+    .popup_inner {
+        grid-template-columns: 3rem auto 3rem;
+        padding-top: 8rem;
+        width: 100%;
+        max-width: 25rem;
+    }
+
+    .popup_inner button.step {
+        margin-left: 0;
+        margin-right: 0;
+        padding: 0.5rem;
+        width: 3rem;
     }
 }
