@@ -59,7 +59,7 @@ function EventDetails({
                 {djs
                     ? djs.map(dj => (
                         <div>
-                            <a href={dj.url} target="_blank" rel="noopener noreferrer">{dj.name}</a>
+                            <a href={dj.content} target="_blank" rel="noopener noreferrer">{dj.name}</a>
                         </div>
                     ))
                     : null}
