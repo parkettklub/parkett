@@ -59,8 +59,8 @@ class FormEventParty extends React.Component {
                 ...myJson,
                 start_date: fetchDateToInput(myJson.start_date),
                 end_date: fetchDateToInput(myJson.end_date),
-                band_ids: myJson.bands,
-                dj_ids: myJson.djs,
+                band_ids: myJson.bands.map(band => band.id),
+                dj_ids: myJson.djs.map(dj => dj.id),
             });
         });
     }
