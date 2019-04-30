@@ -13,8 +13,8 @@ class SubFormMusicDanceCourse extends React.Component {
         this.state = {
             addSelected: null,
             danceCourses: [],
-            bands: [],
-            djs: [],
+            allBands: [],
+            allDjs: [],
         };
     }
 
@@ -28,7 +28,7 @@ class SubFormMusicDanceCourse extends React.Component {
 
     fetchDanceCourses = () => {
         fetchAll('dance_courses').then((myJson) => {
-        this.setState({ danceCourses: myJson });
+            this.setState({ danceCourses: myJson });
         });
     }
 
@@ -40,13 +40,13 @@ class SubFormMusicDanceCourse extends React.Component {
 
     fetchBands = async () => {
         fetchAll('bands').then((myJson) => {
-            this.setState({ bands: myJson });
+            this.setState({ allBands: myJson });
         });
     }
 
     fetchDjs = async () => {
         fetchAll('djs').then((myJson) => {
-            this.setState({ djs: myJson });
+            this.setState({ allDjs: myJson });
         });
     }
 
@@ -74,12 +74,12 @@ class SubFormMusicDanceCourse extends React.Component {
 
     render() {
         const {
-            selectedForm, form, handleChange, dance_course_id, handleMultiple, bandids, djids,
+            selectedForm, form, handleChange, dance_course_id, handleMultiple, band_ids, dj_ids,
         } = this.props;
         const {
             addSelected,
         } = this.state;
-        const { danceCourses, djs, bands } = this.state;
+        const { danceCourses, allDjs, allBands } = this.state;
         return (
             <div>
                 <InputFormSelect
@@ -112,13 +112,13 @@ class SubFormMusicDanceCourse extends React.Component {
                     selectedForm={selectedForm}
                     form={form}
                     handleChange={handleMultiple}
-                    value={bandids}
-                    name="bandids"
+                    value={band_ids}
+                    name="band_ids"
                     label="Zenekar"
                     addNew={() => this.addNewElement('band')}
                     close={this.close}
                     options={
-                        bands.map(band => (
+                        allBands.map(band => (
                             <option value={band.id} key={band.id}>
                                 {band.id}
                                 {' – '}
@@ -138,13 +138,13 @@ class SubFormMusicDanceCourse extends React.Component {
                     selectedForm={selectedForm}
                     form={form}
                     handleChange={handleMultiple}
-                    value={djids}
-                    name="djids"
+                    value={dj_ids}
+                    name="dj_ids"
                     label="DJ"
                     addNew={() => this.addNewElement('dj')}
                     close={this.close}
                     options={
-                        djs.map(dj => (
+                        allDjs.map(dj => (
                             <option value={dj.id} key={dj.id}>
                                 {dj.id}
                                 {' – '}
@@ -169,8 +169,8 @@ SubFormMusicDanceCourse.propTypes = {
     selectedForm: PropTypes.string,
     form: PropTypes.string,
     dance_course_id: PropTypes.number,
-    djids: PropTypes.instanceOf(Array),
-    bandids: PropTypes.instanceOf(Array),
+    dj_ids: PropTypes.instanceOf(Array),
+    band_ids: PropTypes.instanceOf(Array),
     handleChange: PropTypes.func.isRequired,
     handleMultiple: PropTypes.func.isRequired,
 };
@@ -179,8 +179,8 @@ SubFormMusicDanceCourse.defaultProps = {
     selectedForm: '',
     form: '',
     dance_course_id: null,
-    djids: [],
-    bandids: [],
+    dj_ids: [],
+    band_ids: [],
 };
 
 export default SubFormMusicDanceCourse;
