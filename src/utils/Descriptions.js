@@ -38,6 +38,7 @@ const strings = new LocalizedStrings({
             akkor csatlakozz a rendező gárdához!`,
             joinus: 'Apply for Parkett Klub organizer!',
             oldmembers: 'Old members',
+            members: 'Members',
         },
         attention: {
             title: 'Warning!',
@@ -293,6 +294,7 @@ const strings = new LocalizedStrings({
             akkor csatlakozz a rendező gárdához!`,
             joinus: 'Jelentkezz Parkett Klub rendezőnek!',
             oldmembers: 'Öregtagok',
+            members: 'Tagok',
         },
         attention: {
             title: 'Figyelem!',
