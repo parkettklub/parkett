@@ -3,6 +3,7 @@ import ReactCssTransitionGroup from 'react-addons-css-transition-group';
 import EditButton from '../EditButton';
 import { fetchAll } from '../../utils/FetchFunctions';
 import { dateToString } from '../../utils/DateFunctions';
+import text from '../../utils/Descriptions';
 import styles from './EventList.module.css';
 import EventSummary from './Event';
 
@@ -122,41 +123,41 @@ class EventList extends React.Component {
         });
         let middleMan = [];
         middleMan.push(
-            <div className={styles.eventListOldEvents} key="oldevents">Régebbi Események</div>,
+            <div className={styles.eventListOldEvents} key="oldevents">{text.eventlist.oldevents}</div>,
         );
         if (!events.find(event => (
             filterEvent(search, event)
         ))) {
             middleMan = [];
             middleMan.push(
-                <div className={styles.eventListOldEvents} key="oldevents">Nincs ilyen esemény</div>,
+                <div className={styles.eventListOldEvents} key="oldevents">{text.eventlist.noevents}</div>,
             );
         }
         return (
             <div className={styles.main}>
                 <EditButton link="/edit-events/" />
                 <div className={styles.types}>
-                    <div className={styles.title}>Válaszd ki milyen eseményeket keresel:</div>
+                    <div className={styles.title}>{text.eventlist.selectevents}</div>
                     <button
                         type="button"
                         onClick={this.invertParty}
                         className={party ? styles.selectedType : styles.type}
                     >
-                        {'Bulik'}
+                        {text.eventlist.parties}
                     </button>
                     <button
                         type="button"
                         onClick={this.invertWorkshop}
                         className={workshop ? styles.selectedType : styles.type}
                     >
-                        {'Workshopok'}
+                        {text.eventlist.workshops}
                     </button>
                     <button
                         type="button"
                         onClick={this.invertArticle}
                         className={article ? styles.selectedType : styles.type}
                     >
-                        {'Hírek'}
+                        {text.eventlist.news}
                     </button>
                 </div>
                 <form autoComplete="off" className={styles.eventListCardForm} onSubmit={this.handleSubmit}>
