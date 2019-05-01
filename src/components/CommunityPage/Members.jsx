@@ -3,6 +3,7 @@ import Member from './Member';
 import AboutUs from './AboutUs';
 import LittleMember from './LittleMember';
 import { fetchAll } from '../../utils/FetchFunctions';
+import texts from '../../utils/Descriptions';
 import styles from './Community.module.css';
 import Popup from './Popup';
 
@@ -89,7 +90,7 @@ class Members extends React.Component {
                         ),
                     ).slice(6)}
                 </div>
-                <div className={styles.oldMembers}>Öregtagok</div>
+                <div className={styles.oldMembers}>{texts.community.oldmembers}</div>
                 <div className={styles.peopleOthers}>
                     {members.filter(member => member.position === 'öregtag').map(
                         member => (

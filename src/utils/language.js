@@ -23,6 +23,13 @@ export function getLanguageName() {
     }
 }
 
+export function setLanguage(language) {
+    if (typeof window !== 'undefined') {
+        localStorage.setItem('lang', language);
+        location.reload();
+    }
+}
+
 export function changeLanguage() {
     if (typeof window !== 'undefined') {
         let lang = localStorage.getItem('lang');

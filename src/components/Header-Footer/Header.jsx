@@ -8,8 +8,8 @@ import ListLink from './ListLink';
 import {
   getLoginUrl, isLoggedIn, logOut, isEditor,
 } from '../../utils/login';
-import { getLanguage, changeLanguage, getLanguageName } from '../../utils/language';
-import strings from '../../utils/Descriptions';
+import LanguageSelector from './LanguageSelector';
+import texts from '../../utils/Descriptions';
 
 class Header extends React.Component {
   constructor() {
@@ -42,7 +42,6 @@ class Header extends React.Component {
     const {
       events, community, media, knowledgebase, profile,
     } = this.props;
-    strings.setLanguage(getLanguage());
     return (
       <header className={`${styles.main} ${(open ? styles.open : '')}`}>
         <div className={styles.logoAndStrikes}>
@@ -61,15 +60,7 @@ class Header extends React.Component {
         </div>
         <div className={styles.right}>
           <div className={styles.login}>
-            <span
-              className={`${styles.button} ${styles.lang}`}
-              onClick={changeLanguage}
-              role="button"
-              onKeyDown={() => { }}
-              tabIndex={0}
-            >
-              {getLanguageName()}
-            </span>
+            <LanguageSelector />
             {loggedIn
               ? (
                 <span
@@ -79,20 +70,24 @@ class Header extends React.Component {
                   onKeyDown={() => { }}
                   tabIndex={0}
                 >
-                  {'Kijelentkezés'}
+                  {texts.header.logout}
                 </span>
               )
-              : <a className={`${styles.button} ${styles.loggedOut}`} href={getLoginUrl()}>Belépés</a>
+              : (
+                <a className={`${styles.button} ${styles.loggedOut}`} href={getLoginUrl()}>
+                  {texts.header.login}
+                </a>
+              )
             }
           </div>
           <div className={styles.links}>
-            <ListLink to="/events/" active={events}>Események</ListLink>
-            <ListLink to="/community/" active={community}>Közösség</ListLink>
-            <ListLink to="/media/" active={media}>Galéria</ListLink>
-            <ListLink to="/knowledge-base/" active={knowledgebase}>Tudnivalók</ListLink>
-            <ListLink to="/profile/" active={profile} hidden={!loggedIn}>Profilom</ListLink>
+            <ListLink to="/events/" active={events}>{texts.header.events}</ListLink>
+            <ListLink to="/community/" active={community}>{texts.header.community}</ListLink>
+            <ListLink to="/media/" active={media}>{texts.header.media}</ListLink>
+            <ListLink to="/knowledge-base/" active={knowledgebase}>{texts.header.knowledgebase}</ListLink>
+            <ListLink to="/profile/" active={profile} hidden={!loggedIn}>{texts.header.profile}</ListLink>
             {isEditor()
-              ? <ListLink to="/edit-band/">Szerkesztés</ListLink>
+              ? <ListLink to="/edit-band/">{texts.header.edit}</ListLink>
               : null
             }
           </div>

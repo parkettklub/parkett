@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { fetchAll } from '../../utils/FetchFunctions';
 import styles from './EventForm.module.css';
+import texts from '../../utils/Descriptions';
 
 class EventWorkshopForm extends React.Component {
     state = {};
@@ -26,11 +27,11 @@ class EventWorkshopForm extends React.Component {
         if (party_id) {
             rows.push(
                 <div className="eventdetail-paragraph">
-                    {'A workshop résztvevői ingyenesen részt vehetnek a '}
+                    {texts.eventdesc.wokshopparty[0]}
                     <strong>{party_id}</strong>
-                    {' nevű rendezvényen amely '}
+                    {texts.eventdesc.wokshopparty[1]}
                     <strong>{party_id}</strong>
-                    {' estéjén lesz megrendezve '}
+                    {texts.eventdesc.wokshopparty[2]}
                 </div>,
             );
         }
@@ -38,16 +39,18 @@ class EventWorkshopForm extends React.Component {
         return (
             <div className={styles.main}>
                 <div className={styles.paragraph}>
-                    <strong>JELENTKEZNI az alábbi linken lehet:  </strong>
-                    <a href={link} target="_blank" rel="noopener noreferrer">Link a formhoz</a>
+                    <strong>{texts.eventdesc.form.title}</strong>
+                    <a href={link} target="_blank" rel="noopener noreferrer">
+                        {texts.eventdesc.form.link}
+                    </a>
                 </div>
                 <div className={styles.paragraph}>
-                    {'Siess, a helyek limitáltak! Amennyiben párban jöttök a kérdőívet mindketten töltsétek ki. A workshop csak elegendő számú jelentkező esetén indul.'}
+                    {texts.eventdesc.form.paragraph}
                 </div>
                 <div className={styles.paragraph} hidden={dance_teacher_id == null}>
-                    {'A tánccal '}
+                    {texts.eventdesc.form.teaching[0]}
                     <a href={url} target="_blank" rel="noopener noreferrer">{name}</a>
-                    {' fognak megismertetni'}
+                    {texts.eventdesc.form.teaching[1]}
                 </div>
                 {rows}
             </div>

@@ -8,20 +8,92 @@ import Weintaste from './communityPictures/Weintaste.jpg';
 
 const strings = new LocalizedStrings({
     en: {
+        header: {
+            events: 'Events',
+            community: 'Comunity',
+            media: 'Gallery',
+            knowledgebase: 'Knowledgebase',
+            profile: 'Profile',
+            edit: 'Edit',
+            logout: 'Logout',
+            login: 'Login',
+        },
+        eventlist: {
+            oldevents: 'Older Events',
+            noevents: 'No event found',
+            selectevents: 'Select which type of events are you looking for:',
+            parties: 'Parties',
+            workshops: 'Workshops',
+            news: 'News',
+        },
+        media: {
+            pictures: 'Pictures',
+            videos: 'Videos',
+        },
         one: 'ONE',
-        community: `If you want to be part of an awsome community, és közben jólesne pár hűsítő koktél, 
+        community: {
+            desc: `If you want to be part of an awsome community, és közben jólesne pár hűsítő koktél, 
             akkor a Parkett Klubban a helyed! 
             Ha pedig szeretnél egy vidám, összetartó csapat tagja lenni, 
             akkor csatlakozz a rendező gárdához!`,
-        attention: `A Parkett Klub rendezvényeire a beléptetés jogát fenntartjuk.
+            joinus: 'Apply for Parkett Klub organizer!',
+            oldmembers: 'Old members',
+        },
+        attention: {
+            title: 'Warning!',
+            desc: `A Parkett Klub rendezvényeire a beléptetés jogát fenntartjuk.
             A kedvezmények igénybevétele az azt igazoló kártyával lehetséges.
             A belépéssel hozzájárulsz, hogy videófelvétel és fényképek készüljenek Rólad,
             és azok megjelenjenek a Schönherz Zoltán Kolllégiummal, a SPOT fotókörrel,
              a Budavári Schönherz Stúdióval, illetve a Parkett Klubbal kapcsolatos felületeken.
              Utólagos kérésre a Rólad készült fényképeket eltávolítjuk.`,
-        path: '4-es villamos › Budafoki út 33, 86, 212-es busz › Október huszonharmadika utca',
-        wayIn: 'A lépcsőn fel a porta mellett elhaladva bal oldalt (nem a forgó villákon keresztül)',
+        },
+        knowledge: {
+            buttons: {
+                dances: 'Táncok',
+                general: 'Álltalános',
+                approach: 'Megközelítés',
+                tipps: 'Tippek',
+                etikett: 'Etikett',
+            },
+            general: {
+                title: 'General things about the parties',
+                desc: `Kéthetente megtelik a kollégium nagyterme a város tánckedvelő fiataljaival, 
+            és a hangfalakból salsa, rock & roll, boogie-woogie vagy modern társastáncok zenéi szólnak, 
+            esetleg éppen egy zenekar húzza élőben a talpalávalót. Nagy a kínálat, így nálunk biztosan 
+            megtalálod a Hozzád illő táncstílust és bulit.`,
+            },
+            thank: {
+                title: 'Thank you: ',
+                back: 'For the backend: ',
+                design: 'For the design abd the frontend: ',
+                spot: 'For the pictures: ',
+                ac: 'For the sound: ',
+                bss: 'For the videos: ',
+            },
+        },
+        path: {
+            title: 'Approach: ',
+            desc: '4-es villamos › Budafoki út 33, 86, 212-es busz › Október huszonharmadika utca',
+        },
+        wayIn: {
+            title: 'Access: ',
+            desc: 'A lépcsőn fel a porta mellett elhaladva bal oldalt (nem a forgó villákon keresztül)',
+        },
+        newsfeed: {
+            title: 'Subscribe to our newsletter!',
+            desc: `Ha szeretnél értesülni a bulikról és a tanfolyamokról iratkozz fel! 
+            Álltalában hetente maximum 1 emailt fogsz kapni bulikról, worksopokról és egyéb hírekről. 
+            A hírlevélről bármikor leiratkozhatsz az emailben kapott linken keresztül.`,
+            button: 'Subscirbe',
+        },
+        services: {
+            title: 'Party services',
+            cloakroom: 'Free cloakroom',
+            drinking: 'Italpult kedvezményes prices',
+        },
         tips: {
+            title: 'Tipps and tricks',
             main: `ENG, melyeknek hasznát veheted, ha táncórára vagy táncos buliba készülsz. 
         Többek között leírtunk olyan tippeket, melyekkel elkerülheted, 
         hogy cikis helyzetbe kerülj, vagy hogy kényelmetlenül érezd magad és tönkremenjen az estéd egy táncos eseményen.`,
@@ -82,7 +154,30 @@ const strings = new LocalizedStrings({
                 },
             ],
         },
+        eventdesc: {
+            music: 'Provides music: ',
+            thematics: 'Thematics: ',
+            pictures: 'Pictures',
+            video: 'Video',
+            wokshopparty: [
+                'A workshop résztvevői ingyenesen részt vehetnek a ',
+                ' nevű rendezvényen amely ',
+                ' estéjén lesz megrendezve ',
+            ],
+            form: {
+                title: 'You must APPLY in the from to participate: ',
+                link: 'Link for the form',
+                paragraph: `Siess, a helyek limitáltak! 
+                Amennyiben párban jöttök a kérdőívet mindketten töltsétek ki. 
+                A workshop csak elegendő számú jelentkező esetén indul.`,
+                teaching: [
+                    '',
+                    ' will be teaching the steps for you',
+                ],
+            },
+        },
         etikett: {
+            title: 'Dance etiquette',
             main: `ENG FIGYELEM! EZEK A SZÖVEGEK MÉG NINCSENEK VÉGLEGESÍTVE! Minden társaságnak, helynek megvannak a maga normái, "szabályai", 
         így a társastáncos közösségekben is vannak bizonyos illemszabályok, amelyeket érdemes betartani. 
         Ezeket szedtük csokorba az alábbiakban.`,
@@ -137,51 +232,123 @@ const strings = new LocalizedStrings({
         smallThings: [
             {
                 photo: Dinner,
-                title: 'ENG',
+                title: 'Dinners',
                 descripiton: 'Bevonó vacsorákat is rendezünk, hogy az érdeklődők megismerkedhessenek a rendezőgárdával',
             },
             {
                 photo: Gourp02,
-                title: 'ENG',
+                title: 'Teampictures',
                 descripiton: 'Minden félév végén egy közös csoportképpel örökítjük meg az adott félév rendezőinek csapatát',
             },
             {
                 photo: Gourp01,
-                title: 'ENG',
+                title: 'Members',
                 descripiton: 'A kör tagjai különböző egyéniségek. Akik kiegészítve egymást egy összekovácsolódott csapatot alkotnak.',
             },
             {
                 photo: Girls,
-                title: 'Táborok',
+                title: 'Camps',
                 descripiton: 'Táborok során mindig más és más helyeket látogatunk meg.',
             },
             {
                 photo: Hands,
-                title: 'Csapatmunka',
+                title: 'Teamwork',
                 descripiton: 'A bulik nem jöhetnének létre a Parkett Klub összetartó és egymást segítő csapata nélkül.',
             },
             {
                 photo: Weintaste,
-                title: 'Borkóstoló',
+                title: 'Winetasting',
                 descripiton: 'Minden táborban elmegyünk borkóstólni, hogy a tánctudásunk mellett az ízlésünk is fejlődhessen.',
             },
         ],
     },
     hu: {
+        header: {
+            events: 'Események',
+            community: 'Közösség',
+            media: 'Galéria',
+            knowledgebase: 'Tudnivalók',
+            profile: 'Profilom',
+            edit: 'Szerkesztés',
+            logout: 'Kijelentkezés',
+            login: 'Bejelentkezés',
+        },
+        eventlist: {
+            oldevents: 'Régebbi Események',
+            noevents: 'Nincs ilyen esemény',
+            selectevents: 'Válaszd ki milyen eseményeket keresel:',
+            parties: 'Bulik',
+            workshops: 'Workshopok',
+            news: 'Hírek',
+        },
+        media: {
+            pictures: 'Képek',
+            videos: 'Videók',
+        },
         one: 'ONE',
-        community: `Ha társaságra vágysz vagy táncolni tanulnál, és közben jólesne pár hűsítő koktél, 
+        community: {
+            desc: `If you want to be part of an awsome community, és közben jólesne pár hűsítő koktél, 
             akkor a Parkett Klubban a helyed! 
             Ha pedig szeretnél egy vidám, összetartó csapat tagja lenni, 
             akkor csatlakozz a rendező gárdához!`,
-        attention: `A Parkett Klub rendezvényeire a beléptetés jogát fenntartjuk.
+            joinus: 'Jelentkezz Parkett Klub rendezőnek!',
+            oldmembers: 'Öregtagok',
+        },
+        attention: {
+            title: 'Figyelem!',
+            desc: `A Parkett Klub rendezvényeire a beléptetés jogát fenntartjuk.
             A kedvezmények igénybevétele az azt igazoló kártyával lehetséges.
             A belépéssel hozzájárulsz, hogy videófelvétel és fényképek készüljenek Rólad,
             és azok megjelenjenek a Schönherz Zoltán Kolllégiummal, a SPOT fotókörrel,
              a Budavári Schönherz Stúdióval, illetve a Parkett Klubbal kapcsolatos felületeken.
              Utólagos kérésre a Rólad készült fényképeket eltávolítjuk.`,
-        path: '4-es villamos › Budafoki út 33, 86, 212-es busz › Október huszonharmadika utca',
-        wayIn: 'A lépcsőn fel a porta mellett elhaladva bal oldalt (nem a forgó villákon keresztül)',
+        },
+        knowledge: {
+            buttons: {
+                dances: 'Táncok',
+                general: 'Álltalános',
+                approach: 'Megközelítés',
+                tipps: 'Tippek',
+                etikett: 'Etikett',
+            },
+            general: {
+                title: 'Álltalánosan a bulikról',
+                desc: `Kéthetente megtelik a kollégium nagyterme a város tánckedvelő fiataljaival, 
+            és a hangfalakból salsa, rock & roll, boogie-woogie vagy modern társastáncok zenéi szólnak, 
+            esetleg éppen egy zenekar húzza élőben a talpalávalót. Nagy a kínálat, így nálunk biztosan 
+            megtalálod a Hozzád illő táncstílust és bulit.`,
+            },
+            thank: {
+                title: 'Köszönet: ',
+                back: 'A backend-ért: ',
+                design: 'A design-ért és frontend-ért: ',
+                spot: 'A fotókért: ',
+                ac: 'A hangosításért: ',
+                bss: 'A videókért: ',
+            },
+        },
+        path: {
+            title: 'Megközelítés: ',
+            desc: '4-es villamos › Budafoki út 33, 86, 212-es busz › Október huszonharmadika utca',
+        },
+        wayIn: {
+            title: 'Bejutás: ',
+            desc: 'A lépcsőn fel a porta mellett elhaladva bal oldalt (nem a forgó villákon keresztül)',
+        },
+        newsfeed: {
+            title: 'Iratkozz fel Hírlevelünkre!',
+            desc: `Ha szeretnél értesülni a bulikról és a tanfolyamokról iratkozz fel! 
+            Álltalában hetente maximum 1 emailt fogsz kapni bulikról, worksopokról és egyéb hírekről. 
+            A hírlevélről bármikor leiratkozhatsz az emailben kapott linken keresztül.`,
+            button: 'Feliratkozom',
+        },
+        services: {
+            title: 'Bulin lévő szolgáltatások',
+            cloakroom: 'Ingyenes ruhatár',
+            drinking: 'Italpult kedvezményes árakkal',
+        },
         tips: {
+            title: 'Tippek és tanácsok',
             main: `Összegyűjtöttünk pár jótanácsot, melyeknek hasznát veheted, ha táncórára vagy táncos buliba készülsz. 
         Többek között leírtunk olyan tippeket, melyekkel elkerülheted, 
         hogy cikis helyzetbe kerülj, vagy hogy kényelmetlenül érezd magad és tönkremenjen az estéd egy táncos eseményen.`,
@@ -242,7 +409,30 @@ const strings = new LocalizedStrings({
                 },
             ],
         },
+        eventdesc: {
+            music: 'Zenét szongáltatja: ',
+            thematics: 'Tematika: ',
+            pictures: 'Képek',
+            video: 'Videó',
+            wokshopparty: [
+                'A workshop résztvevői ingyenesen részt vehetnek a ',
+                ' nevű rendezvényen amely ',
+                ' estéjén lesz megrendezve ',
+            ],
+            form: {
+                title: 'JELENTKEZNI az alábbi linken lehet: ',
+                link: 'Link a formhoz',
+                paragraph: `Siess, a helyek limitáltak! 
+                Amennyiben párban jöttök a kérdőívet mindketten töltsétek ki. 
+                A workshop csak elegendő számú jelentkező esetén indul.`,
+                teaching: [
+                    'A tánccal ',
+                    ' fognak megismertetni',
+                ],
+            },
+        },
         etikett: {
+            title: 'Tánc etikett',
             main: `FIGYELEM! EZEK A SZÖVEGEK MÉG NINCSENEK VÉGLEGESÍTVE! Minden társaságnak, helynek megvannak a maga normái, "szabályai", 
         így a társastáncos közösségekben is vannak bizonyos illemszabályok, amelyeket érdemes betartani. 
         Ezeket szedtük csokorba az alábbiakban.`,

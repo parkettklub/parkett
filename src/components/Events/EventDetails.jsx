@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import DanceFigure from './DanceFigure';
 import FacebookLogo from './facebook-app-logo.svg';
 import styles from './EventDetails.module.css';
+import texts from '../../utils/Descriptions';
 
 function EventDetails({
     bands, djs, facebook, program, dance_id, dance_course, teacher_link, teacher_name,
@@ -47,7 +48,7 @@ function EventDetails({
                 {links}
             </div>
             <div className={styles.music}>
-                <strong>{(bands.length > 0 || djs.length > 0) ? 'Zenét szongáltatja: ' : ''}</strong>
+                <strong>{(bands.length > 0 || djs.length > 0) ? texts.eventdesc.music : ''}</strong>
                 {bands
                     ? bands.map(band => (
                         <div>

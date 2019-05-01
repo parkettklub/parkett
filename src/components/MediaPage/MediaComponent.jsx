@@ -4,6 +4,7 @@ import { fetchAll } from '../../utils/FetchFunctions';
 import MediaAlbum from './MediaAlbum';
 import SpotIcon from './spotIcon.svg';
 import BssIcon from './video-camera.svg';
+import texts from '../../utils/Descriptions';
 
 class MediaComponent extends React.Component {
     constructor() {
@@ -54,7 +55,7 @@ class MediaComponent extends React.Component {
         } = this.state;
         return (
             <div className={styles.center}>
-                <div className={styles.title}>Képek</div>
+                <div className={styles.title}>{texts.media.pictures}</div>
                 <div className={styles.grid}>
                     {
                         events.map(event => (
@@ -68,7 +69,7 @@ class MediaComponent extends React.Component {
                         ))
                     }
                 </div>
-                <div className={styles.title}>Videók</div>
+                <div className={styles.title}>{texts.media.videos}</div>
                 <div className={styles.grid}>
                     {
                         events.map(event => (
