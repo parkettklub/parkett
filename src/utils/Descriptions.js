@@ -27,10 +27,14 @@ const strings = new LocalizedStrings({
             news: 'News',
         },
         one: 'ONE',
-        community: `If you want to be part of an awsome community, és közben jólesne pár hűsítő koktél, 
+        community: {
+            desc: `If you want to be part of an awsome community, és közben jólesne pár hűsítő koktél, 
             akkor a Parkett Klubban a helyed! 
             Ha pedig szeretnél egy vidám, összetartó csapat tagja lenni, 
             akkor csatlakozz a rendező gárdához!`,
+            joinus: 'Apply for Parkett Klub organizer!',
+            oldmembers: 'Old members',
+        },
         attention: `A Parkett Klub rendezvényeire a beléptetés jogát fenntartjuk.
             A kedvezmények igénybevétele az azt igazoló kártyával lehetséges.
             A belépéssel hozzájárulsz, hogy videófelvétel és fényképek készüljenek Rólad,
@@ -205,10 +209,14 @@ const strings = new LocalizedStrings({
             news: 'Hírek',
         },
         one: 'ONE',
-        community: `Ha társaságra vágysz vagy táncolni tanulnál, és közben jólesne pár hűsítő koktél, 
+        community: {
+            desc: `If you want to be part of an awsome community, és közben jólesne pár hűsítő koktél, 
             akkor a Parkett Klubban a helyed! 
             Ha pedig szeretnél egy vidám, összetartó csapat tagja lenni, 
             akkor csatlakozz a rendező gárdához!`,
+            joinus: 'Jelentkezz Parkett Klub rendezőnek!',
+            oldmembers: 'Öregtagok',
+        },
         attention: `A Parkett Klub rendezvényeire a beléptetés jogát fenntartjuk.
             A kedvezmények igénybevétele az azt igazoló kártyával lehetséges.
             A belépéssel hozzájárulsz, hogy videófelvétel és fényképek készüljenek Rólad,

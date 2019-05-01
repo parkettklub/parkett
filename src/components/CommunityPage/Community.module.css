@@ -30,11 +30,10 @@
 .oldMembers {
     padding-top: 2rem;
     margin: 0 auto;
-    padding-left: 3rem;
     font-size: 2rem;
     margin-top:2rem;
     margin-bottom:2rem;
-    width: min-content;
+    width: max-content;
     grid-column-start: 1;
     grid-column-end: 3;
 }

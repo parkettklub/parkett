@@ -6,7 +6,7 @@ const AboutUs = () => (
     <div className={styles.main}>
         <div className={styles.description}>
             <div>
-                {texts.community}
+                {texts.community.desc}
             </div>
         </div>
         {texts.smallThings.map((element, index) => (
