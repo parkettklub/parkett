@@ -21,7 +21,7 @@ class LanguageSelector extends React.Component {
                     <div className={styles.langName}>
                         {getLanguageName()}
                     </div>
-                    <div className={`${styles.lang} ${styles.selected}`}>
+                    <div className={`${styles.lang} ${getLanguage() === 'hu' ? styles.selected : ''}`}>
                         <span
                             onClick={() => setLanguage('hu')}
                             role="button"
@@ -31,7 +31,7 @@ class LanguageSelector extends React.Component {
                             <img src={huIcon} alt="" />
                         </span>
                     </div>
-                    <div className={`${styles.lang} ${styles.lang}`}>
+                    <div className={`${styles.lang} ${getLanguage() === 'en' ? styles.selected : ''}`}>
                         <span
                             onClick={() => setLanguage('en')}
                             role="button"
