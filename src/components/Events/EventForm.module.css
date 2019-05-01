@@ -5,3 +5,7 @@
 .paragraph {
     padding-bottom: 0.5em;
 }
+
+.paragraph a {
+    color: aqua;
+}

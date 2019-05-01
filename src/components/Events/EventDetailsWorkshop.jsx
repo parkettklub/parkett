@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import FacebookLogo from './facebook-app-logo.svg';
 import DanceFigure from './DanceFigure';
 import styles from './EventDetails.module.css';
+import texts from '../../utils/Descriptions';
 
 function EventDetailsWorkshop({
     facebook, program, dance_id, theme = '-',
@@ -26,7 +27,7 @@ function EventDetailsWorkshop({
             </div>
             <div>
                 <div className="theme">
-                    <strong>Tematika:  </strong>
+                    <strong>{texts.eventdesc.thematics}</strong>
                     {theme}
                 </div>
             </div>

@@ -154,6 +154,28 @@ const strings = new LocalizedStrings({
                 },
             ],
         },
+        eventdesc: {
+            music: 'Provides music: ',
+            thematics: 'Thematics: ',
+            pictures: 'Pictures',
+            video: 'Video',
+            wokshopparty: [
+                'A workshop résztvevői ingyenesen részt vehetnek a ',
+                ' nevű rendezvényen amely ',
+                ' estéjén lesz megrendezve ',
+            ],
+            form: {
+                title: 'You must APPLY in the from to participate: ',
+                link: 'Link for the form',
+                paragraph: `Siess, a helyek limitáltak! 
+                Amennyiben párban jöttök a kérdőívet mindketten töltsétek ki. 
+                A workshop csak elegendő számú jelentkező esetén indul.`,
+                teaching: [
+                    '',
+                    ' will be teaching the steps for you',
+                ],
+            },
+        },
         etikett: {
             title: 'Dance etiquette',
             main: `ENG FIGYELEM! EZEK A SZÖVEGEK MÉG NINCSENEK VÉGLEGESÍTVE! Minden társaságnak, helynek megvannak a maga normái, "szabályai", 
@@ -386,6 +408,28 @@ const strings = new LocalizedStrings({
                     ],
                 },
             ],
+        },
+        eventdesc: {
+            music: 'Zenét szongáltatja: ',
+            thematics: 'Tematika: ',
+            pictures: 'Képek',
+            video: 'Videó',
+            wokshopparty: [
+                'A workshop résztvevői ingyenesen részt vehetnek a ',
+                ' nevű rendezvényen amely ',
+                ' estéjén lesz megrendezve ',
+            ],
+            form: {
+                title: 'JELENTKEZNI az alábbi linken lehet: ',
+                link: 'Link a formhoz',
+                paragraph: `Siess, a helyek limitáltak! 
+                Amennyiben párban jöttök a kérdőívet mindketten töltsétek ki. 
+                A workshop csak elegendő számú jelentkező esetén indul.`,
+                teaching: [
+                    'A tánccal ',
+                    ' fognak megismertetni',
+                ],
+            },
         },
         etikett: {
             title: 'Tánc etikett',

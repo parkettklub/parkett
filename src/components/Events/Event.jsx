@@ -4,6 +4,7 @@ import Card from '../Card';
 import styles from './EventList.module.css';
 import { fetchAll } from '../../utils/FetchFunctions';
 import { dateToString } from '../../utils/DateFunctions';
+import texts from '../../utils/Descriptions';
 
 class EventSummary extends React.Component {
     state = {};
@@ -47,7 +48,7 @@ class EventSummary extends React.Component {
                         key="FormLink"
                         onClick={(event) => { event.stopPropagation(); }}
                     >
-                        {'Link a formhoz'}
+                        {texts.eventdesc.form.link}
                     </a>
                 </div>,
             );
