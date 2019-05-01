@@ -70,10 +70,14 @@ class Header extends React.Component {
                   onKeyDown={() => { }}
                   tabIndex={0}
                 >
-                  {'Kijelentkezés'}
+                  {texts.header.logout}
                 </span>
               )
-              : <a className={`${styles.button} ${styles.loggedOut}`} href={getLoginUrl()}>Belépés</a>
+              : (
+                <a className={`${styles.button} ${styles.loggedOut}`} href={getLoginUrl()}>
+                  {texts.header.login}
+                </a>
+              )
             }
           </div>
           <div className={styles.links}>
