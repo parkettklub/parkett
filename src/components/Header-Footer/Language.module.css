@@ -1,0 +1,13 @@
+.lang {
+    padding: 0.5rem;
+}
+
+.langName {
+    padding: 0.5rem;
+    padding-right: 1rem;
+}
+
+.main {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
