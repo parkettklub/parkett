@@ -51,7 +51,10 @@ function EventDetails({
                 {bands
                     ? bands.map(band => (
                         <div>
-                            <a href={band.url} target="_blank" rel="noopener noreferrer">{band.name}</a>
+                            {band.url
+                                ? (<a href={band.url} target="_blank" rel="noopener noreferrer">{band.name}</a>)
+                                : (band.name)}
+
                         </div>
                     ))
                     : null
@@ -59,7 +62,10 @@ function EventDetails({
                 {djs
                     ? djs.map(dj => (
                         <div>
-                            <a href={dj.url} target="_blank" rel="noopener noreferrer">{dj.name}</a>
+                            {dj.content
+                                ? (<a href={dj.content} target="_blank" rel="noopener noreferrer">{dj.name}</a>)
+                                : (dj.name)
+                            }
                         </div>
                     ))
                     : null}

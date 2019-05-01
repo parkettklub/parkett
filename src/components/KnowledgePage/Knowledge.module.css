@@ -23,6 +23,7 @@
     padding: 0;
     margin: 0;
     font-size: 0;
+    cursor: pointer;
 }
 
 .buttons button:hover {
@@ -62,7 +63,7 @@
 .tips {
     grid-column-start: 1;
     grid-column-end: 3;
-    max-width: 1200px;
+    max-width: 1000px;
     margin: 0 auto;
 }
 
@@ -94,6 +95,7 @@
     .main > .header {
         grid-column-start: 1;
         grid-column-end: 2;
+        margin: 0 auto;
     }
     
     .main > .buttons {
@@ -129,5 +131,7 @@
 
     .main > div {
         width: 100%;
+        max-width: 900px;
+        margin: 0 auto;
     }
 }

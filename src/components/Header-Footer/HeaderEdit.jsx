@@ -32,8 +32,8 @@ class HeaderEdit extends React.Component {
             return (<div>Nincs Szerkesztői jogod</div>);
         }
         return (
-            <header className={`${styles.main} ${styles.min} ${(open ? styles.open : '')}`}>
-                <div className={styles.logo}>
+            <header className={`${styles.main} ${styles.editor} ${(open ? styles.open : '')}`}>
+                <div className={styles.logoAndStrikes}>
                     <Link to="/" style={{ textShadow: 'none', backgroundImage: 'none' }}>
                         <img className={styles.mainLogo} src={ParkettLogo} alt="" />
                     </Link>

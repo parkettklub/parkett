@@ -20,16 +20,24 @@
 }
 
 .element .title {
-    padding: 0.25em;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    padding: 0.5em;
     color: white;
     position: relative;
-    bottom: 5em;
-    height: 4em;
+    bottom: 4.5em;
+    height: 3em;
     background: black;
 }
 
+.element .title strong {
+    padding: 0em;
+    width: 100%;
+}
+
 .element .caption {
-    padding: 0.25em;
+    padding: 0.5em;
     color: white;
     position: relative;
     font-size: 0;
@@ -38,7 +46,7 @@
 }
 
 .element .desc {
-    padding: 0.25em;
+    padding: 0.5em;
     color: white;
     position: relative;
     font-size: 0;
@@ -71,5 +79,9 @@
 
     .element.small {
         width: 100%;
+    }
+
+    .element .title {
+        bottom: 5em;
     }
 }

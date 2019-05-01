@@ -45,16 +45,16 @@
 }
 
 .element .title {
-    padding: 0.25em;
+    padding: 1em;
     color: white;
     position: relative;
-    bottom: 4em;
+    bottom: 4.5em;
     height: 3em;
     background: black;
 }
 
 .element .caption {
-    padding: 0.25em;
+    padding: 0.5em;
     color: white;
     position: relative;
     font-size: 0;
@@ -63,7 +63,7 @@
 }
 
 .element .desc {
-    padding: 0.25em;
+    padding: 0.5em;
     color: white;
     position: relative;
     font-size: 0;

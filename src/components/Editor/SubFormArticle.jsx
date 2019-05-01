@@ -35,7 +35,7 @@ function SubFormArticle(props) {
                 value={content}
                 name="content"
                 example="Még érezni az előző est hangulatát ..."
-                label="Leírás:"
+                label="Leírás"
             />
         </div>
     );

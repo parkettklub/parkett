@@ -15,7 +15,7 @@
 
 .albumName {
     position: relative;
-    top: -5rem;
+    top: -6rem;
     background: #000000A0;
     padding: 1em;
     font-size: 0.8em;
@@ -23,10 +23,18 @@
     margin: 0 auto;
 }
 
+.albumName a {
+    color: white;
+}
+
+.albumName:hover {
+    opacity: 0.6;
+}
+
 .grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    grid-gap: 0.5em;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
 }
 
 .spot {
@@ -44,6 +52,16 @@
     border-radius: 15px;
     box-shadow: 4px 4px 4px rgba(0, 0, 0, .3);
 }
+@media only screen and (min-width: 70em)  {
+    .link {
+        width: 17rem;
+        height: 12rem;
+    }
+
+    .albumName {
+        width: 17rem;
+    }
+}
 
 .link img {
     height: 100%;
@@ -53,30 +71,16 @@
     object-position: top;
 }
 
-.link img:hover {
-    opacity: 0.5;
-}
-
-@media only screen and (max-width: 80em)  {
-    .center {
-        max-width: 50em;
-    }
-    .grid {
-        grid-template-columns: 1fr 1fr 1fr;
-    }
-}
-
 
 @media only screen and (max-width: 50em)  {
     .center {
         max-width: unset;
     }
-    .grid {
-        grid-template-columns: 1fr 1fr;
-    }
     
     .link {
         width: 100%;
+        max-width: 17rem;
+        max-height: 12rem;
     }
     
     .albumName {

@@ -66,25 +66,23 @@ class InputPicure extends React.Component {
 
     render() {
         const {
-            selectedForm, form,
+            selectedForm, form, label,
         } = this.props;
         const {
             src,
         } = this.state;
         return (
-            <div>
-                <div className={styles.formgroup} hidden={selectedForm !== form}>
-                    <strong>Kép:</strong>
-                    <div className={styles.formgroup}>
-                        <button onClick={this.deletePicture} type="button">Törlés</button>
-                        <input type="file" onChange={this.fileSelectedHandler} />
-                        <button onClick={this.fileUploadHandler} type="button">Feltöltés</button>
-                        <div className={styles.helper}>
-                            {'A kép felbontása legyen körülbelül 350x400 px'}
-                        </div>
-                        <div className={styles.picture}>
-                            <img src={src} alt="" />
-                        </div>
+            <div className={styles.formgroup} hidden={selectedForm !== form}>
+                <div className={styles.label}><strong>{label}</strong></div>
+                <div className={styles.formgroup}>
+                    <button onClick={this.deletePicture} type="button">Törlés</button>
+                    <input type="file" onChange={this.fileSelectedHandler} />
+                    <button onClick={this.fileUploadHandler} type="button">Feltöltés</button>
+                    <div className={styles.helper}>
+                        {'A kép felbontása legyen körülbelül 350x400 px'}
+                    </div>
+                    <div className={styles.picture}>
+                        <img src={src} alt="" />
                     </div>
                 </div>
             </div>
@@ -97,6 +95,7 @@ InputPicure.propTypes = {
     form: PropTypes.string,
     inputObj: PropTypes.object.isRequired,
     name: PropTypes.string,
+    label: PropTypes.string,
     handleChange: PropTypes.func.isRequired,
 };
 
@@ -104,6 +103,7 @@ InputPicure.defaultProps = {
     selectedForm: '',
     form: '',
     name: '',
+    label: '',
 };
 
 export default InputPicure;

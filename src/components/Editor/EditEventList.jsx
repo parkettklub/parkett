@@ -178,7 +178,7 @@ class EditEvents extends React.Component {
                             tabIndex={0}
                         >
                             <img alt="" src={Plus} className={styles.addElement} />
-                            {'Új party'}
+                            {'Új Party'}
                         </div>
                         <div
                             className={styles.selectable}

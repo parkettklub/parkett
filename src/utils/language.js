@@ -19,7 +19,7 @@ export function getLanguageName() {
         case 'hu':
             return 'Magyar';
         default:
-            return 'Nem definiálható';
+            return '-';
     }
 }
 

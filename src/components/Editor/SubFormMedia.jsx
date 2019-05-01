@@ -18,7 +18,14 @@ function SubFormMedia(props) {
                 example="www.spot.bme.hu"
                 label="SPOT"
             />
-            <InputPicture name="spot_cover" inputObj={{ spot_cover }} selectedForm={selectedForm} form={form} handleChange={handleChange} />
+            <InputPicture
+                name="spot_cover"
+                inputObj={{ spot_cover }}
+                selectedForm={selectedForm}
+                form={form}
+                handleChange={handleChange}
+                label="Indexképe"
+            />
             <InputFormSimple
                 selectedForm={selectedForm}
                 form={form}
@@ -28,7 +35,14 @@ function SubFormMedia(props) {
                 example="www.bss.bme.hu"
                 label="BSS"
             />
-            <InputPicture name="bss_cover" inputObj={{ bss_cover }} selectedForm={selectedForm} form={form} handleChange={handleChange} />
+            <InputPicture
+                name="bss_cover"
+                inputObj={{ bss_cover }}
+                selectedForm={selectedForm}
+                form={form}
+                handleChange={handleChange}
+                label="Indexképe"
+            />
         </div>
     );
 }

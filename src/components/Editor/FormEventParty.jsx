@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { fetchPost, fetchPut } from '../../utils/FetchFunctions';
+import { fetchPost, fetchPut, fetchAll } from '../../utils/FetchFunctions';
 import { fetchDateToInput } from '../../utils/DateFunctions';
 import styles from './Form.module.css';
 import SubFormSelect from './SubFormSelect';
@@ -24,14 +24,10 @@ class FormEventParty extends React.Component {
             facebook_event: '',
             spot: '',
             bss: '',
-            dance_course_id: 1,
-            bandids: [
-                1,
-                2,
+            dance_course_id: null,
+            band_ids: [
             ],
-            djids: [
-                1,
-                3,
+            dj_ids: [
             ],
             selectedForm: 'title',
             addSelected: null,
@@ -53,12 +49,20 @@ class FormEventParty extends React.Component {
                 id: -1,
             });
         } else {
-            this.setState({
-                ...selectedObject,
-                start_date: fetchDateToInput(selectedObject.start_date),
-                end_date: fetchDateToInput(selectedObject.end_date),
-            });
+            this.fetchEvent(selectedObject.id);
         }
+    }
+
+    fetchEvent = (id) => {
+        fetchAll(`parties/${id}`).then((myJson) => {
+            this.setState({
+                ...myJson,
+                start_date: fetchDateToInput(myJson.start_date),
+                end_date: fetchDateToInput(myJson.end_date),
+                band_ids: myJson.bands.map(band => band.id),
+                dj_ids: myJson.djs.map(dj => dj.id),
+            });
+        });
     }
 
     handleMultiple = (event) => {

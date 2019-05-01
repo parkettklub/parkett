@@ -1,8 +1,13 @@
 import { getToken, isLoggedIn } from './login';
 
+const linkNetlify = 'https://parkett-klub-netlify.herokuapp.com/';
+const linkLocalhost = 'https://parkett-klub.herokuapp.com/';
+let link = linkLocalhost;
+if (typeof window !== 'undefined' && window.location.href.includes('netlify')) link = linkNetlify;
+
 export async function fetchAll(type) {
     try {
-        const response = await fetch(`https://parkett-klub.herokuapp.com/${type}`);
+        const response = await fetch(`${link}${type}`);
         return response.json();
     } catch (error) {
         alert('Probléma lépett fel az adatbázissal való kommunikációval');
@@ -13,7 +18,7 @@ export async function fetchAll(type) {
 export async function fetchMe() {
     try {
         if (isLoggedIn()) {
-            const response = await fetch(`https://parkett-klub.herokuapp.com/users/me?token=${getToken()}`);
+            const response = await fetch(`${link}users/me?token=${getToken()}`);
             return response.json();
         }
         return {};
@@ -25,7 +30,7 @@ export async function fetchMe() {
 
 export async function fetchPost(type, element) {
     try {
-        const response = await fetch(`https://parkett-klub.herokuapp.com/${type}`, {
+        const response = await fetch(`${link}${type}`, {
             method: 'POST',
             body: JSON.stringify(element),
             headers: {
@@ -41,24 +46,28 @@ export async function fetchPost(type, element) {
 }
 
 export async function fetchDelete(type, id) {
-    try {
-        const response = await fetch(`https://parkett-klub.herokuapp.com/${type}/${id}`, {
-            method: 'DELETE',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-        });
-        alert(`(${id}. ${type} is Deleted`);
-        return response;
-    } catch (error) {
-        alert('Probléma lépett fel az adatbázissal való kommunikációval');
-        return {};
+    const r = confirm(`Do you want to delete : (${id}. ${type} ?`);
+    if (r) {
+        try {
+            const response = await fetch(`${link}${type}/${id}`, {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            });
+            alert(`(${id}. ${type} is Deleted`);
+            return response;
+        } catch (error) {
+            alert('Probléma lépett fel az adatbázissal való kommunikációval');
+            return {};
+        }
     }
+    return {};
 }
 
 export async function fetchPut(type, element) {
     try {
-        const response = fetch(`https://parkett-klub.herokuapp.com/${type}/${element.id}`, {
+        const response = fetch(`${link}${type}/${element.id}`, {
             method: 'PUT',
             body: JSON.stringify(element),
             headers: {

@@ -3,7 +3,9 @@ import PropTypes from 'prop-types';
 import { fetchPost, fetchPut } from '../../utils/FetchFunctions';
 import styles from './Form.module.css';
 import InputFormSimple from './InputFormSimple';
+import InputPicture from './InputPicture';
 import DeleteButton from './DeleteButton';
+import InputColor from './InputColor';
 
 class FormDanceType extends React.Component {
     constructor() {
@@ -27,31 +29,6 @@ class FormDanceType extends React.Component {
             ...selectedObject, image: selectedObject.image,
         });
     }
-
-
-    fileSelectedHandler = (event) => {
-        this.setState({
-            selectedFile: event.target.files[0],
-        });
-    }
-
-    fileUploadHandler = (event) => {
-        event.preventDefault();
-        const { selectedFile } = this.state;
-
-        const reader = new FileReader();
-        reader.readAsDataURL(selectedFile);
-        reader.onload = () => {
-            this.setState({
-                image: reader.result,
-            });
-            console.log('loaded');
-        };
-        reader.onerror = function (error) {
-            console.log('Error: ', error);
-        };
-    }
-
 
     handleChange = (event) => {
         const { name } = event.target;
@@ -92,7 +69,7 @@ class FormDanceType extends React.Component {
             <div className={styles.main}>
                 <DeleteButton id={id} type="dance_types" fetchFunction={fetchFunction} />
                 <div className={styles.formgroup} hidden={selected !== title}>
-                    {isNew ? 'Új Dance type adatai:' : 'Dance type adatai:'}
+                    {isNew ? 'Új Tánc típus adatai:' : 'Tánc típus adatai:'}
                     <InputFormSimple
                         selected={selected}
                         title={title}
@@ -101,20 +78,38 @@ class FormDanceType extends React.Component {
                         name="name"
                         example="DJ Eddy"
                         label="Név"
+                        inLine
                     />
-                    <InputFormSimple
-                        selected={selected}
-                        title={title}
-                        handleChange={this.handleChange}
-                        value={color}
-                        name="color"
-                        example="#FFFFFF"
-                        label="Szín"
-                    />
+                    <div className={styles.inLine}>
+                        <InputPicture
+                            name="image"
+                            inputObj={{ image }}
+                            handleChange={this.handleChange}
+                            inLine
+                            label="Ikon"
+                        />
+                        <InputColor
+                            selected={selected}
+                            title={title}
+                            handleChange={this.handleChange}
+                            value={color}
+                            name="color"
+                            example="#FFFFFF"
+                            label="Háttérszín"
+                            inLine
+                        />
+                    </div>
                     <div className={styles.formgroup}>
-                        <input type="file" onChange={this.fileSelectedHandler} />
-                        <button onClick={this.fileUploadHandler} type="submit">Uppload</button>
-                        <img src={image} alt="" />
+                        <div className={styles.label}><strong>Előnézet</strong></div>
+                        <div
+                            className={styles.preview}
+                            style={{
+                                background: color,
+                            }}
+                        >
+                            <img src={image} alt="" />
+                            <div>Ez egy példa szöveg</div>
+                        </div>
                     </div>
                     <div className={styles.formgroup}>
                         <button
@@ -122,7 +117,7 @@ class FormDanceType extends React.Component {
                             type="submit"
                             className={styles.submit}
                         >
-                            {isNew ? 'Dance type hozzáadása' : 'Dance type módosítása'}
+                            {isNew ? 'Tánc típus hozzáadása' : 'Tánc típus módosítása'}
                         </button>
                     </div>
                 </div>
