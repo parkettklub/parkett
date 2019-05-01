@@ -30,7 +30,7 @@ class TipsAndTricks extends React.Component {
     render() {
         return (
             <div className={styles.tips}>
-                <div className={styles.title}>Tippek és tanácsok</div>
+                <div className={styles.title}>{texts.tips.title}</div>
                 <div className={styles.long}>{texts.tips.main}</div>
                 <div className={styles.tabs}>
                     {texts.tips.tabs.map(tab => (

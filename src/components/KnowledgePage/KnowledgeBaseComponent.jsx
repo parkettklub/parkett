@@ -8,6 +8,7 @@ import Dances from './Dances';
 import EditButton from '../EditButton';
 import styles from './Knowledge.module.css';
 import NewsFeed from './NewsFeed';
+import texts from '../../utils/Descriptions';
 
 
 class KnowledgeBaseComponent extends React.Component {
@@ -70,11 +71,11 @@ class KnowledgeBaseComponent extends React.Component {
         return (
             <div className={styles.main}>
                 <div className={styles.buttons}>
-                    <button onClick={this.goDances} type="button">Táncok</button>
-                    <button onClick={this.goGeneral} type="button">Álltalános</button>
-                    <button onClick={this.goApproach} type="button">Megközelítés</button>
-                    <button onClick={this.goTips} type="button">Tippek</button>
-                    <button onClick={this.goEtikett} type="button">Etikett</button>
+                    <button onClick={this.goDances} type="button">{texts.knowledge.buttons.dances}</button>
+                    <button onClick={this.goGeneral} type="button">{texts.knowledge.buttons.general}</button>
+                    <button onClick={this.goApproach} type="button">{texts.knowledge.buttons.approach}</button>
+                    <button onClick={this.goTips} type="button">{texts.knowledge.buttons.tipps}</button>
+                    <button onClick={this.goEtikett} type="button">{texts.knowledge.buttons.etikett}</button>
                 </div>
                 <div className={styles.header}>
                     <EditButton />
@@ -85,33 +86,30 @@ class KnowledgeBaseComponent extends React.Component {
                 </div>
                 <div className={styles.general} ref={this.divGeneral}>
                     <div>
-                        <div className={styles.title}>Álltalánosan a bulikról</div>
+                        <div className={styles.title}>{texts.knowledge.general.title}</div>
                         <div>
-                            {`Kéthetente megtelik a kollégium nagyterme a város tánckedvelő fiataljaival, 
-            és a hangfalakból salsa, rock & roll, boogie-woogie vagy modern társastáncok zenéi szólnak, 
-            esetleg éppen egy zenekar húzza élőben a talpalávalót. Nagy a kínálat, így nálunk biztosan 
-            megtalálod a Hozzád illő táncstílust és bulit.`}
+                            {texts.knowledge.general.desc}
                         </div>
                         <div className={styles.thanks}>
-                            <div><strong>Köszönet </strong></div>
+                            <div><strong>{texts.knowledge.thank.title}</strong></div>
                             <div>
-                                <strong>A backend-ért: </strong>
+                                <strong>{texts.knowledge.thank.back}</strong>
                                 <a href="http://kir-dev.sch.bme.hu/" target="_blank" rel="noopener noreferrer">Kir-Dev</a>
                             </div>
                             <div>
-                                <strong>A design-ért és frontend-ért: </strong>
+                                <strong>{texts.knowledge.thank.design}</strong>
                                 <a href="http://schdesign.hu/" target="_blank" rel="noopener noreferrer">Schönherz Design Stúdió</a>
                             </div>
                             <div>
-                                <strong>A fotókért: </strong>
+                                <strong>{texts.knowledge.thank.spot}</strong>
                                 <a href="https://spot.sch.bme.hu/events/parkett-klub/" target="_blank" rel="noopener noreferrer">SPOT fotókör</a>
                             </div>
                             <div>
-                                <strong>A hangosításért: </strong>
+                                <strong>{texts.knowledge.thank.ac}</strong>
                                 <a href="https://acstudio.sch.bme.hu/" target="_blank" rel="noopener noreferrer">AC Studio és Live</a>
                             </div>
                             <div>
-                                <strong>A videókért: </strong>
+                                <strong>{texts.knowledge.thank.bss}</strong>
                                 <a href="https://bsstudio.hu/" target="_blank" rel="noopener noreferrer">Budavári Schönherz Stúdió</a>
                             </div>
                         </div>

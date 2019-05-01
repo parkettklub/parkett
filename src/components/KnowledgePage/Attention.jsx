@@ -4,9 +4,9 @@ import styles from './Knowledge.module.css';
 
 const Attention = () => (
     <div>
-        <div className={styles.title}>Figyelem!</div>
+        <div className={styles.title}>{texts.attention.title}</div>
         <div>
-            {texts.attention}
+            {texts.attention.desc}
         </div>
     </div>
 );

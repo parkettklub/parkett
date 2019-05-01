@@ -26,6 +26,10 @@ const strings = new LocalizedStrings({
             workshops: 'Workshops',
             news: 'News',
         },
+        media: {
+            pictures: 'Pictures',
+            videos: 'Videos',
+        },
         one: 'ONE',
         community: {
             desc: `If you want to be part of an awsome community, és közben jólesne pár hűsítő koktél, 
@@ -35,15 +39,61 @@ const strings = new LocalizedStrings({
             joinus: 'Apply for Parkett Klub organizer!',
             oldmembers: 'Old members',
         },
-        attention: `A Parkett Klub rendezvényeire a beléptetés jogát fenntartjuk.
+        attention: {
+            title: 'Warning!',
+            desc: `A Parkett Klub rendezvényeire a beléptetés jogát fenntartjuk.
             A kedvezmények igénybevétele az azt igazoló kártyával lehetséges.
             A belépéssel hozzájárulsz, hogy videófelvétel és fényképek készüljenek Rólad,
             és azok megjelenjenek a Schönherz Zoltán Kolllégiummal, a SPOT fotókörrel,
              a Budavári Schönherz Stúdióval, illetve a Parkett Klubbal kapcsolatos felületeken.
              Utólagos kérésre a Rólad készült fényképeket eltávolítjuk.`,
-        path: '4-es villamos › Budafoki út 33, 86, 212-es busz › Október huszonharmadika utca',
-        wayIn: 'A lépcsőn fel a porta mellett elhaladva bal oldalt (nem a forgó villákon keresztül)',
+        },
+        knowledge: {
+            buttons: {
+                dances: 'Táncok',
+                general: 'Álltalános',
+                approach: 'Megközelítés',
+                tipps: 'Tippek',
+                etikett: 'Etikett',
+            },
+            general: {
+                title: 'General things about the parties',
+                desc: `Kéthetente megtelik a kollégium nagyterme a város tánckedvelő fiataljaival, 
+            és a hangfalakból salsa, rock & roll, boogie-woogie vagy modern társastáncok zenéi szólnak, 
+            esetleg éppen egy zenekar húzza élőben a talpalávalót. Nagy a kínálat, így nálunk biztosan 
+            megtalálod a Hozzád illő táncstílust és bulit.`,
+            },
+            thank: {
+                title: 'Thank you: ',
+                back: 'For the backend: ',
+                design: 'For the design abd the frontend: ',
+                spot: 'For the pictures: ',
+                ac: 'For the sound: ',
+                bss: 'For the videos: ',
+            },
+        },
+        path: {
+            title: 'Approach: ',
+            desc: '4-es villamos › Budafoki út 33, 86, 212-es busz › Október huszonharmadika utca',
+        },
+        wayIn: {
+            title: 'Access: ',
+            desc: 'A lépcsőn fel a porta mellett elhaladva bal oldalt (nem a forgó villákon keresztül)',
+        },
+        newsfeed: {
+            title: 'Subscribe to our newsletter!',
+            desc: `Ha szeretnél értesülni a bulikról és a tanfolyamokról iratkozz fel! 
+            Álltalában hetente maximum 1 emailt fogsz kapni bulikról, worksopokról és egyéb hírekről. 
+            A hírlevélről bármikor leiratkozhatsz az emailben kapott linken keresztül.`,
+            button: 'Subscirbe',
+        },
+        services: {
+            title: 'Party services',
+            cloakroom: 'Free cloakroom',
+            drinking: 'Italpult kedvezményes prices',
+        },
         tips: {
+            title: 'Tipps and tricks',
             main: `ENG, melyeknek hasznát veheted, ha táncórára vagy táncos buliba készülsz. 
         Többek között leírtunk olyan tippeket, melyekkel elkerülheted, 
         hogy cikis helyzetbe kerülj, vagy hogy kényelmetlenül érezd magad és tönkremenjen az estéd egy táncos eseményen.`,
@@ -105,6 +155,7 @@ const strings = new LocalizedStrings({
             ],
         },
         etikett: {
+            title: 'Dance etiquette',
             main: `ENG FIGYELEM! EZEK A SZÖVEGEK MÉG NINCSENEK VÉGLEGESÍTVE! Minden társaságnak, helynek megvannak a maga normái, "szabályai", 
         így a társastáncos közösségekben is vannak bizonyos illemszabályok, amelyeket érdemes betartani. 
         Ezeket szedtük csokorba az alábbiakban.`,
@@ -208,6 +259,10 @@ const strings = new LocalizedStrings({
             workshops: 'Workshopok',
             news: 'Hírek',
         },
+        media: {
+            pictures: 'Képek',
+            videos: 'Videók',
+        },
         one: 'ONE',
         community: {
             desc: `If you want to be part of an awsome community, és közben jólesne pár hűsítő koktél, 
@@ -217,15 +272,61 @@ const strings = new LocalizedStrings({
             joinus: 'Jelentkezz Parkett Klub rendezőnek!',
             oldmembers: 'Öregtagok',
         },
-        attention: `A Parkett Klub rendezvényeire a beléptetés jogát fenntartjuk.
+        attention: {
+            title: 'Figyelem!',
+            desc: `A Parkett Klub rendezvényeire a beléptetés jogát fenntartjuk.
             A kedvezmények igénybevétele az azt igazoló kártyával lehetséges.
             A belépéssel hozzájárulsz, hogy videófelvétel és fényképek készüljenek Rólad,
             és azok megjelenjenek a Schönherz Zoltán Kolllégiummal, a SPOT fotókörrel,
              a Budavári Schönherz Stúdióval, illetve a Parkett Klubbal kapcsolatos felületeken.
              Utólagos kérésre a Rólad készült fényképeket eltávolítjuk.`,
-        path: '4-es villamos › Budafoki út 33, 86, 212-es busz › Október huszonharmadika utca',
-        wayIn: 'A lépcsőn fel a porta mellett elhaladva bal oldalt (nem a forgó villákon keresztül)',
+        },
+        knowledge: {
+            buttons: {
+                dances: 'Táncok',
+                general: 'Álltalános',
+                approach: 'Megközelítés',
+                tipps: 'Tippek',
+                etikett: 'Etikett',
+            },
+            general: {
+                title: 'Álltalánosan a bulikról',
+                desc: `Kéthetente megtelik a kollégium nagyterme a város tánckedvelő fiataljaival, 
+            és a hangfalakból salsa, rock & roll, boogie-woogie vagy modern társastáncok zenéi szólnak, 
+            esetleg éppen egy zenekar húzza élőben a talpalávalót. Nagy a kínálat, így nálunk biztosan 
+            megtalálod a Hozzád illő táncstílust és bulit.`,
+            },
+            thank: {
+                title: 'Köszönet: ',
+                back: 'A backend-ért: ',
+                design: 'A design-ért és frontend-ért: ',
+                spot: 'A fotókért: ',
+                ac: 'A hangosításért: ',
+                bss: 'A videókért: ',
+            },
+        },
+        path: {
+            title: 'Megközelítés: ',
+            desc: '4-es villamos › Budafoki út 33, 86, 212-es busz › Október huszonharmadika utca',
+        },
+        wayIn: {
+            title: 'Bejutás: ',
+            desc: 'A lépcsőn fel a porta mellett elhaladva bal oldalt (nem a forgó villákon keresztül)',
+        },
+        newsfeed: {
+            title: 'Iratkozz fel Hírlevelünkre!',
+            desc: `Ha szeretnél értesülni a bulikról és a tanfolyamokról iratkozz fel! 
+            Álltalában hetente maximum 1 emailt fogsz kapni bulikról, worksopokról és egyéb hírekről. 
+            A hírlevélről bármikor leiratkozhatsz az emailben kapott linken keresztül.`,
+            button: 'Feliratkozom',
+        },
+        services: {
+            title: 'Bulin lévő szolgáltatások',
+            cloakroom: 'Ingyenes ruhatár',
+            drinking: 'Italpult kedvezményes árakkal',
+        },
         tips: {
+            title: 'Tippek és tanácsok',
             main: `Összegyűjtöttünk pár jótanácsot, melyeknek hasznát veheted, ha táncórára vagy táncos buliba készülsz. 
         Többek között leírtunk olyan tippeket, melyekkel elkerülheted, 
         hogy cikis helyzetbe kerülj, vagy hogy kényelmetlenül érezd magad és tönkremenjen az estéd egy táncos eseményen.`,
@@ -287,6 +388,7 @@ const strings = new LocalizedStrings({
             ],
         },
         etikett: {
+            title: 'Tánc etikett',
             main: `FIGYELEM! EZEK A SZÖVEGEK MÉG NINCSENEK VÉGLEGESÍTVE! Minden társaságnak, helynek megvannak a maga normái, "szabályai", 
         így a társastáncos közösségekben is vannak bizonyos illemszabályok, amelyeket érdemes betartani. 
         Ezeket szedtük csokorba az alábbiakban.`,

@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from '../CommunityPage/JoinUs.module.css';
+import texts from '../../utils/Descriptions';
 
 function newsFeedSubscription() {
     window.location.href = 'http://eepurl.com/veA7v';
@@ -7,12 +8,9 @@ function newsFeedSubscription() {
 
 const NewsFeed = () => (
     <div className={styles.main}>
-        <div className={styles.title}>Iratkozz fel Hírlevelünkre!</div>
+        <div className={styles.title}>{texts.newsfeed.title}</div>
         <div className={styles.desc}>
-            {`Ha szeretnél értesülni a bulikról és a tanfolyamokról iratkozz fel!
-            Álltalában hetente maximum 1 emailt fogsz kapni bulikról, worksopokról
-            és egyéb hírekről.
-            A hírlevélről bármikor leiratkozhatsz az emailben kapott linken keresztül.`}
+            {texts.newsfeed.desc}
         </div>
         <div
             className={styles.submit}
@@ -21,7 +19,7 @@ const NewsFeed = () => (
             role="button"
             tabIndex={0}
         >
-            {'Feliratkozom'}
+            {texts.newsfeed.button}
         </div>
     </div>
 );

@@ -1,10 +1,11 @@
 import React from 'react';
+import texts from '../../utils/Descriptions';
 
 const Services = () => (
     <div>
-        <div>Bulin lévő szolgáltatások</div>
-        <li key="ruhatar"><strong>Ingyenes ruhatár </strong></li>
-        <li key="italpult"><strong>Italpult kedvezményes árakkal </strong></li>
+        <div>{texts.services.title}</div>
+        <li key="ruhatar"><strong>{texts.services.cloakroom}</strong></li>
+        <li key="italpult"><strong>{texts.services.drinking}</strong></li>
     </div>
 );
 

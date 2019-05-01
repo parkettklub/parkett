@@ -30,7 +30,7 @@ class DanceEtikett extends React.Component {
     render() {
         return (
             <div className={styles.etikett}>
-                <div className={styles.title}>Tánc Etikett</div>
+                <div className={styles.title}>{texts.etikett.title}</div>
                 <div className={styles.long}>{texts.etikett.main}</div>
                 <div className={styles.tabs}>
                     {texts.etikett.tabs.map(tab => (
