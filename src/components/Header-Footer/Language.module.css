@@ -1,9 +1,31 @@
 .lang {
     padding: 0.5rem;
+    overflow: visible;
+    height: 2.5rem;
+    width: 2.5rem;
+}
+
+.lang > span {
+    cursor: pointer;
+}
+
+.lang > span:hover {
+    opacity: 0.5;
+}
+
+.lang > span > img {
+    height: 1.5rem;
+    width: 1.5rem;
+    margin: 0;
+}
+
+.lang > span:focus {
+    outline: 0;
 }
 
 .langName {
     padding: 0.5rem;
+    height: 2.5rem;
     padding-right: 1rem;
 }
 

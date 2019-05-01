@@ -2,6 +2,8 @@ import React from 'react';
 import styles from './Language.module.css';
 import { getLanguage, getLanguageName, setLanguage } from '../../utils/language';
 import strings from '../../utils/Descriptions';
+import enIcon from './english.svg';
+import huIcon from './hungary.svg';
 
 class LanguageSelector extends React.Component {
     constructor() {
@@ -26,7 +28,7 @@ class LanguageSelector extends React.Component {
                             onKeyDown={() => { }}
                             tabIndex={0}
                         >
-                            {'HU'}
+                            <img src={huIcon} alt="" />
                         </span>
                     </div>
                     <div className={`${styles.lang} ${styles.lang}`}>
@@ -36,7 +38,7 @@ class LanguageSelector extends React.Component {
                             onKeyDown={() => { }}
                             tabIndex={0}
                         >
-                            {'ENG'}
+                            <img src={enIcon} alt="" />
                         </span>
                     </div>
                 </div>
