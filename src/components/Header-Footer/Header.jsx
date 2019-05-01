@@ -9,6 +9,7 @@ import {
   getLoginUrl, isLoggedIn, logOut, isEditor,
 } from '../../utils/login';
 import LanguageSelector from './LanguageSelector';
+import texts from '../../utils/Descriptions';
 
 class Header extends React.Component {
   constructor() {
@@ -76,13 +77,13 @@ class Header extends React.Component {
             }
           </div>
           <div className={styles.links}>
-            <ListLink to="/events/" active={events}>Események</ListLink>
-            <ListLink to="/community/" active={community}>Közösség</ListLink>
-            <ListLink to="/media/" active={media}>Galéria</ListLink>
-            <ListLink to="/knowledge-base/" active={knowledgebase}>Tudnivalók</ListLink>
-            <ListLink to="/profile/" active={profile} hidden={!loggedIn}>Profilom</ListLink>
+            <ListLink to="/events/" active={events}>{texts.header.events}</ListLink>
+            <ListLink to="/community/" active={community}>{texts.header.community}</ListLink>
+            <ListLink to="/media/" active={media}>{texts.header.media}</ListLink>
+            <ListLink to="/knowledge-base/" active={knowledgebase}>{texts.header.knowledgebase}</ListLink>
+            <ListLink to="/profile/" active={profile} hidden={!loggedIn}>{texts.header.profile}</ListLink>
             {isEditor()
-              ? <ListLink to="/edit-band/">Szerkesztés</ListLink>
+              ? <ListLink to="/edit-band/">{texts.header.edit}</ListLink>
               : null
             }
           </div>

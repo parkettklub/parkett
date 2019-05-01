@@ -8,6 +8,14 @@ import Weintaste from './communityPictures/Weintaste.jpg';
 
 const strings = new LocalizedStrings({
     en: {
+        header: {
+            events: 'Events',
+            community: 'Comunity',
+            media: 'Gallery',
+            knowledgebase: 'Knowledgebase',
+            profile: 'Profile',
+            edit: 'Edit',
+        },
         one: 'ONE',
         community: `If you want to be part of an awsome community, és közben jólesne pár hűsítő koktél, 
             akkor a Parkett Klubban a helyed! 
@@ -137,37 +145,45 @@ const strings = new LocalizedStrings({
         smallThings: [
             {
                 photo: Dinner,
-                title: 'ENG',
+                title: 'Dinners',
                 descripiton: 'Bevonó vacsorákat is rendezünk, hogy az érdeklődők megismerkedhessenek a rendezőgárdával',
             },
             {
                 photo: Gourp02,
-                title: 'ENG',
+                title: 'Teampictures',
                 descripiton: 'Minden félév végén egy közös csoportképpel örökítjük meg az adott félév rendezőinek csapatát',
             },
             {
                 photo: Gourp01,
-                title: 'ENG',
+                title: 'Members',
                 descripiton: 'A kör tagjai különböző egyéniségek. Akik kiegészítve egymást egy összekovácsolódott csapatot alkotnak.',
             },
             {
                 photo: Girls,
-                title: 'Táborok',
+                title: 'Camps',
                 descripiton: 'Táborok során mindig más és más helyeket látogatunk meg.',
             },
             {
                 photo: Hands,
-                title: 'Csapatmunka',
+                title: 'Teamwork',
                 descripiton: 'A bulik nem jöhetnének létre a Parkett Klub összetartó és egymást segítő csapata nélkül.',
             },
             {
                 photo: Weintaste,
-                title: 'Borkóstoló',
+                title: 'Winetasting',
                 descripiton: 'Minden táborban elmegyünk borkóstólni, hogy a tánctudásunk mellett az ízlésünk is fejlődhessen.',
             },
         ],
     },
     hu: {
+        header: {
+            events: 'Események',
+            community: 'Közösség',
+            media: 'Galéria',
+            knowledgebase: 'Tudnivalók',
+            profile: 'Profilom',
+            edit: 'Szerkesztés',
+        },
         one: 'ONE',
         community: `Ha társaságra vágysz vagy táncolni tanulnál, és közben jólesne pár hűsítő koktél, 
             akkor a Parkett Klubban a helyed! 
