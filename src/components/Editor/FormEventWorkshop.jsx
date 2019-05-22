@@ -11,22 +11,26 @@ import SubFormWorkshop from './SubFormWorkshop';
 import InputFormTextarea from './InputFormTextarea';
 import DeleteButton from './DeleteButton';
 
+const initialState = {
+    title: undefined,
+    photo: undefined,
+    start_date: undefined,
+    end_date: undefined,
+    program: undefined,
+    content: undefined,
+    dance_id: undefined,
+    dance_teacher_id: undefined,
+    theme: undefined,
+    facebook_event: undefined,
+    application_form: undefined,
+    party_id: undefined,
+};
+
 class FormEventWorkshop extends React.Component {
     constructor() {
         super();
         this.state = {
-            title: '',
-            photo: '',
-            start_date: '',
-            end_date: '',
-            program: '',
-            content: '',
-            dance_id: 1,
-            dance_teacher_id: 1,
-            theme: '',
-            facebook_event: '',
-            application_form: '',
-            party_id: 1,
+            ...initialState,
             selectedForm: 'title',
             addSelected: null,
         };
@@ -44,10 +48,12 @@ class FormEventWorkshop extends React.Component {
     setObject = (selectedObject) => {
         if (selectedObject.id < 0) {
             this.setState({
+                ...initialState,
                 id: -1,
             });
         } else {
             this.setState({
+                ...initialState,
                 ...selectedObject,
                 start_date: fetchDateToInput(selectedObject.start_date),
                 end_date: fetchDateToInput(selectedObject.end_date),

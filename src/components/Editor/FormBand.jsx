@@ -5,23 +5,29 @@ import styles from './Form.module.css';
 import InputFormSimple from './InputFormSimple';
 import DeleteButton from './DeleteButton';
 
+const initialState = {
+    id: -1,
+    name: undefined,
+    url: undefined,
+};
+
 class FormBand extends React.Component {
     constructor() {
         super();
-        this.state = {
-            id: -1,
-        };
+        this.state = initialState;
     }
 
     componentDidMount() {
         const { selectedObject } = this.props;
         this.setState({
+            ...initialState,
             ...selectedObject,
         });
     }
 
     componentWillReceiveProps({ selectedObject }) {
         this.setState({
+            ...initialState,
             ...selectedObject,
         });
     }

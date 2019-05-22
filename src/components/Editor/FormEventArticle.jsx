@@ -8,14 +8,18 @@ import SubFormArticle from './SubFormArticle';
 import SubFormPoster from './SubFormPoster';
 import DeleteButton from './DeleteButton';
 
+const initialState = {
+    title: undefined,
+    photo: undefined,
+    published_at: undefined,
+    content: undefined,
+};
+
 class FormEventArticle extends React.Component {
     constructor() {
         super();
         this.state = {
-            title: '',
-            photo: '',
-            published_at: '',
-            content: '',
+            ...initialState,
             selectedForm: 'title',
         };
     }
@@ -32,10 +36,12 @@ class FormEventArticle extends React.Component {
     setObject = (selectedObject) => {
         if (selectedObject.id < 0) {
             this.setState({
+                ...initialState,
                 id: -1,
             });
         } else {
             this.setState({
+                ...initialState,
                 ...selectedObject,
                 published_at: fetchDateToInput(selectedObject.published_at),
             });

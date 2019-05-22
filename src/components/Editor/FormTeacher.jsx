@@ -5,6 +5,11 @@ import styles from './Form.module.css';
 import InputFormSimple from './InputFormSimple';
 import DeleteButton from './DeleteButton';
 
+const initialState = {
+    name: undefined,
+    url: undefined,
+};
+
 class FormTeacher extends React.Component {
     constructor() {
         super();
@@ -16,12 +21,14 @@ class FormTeacher extends React.Component {
     componentDidMount() {
         const { selectedObject } = this.props;
         this.setState({
+            ...initialState,
             ...selectedObject,
         });
     }
 
     componentWillReceiveProps({ selectedObject }) {
         this.setState({
+            ...initialState,
             ...selectedObject,
         });
     }

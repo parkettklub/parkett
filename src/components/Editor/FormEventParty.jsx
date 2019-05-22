@@ -11,24 +11,26 @@ import SubFormMedia from './SubFormMedia';
 import SubFormMusicDanceCourse from './SubFormMusicDanceCourse';
 import DeleteButton from './DeleteButton';
 
+const initialState = {
+    title: undefined,
+    photo: undefined,
+    start_date: undefined,
+    end_date: undefined,
+    program: undefined,
+    content: undefined,
+    facebook_event: undefined,
+    spot: undefined,
+    bss: undefined,
+    dance_course_id: undefined,
+    band_ids: [],
+    dj_ids: [],
+};
+
 class FormEventParty extends React.Component {
     constructor() {
         super();
         this.state = {
-            title: '',
-            photo: '',
-            start_date: '',
-            end_date: '',
-            program: '',
-            content: '',
-            facebook_event: '',
-            spot: '',
-            bss: '',
-            dance_course_id: null,
-            band_ids: [
-            ],
-            dj_ids: [
-            ],
+            ...initialState,
             selectedForm: 'title',
             addSelected: null,
         };
@@ -47,6 +49,7 @@ class FormEventParty extends React.Component {
         if (selectedObject.id < 0) {
             this.setState({
                 id: -1,
+                ...initialState,
             });
         } else {
             this.fetchEvent(selectedObject.id);
@@ -56,6 +59,7 @@ class FormEventParty extends React.Component {
     fetchEvent = (id) => {
         fetchAll(`parties/${id}`).then((myJson) => {
             this.setState({
+                ...initialState,
                 ...myJson,
                 start_date: fetchDateToInput(myJson.start_date),
                 end_date: fetchDateToInput(myJson.end_date),

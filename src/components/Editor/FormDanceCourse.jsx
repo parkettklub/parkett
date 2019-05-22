@@ -8,15 +8,20 @@ import FormDance from './FormDance';
 import FormTeacher from './FormTeacher';
 import DeleteButton from './DeleteButton';
 
+const initialState = {
+    dance_id: undefined,
+    level: undefined,
+    length: undefined,
+    dance_teacher_id: undefined,
+};
+
 class FormDanceCourse extends React.Component {
     constructor() {
         super();
         this.state = {
             id: -1,
             addSelected: null,
-            dance_id: 1,
             dances: [],
-            dance_teacher_id: 1,
             dance_teachers: [],
             level: '',
             length: '',
@@ -26,6 +31,7 @@ class FormDanceCourse extends React.Component {
     componentDidMount() {
         const { selectedObject } = this.props;
         this.setState({
+            ...initialState,
             ...selectedObject,
         });
         this.fetchDances();
@@ -34,6 +40,7 @@ class FormDanceCourse extends React.Component {
 
     componentWillReceiveProps({ selectedObject }) {
         this.setState({
+            ...initialState,
             ...selectedObject,
         });
     }

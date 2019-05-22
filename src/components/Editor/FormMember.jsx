@@ -7,6 +7,13 @@ import InputFormTextArea from './InputFormTextarea';
 import SubFormPoster from './SubFormPoster';
 import DeleteButton from './DeleteButton';
 
+const initialState = {
+    name: undefined,
+    email: undefined,
+    position: undefined,
+    description: undefined,
+};
+
 class FormMember extends React.Component {
     constructor() {
         super();
@@ -18,6 +25,7 @@ class FormMember extends React.Component {
     componentDidMount() {
         const { selectedObject } = this.props;
         this.setState({
+            ...initialState,
             ...selectedObject,
             photo: selectedObject.image,
         });
@@ -25,6 +33,7 @@ class FormMember extends React.Component {
 
     componentWillReceiveProps({ selectedObject }) {
         this.setState({
+            ...initialState,
             ...selectedObject,
             photo: selectedObject.image,
         });

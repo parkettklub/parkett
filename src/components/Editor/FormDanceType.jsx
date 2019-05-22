@@ -7,6 +7,12 @@ import InputPicture from './InputPicture';
 import DeleteButton from './DeleteButton';
 import InputColor from './InputColor';
 
+const initialState = {
+    name: undefined,
+    color: undefined,
+    image: undefined,
+};
+
 class FormDanceType extends React.Component {
     constructor() {
         super();
@@ -20,13 +26,16 @@ class FormDanceType extends React.Component {
     componentDidMount() {
         const { selectedObject } = this.props;
         this.setState({
+            ...initialState,
             ...selectedObject,
         });
     }
 
     componentWillReceiveProps({ selectedObject }) {
         this.setState({
-            ...selectedObject, image: selectedObject.image,
+            ...initialState,
+            ...selectedObject,
+            image: selectedObject.image,
         });
     }
 

@@ -8,6 +8,12 @@ import InputFormTextarea from './InputFormTextarea';
 import FormDanceType from './FormDanceType';
 import DeleteButton from './DeleteButton';
 
+const initialState = {
+    name: undefined,
+    content: undefined,
+    dance_type_id: undefined,
+};
+
 class FormDance extends React.Component {
     constructor() {
         super();
@@ -24,6 +30,7 @@ class FormDance extends React.Component {
     componentDidMount() {
         const { selectedObject } = this.props;
         this.setState({
+            ...initialState,
             ...selectedObject,
         });
         this.fetchDanceTypes();
@@ -31,6 +38,7 @@ class FormDance extends React.Component {
 
     componentWillReceiveProps({ selectedObject }) {
         this.setState({
+            ...initialState,
             dance_type_id: selectedObject.dance_type
                 ? parseInt(selectedObject.dance_type.id, 10)
                 : parseInt(selectedObject.dance_type_id, 10),
