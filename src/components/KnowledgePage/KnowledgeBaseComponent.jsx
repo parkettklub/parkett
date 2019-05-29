@@ -93,14 +93,6 @@ class KnowledgeBaseComponent extends React.Component {
                         <div className={styles.thanks}>
                             <div><strong>{texts.knowledge.thank.title}</strong></div>
                             <div>
-                                <strong>{texts.knowledge.thank.back}</strong>
-                                <a href="http://kir-dev.sch.bme.hu/" target="_blank" rel="noopener noreferrer">Kir-Dev</a>
-                            </div>
-                            <div>
-                                <strong>{texts.knowledge.thank.design}</strong>
-                                <a href="http://schdesign.hu/" target="_blank" rel="noopener noreferrer">Schönherz Design Stúdió</a>
-                            </div>
-                            <div>
                                 <strong>{texts.knowledge.thank.spot}</strong>
                                 <a href="https://spot.sch.bme.hu/events/parkett-klub/" target="_blank" rel="noopener noreferrer">SPOT fotókör</a>
                             </div>
