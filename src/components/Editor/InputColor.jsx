@@ -12,7 +12,7 @@ function InputColor({
                 <strong>{label}</strong>
                 <SketchPicker
                     id={name}
-                    color={value}
+                    color={value ? value : '#505050'}
                     onChangeComplete={color => handleChange({ target: { name, value: color ? color.hex : null } })}
                 />
                 <div className={styles.helper}>{example}</div>
