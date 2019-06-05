@@ -34,6 +34,7 @@ class ProfileComponent extends React.Component {
                 {
                     member ? (
                         <FormMember
+                            deletable={false}
                             selectedObject={member}
                             fetchFunction={this.fetchMembers}
                         />

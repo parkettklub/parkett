@@ -73,7 +73,7 @@ class FormMember extends React.Component {
 
     render() {
         const {
-            selected, title, fetchFunction,
+            selected, title, fetchFunction, deletable,
         } = this.props;
         const {
             id, name, email, position, description,
@@ -81,7 +81,7 @@ class FormMember extends React.Component {
         const isNew = id < 0;
         return (
             <div className={styles.main}>
-                <DeleteButton id={id} type="members" fetchFunction={fetchFunction} />
+                {deletable ? <DeleteButton id={id} type="members" fetchFunction={fetchFunction} /> : null}
                 <div className={styles.formgroup} hidden={selected !== title}>
                     {isNew ? 'Új Tag adatai:' : 'Tag adatai:'}
                     <InputFormSimple
@@ -144,11 +144,13 @@ FormMember.propTypes = {
     selected: PropTypes.string,
     title: PropTypes.string,
     fetchFunction: PropTypes.func.isRequired,
+    deletable: PropTypes.bool,
 };
 
 FormMember.defaultProps = {
     selected: '',
     title: '',
+    deletable: true,
 };
 
 export default FormMember;
