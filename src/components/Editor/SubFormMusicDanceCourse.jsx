@@ -94,7 +94,7 @@ class SubFormMusicDanceCourse extends React.Component {
                 <InputFormSelect
                     selectedForm={selectedForm}
                     form={form}
-                    handleChange={handleMultiple}
+                    handleChange={handleChange}
                     value={dance_type_id}
                     name="dance_type_id"
                     label="Tánctípus"

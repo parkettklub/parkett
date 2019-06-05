@@ -22,6 +22,7 @@ const initialState = {
     spot: undefined,
     bss: undefined,
     dance_course_id: undefined,
+    dance_type_id: undefined,
     band_ids: [],
     dj_ids: [],
 };
