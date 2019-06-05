@@ -24,6 +24,7 @@ const initialState = {
     facebook_event: undefined,
     application_form: undefined,
     party_id: undefined,
+    dance_type_id: undefined,
 };
 
 class FormEventWorkshop extends React.Component {
