@@ -1,10 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { fetchPost, fetchPut } from '../../utils/FetchFunctions';
+import { fetchPost, fetchPut, fetchAll } from '../../utils/FetchFunctions';
 import { getID } from '../../utils/login';
 import styles from './Form.module.css';
 import InputFormSelect from './InputFormSelect';
 import DeleteButton from './DeleteButton';
+import FormMember from './FormMember';
 
 const initialState = {
     name: undefined,
@@ -17,6 +18,8 @@ class FormUser extends React.Component {
         super();
         this.state = {
             id: -1,
+            members: [],
+            addSelected: null,
         };
     }
 
@@ -26,6 +29,7 @@ class FormUser extends React.Component {
             ...initialState,
             ...selectedObject,
         });
+        this.fetchMembers();
     }
 
     componentWillReceiveProps({ selectedObject }) {
@@ -63,13 +67,26 @@ class FormUser extends React.Component {
         });
     }
 
+    fetchMembers = () => {
+        fetchAll('members').then((myJson) => {
+            this.setState({ members: myJson });
+        });
+    }
+
+    addNewElement = (name) => {
+        this.setState({ addSelected: name });
+    }
+
+    close = () => {
+        this.setState({ addSelected: null });
+    }
 
     render() {
         const {
             selected, title, fetchFunction,
         } = this.props;
         const {
-            id, name, email, role,
+            id, name, email, role, member_id, members, addSelected,
         } = this.state;
         const isNew = id < 0;
         const options = [];
@@ -102,6 +119,29 @@ class FormUser extends React.Component {
                                 />
                             )
                             : role}
+                        <InputFormSelect
+                            selected={selected}
+                            title={title}
+                            handleChange={this.handleChange}
+                            value={member_id}
+                            name="member_id"
+                            label="Tag"
+                            options={members.map(type => (
+                                <option value={type.id} key={type.id}>
+                                    {`${type.id} – ${type.name}`}
+                                </option>
+                            ))}
+                            addNew={() => this.addNewElement('member_id')}
+                            close={() => this.close()}
+                        />
+                        <FormMember
+                            selected={addSelected}
+                            title="member_id"
+                            selectedObject={{
+                                id: -1,
+                            }}
+                            fetchFunction={this.fetchMembers}
+                        />
                     </div>
                     <div className={styles.formgroup}>
                         <button
