@@ -10,24 +10,15 @@ class EventSummary extends React.Component {
     state = {};
 
     componentDidMount() {
-        const { dance_course_id, dance_id } = this.props;
-        if (dance_course_id) this.fetchDanceCourse(dance_course_id);
-        if (dance_id) this.fetchDance(dance_id);
+        const { dance_type_id } = this.props;
+        if (dance_type_id) this.fetchDanceTypes(dance_type_id);
     }
 
-    fetchDanceCourse = (id) => {
-        if (id) {
-            fetchAll(`dance_courses/${id}`).then((myJson) => {
-                const { dance_id } = myJson;
-                this.fetchDance(dance_id);
-            });
-        }
-    }
 
-    fetchDance = (id) => {
+    fetchDanceTypes = (id) => {
         if (id) {
-            fetchAll(`dances/${id}`).then((myJson) => {
-                this.setState({ dance: myJson });
+            fetchAll(`dance_types/${id}`).then((myJson) => {
+                this.setState({ dance_type: myJson });
             });
         }
     }
@@ -36,7 +27,7 @@ class EventSummary extends React.Component {
         const {
             formlink, music, start_date, id, onClick, photo, title, old,
         } = this.props;
-        const { dance } = this.state;
+        const { dance_type } = this.state;
         const detailsrows = [];
         if (formlink) {
             detailsrows.push(
@@ -62,9 +53,9 @@ class EventSummary extends React.Component {
 
         let realColor = '#505050';
         let icon = '';
-        if (dance) {
-            realColor = dance.dance_type.color;
-            icon = dance.dance_type.image;
+        if (dance_type) {
+            realColor = dance_type.color;
+            icon = dance_type.image;
         }
 
         return (
@@ -105,8 +96,7 @@ EventSummary.propTypes = {
     photo: PropTypes.string,
     title: PropTypes.string,
     old: PropTypes.bool,
-    dance_course_id: PropTypes.number,
-    dance_id: PropTypes.number,
+    dance_type_id: PropTypes.number,
 };
 
 EventSummary.defaultProps = {
@@ -115,8 +105,7 @@ EventSummary.defaultProps = {
     photo: '',
     title: '',
     old: false,
-    dance_course_id: null,
-    dance_id: null,
+    dance_type_id: null,
 };
 
 export default EventSummary;
