@@ -108,7 +108,7 @@ class FormDance extends React.Component {
         const isNew = id < 0;
         return (
             <div className={styles.main}>
-                <DeleteButton id={id} type="dance_types" fetchFunction={fetchFunction} />
+                <DeleteButton id={id} type="dances" fetchFunction={fetchFunction} />
                 <div className={styles.formgroup} hidden={selected !== title}>
                     {isNew ? 'Új Tánc adatai:' : 'Tánc adatai:'}
                     <InputFormSimple
