@@ -11,6 +11,7 @@ const initialState = {
     name: undefined,
     email: undefined,
     role: undefined,
+    memeber_id: undefined,
 };
 
 class FormUser extends React.Component {
