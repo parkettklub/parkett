@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { fetchAll } from '../../utils/FetchFunctions';
 import FormDJ from './FormDJ';
 import FormBand from './FormBand';
+import FormDanceType from './FormDanceType';
 import FormDanceCourse from './FormDanceCourse';
 import InputFormSelect from './InputFormSelect';
 import InputFormMultipleSelect from './InputFormMultipleSelect';
@@ -15,15 +16,23 @@ class SubFormMusicDanceCourse extends React.Component {
             danceCourses: [],
             allBands: [],
             allDjs: [],
+            allDanceTypes: [],
         };
     }
 
     componentDidMount() {
+        this.fetchDanceTypes();
         this.fetchBands();
         this.fetchDjs();
         this.fetchDances();
         this.fetchDanceTeachers();
         this.fetchDanceCourses();
+    }
+
+    fetchDanceTypes = () => {
+        fetchAll('dance_types').then((myJson) => {
+            this.setState({ allDanceTypes: myJson });
+        });
     }
 
     fetchDanceCourses = () => {
@@ -74,14 +83,40 @@ class SubFormMusicDanceCourse extends React.Component {
 
     render() {
         const {
-            selectedForm, form, handleChange, dance_course_id, handleMultiple, band_ids, dj_ids,
+            selectedForm, form, handleChange, dance_course_id, handleMultiple, band_ids, dj_ids, dance_type_id,
         } = this.props;
         const {
-            addSelected,
+            addSelected, allDanceTypes,
         } = this.state;
         const { danceCourses, allDjs, allBands } = this.state;
         return (
             <div>
+                <InputFormSelect
+                    selectedForm={selectedForm}
+                    form={form}
+                    handleChange={handleMultiple}
+                    value={dance_type_id}
+                    name="dance_type_id"
+                    label="Tánctípus"
+                    addNew={() => this.addNewElement('dance_type')}
+                    close={this.close}
+                    options={
+                        allDanceTypes.map(danceType => (
+                            <option value={danceType.id} key={danceType.id}>
+                                {danceType.id}
+                                {' – '}
+                                {danceType.name}
+                            </option>
+                        ))}
+                />
+                <FormDanceType
+                    selected={addSelected}
+                    title="dance_type"
+                    selectedObject={{
+                        id: -1,
+                    }}
+                    fetchFunction={this.fetchDanceTypes}
+                />
                 <InputFormSelect
                     selectedForm={selectedForm}
                     form={form}
@@ -171,6 +206,7 @@ SubFormMusicDanceCourse.propTypes = {
     dance_course_id: PropTypes.number,
     dj_ids: PropTypes.instanceOf(Array),
     band_ids: PropTypes.instanceOf(Array),
+    dance_type_id: PropTypes.number,
     handleChange: PropTypes.func.isRequired,
     handleMultiple: PropTypes.func.isRequired,
 };
@@ -179,6 +215,7 @@ SubFormMusicDanceCourse.defaultProps = {
     selectedForm: '',
     form: '',
     dance_course_id: null,
+    dance_type_id: null,
     dj_ids: [],
     band_ids: [],
 };
