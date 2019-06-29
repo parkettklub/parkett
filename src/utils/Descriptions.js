@@ -75,7 +75,7 @@ const strings = new LocalizedStrings({
         },
         path: {
             title: 'Approach: ',
-            desc: '4-es villamos › Budafoki út 33, 86, 212-es busz › Október huszonharmadika utca',
+            desc: '4-es tram › Budafoki street 33, 86, 212-es bus › Október huszonharmadika street',
         },
         wayIn: {
             title: 'Access: ',
@@ -91,7 +91,7 @@ const strings = new LocalizedStrings({
         services: {
             title: 'Party services',
             cloakroom: 'Free cloakroom',
-            drinking: 'Italpult kedvezményes prices',
+            drinking: 'Counter with discounted prices',
         },
         tips: {
             title: 'Tipps and tricks',
