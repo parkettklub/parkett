@@ -51,10 +51,10 @@ const strings = new LocalizedStrings({
         },
         knowledge: {
             buttons: {
-                dances: 'Táncok',
-                general: 'Álltalános',
-                approach: 'Megközelítés',
-                tipps: 'Tippek',
+                dances: 'Dances',
+                general: 'General',
+                approach: 'Approach',
+                tipps: 'Tipps',
                 etikett: 'Etikett',
             },
             general: {
