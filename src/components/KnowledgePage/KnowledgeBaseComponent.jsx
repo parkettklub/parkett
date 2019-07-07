@@ -5,6 +5,7 @@ import LocationAccess from './LocationAccess';
 import Attention from './Attention';
 import Services from './Services';
 import Dances from './Dances';
+import FeedBackForm from './FeedBackForm';
 import EditButton from '../EditButton';
 import styles from './Knowledge.module.css';
 import NewsFeed from './NewsFeed';
@@ -119,6 +120,9 @@ class KnowledgeBaseComponent extends React.Component {
                 </div>
                 <div className={styles.tips} ref={this.dicEtikett}>
                     <DanceEtikett />
+                </div>
+                <div className={styles.tips}>
+                    <FeedBackForm />
                 </div>
             </div>
         );
