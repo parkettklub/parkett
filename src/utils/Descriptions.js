@@ -72,6 +72,11 @@ const strings = new LocalizedStrings({
                 ac: 'For the sound: ',
                 bss: 'For the videos: ',
             },
+            feedbackForm: {
+                title: 'Feedback',
+                description: 'Kérlek, ha a Parkett Klubbos honlappal bármilyen hiáb tapasztaltál, vagy megjegyzésed javaslatod van új funkció bevezetésére van ötleted kérlek ezt a formot kitöltve tudasd velünk.',
+                button: 'Feedback form link',
+            },
         },
         path: {
             title: 'Approach: ',
@@ -327,6 +332,11 @@ const strings = new LocalizedStrings({
                 spot: 'A fotókért: ',
                 ac: 'A hangosításért: ',
                 bss: 'A videókért: ',
+            },
+            feedbackForm: {
+                title: 'Visszajelzés',
+                description: 'Kérlek, ha a Parkett Klubbos honlappal bármilyen hibát tapasztaltál, vagy megjegyzésed javaslatod van új funkció bevezetésére van ötleted kérlek ezt a formot kitöltve tudasd velünk.',
+                button: 'Visszajelző form',
             },
         },
         path: {
