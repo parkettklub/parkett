@@ -32,22 +32,19 @@ const strings = new LocalizedStrings({
         },
         one: 'ONE',
         community: {
-            desc: `If you want to be part of an awsome community, és közben jólesne pár hűsítő koktél, 
-            akkor a Parkett Klubban a helyed! 
-            Ha pedig szeretnél egy vidám, összetartó csapat tagja lenni, 
-            akkor csatlakozz a rendező gárdához!`,
+            desc: `If you want to be part of an awesome community, and you also enjoy some cooling drinks, 
+            then your place is in the Parkett Klub! If you want to be part of het happy and cohesive team, 
+            then join our organizing group!`,
             joinus: 'Apply for Parkett Klub organizer!',
             oldmembers: 'Old members',
             members: 'Members',
         },
         attention: {
             title: 'Warning!',
-            desc: `A Parkett Klub rendezvényeire a beléptetés jogát fenntartjuk.
-            A kedvezmények igénybevétele az azt igazoló kártyával lehetséges.
-            A belépéssel hozzájárulsz, hogy videófelvétel és fényképek készüljenek Rólad,
-            és azok megjelenjenek a Schönherz Zoltán Kolllégiummal, a SPOT fotókörrel,
-             a Budavári Schönherz Stúdióval, illetve a Parkett Klubbal kapcsolatos felületeken.
-             Utólagos kérésre a Rólad készült fényképeket eltávolítjuk.`,
+            desc: `We reserve the right to enter the Parkett Klub events. Those eligible for discounts can prove their eligibility 
+            by presenting their identity card (example a Student ID). By entering you consent to be taken picture, and video of. 
+            And for these to be shown on the Schonherz Dormitory, SPOT, Budavari Schonherz Studio and the Parkett Klub related surfaces. 
+            You may request the removal of your photographs.`,
         },
         knowledge: {
             buttons: {
@@ -59,10 +56,9 @@ const strings = new LocalizedStrings({
             },
             general: {
                 title: 'General things about the parties',
-                desc: `Kéthetente megtelik a kollégium nagyterme a város tánckedvelő fiataljaival, 
-            és a hangfalakból salsa, rock & roll, boogie-woogie vagy modern társastáncok zenéi szólnak, 
-            esetleg éppen egy zenekar húzza élőben a talpalávalót. Nagy a kínálat, így nálunk biztosan 
-            megtalálod a Hozzád illő táncstílust és bulit.`,
+                desc: `Every two weeks the great hall of the dorm is filled with dance lover youngsters and from the speakers salsa, 
+                rock & roll, boogie-woogie or modern socialdance music can be heard. But sometimes a band is playing live for the dancers. 
+                The supply is great, so you could always find the right dance style and party for you.`,
             },
             thank: {
                 title: 'Thank you: ',
@@ -74,7 +70,7 @@ const strings = new LocalizedStrings({
             },
             feedbackForm: {
                 title: 'Feedback',
-                description: 'Kérlek, ha a Parkett Klubbos honlappal bármilyen hiáb tapasztaltál, vagy megjegyzésed javaslatod van új funkció bevezetésére van ötleted kérlek ezt a formot kitöltve tudasd velünk.',
+                description: 'Please, if you notice some error on the website, or you have some suggestion for improving the user experience please fill out this form.',
                 button: 'Feedback form link',
             },
         },
@@ -84,13 +80,12 @@ const strings = new LocalizedStrings({
         },
         wayIn: {
             title: 'Access: ',
-            desc: 'A lépcsőn fel a porta mellett elhaladva bal oldalt (nem a forgó villákon keresztül)',
+            desc: 'Going past the stairs on the left(not through the turnstile)',
         },
         newsfeed: {
             title: 'Subscribe to our newsletter!',
-            desc: `Ha szeretnél értesülni a bulikról és a tanfolyamokról iratkozz fel! 
-            Álltalában hetente maximum 1 emailt fogsz kapni bulikról, worksopokról és egyéb hírekről. 
-            A hírlevélről bármikor leiratkozhatsz az emailben kapott linken keresztül.`,
+            desc: `If you want to be notified about the parties and workshops please subscribe to our newsletter. 
+            We send 1 letter per week on average. You can unsubscribe from the newsletter anytime, with the link in one of the letters.`,
             button: 'Subscirbe',
         },
         services: {
@@ -335,7 +330,8 @@ const strings = new LocalizedStrings({
             },
             feedbackForm: {
                 title: 'Visszajelzés',
-                description: 'Kérlek, ha a Parkett Klubbos honlappal bármilyen hibát tapasztaltál, vagy megjegyzésed javaslatod van új funkció bevezetésére van ötleted kérlek ezt a formot kitöltve tudasd velünk.',
+                description: `Kérlek, ha a Parkett Klubbos honlappal bármilyen hibát tapasztaltál, vagy megjegyzésed javaslatod 
+                van új funkció bevezetésére van ötleted kérlek ezt a formot kitöltve tudasd velünk.`,
                 button: 'Visszajelző form',
             },
         },
