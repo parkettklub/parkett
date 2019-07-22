@@ -1,9 +1,9 @@
 import React from 'react';
-import DatePicker from "react-datepicker";
+import DatePicker from 'react-datepicker';
 import PropTypes from 'prop-types';
 import styles from './Form.module.css';
 import { dateToInput } from '../../utils/DateFunctions';
-import "react-datepicker/dist/react-datepicker.css";
+import 'react-datepicker/dist/react-datepicker.css';
 
 
 const today = dateToInput(new Date());
@@ -20,7 +20,7 @@ function InputFormDate({
             <div>
                 <DatePicker
                     className={styles.input}
-                    selected={value}
+                    selected={new Date(value)}
                     onChange={date => handleChange({ target: { name, value: dateToInput(new Date(date)) } })}
                     showTimeSelect
                     timeFormat="HH:mm"
