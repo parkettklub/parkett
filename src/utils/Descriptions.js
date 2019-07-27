@@ -288,7 +288,7 @@ const strings = new LocalizedStrings({
         },
         one: 'ONE',
         community: {
-            desc: `If you want to be part of an awsome community, és közben jólesne pár hűsítő koktél, 
+            desc: `Ha szeretnél tagja lenni egy rendkívüli csapatnak, és közben jólesne pár hűsítő koktél, 
             akkor a Parkett Klubban a helyed! 
             Ha pedig szeretnél egy vidám, összetartó csapat tagja lenni, 
             akkor csatlakozz a rendező gárdához!`,
