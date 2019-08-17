@@ -6,6 +6,7 @@
   "dependencies": {
     "babel-plugin-transform-regenerator": "^6.26.0",
     "base-64": "^0.1.0",
+    "dotenv": "^8.0.0",
     "gatsby": "^1.9.277",
     "gatsby-link": "^1.6.46",
     "gatsby-plugin-favicon": "2.1.1",
