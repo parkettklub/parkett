@@ -1,15 +1,11 @@
-const linkNetlify = 'https://parkett-klub-netlify.herokuapp.com/';
-const linkLocalhost = 'https://parkett-klub.herokuapp.com/';
-let link = linkLocalhost;
-if (typeof window !== 'undefined' && window.location.href.includes('netlify')) link = linkNetlify;
-
-const AUTH_URL = 'http://auth.sch.bme.hu/site/login/';
+const link = `${process.env.FRONTEND_URL}`;
+const AUTH_URL = `${process.env.AUTH_URL}`;
 
 let PARAMS = {
-    client_id: '74854237956044948092',
+    client_id: `${process.env.AUTH_CLIENT_ID}`,
     response_type: 'code',
     grant_type: 'authorization_code',
-    scope: 'basic',
+    scope: `${process.env.AUTH_SCOPE}`,
 };
 
 export function isLoggedIn() {

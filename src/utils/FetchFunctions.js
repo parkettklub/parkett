@@ -1,9 +1,6 @@
 import { getToken, isLoggedIn } from './login';
 
-const linkNetlify = 'https://parkett-klub-netlify.herokuapp.com/';
-const linkLocalhost = 'https://parkett-klub.herokuapp.com/';
-let link = linkLocalhost;
-if (typeof window !== 'undefined' && window.location.href.includes('netlify')) link = linkNetlify;
+const link = `${process.env.FRONTEND_URL}`;
 
 export async function fetchAll(type) {
     try {
