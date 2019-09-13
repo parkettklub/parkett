@@ -63,7 +63,6 @@ class EventSummary extends React.Component {
             <div
                 className={`${styles.event} ${old ? styles.old : ''} ${onClick ? styles.clickable : ''}`}
                 key={id}
-                onClick={onClick}
                 role="button"
                 onKeyDown={() => { }}
                 tabIndex={0}
