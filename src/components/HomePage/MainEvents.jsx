@@ -24,12 +24,13 @@ function filterEvents(newEvents, article) {
     );
 }
 
-function mapEvents(filteredEvents, char, onClick, article) {
+function mapEvents(filteredEvents, char, onClick, path, article) {
     return filteredEvents.map(original => ({
         ...original,
         onClick: () => onClick(original.id),
         complexId: `${char}${original.id}`,
         date: article ? original.published_at : original.start_date,
+        path: path + original.id,
     }));
 }
 
@@ -77,26 +78,26 @@ class MainEvents extends React.Component {
 
     fetchParties = () => {
         fetchAll('parties').then((myJson) => {
-            this.addEvents('P', myJson, goToParty);
+            this.addEvents('P', myJson, goToParty, `/event-party/?`);
         });
     }
 
     fetchWorkshops = () => {
         fetchAll('workshops').then((myJson) => {
-            this.addEvents('W', myJson, goToWorkshop);
+            this.addEvents('W', myJson, goToWorkshop, `/event-workshop/?`);
         });
     }
 
     fetchArticles = () => {
         fetchAll('articles').then((myJson) => {
-            this.addEvents('A', myJson, goToArticle, true);
+            this.addEvents('A', myJson, goToArticle, `/event-article/?`, true);
         });
     }
 
-    addEvents = (char, newEvents, onClick, article = false) => {
+    addEvents = (char, newEvents, onClick, path, article = false) => {
         const { events } = this.state;
         const filteredEvents = filterEvents(newEvents, article);
-        const allEvents = [...events, ...mapEvents(filteredEvents, char, onClick, article)];
+        const allEvents = [...events, ...mapEvents(filteredEvents, char, onClick, path, article)];
         this.setState({ events: sortEvents(allEvents), fetched: true });
     }
 

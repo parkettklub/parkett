@@ -92,7 +92,7 @@ class EventParty extends React.Component {
         };
         return (
             <div>
-                <EditButton link={`/edit-events?${complexId}`} />
+                <EditButton link={`/edit-events/?${complexId}`} />
                 <div className={styles.main}>
                     <EventWithPoster {...main} key="poster" />
                     <EventDetails {...detail} key="details" />

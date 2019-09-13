@@ -1,26 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Link from 'gatsby-link';
 import Edit from './pencil_white.svg';
 import styles from './EditButton.module.css';
 import { isEditor } from '../utils/login';
 
 
-function editPage(location) {
-    window.location = location;
-}
-
 const EditButton = ({ link }) => {
     if (isEditor()) {
         return (
-            <button
+            <Link
                 className={styles.button}
-                onClick={() => editPage(link)}
-                onKeyDown={() => { }}
-                tabIndex={0}
-                type="button"
+                to={link}
             >
                 <img src={Edit} alt="" />
-            </button>
+            </Link>
         );
     }
     return null;
