@@ -39,7 +39,9 @@ class EventList extends React.Component {
     }
 
     fetchEvents = ({ party, workshop, article }) => {
-        this.setState({ events: [] });
+        this.setState({
+            events: [],
+        });
         if (party) this.fetchParties();
         if (workshop) this.fetchWorkshops();
         if (article) this.fetchArticles();
@@ -51,6 +53,7 @@ class EventList extends React.Component {
             const newEvents = events.concat(myJson.map(original => ({
                 ...original,
                 onClick: () => goToParty(original.id),
+                path: `/event-party/?${original.id}`,
                 complexId: `P${original.id}`,
             })));
             this.setState({ events: newEvents });
@@ -63,6 +66,7 @@ class EventList extends React.Component {
             const newEvents = events.concat(myJson.map(original => ({
                 ...original,
                 onClick: () => goToWorkshop(original.id),
+                path: `/event-workshop/?${original.id}`,
                 complexId: `W${original.id}`,
             })));
             this.setState({ events: newEvents });
@@ -76,6 +80,7 @@ class EventList extends React.Component {
                 ...original,
                 start_date: original.published_at,
                 onClick: () => goToArticle(original.id),
+                path: `/event-article/?${original.id}`,
                 complexId: `A${original.id}`,
             })));
             this.setState({ events: newEvents });

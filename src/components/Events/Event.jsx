@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Link from 'gatsby-link';
 import Card from '../Card';
 import styles from './EventList.module.css';
 import { fetchAll } from '../../utils/FetchFunctions';
@@ -25,7 +26,7 @@ class EventSummary extends React.Component {
 
     render() {
         const {
-            formlink, music, start_date, id, onClick, photo, title, old,
+            formlink, music, start_date, id, onClick, photo, title, old, path,
         } = this.props;
         const { dance_type } = this.state;
         const detailsrows = [];
@@ -68,19 +69,21 @@ class EventSummary extends React.Component {
                 tabIndex={0}
             >
                 <Card color={realColor}>
-                    <div className={styles.grid}>
-                        <div className={styles.posterCropper}>
-                            <img alt="" src={photo} />
+                    <Link to={path}>
+                        <div className={styles.grid}>
+                            <div className={styles.posterCropper}>
+                                <img alt="" src={photo} />
+                            </div>
+                            <div className={styles.details}>
+                                <div className={styles.title}>{title}</div>
+                                <div>{dateToString(start_date)}</div>
+                                {detailsrows}
+                            </div>
+                            <div className={styles.dance}>
+                                <img src={icon} alt="" />
+                            </div>
                         </div>
-                        <div className={styles.details}>
-                            <div className={styles.title}>{title}</div>
-                            <div>{dateToString(start_date)}</div>
-                            {detailsrows}
-                        </div>
-                        <div className={styles.dance}>
-                            <img src={icon} alt="" />
-                        </div>
-                    </div>
+                    </Link>
                 </Card>
             </div>
         );
@@ -96,6 +99,7 @@ EventSummary.propTypes = {
     photo: PropTypes.string,
     title: PropTypes.string,
     old: PropTypes.bool,
+    path: PropTypes.string.isRequired,
     dance_type_id: PropTypes.number,
 };
 

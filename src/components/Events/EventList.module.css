@@ -42,6 +42,11 @@
     margin-bottom: 0.5em;
 }
 
+.event a {
+    color: black;
+    text-decoration: none;
+}
+
 .event > article {
     margin-bottom: 0;
 }
