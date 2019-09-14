@@ -16,7 +16,7 @@ const JoinUsSimple = () => (
             role="button"
             tabIndex={0}
         >
-            {'Jelentkezem'}
+            {texts.community.apply}
         </div>
     </div>
 );

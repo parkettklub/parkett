@@ -1,6 +1,7 @@
 import React from 'react';
 import MainEvents from './MainEvents';
 import styles from './HomePage.module.css';
+import texts from '../../utils/Descriptions';
 
 function JoinUsPage() {
     window.location.href = 'https://docs.google.com/forms/d/e/1FAIpQLScdcE5Ha6hBGbEQzvXT3Fq1bOBxMppOMg5TUrh0YahBwovvsw/viewform';
@@ -14,21 +15,16 @@ const HomePage = () => (
     <div className={styles.main}>
         <div className={styles.join}>
             <div className={styles.text}>
-                <div className={styles.title}>Csatlakozz hozzánk!</div>
+                <div className={styles.title}>{texts.home.title}</div>
                 <div className={styles.description}>
-                    {`A rendező gárda kb. 10-15 főből áll, 
-                akik szabadidejükben, öntevékeny módon csapattá szerveződve végzik 
-                a Parkett Klub körüli teendőket. 
-                Célunk az egyetemistáknak és a társastáncok kedvelőinek 
-                színes és igényes tánctanulási és szórakozási lehetőséget nyújtani, 
-                és ezzel minél több emberhez eljuttatni a tánc üzenetét.`}
+                    {texts.home.description}
                 </div>
                 <div className={styles.actions}>
                     <button type="button" onClick={JoinUsPage}>
-                        {'Csatlakozom a rendezőkhöz'}
+                        {texts.home.joinus}
                     </button>
                     <button type="button" onClick={NewsFeedSubscription}>
-                        {'Feliratkozom a hírlevélre'}
+                        {texts.home.newsFeed}
                     </button>
                 </div>
             </div>
