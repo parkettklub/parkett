@@ -31,6 +31,8 @@ class EventList extends React.Component {
             search: '',
             events: [],
             party: true,
+            workshop: true,
+            article: true,
         };
     }
 
