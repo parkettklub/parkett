@@ -12,6 +12,11 @@ class EventWorkshopForm extends React.Component {
         if (dance_teacher_id) this.fetchObject(dance_teacher_id);
     }
 
+    componentWillReceiveProps(nextProps) {
+        const { dance_teacher_id } = nextProps;
+        if (dance_teacher_id) this.fetchObject(dance_teacher_id);
+    }
+
     fetchObject = (id) => {
         if (id) {
             fetchAll(`dance_teachers/${id}`).then((selectedObject) => {

@@ -15,6 +15,11 @@ class EventSummary extends React.Component {
         if (dance_type_id) this.fetchDanceTypes(dance_type_id);
     }
 
+    componentWillReceiveProps(nextProps) {
+        const { dance_type_id } = nextProps;
+        if (dance_type_id) this.fetchDanceTypes(dance_type_id);
+    }
+
 
     fetchDanceTypes = (id) => {
         if (id) {
