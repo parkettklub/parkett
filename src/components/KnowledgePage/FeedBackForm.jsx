@@ -8,9 +8,9 @@ function newsFeedSubscription() {
 
 const Attention = () => (
     <div className={styles.main}>
-        <div className={styles.title}>{texts.knowledge.feedbackForm.title}</div>
+        <div className={styles.title}>{texts ? texts.knowledge.feedbackForm.title : ''}</div>
         <div className={styles.desc}>
-            {texts.knowledge.feedbackForm.description}
+            {texts ? texts.knowledge.feedbackForm.description : ''}
         </div>
         <div
             className={styles.submit}
@@ -19,7 +19,7 @@ const Attention = () => (
             role="button"
             tabIndex={0}
         >
-            {texts.knowledge.feedbackForm.button}
+            {texts ? texts.knowledge.feedbackForm.button : ''}
         </div>
     </div>
 );

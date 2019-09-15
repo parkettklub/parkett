@@ -8,9 +8,9 @@ function newsFeedSubscription() {
 
 const NewsFeed = () => (
     <div className={styles.main}>
-        <div className={styles.title}>{texts.newsfeed.title}</div>
+        <div className={styles.title}>{texts ? texts.newsfeed.title : ''}</div>
         <div className={styles.desc}>
-            {texts.newsfeed.desc}
+            {texts ? texts.newsfeed.desc : ''}
         </div>
         <div
             className={styles.submit}
@@ -19,7 +19,7 @@ const NewsFeed = () => (
             role="button"
             tabIndex={0}
         >
-            {texts.newsfeed.button}
+            {texts ? texts.newsfeed.button : ''}
         </div>
     </div>
 );

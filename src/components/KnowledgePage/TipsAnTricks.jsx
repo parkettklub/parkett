@@ -28,6 +28,9 @@ class TipsAndTricks extends React.Component {
     }
 
     render() {
+        if (!texts) {
+            return (<div className={styles.tips}>Loading</div>);
+        }
         return (
             <div className={styles.tips}>
                 <div className={styles.title}>{texts.tips.title}</div>

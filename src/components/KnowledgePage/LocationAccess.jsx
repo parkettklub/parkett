@@ -4,12 +4,12 @@ import texts from '../../utils/Descriptions';
 const LocationAccess = () => (
     <div>
         <div key="megkozelites">
-            <strong>{texts.path.title}</strong>
-            {texts.path.desc}
+            <strong>{texts ? texts.path.title : ''}</strong>
+            {texts ? texts.path.desc : ''}
         </div>
         <div key="bejutas">
-            <strong>{texts.wayIn.title}</strong>
-            {texts.wayIn.desc}
+            <strong>{texts ? texts.wayIn.title : ''}</strong>
+            {texts ? texts.wayIn.desc : ''}
         </div>
     </div>
 );

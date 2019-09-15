@@ -28,6 +28,13 @@ class DanceEtikett extends React.Component {
     }
 
     render() {
+        if (!texts) {
+            return (
+                <div className={styles.etikett}>
+                    Loading
+                </div>
+            );
+        }
         return (
             <div className={styles.etikett}>
                 <div className={styles.title}>{texts.etikett.title}</div>

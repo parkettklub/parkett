@@ -69,6 +69,15 @@ class KnowledgeBaseComponent extends React.Component {
     }
 
     render() {
+        if (!texts) {
+            return (
+                <div className={styles.main}>
+                    <div className={styles.header}>
+                        Loading
+                    </div>
+                </div>
+            );
+        }
         return (
             <div className={styles.main}>
                 <div className={styles.buttons}>

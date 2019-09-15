@@ -19,9 +19,6 @@ class MediaComponent extends React.Component {
     }
 
     fetchEvents = () => {
-        this.setState({
-            events: [],
-        });
         this.fetchParties();
     }
 
@@ -55,7 +52,7 @@ class MediaComponent extends React.Component {
         } = this.state;
         return (
             <div className={styles.center}>
-                <div className={styles.title}>{texts.media.pictures}</div>
+                <div className={styles.title}>{texts ? texts.media.pictures : 'Képek'}</div>
                 <div className={styles.grid}>
                     {
                         events.map(event => (
@@ -69,7 +66,7 @@ class MediaComponent extends React.Component {
                         ))
                     }
                 </div>
-                <div className={styles.title}>{texts.media.videos}</div>
+                <div className={styles.title}>{texts ? texts.media.videos : 'Videók'}</div>
                 <div className={styles.grid}>
                     {
                         events.map(event => (
