@@ -11,7 +11,7 @@ function EventDetailsWorkshop({
     const links = [];
     if (facebook) {
         links.push(
-            <a className={styles.facebook} href={FacebookLogo} target="_blank" rel="noopener noreferrer" key="facebook">
+            <a className={styles.facebook} href={facebook} target="_blank" rel="noopener noreferrer" key="facebook">
                 <img src={FacebookLogo} alt="" />
             </a>,
         );
