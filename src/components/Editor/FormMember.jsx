@@ -63,7 +63,6 @@ class FormMember extends React.Component {
 
     updateMember = () => {
         const { photo } = this.state;
-        console.log({ ...this.state, image: photo });
         fetchPut('members', { ...this.state, image: photo }).then(() => {
             const { fetchFunction } = this.props;
             fetchFunction();

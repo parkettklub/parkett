@@ -85,6 +85,8 @@ class FormDanceCourse extends React.Component {
         } = this.state;
         const danceCourse = {
             ...this.state,
+            dances: [],
+            dance_teachers: [],
             dance_id: parseInt(dance_id, 10),
             dance_teacher_id: parseInt(dance_teacher_id, 10),
         };
@@ -100,6 +102,8 @@ class FormDanceCourse extends React.Component {
         } = this.state;
         const danceCourse = {
             ...this.state,
+            dances: [],
+            dance_teachers: [],
             dance_id: parseInt(dance_id, 10),
             dance_teacher_id: parseInt(dance_teacher_id, 10),
         };

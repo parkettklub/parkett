@@ -55,14 +55,16 @@ class FormUser extends React.Component {
     }
 
     addMember = () => {
-        fetchPost('users', this.state).then(() => {
+        const slimState = { ...this.state, members: [] };
+        fetchPost('users', slimState).then(() => {
             const { fetchFunction } = this.props;
             fetchFunction();
         });
     }
 
     updateMember = () => {
-        fetchPut('users', this.state).then(() => {
+        const slimState = { ...this.state, members: [] };
+        fetchPut('users', slimState).then(() => {
             const { fetchFunction } = this.props;
             fetchFunction();
         });

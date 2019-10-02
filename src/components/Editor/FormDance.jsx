@@ -72,6 +72,7 @@ class FormDance extends React.Component {
         const { dance_type_id } = this.state;
         const dance = {
             ...this.state,
+            dance_types: [],
             dance_type_id: parseInt(dance_type_id, 10),
         };
         fetchPost('dances', dance).then(() => {
@@ -86,6 +87,7 @@ class FormDance extends React.Component {
         } = this.state;
         const dance = {
             ...this.state,
+            dance_types: [],
             dance_type_id: parseInt(dance_type_id, 10),
         };
         fetchPut('dances', dance).then(() => {
