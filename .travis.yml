@@ -1,0 +1,14 @@
+language: node_js
+node_js:
+  - lts/*
+  - node
+env:
+  - FRONTEND_URL: https://api.parkettklub.sch.bme.hu/
+
+script:
+  - yarn build
+
+deploy:
+  provider: pages:git
+  edge: true
+  local_dir: public
