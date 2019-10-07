@@ -6,10 +6,11 @@ env:
   - FRONTEND_URL: https://api.parkettklub.sch.bme.hu/
 
 script:
-  - yarn build
+  - yarn build --prefix-paths
 
 deploy:
   provider: pages:git
   edge: true
   local_dir: public
-  cleanup: false
+  on:
+    branch: master

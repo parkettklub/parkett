@@ -1,4 +1,5 @@
 module.exports = {
+  pathPrefix: '/parkett',
   siteMetadata: {
     title: 'Gatsby Default Starter',
   },
