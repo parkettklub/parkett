@@ -1,6 +1,6 @@
 import { getToken, isLoggedIn } from './login';
 
-const link = `${process.env.FRONTEND_URL}`;
+const link = process.env.FRONTEND_URL;
 
 export async function fetchAll(type) {
     try {
