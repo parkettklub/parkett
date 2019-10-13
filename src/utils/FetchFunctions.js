@@ -1,5 +1,11 @@
 import { getToken, isLoggedIn } from './login';
 
+global.process = {
+    env: {
+        NODE_ENV: 'production' // or development
+    }
+}
+
 console.log(process);
 console.log(process.env);
 
