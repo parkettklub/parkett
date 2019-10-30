@@ -103,7 +103,7 @@ export const getAuthHeader = token => ['Authorization', `Bearer ${token}`];
 export function getLoginUrl() {
     if (typeof window === 'undefined' || (typeof window !== 'undefined') && (window.location.href.includes('netlify'))) {
         PARAMS = {
-            client_id: '13936315458712517828',
+            client_id: '40635422955794777001',
             response_type: 'code',
             grant_type: 'authorization_code',
             scope: 'basic',
