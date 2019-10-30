@@ -1,11 +1,11 @@
-const link = process.env.FRONTEND_URL;
-const authURL = process.env.AUTH_URL;
+const link = process.env.GATSBY_FRONTEND_URL;
+const authURL = process.env.GATSBY_AUTH_URL;
 
 let PARAMS = {
-    client_id: process.env.AUTH_CLIENT_ID,
+    client_id: process.env.GATSBY_AUTH_CLIENT_ID,
     response_type: 'code',
     grant_type: 'authorization_code',
-    scope: process.env.AUTH_SCOPE,
+    scope: process.env.GATSBY_AUTH_SCOPE,
 };
 
 export function isLoggedIn() {
