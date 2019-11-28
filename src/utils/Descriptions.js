@@ -282,7 +282,7 @@ const strings = new LocalizedStrings({
     hu: {
         home: {
             title: 'Csatlakozz hozzánk!',
-            description: `A rendező gárda kb. 10-15 főből áll, 
+            description: `A rendező gárda kb. 11-15 főből áll, 
                 akik szabadidejükben, öntevékeny módon csapattá szerveződve végzik 
                 a Parkett Klub körüli teendőket. 
                 Célunk az egyetemistáknak és a társastáncok kedvelőinek 
