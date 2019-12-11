@@ -4,7 +4,7 @@ node_js:
   - node
 
 script:
-  - yarn build --prefix-paths
+  - yarn build
 
 deploy:
   provider: pages
