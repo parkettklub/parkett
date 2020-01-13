@@ -16,16 +16,22 @@ class LanguageSelector extends React.Component {
         this.setState({ lang: getLanguage(), langName: getLanguageName() });
     }
 
+    componentWillReceiveProps() {
+        this.setState({ lang: getLanguage(), langName: getLanguageName() });
+    }
+
     render() {
         const { lang, langName } = this.state;
-        strings.setLanguage(lang);
+        if (lang) {
+            strings.setLanguage(lang);
+        }
         return (
             <div>
                 <div className={styles.main}>
                     <div className={styles.langName}>
                         {langName}
                     </div>
-                    <div className={`${styles.lang} ${lang === 'hu' ? styles.selected : ''}`}>
+                    <div className={`${styles.lang} ${lang && lang.startsWith('hu') ? styles.selected : ''}`}>
                         <span
                             onClick={() => setLanguage('hu')}
                             role="button"
@@ -35,7 +41,7 @@ class LanguageSelector extends React.Component {
                             <img src={huIcon} alt="" />
                         </span>
                     </div>
-                    <div className={`${styles.lang} ${lang === 'en' ? styles.selected : ''}`}>
+                    <div className={`${styles.lang} ${lang && lang.startsWith('en') ? styles.selected : ''}`}>
                         <span
                             onClick={() => setLanguage('en')}
                             role="button"

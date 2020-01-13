@@ -21,14 +21,14 @@ export function getLanguage() {
 }
 
 export function getLanguageName() {
-    switch (getLanguage()) {
-        case 'en':
-            return 'English';
-        case 'hu':
-            return 'Magyar';
-        default:
-            return getLanguage();
+    const lang = getLanguage();
+    if (lang.startsWith('en')) {
+        return 'English';
     }
+    if (lang.startsWith('hu')) {
+        return 'Magyar';
+    }
+    return getLanguage();
 }
 
 export function setLanguage(language) {
