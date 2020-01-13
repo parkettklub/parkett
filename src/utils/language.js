@@ -43,7 +43,7 @@ export function changeLanguage() {
         let lang = localStorage.getItem('lang');
         if (!lang) {
             lang = GetInterfaceLanguage();
-        } else if (lang === 'en') {
+        } else if (lang.startsWith('en')) {
             lang = 'hu';
         } else {
             lang = 'en';
