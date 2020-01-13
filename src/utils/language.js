@@ -1,15 +1,23 @@
 import strings from './Descriptions';
 
+function GetInterfaceLanguage() {
+    let lang = strings.getInterfaceLanguage().substr(0, 2);
+    if (!lang) {
+        lang = 'hu';
+    }
+    return lang;
+}
+
 export function getLanguage() {
     if (typeof window !== 'undefined') {
         let lang = localStorage.getItem('lang');
-        if (!lang) {
-            lang = strings.getInterfaceLanguage();
+        if (!lang || lang === '') {
+            lang = GetInterfaceLanguage();
             localStorage.setItem('lang', lang);
         }
         return lang;
     }
-    return strings.getInterfaceLanguage();
+    return GetInterfaceLanguage();
 }
 
 export function getLanguageName() {
@@ -19,7 +27,7 @@ export function getLanguageName() {
         case 'hu':
             return 'Magyar';
         default:
-            return '-';
+            return getLanguage();
     }
 }
 
@@ -34,7 +42,7 @@ export function changeLanguage() {
     if (typeof window !== 'undefined') {
         let lang = localStorage.getItem('lang');
         if (!lang) {
-            lang = strings.getInterfaceLanguage();
+            lang = GetInterfaceLanguage();
         } else if (lang === 'en') {
             lang = 'hu';
         } else {
