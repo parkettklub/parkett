@@ -5,37 +5,50 @@ import strings from '../../utils/Descriptions';
 import enIcon from './english.svg';
 import huIcon from './hungary.svg';
 
-const LanguageSelector = () => {
-    strings.setLanguage(getLanguage());
-    return (
-        <div>
-            <div className={styles.main}>
-                <div className={styles.langName}>
-                    {getLanguageName()}
-                </div>
-                <div className={`${styles.lang} ${getLanguage() === 'hu' ? styles.selected : ''}`}>
-                    <span
-                        onClick={() => setLanguage('hu')}
-                        role="button"
-                        onKeyDown={() => { }}
-                        tabIndex={0}
-                    >
-                        <img src={huIcon} alt="" />
-                    </span>
-                </div>
-                <div className={`${styles.lang} ${getLanguage() === 'en' ? styles.selected : ''}`}>
-                    <span
-                        onClick={() => setLanguage('en')}
-                        role="button"
-                        onKeyDown={() => { }}
-                        tabIndex={0}
-                    >
-                        <img src={enIcon} alt="" />
-                    </span>
+class LanguageSelector extends React.Component {
+    constructor() {
+        super();
+        this.state = {
+        };
+    }
+
+    componentDidMount() {
+        this.setState({ lang: getLanguage(), langName: getLanguageName() });
+    }
+
+    render() {
+        const { lang, langName } = this.state;
+        strings.setLanguage(lang);
+        return (
+            <div>
+                <div className={styles.main}>
+                    <div className={styles.langName}>
+                        {langName}
+                    </div>
+                    <div className={`${styles.lang} ${lang === 'hu' ? styles.selected : ''}`}>
+                        <span
+                            onClick={() => setLanguage('hu')}
+                            role="button"
+                            onKeyDown={() => { }}
+                            tabIndex={0}
+                        >
+                            <img src={huIcon} alt="" />
+                        </span>
+                    </div>
+                    <div className={`${styles.lang} ${lang === 'en' ? styles.selected : ''}`}>
+                        <span
+                            onClick={() => setLanguage('en')}
+                            role="button"
+                            onKeyDown={() => { }}
+                            tabIndex={0}
+                        >
+                            <img src={enIcon} alt="" />
+                        </span>
+                    </div>
                 </div>
             </div>
-        </div>
-    );
-};
+        );
+    }
+}
 
 export default LanguageSelector;
