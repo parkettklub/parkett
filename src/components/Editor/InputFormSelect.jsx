@@ -28,6 +28,36 @@ class InputFormSelect extends React.Component {
         const {
             open,
         } = this.state;
+
+        if (!value) {
+            return (
+                <div className={styles.formgroup} hidden={selectedForm !== form}>
+                    <strong>{label}</strong>
+                    <select
+                        id={name}
+                        name={name}
+                        onChange={handleChange}
+                        className={styles.input}
+                    >
+                        <option default value />
+                        {options}
+                    </select>
+                    <div
+                        onClick={this.change}
+                        onKeyDown={() => { }}
+                        role="button"
+                        tabIndex={0}
+                    >
+                        <img
+                            alt=""
+                            src={open ? Minus : Plus}
+                            className={styles.plus}
+                        />
+                    </div>
+                </div>
+            );
+        }
+
         return (
             <div className={styles.formgroup} hidden={selectedForm !== form}>
                 <strong>{label}</strong>
@@ -75,7 +105,7 @@ InputFormSelect.defaultProps = {
     form: '',
     label: '',
     name: '',
-    value: '',
+    value: undefined,
     options: [],
 };
 

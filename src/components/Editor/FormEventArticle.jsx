@@ -50,6 +50,10 @@ class FormEventArticle extends React.Component {
 
     handleChange = (event) => {
         const { name } = event.target;
+        if (event.target.value === 'null') {
+            this.setState({ [name]: null });
+            return;
+        }
         this.setState({ [name]: event.target.value });
     }
 
