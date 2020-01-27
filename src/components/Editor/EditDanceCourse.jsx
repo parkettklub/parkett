@@ -79,6 +79,9 @@ class EditDanceCourse extends React.Component {
 
     render() {
         const { dance_courses, selectedObject, selectedId } = this.state;
+        if (!dance_courses) {
+            return (<div className={styles.center} />);
+        }
         return (
             <div className={styles.center}>
                 <div className={styles.main}>

@@ -55,6 +55,9 @@ class EditDanceType extends React.Component {
 
     render() {
         const { selectedObject, dance_types, selectedId } = this.state;
+        if (!dance_types) {
+            return (<div className={styles.center} />);
+        }
         return (
             <div className={styles.center}>
                 <div className={styles.main}>

@@ -59,6 +59,9 @@ class EditBand extends React.Component {
 
     render() {
         const { bands, selectedObject, selectedId } = this.state;
+        if (!bands) {
+            return (<div className={styles.center} />);
+        }
         return (
             <div className={styles.center}>
                 <div className={styles.main}>

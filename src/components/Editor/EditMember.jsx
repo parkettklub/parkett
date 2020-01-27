@@ -94,6 +94,9 @@ class EditMember extends React.Component {
 
     render() {
         const { members, selectedId, selectedObject } = this.state;
+        if (!members) {
+            return (<div className={styles.center} />);
+        }
         members.sort(abc).sort(roles);
         return (
             <div className={styles.center}>

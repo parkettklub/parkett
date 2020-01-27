@@ -49,12 +49,15 @@ class EditDance extends React.Component {
             selectedObject: null,
         });
         fetchAll('dances').then((myJson) => {
-        this.setState({ dances: myJson });
+            this.setState({ dances: myJson });
         });
     }
 
     render() {
         const { selectedObject, dances, selectedId } = this.state;
+        if (!dances) {
+            return (<div className={styles.center} />);
+        }
         return (
             <div className={styles.center}>
                 <div className={styles.main}>
