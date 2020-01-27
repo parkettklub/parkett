@@ -1,0 +1,42 @@
+body {
+    opacity: 1;
+}
+
+.main {
+    margin-top: 9em;
+    color: white;
+    height: 100%;
+}
+
+.default {
+    margin-top: 3em;
+    color: white;
+}
+
+.pageCenter {
+    margin-top: 7em;
+    color: white;
+}
+
+.pageCenter > div {
+    display: block;
+    margin: 0 auto;
+    width: fit-content;
+}
+
+
+@media only screen and (max-width: 700px)  {
+    .pageCenter > div.knwoledge {
+        width: 100%;
+    }
+
+    .pageCenter {
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+
+    .main {
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+}

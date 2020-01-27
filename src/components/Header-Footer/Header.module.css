@@ -1,0 +1,156 @@
+
+.main {
+  z-index: 2;
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background-color: rgba(10, 10, 10, .2);
+  background-image: url('./background.jpg');
+  background-position: top;
+  background-size: auto 100vh;
+  color: white;
+  position: fixed;
+  opacity: 1;
+  top: 0;
+  width: 100%;
+  display: grid;
+  grid-template-columns: auto max-content;
+  overflow: hidden;
+  height: 7em;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, .1);
+}
+
+img.mainLogo {
+  height: 5em;
+  margin : 0;
+}
+
+.main a {
+  text-decoration: none;
+  color: white;
+}
+
+.main .right .login {
+  width: max-content;
+  margin-left:auto; 
+  margin-right:0;
+  margin-bottom: 1em;
+}
+
+
+.main.editor .right .login {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.login > * {
+  display: inline-block;
+  width: min-content;
+  margin: 0;
+  margin-left: 2rem ;
+}
+
+.main .right .links > div {
+  display: inline-block;
+  margin-left: 2rem ;
+  margin-bottom: 10px;
+}
+
+.main .right .links > div:hover {
+  border-bottom: 2px solid #ffffff;
+  padding-bottom: 5px;
+  margin-bottom: 3px;
+}
+
+.main .right .links > div.active {
+  border-bottom: 2px solid #ffffff;
+  padding-bottom: 5px;
+  margin-bottom: 3px;
+}
+
+.main .right .links > div.hide {
+  display: none;
+}
+
+.logoAndStrikes {
+  display: grid;
+  grid-template-columns: auto max-content;
+}
+
+.logoAndStrikes a {
+  width: max-content;
+}
+
+.logoAndStrikes > div.more > img {
+  height: 0rem;
+}
+
+.logoAndStrikes > div.more:focus {
+  outline: 0;
+}
+
+.logoAndStrikes > div.more:hover {
+  opacity: 0.5;
+}
+
+.button {
+  background: #be0a0a;
+  color: white;
+  padding: 0.5rem;
+  padding-right: 1rem;
+  padding-left: 1rem;
+  font-family: 'Roboto', sans-serif;
+  font-weight: bolder;
+  cursor: pointer;
+  border-radius: 5px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, .1);
+}
+
+.button.loggedOut {
+  background: #007c13;
+}
+
+@media (hover: hover) {
+  .button:hover {
+    opacity: 0.8;
+  }
+}
+
+@media only screen and (max-width: 950px)  {
+  img.mainLogo {
+    height: 3.5rem;
+    padding-bottom: 0.5rem;
+  }
+
+  .main {
+    display: block;
+    height: 4.5rem;
+  }
+
+  .main.max {
+    overflow: hidden;
+  }
+
+  .logoAndStrikes > div.more > img {
+    height: 2rem;
+    margin: 0.5rem;
+  }
+
+  .main .links {
+    display: grid;
+    grid-template-columns: auto;
+    grid-gap: 1rem;
+  }
+
+  .main.open {
+    height: 25rem;
+  }
+
+  .main.editor.open {
+    font-size: 0.9rem;
+    height: 32rem;
+  }
+
+  .main .right .links > div {
+    margin: 5px;
+  }
+}

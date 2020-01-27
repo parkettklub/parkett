@@ -1,0 +1,196 @@
+.popup {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  background-color: rgba(90, 19, 19, 0.795);
+  z-index: 4;
+}
+
+.popup_inner {
+  width: max-content;
+  margin: 0 auto;
+  padding-top: 13rem;
+  padding-bottom: 5rem;
+  display: grid;
+  grid-template-columns: max-content max-content 1fr max-content;
+  height: min-content;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.popup_inner > div{
+    display: block;
+    height: 100%;
+}
+
+.popup_inner .buttonHolder {
+  text-align: center;
+  height: 100%;
+  position: relative;
+}
+
+.popup_inner button {
+  padding: 1rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  border: 0;
+  background: #ac0000;
+  color: white;
+  box-shadow: 4px 4px 4px #00000060;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button.close {
+    float: right;
+    margin-right: 0;
+}
+
+.popup_inner button:hover {
+    opacity: 0.6;
+}
+
+.popup_inner button:focus {
+  outline: 0;
+}
+
+.popup_inner button.step {
+  margin-top: 8rem;
+  background: #00000000;
+  box-shadow: unset;
+}
+
+button.step > img {
+    height: 2rem;
+    width: 2rem;
+    margin: 0;
+}
+
+.details {
+    padding: 1rem;
+    width: 25rem;
+    background: #00000080;
+}
+
+.image {
+    position: relative;
+    width: 25rem;
+    height: 25rem;
+    overflow: hidden;
+}
+
+.image img {
+    margin: 0;
+    width: 25rem;
+    height: 25rem;
+    object-fit: cover;
+    max-width: initial;
+    margin-bottom: inherit;
+    object-position: top;
+}
+
+
+.name {
+    padding: 1rem;
+    font-size: 2em;
+}
+
+.position {
+    font-size: 1.5em;
+    padding: 1rem;
+}
+
+.description {
+    padding: 1rem;
+    text-align: justify;
+}
+
+@media only screen and (max-width: 60em)  {
+    .popup {
+        overflow: scroll;
+        margin: 0;
+    }
+
+    .popup_inner {
+        grid-template-columns: 4rem auto 4rem;
+        padding-top: 8rem;
+        width: 100%;
+        max-width: 25rem;
+    }
+
+    .popup_inner button.step {
+        margin-left: 0;
+        margin-right: 0;
+        width: 4rem;
+    }
+
+    .image {
+        width: 100%;
+        height: 100%;
+    }
+
+    .image img {
+        width: 100%;
+        height: 100%;
+    }
+
+    .details {
+        grid-row-start: 2;
+        grid-column-start: 2;
+        grid-column-end: 3;
+        width: 100%;
+    }
+
+    
+}
+
+@media only screen and (max-width: 30em)  {
+
+    .image {
+        width: 0;
+        grid-row-start: 2;
+        height: 0;
+    }
+
+    .name {
+        font-size: 1rem;
+    }
+
+    .position {
+        font-size: 1em;
+    }
+
+    .description {
+        font-size: 0.8rem;
+    }
+
+    .details {
+        grid-row-start: 1;
+        grid-column-start: 2;
+        grid-column-end: 3;
+        width: 100%;
+        background: #040029;
+        border-radius: 5px;
+    }
+
+    .popup_inner {
+        grid-template-columns: 3rem auto 3rem;
+        padding-top: 8rem;
+        width: 100%;
+        max-width: 25rem;
+    }
+
+    .popup_inner button.step {
+        margin-left: 0;
+        margin-right: 0;
+        padding: 0.5rem;
+        width: 3rem;
+    }
+}

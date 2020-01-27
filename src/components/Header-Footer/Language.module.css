@@ -1,0 +1,43 @@
+.lang {
+    padding-top: 0.5rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    overflow: visible;
+    height: 2.5rem;
+    width: 2.5rem;
+}
+
+.lang > span {
+    cursor: pointer;
+}
+
+.lang > span:hover {
+    opacity: 0.5;
+}
+
+.lang > span > img {
+    height: 100%;
+    height: 1.5rem;
+    margin: 0;
+    box-shadow: 4px 4px 4px #00000060;
+    border-radius: 1rem;
+}
+
+.lang.selected > span > img{
+    border: 2px solid white;
+}
+
+.lang > span:focus {
+    outline: 0;
+}
+
+.langName {
+    padding: 0.5rem;
+    height: 2.5rem;
+    padding-right: 1rem;
+}
+
+.main {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}

@@ -1,0 +1,87 @@
+.element {
+    text-align: center;
+    width: 15em;
+    height: 15em;
+    background: black;
+    overflow: hidden;
+    border-radius: 4px;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, .3);
+}
+
+.element.small {
+    height: 10rem;
+    filter: saturate(0.5);
+}
+
+.element img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.element .title {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    padding: 0.5em;
+    color: white;
+    position: relative;
+    bottom: 4.5em;
+    height: 3em;
+    background: black;
+}
+
+.element .title strong {
+    padding: 0em;
+    width: 100%;
+}
+
+.element .caption {
+    padding: 0.5em;
+    color: white;
+    position: relative;
+    font-size: 0;
+    bottom: 6em;
+    height: 6em;
+}
+
+.element .desc {
+    padding: 0.5em;
+    color: white;
+    position: relative;
+    font-size: 0;
+    bottom: 15em;
+    height: 12em;
+}
+
+.element:hover .caption {
+    font-size: inherit;
+}
+
+.element:hover .desc {
+    font-size: inherit;
+}
+
+.element:hover img {
+    filter: opacity(0.5);
+}
+
+.element.first {
+    grid-column: 1/3;
+}
+
+@media only screen and (max-width: 50em)  {
+
+    .element {
+        width: 100%;
+        font-size: 0.8rem;
+    }
+
+    .element.small {
+        width: 100%;
+    }
+
+    .element .title {
+        bottom: 5em;
+    }
+}

@@ -1,0 +1,64 @@
+.main {
+    margin: 0 auto;
+    display: block;
+    max-width: 1200px;
+}
+
+.join {
+    font-family: 'Roboto', sans-serif;
+    margin-bottom: 2rem;
+    overflow: hidden;
+    background: linear-gradient( rgba(0, 0, 0, 0.7), rgba(100, 0, 0, 0.7) ), url('./community.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.join .text {
+    padding: 1rem;
+    max-width: 700px;
+    align-content: center;
+    display: block;
+    margin: 0 auto;
+}
+
+.join .image {
+    filter: brightness(0.4);
+}
+
+.title {
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    font-size: 2rem;
+    padding: 1rem;
+}
+
+.join .text .description {
+    padding: 1rem;
+}
+
+.join .text .actions {
+    padding: 1rem;
+    width: max-content;
+    margin: 0 auto;
+}
+
+.join .text .actions button {
+    background: rgba(255, 255, 255, 0.932);
+    color: black;
+    padding: 1rem;
+    margin: 1rem;
+    border: 0;
+    border-radius: 5px;
+    outline: 0;
+}
+
+.join .text .actions button:hover {
+    background: rgba(64, 202, 76, 0.932);
+}
+
+
+@media only screen and (max-width: 700px)  {
+    .join .text .actions {
+        width: 100%;
+    }
+}

@@ -2,5 +2,6 @@
     "editor.formatOnSave": true,
     "html.format.indentHandlebars": true,
     "html.format.indentInnerHtml": true,
-    "html.format.endWithNewline": true
+    "html.format.endWithNewline": true,
+    "editor.formatOnPaste": true
 }

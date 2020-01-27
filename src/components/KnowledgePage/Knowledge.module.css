@@ -1,0 +1,137 @@
+.main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 1rem;
+    padding-top: 0;
+}
+
+.main > div {
+    padding: 1rem;
+}
+
+.main > .buttons {
+    margin: 0 auto;
+    max-width: max-content;
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+
+.buttons button {
+    border: 0;
+    padding: 0;
+    margin: 0;
+    font-size: 0;
+    cursor: pointer;
+}
+
+.buttons button:hover {
+    background: #FFFFFF30;
+}
+
+.buttons button:focus {
+    outline: 0;
+}
+
+.general, .attention {
+    background: #00000030;
+}
+
+.general .thanks > div:first-of-type {
+    margin-left: 0rem;
+    font-size: 1.3rem;
+}
+
+.general .thanks a {
+    color: yellow;
+}
+
+.main > .header {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+.main > .dances {
+    padding: 0;
+    padding-right: 1rem;
+}
+
+.tips {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.general, .attention {
+    padding: 1rem;
+    padding-top: 0;
+}
+
+.title {
+    font-size: 2rem;
+}
+
+.general > div > div, .attention > div >  div {
+    padding: 1rem;
+    text-align: left;
+}
+
+.drinksAndPlace  div {
+    padding: 0.5rem;
+}
+
+@media only screen and (max-width: 1400px)  {
+
+    .main {
+        grid-template-columns: 1fr;
+        padding: 0;
+    }
+
+    .main > .header {
+        grid-column-start: 1;
+        grid-column-end: 2;
+        margin: 0 auto;
+    }
+    
+    .main > .buttons {
+        grid-column-start: 1;
+        grid-column-end: 2;
+    }
+
+    .buttons button {
+        background: #FFFFFF50;
+        color: white;
+        border: 0;
+        padding: 0.5rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        margin-right: 1rem;
+        margin-bottom: 1rem;
+        border-radius: 5px;
+        box-shadow: 5px 5px 5px #00000030;
+        font-size: 1rem;
+    }
+
+    .tips {
+        grid-column-start: 1;
+        grid-column-end: 2;
+        max-width: unset;
+        width: 100%;
+    }
+
+    .attention {
+        grid-row: 6;
+        background: #00000030;
+    }   
+
+    .main > div {
+        width: 100%;
+        max-width: 900px;
+        margin: 0 auto;
+    }
+}

@@ -1,0 +1,67 @@
+.main {
+    display: grid;
+    grid-template-columns: 1fr max-content;
+    padding: 1em;
+    margin: 0 auto;
+    background: #00000030;
+}
+
+.danceFigure {
+    text-align: right;
+}
+
+.danceFigure img{
+    width: 60px;
+    margin-bottom: inherit;
+}
+
+.links > div {
+    width: max-content;
+    display: block;
+    margin: 0 auto;
+}
+
+.main a {
+    color: rgb(254, 255, 198);
+}
+
+.title {
+    font-weight: bolder;
+}
+
+.program {
+    padding: 0.5em;
+    padding-left: 1em;
+    white-space: pre-line;
+}
+
+.music {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.music strong {
+    grid-column: 1/4;
+}
+
+.facebook {
+    display: block;
+    margin: 0 auto;
+    width: max-content;
+}
+
+.facebook:hover {
+    filter: opacity(0.5);
+}
+
+.facebook img {
+    width: 2em;
+    margin-bottom: 0;
+    filter: brightness(100);
+}
+
+@media only screen and (min-width: 700px)  {
+    .dance-figure img{
+        width: 90px;
+    }
+}

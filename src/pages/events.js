@@ -1,7 +1,8 @@
-import React from 'react'
-import EventList from '../components/EventList';
-import Header from '../components/Header.jsx';
+import React from 'react';
 import ReactCssTransitionGroup from 'react-addons-css-transition-group';
+import EventList from '../components/Events/EventList';
+import Header from '../components/Header-Footer/Header';
+import styles from './Page.module.css';
 
 const EventsPage = () => (
 
@@ -11,11 +12,14 @@ const EventsPage = () => (
       transitionName="fade"
       transitionAppearTimeout={1000}
       transitionEnterTimeout={300}
-      transitionAppear={true}
-      transitionLeaveTimeout={300}>
-      <EventList />
+      transitionAppear
+      transitionLeaveTimeout={300}
+    >
+      <div className={styles.main}>
+        <EventList />
+      </div>
     </ReactCssTransitionGroup>
   </div>
-)
+);
 
 export default EventsPage;

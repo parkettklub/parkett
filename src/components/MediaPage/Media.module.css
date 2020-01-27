@@ -1,0 +1,89 @@
+.center {
+    display: block;
+    margin: 0 auto;
+    max-width: 80em;
+    padding: 1em;
+}
+
+.title {
+    text-align: center;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    font-size: 2em;
+    padding: 1em;
+}
+
+.albumName {
+    position: relative;
+    top: -6rem;
+    background: #000000A0;
+    padding: 1em;
+    font-size: 0.8em;
+    width: 14rem;
+    margin: 0 auto;
+}
+
+.albumName a {
+    color: white;
+}
+
+.albumName:hover {
+    opacity: 0.6;
+}
+
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.spot {
+    padding: 0.5em;
+    align-content: center;
+    text-align: center;
+    overflow: hidden;
+}
+
+.link {
+    width: 14rem;
+    height: 14rem;
+    overflow: hidden;
+    margin: 0 auto;
+    border-radius: 15px;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, .3);
+}
+@media only screen and (min-width: 70em)  {
+    .link {
+        width: 17rem;
+        height: 12rem;
+    }
+
+    .albumName {
+        width: 17rem;
+    }
+}
+
+.link img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    max-width: initial;
+    object-position: top;
+}
+
+
+@media only screen and (max-width: 50em)  {
+    .center {
+        max-width: unset;
+    }
+    
+    .link {
+        width: 100%;
+        max-width: 17rem;
+        max-height: 12rem;
+    }
+    
+    .albumName {
+        width: 100%;
+    }
+}

@@ -1,0 +1,98 @@
+.content {
+    font-family: 'Roboto', sans-serif;
+    padding: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 10px;
+    align-content: center;
+    align-items: center;
+    text-align: left;   
+    font-size: 14px;
+}
+
+.left {
+    text-align: left;
+    line-height: 1.5rem;
+}
+
+.center {
+    text-align: center;
+    line-height: 1.5rem;
+}
+
+.title {
+    font-size: 1.2rem;
+}
+
+.right {
+    text-align: right;
+    line-height: 1.5rem;
+}
+
+.image {
+    height: 1rem;
+    margin: 0;
+    margin-left: 10px;
+    color: #ffffff;
+}
+
+.main {
+  display: block;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  opacity: 0.9;
+  color: white;
+}
+
+.main a {
+    color: white;
+}
+
+.main div {
+  filter: none;
+}
+
+.dotDotDot {
+    text-align: center;
+    font-size: 20px;
+    padding: 0.2rem;
+}
+
+@media only screen and (max-width: 820px)  {
+
+   .content {
+       grid-template-columns: auto;
+   }
+
+   .left {
+       text-align: center;
+       line-height: 1.2rem;
+   }
+
+   .right {
+       text-align: center;
+       line-height: 1.2rem;
+   }
+
+   .right a {
+       margin-right: 50px;
+       margin-left: 50px;
+   }
+
+   .center {
+       line-height: 1.2rem;
+   }
+
+   .title {
+       font-size: 1.1rem;
+   }
+
+   .image {
+       padding-top: 1rem;
+        height: 3rem;
+   }
+}

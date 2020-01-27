@@ -1,0 +1,41 @@
+.title {
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    font-size: 2rem;
+    padding: 1rem;
+}
+
+.event .events {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.event span > .events > div {
+    width: 100%;
+    max-width: 550px;
+    margin: 0;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+}
+
+.event span > div > article {
+    display: block;
+    margin-top: 0;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media only screen and (max-width: 650px)  {
+
+    .event .events {
+        display: block;
+    }
+
+    .event span > .events > div {
+        margin: 0;
+        margin-bottom: 1rem;
+        max-width: unset;
+    }
+}

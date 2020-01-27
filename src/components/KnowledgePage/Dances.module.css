@@ -1,0 +1,87 @@
+.main {
+    display: block;
+    max-width: 700px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+}
+
+.grid {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    /*grid-template-columns: 1fr 1fr;
+    grid-column-gap: 1rem;*/
+    width: 100%;
+}
+
+.danceContainer {
+    width: 100%;
+    max-width: 310px;
+}
+
+@media only screen and (min-width: 900px)  {
+    .main {
+        max-width: 900px;
+    }
+}
+
+@media only screen and (min-width: 700px)  {
+    @media only screen and (max-width: 1400px) {
+        .danceContainer {
+            width: 400px;
+            max-width: 400px;
+        }
+    }
+}
+
+.dance {
+    padding: 0.5em;
+    display: grid;
+    grid-template-columns: 3em auto;
+    grid-gap: 1em;
+    width: 100%;
+    text-align: center;
+    align-items: center;
+    color: #ffffff;
+    max-height: 4em;
+    overflow:hidden;
+}
+
+.dance:focus {
+    outline: 0;
+}
+
+.dance.open:hover {
+    cursor: pointer;
+}
+
+.dance.open {
+    max-height: 30em;
+}
+
+.dance  > .descritpion {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    text-align: justify;
+}
+
+.dance > .title {
+    align-items: center;
+    align-content: center;
+}
+
+.dance img {
+    height: 3em;
+    margin-bottom: 0;
+}
+
+.dance:hover {
+  filter: brightness(80%);
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 900px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+}
