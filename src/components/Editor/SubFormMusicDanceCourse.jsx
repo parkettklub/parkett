@@ -89,6 +89,10 @@ class SubFormMusicDanceCourse extends React.Component {
             addSelected, allDanceTypes,
         } = this.state;
         const { danceCourses, allDjs, allBands } = this.state;
+
+        if (!danceCourses || !allDjs || !allBands || !allDanceTypes) {
+            return (<div />);
+        }
         return (
             <div>
                 <InputFormSelect

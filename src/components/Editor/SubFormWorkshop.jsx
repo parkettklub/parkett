@@ -69,6 +69,10 @@ class SubFormWorkshop extends React.Component {
         const {
             teachers, dances, parties, allDanceTypes,
         } = this.state;
+
+        if (!teachers || !dances || !parties || !allDanceTypes) {
+            return (<div />);
+        }
         return (
             <div>
                 <InputFormSelect

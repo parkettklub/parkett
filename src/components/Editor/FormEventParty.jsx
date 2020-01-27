@@ -12,12 +12,12 @@ import SubFormMusicDanceCourse from './SubFormMusicDanceCourse';
 import DeleteButton from './DeleteButton';
 
 const initialState = {
-    title: undefined,
+    title: '',
     photo: undefined,
     start_date: undefined,
     end_date: undefined,
-    program: undefined,
-    content: undefined,
+    program: '',
+    content: '',
     facebook_event: undefined,
     spot: undefined,
     bss: undefined,
@@ -34,6 +34,7 @@ class FormEventParty extends React.Component {
             ...initialState,
             selectedForm: 'title',
             addSelected: null,
+            fetched: false,
         };
     }
 
@@ -51,6 +52,7 @@ class FormEventParty extends React.Component {
             this.setState({
                 id: -1,
                 ...initialState,
+                fetched: true,
             });
         } else {
             this.fetchEvent(selectedObject.id);
@@ -66,6 +68,7 @@ class FormEventParty extends React.Component {
                 end_date: fetchDateToInput(myJson.end_date),
                 band_ids: myJson.bands.map(band => band.id),
                 dj_ids: myJson.djs.map(dj => dj.id),
+                fetched: true,
             });
         });
     }
@@ -84,6 +87,10 @@ class FormEventParty extends React.Component {
 
     handleChange = (event) => {
         const { name } = event.target;
+        if (event.target.value === 'null') {
+            this.setState({ [name]: null });
+            return;
+        }
         this.setState({ [name]: event.target.value });
     }
 
@@ -118,11 +125,14 @@ class FormEventParty extends React.Component {
 
     render() {
         const {
-            selectedForm, id,
+            selectedForm, id, fetched,
         } = this.state;
         const {
             fetchFunction,
         } = this.props;
+        if (!fetched) {
+            return (<div className={styles.main} key="FormEventParty" />);
+        }
         return (
             <div className={styles.main} key="FormEventParty">
                 <DeleteButton id={id} type="parties" fetchFunction={fetchFunction} />

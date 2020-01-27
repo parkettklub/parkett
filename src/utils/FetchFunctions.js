@@ -5,6 +5,10 @@ const link = process.env.GATSBY_FRONTEND_URL;
 export async function fetchAll(type) {
     try {
         const response = await fetch(`${link}${type}`);
+        if (!response.ok) {
+            alert('Probléma lépett fel az adatbázissal való kommunikációval');
+            return null;
+        }
         return response.json();
     } catch (error) {
         alert('Probléma lépett fel az adatbázissal való kommunikációval');
@@ -16,6 +20,10 @@ export async function fetchMe() {
     try {
         if (isLoggedIn()) {
             const response = await fetch(`${link}users/me?token=${getToken()}`);
+            if (!response.ok) {
+                alert('Probléma lépett fel az adatbázissal való kommunikációval');
+                return null;
+            }
             return response.json();
         }
         return {};
@@ -34,6 +42,10 @@ export async function fetchPost(type, element) {
                 'Content-Type': 'application/json',
             },
         });
+        if (!response.ok) {
+            alert('Probléma lépett fel az adatbázissal való kommunikációval');
+            return null;
+        }
         alert(`(${element.id ? element.id : ''}. ${type}) ${element.name ? element.name : ''} ${element.title ? element.title : ''} is Saved`);
         return response;
     } catch (error) {
@@ -52,6 +64,10 @@ export async function fetchDelete(type, id) {
                     'Content-Type': 'application/json',
                 },
             });
+            if (!response.ok) {
+                alert('Probléma lépett fel az adatbázissal való kommunikációval');
+                return null;
+            }
             alert(`(${id}. ${type} is Deleted`);
             return response;
         } catch (error) {
@@ -64,13 +80,17 @@ export async function fetchDelete(type, id) {
 
 export async function fetchPut(type, element) {
     try {
-        const response = fetch(`${link}${type}/${element.id}`, {
+        const response = await fetch(`${link}${type}/${element.id}`, {
             method: 'PUT',
             body: JSON.stringify(element),
             headers: {
                 'Content-Type': 'application/json',
             },
         });
+        if (!response.ok) {
+            alert('Probléma lépett fel az adatbázissal való kommunikációval');
+            return null;
+        }
         alert(`(${element.id ? element.id : ''}. ${type}) ${element.name ? element.name : ''} ${element.title ? element.title : ''} is Saved`);
         return response;
     } catch (error) {

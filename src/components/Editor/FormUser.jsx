@@ -42,6 +42,10 @@ class FormUser extends React.Component {
 
     handleChange = (event) => {
         const { name } = event.target;
+        if (event.target.value === 'null') {
+            this.setState({ [name]: null });
+            return;
+        }
         this.setState({ [name]: event.target.value });
     }
 
@@ -91,6 +95,11 @@ class FormUser extends React.Component {
         const {
             id, name, email, role, member_id, members, addSelected,
         } = this.state;
+
+        if (!members) {
+            return (<div className={styles.main} />);
+        }
+
         const isNew = id < 0;
         const options = [];
         options.push(<option value="admin">Admin</option>);

@@ -14,6 +14,9 @@ class EditEvents extends React.Component {
             events: [],
             selectedId: '0',
             selectedObject: null,
+            aFetch: false,
+            pFetch: false,
+            wFetch: false,
         };
     }
 
@@ -36,18 +39,21 @@ class EditEvents extends React.Component {
     fetchParties = () => {
         fetchAll('parties').then((myJson) => {
             this.addEvents('P', myJson, this.selectParty);
+            this.setState({ pFetch: true });
         });
     }
 
     fetchWorkshops = async () => {
         fetchAll('workshops').then((myJson) => {
             this.addEvents('W', myJson, this.selectWorkshop);
+            this.setState({ wFetch: true });
         });
     }
 
     fetchArticles = async () => {
         fetchAll('articles').then((myJson) => {
             this.addEvents('A', myJson, this.selectArticle, true);
+            this.setState({ aFetch: true });
         });
     }
 
@@ -164,8 +170,11 @@ class EditEvents extends React.Component {
 
     render() {
         const {
-            events, selectedObject, selectedId,
+            events, selectedObject, selectedId, aFetch, wFetch, pFetch,
         } = this.state;
+        if (!aFetch || !wFetch || !pFetch) {
+            return (<div className={styles.center} />);
+        }
         return (
             <div className={styles.center}>
                 <div className={styles.main}>

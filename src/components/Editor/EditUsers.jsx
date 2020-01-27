@@ -78,6 +78,9 @@ class EditUsers extends React.Component {
 
     render() {
         const { users, selectedId, selectedObject } = this.state;
+        if (!users) {
+            return (<div className={styles.center} />);
+        }
         return (
             <div className={styles.center}>
                 <div className={styles.main}>

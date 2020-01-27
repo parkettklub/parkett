@@ -59,6 +59,9 @@ class EditTeacher extends React.Component {
 
     render() {
         const { teachers, selectedObject, selectedId } = this.state;
+        if (!teachers) {
+            return (<div className={styles.center} />);
+        }
         return (
             <div className={styles.center}>
                 <div className={styles.main}>

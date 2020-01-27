@@ -5,6 +5,10 @@ import styles from './Form.module.css';
 function InputFormSimple({
     selectedForm, form, label, name, handleChange, value, example,
 }) {
+    let realValue = value;
+    if (!realValue) {
+        realValue = '';
+    }
     return (
         <div className={styles.formgroup} hidden={selectedForm !== form}>
             <label htmlFor={name}>
@@ -14,7 +18,7 @@ function InputFormSimple({
                     name={name}
                     type="text"
                     className={styles.input}
-                    value={value}
+                    value={realValue}
                     onChange={handleChange}
                 />
                 <div className={styles.helper}>{example}</div>

@@ -13,7 +13,7 @@ const DeletButton = ({ type, id, fetchFunction }) => (
 );
 
 DeletButton.propTypes = {
-    id: PropTypes.string.isRequired,
+    id: PropTypes.number.isRequired,
     type: PropTypes.string.isRequired,
     fetchFunction: PropTypes.func.isRequired,
 };

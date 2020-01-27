@@ -59,6 +59,9 @@ class EditDJ extends React.Component {
 
     render() {
         const { djs, selectedId, selectedObject } = this.state;
+        if (!djs) {
+            return (<div className={styles.center} />);
+        }
         return (
             <div className={styles.center}>
                 <div className={styles.main}>
