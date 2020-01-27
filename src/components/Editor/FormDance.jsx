@@ -107,6 +107,11 @@ class FormDance extends React.Component {
         const {
             id, name, content, dance_type_id, dance_types, addSelected,
         } = this.state;
+
+        if (!dance_types) {
+            return (<div className={styles.main} />);
+        }
+
         const isNew = id < 0;
         return (
             <div className={styles.main}>
