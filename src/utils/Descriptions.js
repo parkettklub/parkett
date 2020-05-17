@@ -336,7 +336,7 @@ const strings = new LocalizedStrings({
         knowledge: {
             buttons: {
                 dances: 'Táncok',
-                general: 'Álltalános',
+                general: 'Általános',
                 approach: 'Megközelítés',
                 tipps: 'Tippek',
                 etikett: 'Etikett',
