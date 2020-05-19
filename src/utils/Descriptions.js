@@ -342,7 +342,7 @@ const strings = new LocalizedStrings({
                 etikett: 'Etikett',
             },
             general: {
-                title: 'Álltalánosan a bulikról',
+                title: 'Általánosan a bulikról',
                 desc: `Kéthetente megtelik a kollégium nagyterme a város tánckedvelő fiataljaival, 
             és a hangfalakból salsa, rock & roll, boogie-woogie vagy modern társastáncok zenéi szólnak, 
             esetleg éppen egy zenekar húzza élőben a talpalávalót. Nagy a kínálat, így nálunk biztosan 
