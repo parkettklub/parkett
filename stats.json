@@ -1,0 +1,188 @@
+{
+  "assetsByChunkName": {
+    "component---src-pages-community-js": [
+      "component---src-pages-community-js-1dfe99395385ed8c70d7.js",
+      "component---src-pages-community-js-1dfe99395385ed8c70d7.js.map"
+    ],
+    "path---edit-dj": [
+      "path---edit-dj-a0e39f21c11f6a62c5ab.js",
+      "path---edit-dj-a0e39f21c11f6a62c5ab.js.map"
+    ],
+    "component---src-pages-edit-dance-course-js": [
+      "component---src-pages-edit-dance-course-js-0a5dc6ebc268aa1734af.js",
+      "component---src-pages-edit-dance-course-js-0a5dc6ebc268aa1734af.js.map"
+    ],
+    "path---angel": [
+      "path---angel-a0e39f21c11f6a62c5ab.js",
+      "path---angel-a0e39f21c11f6a62c5ab.js.map"
+    ],
+    "component---src-pages-index-js": [
+      "component---src-pages-index-js-a9d2501a5f86a751211f.js",
+      "component---src-pages-index-js-a9d2501a5f86a751211f.js.map"
+    ],
+    "path---edit-member": [
+      "path---edit-member-a0e39f21c11f6a62c5ab.js",
+      "path---edit-member-a0e39f21c11f6a62c5ab.js.map"
+    ],
+    "path---events": [
+      "path---events-a0e39f21c11f6a62c5ab.js",
+      "path---events-a0e39f21c11f6a62c5ab.js.map"
+    ],
+    "component---src-pages-edit-teacher-js": [
+      "component---src-pages-edit-teacher-js-73f288caaf221df58df3.js",
+      "component---src-pages-edit-teacher-js-73f288caaf221df58df3.js.map"
+    ],
+    "path---edit-dance-type": [
+      "path---edit-dance-type-a0e39f21c11f6a62c5ab.js",
+      "path---edit-dance-type-a0e39f21c11f6a62c5ab.js.map"
+    ],
+    "path---": [
+      "path----cac63ff5c1b42581353c.js",
+      "path----cac63ff5c1b42581353c.js.map"
+    ],
+    "path---profile": [
+      "path---profile-a0e39f21c11f6a62c5ab.js",
+      "path---profile-a0e39f21c11f6a62c5ab.js.map"
+    ],
+    "path---edit-dance": [
+      "path---edit-dance-a0e39f21c11f6a62c5ab.js",
+      "path---edit-dance-a0e39f21c11f6a62c5ab.js.map"
+    ],
+    "component---src-pages-edit-events-js": [
+      "component---src-pages-edit-events-js-a9675fe0433161564d3b.js",
+      "component---src-pages-edit-events-js-a9675fe0433161564d3b.js.map"
+    ],
+    "path---edit-events": [
+      "path---edit-events-a0e39f21c11f6a62c5ab.js",
+      "path---edit-events-a0e39f21c11f6a62c5ab.js.map"
+    ],
+    "component---src-pages-edit-dj-js": [
+      "component---src-pages-edit-dj-js-8272466a4479272fe366.js",
+      "component---src-pages-edit-dj-js-8272466a4479272fe366.js.map"
+    ],
+    "path---edit-dance-course": [
+      "path---edit-dance-course-a0e39f21c11f6a62c5ab.js",
+      "path---edit-dance-course-a0e39f21c11f6a62c5ab.js.map"
+    ],
+    "component---src-pages-edit-band-js": [
+      "component---src-pages-edit-band-js-79d1d364e03a9151ddc9.js",
+      "component---src-pages-edit-band-js-79d1d364e03a9151ddc9.js.map"
+    ],
+    "component---src-pages-edit-dance-type-js": [
+      "component---src-pages-edit-dance-type-js-79d68dd042514889c444.js",
+      "component---src-pages-edit-dance-type-js-79d68dd042514889c444.js.map"
+    ],
+    "path---event-workshop": [
+      "path---event-workshop-a0e39f21c11f6a62c5ab.js",
+      "path---event-workshop-a0e39f21c11f6a62c5ab.js.map"
+    ],
+    "component---src-layouts-index-js": [
+      "component---src-layouts-index-js-042d96ccdc3f87d32da4.js",
+      "component---src-layouts-index-js-042d96ccdc3f87d32da4.js.map"
+    ],
+    "component---src-pages-edit-dance-js": [
+      "component---src-pages-edit-dance-js-4e3f7194b4b413a43b77.js",
+      "component---src-pages-edit-dance-js-4e3f7194b4b413a43b77.js.map"
+    ],
+    "path---edit-teacher": [
+      "path---edit-teacher-a0e39f21c11f6a62c5ab.js",
+      "path---edit-teacher-a0e39f21c11f6a62c5ab.js.map"
+    ],
+    "component---src-pages-media-js": [
+      "component---src-pages-media-js-48eab214d6daaa0203f9.js",
+      "component---src-pages-media-js-48eab214d6daaa0203f9.js.map"
+    ],
+    "component---src-pages-event-party-js": [
+      "component---src-pages-event-party-js-81d657d9d4999193e025.js",
+      "component---src-pages-event-party-js-81d657d9d4999193e025.js.map"
+    ],
+    "component---src-pages-edit-member-js": [
+      "component---src-pages-edit-member-js-381797323861e06b876f.js",
+      "component---src-pages-edit-member-js-381797323861e06b876f.js.map"
+    ],
+    "path---index": [
+      "path---index-a0e39f21c11f6a62c5ab.js",
+      "path---index-a0e39f21c11f6a62c5ab.js.map"
+    ],
+    "path---community": [
+      "path---community-a0e39f21c11f6a62c5ab.js",
+      "path---community-a0e39f21c11f6a62c5ab.js.map"
+    ],
+    "component---src-pages-404-js": [
+      "component---src-pages-404-js-4503918ea3a16cfcdb75.js",
+      "component---src-pages-404-js-4503918ea3a16cfcdb75.js.map"
+    ],
+    "component---src-pages-event-workshop-js": [
+      "component---src-pages-event-workshop-js-ca737f67d3bebe703574.js",
+      "component---src-pages-event-workshop-js-ca737f67d3bebe703574.js.map"
+    ],
+    "commons": [
+      "commons-0b732c2b11df09eceef1.js",
+      "build-js-styles.css",
+      "commons-0b732c2b11df09eceef1.js.map",
+      "build-js-styles.css.map"
+    ],
+    "path---404-html": [
+      "path---404-html-a0e39f21c11f6a62c5ab.js",
+      "path---404-html-a0e39f21c11f6a62c5ab.js.map"
+    ],
+    "component---src-pages-event-article-js": [
+      "component---src-pages-event-article-js-17a31ff7db0a95fb5c6b.js",
+      "component---src-pages-event-article-js-17a31ff7db0a95fb5c6b.js.map"
+    ],
+    "path---edit-users": [
+      "path---edit-users-a0e39f21c11f6a62c5ab.js",
+      "path---edit-users-a0e39f21c11f6a62c5ab.js.map"
+    ],
+    "component---src-pages-angel-js": [
+      "component---src-pages-angel-js-fe3be0a733f60f897ce8.js",
+      "component---src-pages-angel-js-fe3be0a733f60f897ce8.js.map"
+    ],
+    "component---src-pages-knowledge-base-js": [
+      "component---src-pages-knowledge-base-js-8636706534211562f857.js",
+      "component---src-pages-knowledge-base-js-8636706534211562f857.js.map"
+    ],
+    "component---src-pages-edit-users-js": [
+      "component---src-pages-edit-users-js-25b5dfe70ee28dedf8b4.js",
+      "component---src-pages-edit-users-js-25b5dfe70ee28dedf8b4.js.map"
+    ],
+    "path---knowledge-base": [
+      "path---knowledge-base-a0e39f21c11f6a62c5ab.js",
+      "path---knowledge-base-a0e39f21c11f6a62c5ab.js.map"
+    ],
+    "path---event-article": [
+      "path---event-article-a0e39f21c11f6a62c5ab.js",
+      "path---event-article-a0e39f21c11f6a62c5ab.js.map"
+    ],
+    "path---edit-band": [
+      "path---edit-band-a0e39f21c11f6a62c5ab.js",
+      "path---edit-band-a0e39f21c11f6a62c5ab.js.map"
+    ],
+    "app": [
+      "app-92ab3159551e53732d4e.js",
+      "build-js-styles.css",
+      "app-92ab3159551e53732d4e.js.map",
+      "build-js-styles.css.map"
+    ],
+    "path---event-party": [
+      "path---event-party-a0e39f21c11f6a62c5ab.js",
+      "path---event-party-a0e39f21c11f6a62c5ab.js.map"
+    ],
+    "component---src-pages-events-js": [
+      "component---src-pages-events-js-735a8fa5e951df3db5f0.js",
+      "component---src-pages-events-js-735a8fa5e951df3db5f0.js.map"
+    ],
+    "path---404": [
+      "path---404-a0e39f21c11f6a62c5ab.js",
+      "path---404-a0e39f21c11f6a62c5ab.js.map"
+    ],
+    "path---media": [
+      "path---media-a0e39f21c11f6a62c5ab.js",
+      "path---media-a0e39f21c11f6a62c5ab.js.map"
+    ],
+    "component---src-pages-profile-js": [
+      "component---src-pages-profile-js-73861ac9666c4d4d3bfd.js",
+      "component---src-pages-profile-js-73861ac9666c4d4d3bfd.js.map"
+    ]
+  }
+}
