@@ -1,6 +1,6 @@
 import { getToken, isLoggedIn } from './login';
 
-const link = 'https://api.parkettklub.sch.bme.hu/';
+const link = 'https://parkett-klub.herokuapp.com/';
 
 export async function fetchAll(type) {
     try {
