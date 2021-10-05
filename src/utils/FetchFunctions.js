@@ -1,6 +1,6 @@
 import { getToken, isLoggedIn } from './login';
 
-const link = process.env.GATSBY_FRONTEND_URL;
+const link = 'https://api.parkettklub.sch.bme.hu/';
 
 export async function fetchAll(type) {
     try {
