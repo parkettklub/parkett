@@ -6,12 +6,12 @@ export async function fetchAll(type) {
     try {
         const response = await fetch(`${link}${type}`);
         if (!response.ok) {
-            alert('Probléma lépett fel az adatbázissal való kommunikációval');
+            console.log('Probléma lépett fel az adatbázissal való kommunikációval');
             return null;
         }
         return response.json();
     } catch (error) {
-        alert('Probléma lépett fel az adatbázissal való kommunikációval');
+        console.log('error Probléma lépett fel az adatbázissal való kommunikációval');
         return [];
     }
 }
@@ -21,14 +21,14 @@ export async function fetchMe() {
         if (isLoggedIn()) {
             const response = await fetch(`${link}users/me?token=${getToken()}`);
             if (!response.ok) {
-                alert('Probléma lépett fel az adatbázissal való kommunikációval');
+                console.log('Probléma lépett fel az adatbázissal való kommunikációval');
                 return null;
             }
             return response.json();
         }
         return {};
     } catch (error) {
-        alert('Probléma lépett fel az adatbázissal való kommunikációval');
+        console.log('error Probléma lépett fel az adatbázissal való kommunikációval');
         return {};
     }
 }
@@ -43,13 +43,13 @@ export async function fetchPost(type, element) {
             },
         });
         if (!response.ok) {
-            alert('Probléma lépett fel az adatbázissal való kommunikációval');
+            console.log('Probléma lépett fel az adatbázissal való kommunikációval');
             return null;
         }
-        alert(`(${element.id ? element.id : ''}. ${type}) ${element.name ? element.name : ''} ${element.title ? element.title : ''} is Saved`);
+        console.log(`(${element.id ? element.id : ''}. ${type}) ${element.name ? element.name : ''} ${element.title ? element.title : ''} is Saved`);
         return response;
     } catch (error) {
-        alert('Probléma lépett fel az adatbázissal való kommunikációval');
+        console.log('error Probléma lépett fel az adatbázissal való kommunikációval');
         return {};
     }
 }
@@ -65,13 +65,13 @@ export async function fetchDelete(type, id) {
                 },
             });
             if (!response.ok) {
-                alert('Probléma lépett fel az adatbázissal való kommunikációval');
+                console.log('Probléma lépett fel az adatbázissal való kommunikációval');
                 return null;
             }
-            alert(`(${id}. ${type} is Deleted`);
+            console.log(`(${id}. ${type} is Deleted`);
             return response;
         } catch (error) {
-            alert('Probléma lépett fel az adatbázissal való kommunikációval');
+            console.log('error Probléma lépett fel az adatbázissal való kommunikációval');
             return {};
         }
     }
@@ -88,13 +88,13 @@ export async function fetchPut(type, element) {
             },
         });
         if (!response.ok) {
-            alert('Probléma lépett fel az adatbázissal való kommunikációval');
+            console.log('Probléma lépett fel az adatbázissal való kommunikációval');
             return null;
         }
-        alert(`(${element.id ? element.id : ''}. ${type}) ${element.name ? element.name : ''} ${element.title ? element.title : ''} is Saved`);
+        console.log(`(${element.id ? element.id : ''}. ${type}) ${element.name ? element.name : ''} ${element.title ? element.title : ''} is Saved`);
         return response;
     } catch (error) {
-        alert('Probléma lépett fel az adatbázissal való kommunikációval');
+        console.log('error Probléma lépett fel az adatbázissal való kommunikációval');
         return {};
     }
 }
